@@ -1,0 +1,8853 @@
+{
+ "chksum": "synthetic",
+ "data": {
+  "gstin": "27KEMPB2186R1ZM",
+  "rtnprd": "092026",
+  "version": "1.0",
+  "gendt": "14-10-2026",
+  "docdata": {
+   "b2b": [
+    {
+     "ctin": "27ZXUCQ3281N1ZI",
+     "trdnm": "Ganesh Fasteners Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "03-09-2026",
+       "val": 15724.51,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 13325.85,
+         "igst": 0.0,
+         "cgst": 1199.33,
+         "sgst": 1199.33,
+         "cess": 0
+        }
+       ],
+       "inum": "GF-33",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 11265.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 9546.88,
+         "igst": 0.0,
+         "cgst": 859.22,
+         "sgst": 859.22,
+         "cess": 0
+        }
+       ],
+       "inum": "GF-36",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 40824.63,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 34597.15,
+         "igst": 0.0,
+         "cgst": 3113.74,
+         "sgst": 3113.74,
+         "cess": 0
+        }
+       ],
+       "inum": "GF-40",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 6878.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 5829.08,
+         "igst": 0.0,
+         "cgst": 524.62,
+         "sgst": 524.62,
+         "cess": 0
+        }
+       ],
+       "inum": "GF-42",
+       "typ": "R"
+      },
+      {
+       "dt": "01-09-2026",
+       "val": 24753.48,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 23574.74,
+         "igst": 0.0,
+         "cgst": 589.37,
+         "sgst": 589.37,
+         "cess": 0
+        }
+       ],
+       "inum": "GF-44",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27QGBCN7851C1ZR",
+     "trdnm": "Kaveri Hydraulics Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "03-09-2026",
+       "val": 89394.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 75757.68,
+         "igst": 0.0,
+         "cgst": 6818.19,
+         "sgst": 6818.19,
+         "cess": 0
+        }
+       ],
+       "inum": "KH/26-27/0568",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 91732.28,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 77739.22,
+         "igst": 0.0,
+         "cgst": 6996.53,
+         "sgst": 6996.53,
+         "cess": 0
+        }
+       ],
+       "inum": "KH/26-27/0571",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 108452.12,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 91908.58,
+         "igst": 0.0,
+         "cgst": 8271.77,
+         "sgst": 8271.77,
+         "cess": 0
+        }
+       ],
+       "inum": "KH/26-27/0574",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 80574.05,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 76737.19,
+         "igst": 0.0,
+         "cgst": 1918.43,
+         "sgst": 1918.43,
+         "cess": 0
+        }
+       ],
+       "inum": "KH/26-27/0576",
+       "typ": "R"
+      },
+      {
+       "dt": "22-09-2026",
+       "val": 27693.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 23468.98,
+         "igst": 0.0,
+         "cgst": 2112.21,
+         "sgst": 2112.21,
+         "cess": 0
+        }
+       ],
+       "inum": "KH/26-27/0577",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27HUUPB7499B1ZZ",
+     "trdnm": "Deccan Polymers Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "10-09-2026",
+       "val": 60384.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 51173.64,
+         "igst": 0.0,
+         "cgst": 4605.63,
+         "sgst": 4605.63,
+         "cess": 0
+        }
+       ],
+       "inum": "DP/26-27/0574",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 273755.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 260719.22,
+         "igst": 0.0,
+         "cgst": 6517.98,
+         "sgst": 6517.98,
+         "cess": 0
+        }
+       ],
+       "inum": "DP/26-27/0578",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 7928.81,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7551.25,
+         "igst": 0.0,
+         "cgst": 188.78,
+         "sgst": 188.78,
+         "cess": 0
+        }
+       ],
+       "inum": "DP/26-27/0582",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27XHMFP2320F1ZF",
+     "trdnm": "Vardhan Electricals Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "22-09-2026",
+       "val": 240108.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 203481.78,
+         "igst": 0.0,
+         "cgst": 18313.36,
+         "sgst": 18313.36,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/567",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 30680.11,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26000.09,
+         "igst": 0.0,
+         "cgst": 2340.01,
+         "sgst": 2340.01,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/569",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 96160.29,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 81491.77,
+         "igst": 0.0,
+         "cgst": 7334.26,
+         "sgst": 7334.26,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/572",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 102520.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 73229.22,
+         "igst": 0.0,
+         "cgst": 14645.84,
+         "sgst": 14645.84,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/576",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 128590.77,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 108975.23,
+         "igst": 0.0,
+         "cgst": 9807.77,
+         "sgst": 9807.77,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/578",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 22443.95,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 21375.19,
+         "igst": 0.0,
+         "cgst": 534.38,
+         "sgst": 534.38,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/579",
+       "typ": "R"
+      },
+      {
+       "dt": "22-09-2026",
+       "val": 43474.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 41403.86,
+         "igst": 0.0,
+         "cgst": 1035.1,
+         "sgst": 1035.1,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/583",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 10086.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 8547.61,
+         "igst": 0.0,
+         "cgst": 769.28,
+         "sgst": 769.28,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/585",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "36UVLCI3248O1Z8",
+     "trdnm": "Mahalaxmi Logistics LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "21-09-2026",
+       "val": 401088.49,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 339905.5,
+         "igst": 61182.99,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/101/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 36262.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30731.1,
+         "igst": 5531.6,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/103/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 62022.45,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 52561.4,
+         "igst": 9461.05,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/107/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 419470.52,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 355483.49,
+         "igst": 63987.03,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/109/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 141960.01,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 135200.01,
+         "igst": 6760.0,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/110/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "29-09-2026",
+       "val": 8314.96,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7046.58,
+         "igst": 1268.38,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/113/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 255852.98,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 216824.56,
+         "igst": 39028.42,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/116/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "06-09-2026",
+       "val": 69209.77,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 58652.35,
+         "igst": 10557.42,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/117/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "25-09-2026",
+       "val": 25329.47,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 21465.65,
+         "igst": 3863.82,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/123/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 96731.31,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 81975.69,
+         "igst": 14755.62,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/127/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "28-09-2026",
+       "val": 54955.25,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 39253.75,
+         "igst": 15701.5,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/129/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 26439.45,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 18885.32,
+         "igst": 7554.13,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ML/131/26-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27MOKCV4942N1ZG",
+     "trdnm": "Bharat Fasteners Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "09-09-2026",
+       "val": 43743.63,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 37070.95,
+         "igst": 0.0,
+         "cgst": 3336.34,
+         "sgst": 3336.34,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-687",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 37284.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 31596.7,
+         "igst": 0.0,
+         "cgst": 2843.7,
+         "sgst": 2843.7,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-690",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 47779.21,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 40490.85,
+         "igst": 0.0,
+         "cgst": 3644.18,
+         "sgst": 3644.18,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-695",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 12154.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10300.42,
+         "igst": 0.0,
+         "cgst": 927.04,
+         "sgst": 927.04,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-697",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 44083.16,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 37358.6,
+         "igst": 0.0,
+         "cgst": 3362.28,
+         "sgst": 3362.28,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-699",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 12208.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10346.3,
+         "igst": 0.0,
+         "cgst": 931.16,
+         "sgst": 931.16,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-700",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 386198.67,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 327287.01,
+         "igst": 0.0,
+         "cgst": 29455.83,
+         "sgst": 29455.83,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-703",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 27958.69,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26627.33,
+         "igst": 0.0,
+         "cgst": 665.68,
+         "sgst": 665.68,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-704",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 15863.58,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 13443.72,
+         "igst": 0.0,
+         "cgst": 1209.93,
+         "sgst": 1209.93,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-705",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 22578.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 19134.28,
+         "igst": 0.0,
+         "cgst": 1722.09,
+         "sgst": 1722.09,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-709",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 120697.81,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 102286.29,
+         "igst": 0.0,
+         "cgst": 9205.76,
+         "sgst": 9205.76,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-711",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 12740.04,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10796.64,
+         "igst": 0.0,
+         "cgst": 971.7,
+         "sgst": 971.7,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-714",
+       "typ": "R"
+      },
+      {
+       "dt": "08-09-2026",
+       "val": 14057.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 13388.48,
+         "igst": 0.0,
+         "cgst": 334.71,
+         "sgst": 334.71,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-718",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "09HFWFQ7616K1ZU",
+     "trdnm": "Unity Office Supplies LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "03-09-2026",
+       "val": 29917.52,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 25353.83,
+         "igst": 4563.69,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "UOI-370",
+       "typ": "R"
+      },
+      {
+       "dt": "24-09-2026",
+       "val": 33959.96,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 28779.63,
+         "igst": 5180.33,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "UOI-374",
+       "typ": "R"
+      },
+      {
+       "dt": "22-09-2026",
+       "val": 93911.59,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 89439.61,
+         "igst": 4471.98,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "UOI-376",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 36877.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 31252.46,
+         "igst": 5625.44,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "UOI-382",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 49715.26,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 42131.65,
+         "igst": 7583.61,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "UOI-383",
+       "typ": "R"
+      },
+      {
+       "dt": "08-09-2026",
+       "val": 62245.85,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 59281.76,
+         "igst": 2964.09,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "UOI-387",
+       "typ": "R"
+      },
+      {
+       "dt": "24-09-2026",
+       "val": 18405.75,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17529.29,
+         "igst": 876.46,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "UOI-388",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27PUMCG2103G1ZC",
+     "trdnm": "Unity Bearings Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "08-09-2026",
+       "val": 46569.51,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 39465.69,
+         "igst": 0.0,
+         "cgst": 3551.91,
+         "sgst": 3551.91,
+         "cess": 0
+        }
+       ],
+       "inum": "UBI-117",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 92262.99,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 78188.97,
+         "igst": 0.0,
+         "cgst": 7037.01,
+         "sgst": 7037.01,
+         "cess": 0
+        }
+       ],
+       "inum": "UBI-120",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 46017.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 43826.3,
+         "igst": 0.0,
+         "cgst": 1095.66,
+         "sgst": 1095.66,
+         "cess": 0
+        }
+       ],
+       "inum": "UBI-124",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 100112.87,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 84841.41,
+         "igst": 0.0,
+         "cgst": 7635.73,
+         "sgst": 7635.73,
+         "cess": 0
+        }
+       ],
+       "inum": "UBI-128",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 66260.41,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 56152.89,
+         "igst": 0.0,
+         "cgst": 5053.76,
+         "sgst": 5053.76,
+         "cess": 0
+        }
+       ],
+       "inum": "UBI-130",
+       "typ": "R"
+      },
+      {
+       "dt": "24-09-2026",
+       "val": 47005.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 33575.46,
+         "igst": 0.0,
+         "cgst": 6715.09,
+         "sgst": 6715.09,
+         "cess": 0
+        }
+       ],
+       "inum": "UBI-133",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27TZZCZ4922M1ZA",
+     "trdnm": "Ganesh Paints & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "25-09-2026",
+       "val": 9151.08,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7755.14,
+         "igst": 0.0,
+         "cgst": 697.97,
+         "sgst": 697.97,
+         "cess": 0
+        }
+       ],
+       "inum": "GPT-209",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 60195.73,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 51013.33,
+         "igst": 0.0,
+         "cgst": 4591.2,
+         "sgst": 4591.2,
+         "cess": 0
+        }
+       ],
+       "inum": "GPT-212",
+       "typ": "R"
+      },
+      {
+       "dt": "29-09-2026",
+       "val": 28917.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24506.52,
+         "igst": 0.0,
+         "cgst": 2205.59,
+         "sgst": 2205.59,
+         "cess": 0
+        }
+       ],
+       "inum": "GPT-214",
+       "typ": "R"
+      },
+      {
+       "dt": "23-09-2026",
+       "val": 31170.47,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26415.65,
+         "igst": 0.0,
+         "cgst": 2377.41,
+         "sgst": 2377.41,
+         "cess": 0
+        }
+       ],
+       "inum": "GPT-217",
+       "typ": "R"
+      },
+      {
+       "dt": "29-09-2026",
+       "val": 10157.53,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 8608.07,
+         "igst": 0.0,
+         "cgst": 774.73,
+         "sgst": 774.73,
+         "cess": 0
+        }
+       ],
+       "inum": "GPT-219",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 11481.81,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 9730.35,
+         "igst": 0.0,
+         "cgst": 875.73,
+         "sgst": 875.73,
+         "cess": 0
+        }
+       ],
+       "inum": "GPT-222",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 74048.12,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 62752.64,
+         "igst": 0.0,
+         "cgst": 5647.74,
+         "sgst": 5647.74,
+         "cess": 0
+        }
+       ],
+       "inum": "GPT-224",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27BCVFQ5619T1ZS",
+     "trdnm": "Apex Traders Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "04-09-2026",
+       "val": 72444.67,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 61393.79,
+         "igst": 0.0,
+         "cgst": 5525.44,
+         "sgst": 5525.44,
+         "cess": 0
+        }
+       ],
+       "inum": "AT/303/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 48092.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 40756.15,
+         "igst": 0.0,
+         "cgst": 3668.01,
+         "sgst": 3668.01,
+         "cess": 0
+        }
+       ],
+       "inum": "AT/306/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "06-09-2026",
+       "val": 50079.08,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35770.78,
+         "igst": 0.0,
+         "cgst": 7154.15,
+         "sgst": 7154.15,
+         "cess": 0
+        }
+       ],
+       "inum": "AT/307/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 18089.68,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 15330.24,
+         "igst": 0.0,
+         "cgst": 1379.72,
+         "sgst": 1379.72,
+         "cess": 0
+        }
+       ],
+       "inum": "AT/310/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "25-09-2026",
+       "val": 21238.98,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17999.14,
+         "igst": 0.0,
+         "cgst": 1619.92,
+         "sgst": 1619.92,
+         "cess": 0
+        }
+       ],
+       "inum": "AT/313/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 90765.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 76919.88,
+         "igst": 0.0,
+         "cgst": 6922.79,
+         "sgst": 6922.79,
+         "cess": 0
+        }
+       ],
+       "inum": "AT/316/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 22523.98,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 19088.12,
+         "igst": 0.0,
+         "cgst": 1717.93,
+         "sgst": 1717.93,
+         "cess": 0
+        }
+       ],
+       "inum": "AT/320/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "06-09-2026",
+       "val": 87808.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 74414.08,
+         "igst": 0.0,
+         "cgst": 6697.27,
+         "sgst": 6697.27,
+         "cess": 0
+        }
+       ],
+       "inum": "AT/321/26-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "29RAYCO6334T1ZJ",
+     "trdnm": "Pioneer Logistics Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "15-09-2026",
+       "val": 33259.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 28185.98,
+         "igst": 5073.48,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PLT00526",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 188636.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 159861.44,
+         "igst": 28775.06,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PLT00530",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 49663.29,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 42087.53,
+         "igst": 7575.76,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PLT00533",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 57211.67,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 40865.48,
+         "igst": 16346.19,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PLT00535",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 125201.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 119239.64,
+         "igst": 5961.98,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PLT00537",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 21641.26,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 18340.05,
+         "igst": 3301.21,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PLT00541",
+       "typ": "R"
+      },
+      {
+       "dt": "18-09-2026",
+       "val": 28562.36,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "N",
+       "rsn": "POS and supplier state are same but recipient state is different",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24205.39,
+         "igst": 4356.97,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PLT00544",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "36OJTCD9387N1ZH",
+     "trdnm": "Mahalaxmi Office Supplies Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "05-09-2026",
+       "val": 128930.54,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 122790.99,
+         "igst": 6139.55,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "159",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 14478.68,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 12270.07,
+         "igst": 2208.61,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "161",
+       "typ": "R"
+      },
+      {
+       "dt": "22-09-2026",
+       "val": 8739.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7405.93,
+         "igst": 1333.07,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "164",
+       "typ": "R"
+      },
+      {
+       "dt": "27-09-2026",
+       "val": 81555.25,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 69114.62,
+         "igst": 12440.63,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "165",
+       "typ": "R"
+      },
+      {
+       "dt": "24-09-2026",
+       "val": 211041.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 178848.58,
+         "igst": 32192.74,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "168",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27SERCL1417C1ZX",
+     "trdnm": "Prism Polymers Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "16-09-2026",
+       "val": 38156.42,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 32336.02,
+         "igst": 0.0,
+         "cgst": 2910.2,
+         "sgst": 2910.2,
+         "cess": 0
+        }
+       ],
+       "inum": "PP00390",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 12921.57,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10950.49,
+         "igst": 0.0,
+         "cgst": 985.54,
+         "sgst": 985.54,
+         "cess": 0
+        }
+       ],
+       "inum": "PP00391",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 61016.07,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 51708.53,
+         "igst": 0.0,
+         "cgst": 4653.77,
+         "sgst": 4653.77,
+         "cess": 0
+        }
+       ],
+       "inum": "PP00394",
+       "typ": "R"
+      },
+      {
+       "dt": "09-09-2026",
+       "val": 101538.84,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 72527.74,
+         "igst": 0.0,
+         "cgst": 14505.55,
+         "sgst": 14505.55,
+         "cess": 0
+        }
+       ],
+       "inum": "PP00398",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 102815.82,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 87132.04,
+         "igst": 0.0,
+         "cgst": 7841.89,
+         "sgst": 7841.89,
+         "cess": 0
+        }
+       ],
+       "inum": "PP00401",
+       "typ": "R"
+      },
+      {
+       "dt": "16-09-2026",
+       "val": 61208.41,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 51871.53,
+         "igst": 0.0,
+         "cgst": 4668.44,
+         "sgst": 4668.44,
+         "cess": 0
+        }
+       ],
+       "inum": "PP00402",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 64786.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 54904.04,
+         "igst": 0.0,
+         "cgst": 4941.36,
+         "sgst": 4941.36,
+         "cess": 0
+        }
+       ],
+       "inum": "PP00404",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "36AAZFP5246G1ZN",
+     "trdnm": "Everest Office Supplies Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "24-09-2026",
+       "val": 33466.91,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 31873.25,
+         "igst": 1593.66,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOT00355",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 166090.68,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 140754.81,
+         "igst": 25335.87,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOT00358",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 12284.41,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10410.52,
+         "igst": 1873.89,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOT00360",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 62247.71,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 52752.3,
+         "igst": 9495.41,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOT00362",
+       "typ": "R"
+      },
+      {
+       "dt": "01-09-2026",
+       "val": 33314.56,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 28232.68,
+         "igst": 5081.88,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOT00364",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 20189.63,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17109.86,
+         "igst": 3079.77,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOT00368",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 78859.68,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 75104.46,
+         "igst": 0.0,
+         "cgst": 1877.61,
+         "sgst": 1877.61,
+         "cess": 0
+        }
+       ],
+       "inum": "EOT00369",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "07OLJCZ3945W1Z0",
+     "trdnm": "Pioneer Paints Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "13-09-2026",
+       "val": 31185.82,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26428.66,
+         "igst": 4757.16,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PP/26-27/0593",
+       "typ": "R"
+      },
+      {
+       "dt": "08-09-2026",
+       "val": 178123.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 150951.71,
+         "igst": 27171.31,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PP/26-27/0597",
+       "typ": "R"
+      },
+      {
+       "dt": "27-09-2026",
+       "val": 32518.58,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27558.12,
+         "igst": 4960.46,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PP/26-27/0601",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27UCWFQ7008F1Z6",
+     "trdnm": "Sahyadri Steel Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "04-09-2026",
+       "val": 91269.33,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 77346.89,
+         "igst": 0.0,
+         "cgst": 6961.22,
+         "sgst": 6961.22,
+         "cess": 0
+        }
+       ],
+       "inum": "SSI-547",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 58834.65,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 49859.87,
+         "igst": 0.0,
+         "cgst": 4487.39,
+         "sgst": 4487.39,
+         "cess": 0
+        }
+       ],
+       "inum": "SSI-548",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ZAICA1302X1ZJ",
+     "trdnm": "Everest Chemicals Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "13-09-2026",
+       "val": 99699.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 71213.64,
+         "igst": 0.0,
+         "cgst": 14242.73,
+         "sgst": 14242.73,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00197",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 27076.22,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22945.94,
+         "igst": 0.0,
+         "cgst": 2065.14,
+         "sgst": 2065.14,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00199",
+       "typ": "R"
+      },
+      {
+       "dt": "25-09-2026",
+       "val": 68533.68,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 58079.38,
+         "igst": 0.0,
+         "cgst": 5227.15,
+         "sgst": 5227.15,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00206",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 902375.21,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 764724.75,
+         "igst": 0.0,
+         "cgst": 68825.23,
+         "sgst": 68825.23,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00209",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 481378.49,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 407947.87,
+         "igst": 0.0,
+         "cgst": 36715.31,
+         "sgst": 36715.31,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00213",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 38061.85,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 36249.37,
+         "igst": 0.0,
+         "cgst": 906.24,
+         "sgst": 906.24,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00217",
+       "typ": "R"
+      },
+      {
+       "dt": "25-09-2026",
+       "val": 7266.12,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 6157.72,
+         "igst": 0.0,
+         "cgst": 554.2,
+         "sgst": 554.2,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00218",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 32477.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27523.04,
+         "igst": 0.0,
+         "cgst": 2477.07,
+         "sgst": 2477.07,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00221",
+       "typ": "R"
+      },
+      {
+       "dt": "06-09-2026",
+       "val": 134288.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 127893.64,
+         "igst": 0.0,
+         "cgst": 3197.34,
+         "sgst": 3197.34,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00224",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 113431.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 96128.11,
+         "igst": 0.0,
+         "cgst": 8651.53,
+         "sgst": 8651.53,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00228",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 84951.66,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 71992.94,
+         "igst": 0.0,
+         "cgst": 6479.36,
+         "sgst": 6479.36,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00229",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 52581.14,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 44560.3,
+         "igst": 0.0,
+         "cgst": 4010.42,
+         "sgst": 4010.42,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00230",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 50369.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 47971.06,
+         "igst": 0.0,
+         "cgst": 1199.28,
+         "sgst": 1199.28,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00232",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 141491.82,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 119908.32,
+         "igst": 0.0,
+         "cgst": 10791.75,
+         "sgst": 10791.75,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00233",
+       "typ": "R"
+      },
+      {
+       "dt": "04-09-2026",
+       "val": 28995.03,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24572.05,
+         "igst": 0.0,
+         "cgst": 2211.49,
+         "sgst": 2211.49,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00235",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 54660.25,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 46322.25,
+         "igst": 0.0,
+         "cgst": 4169.0,
+         "sgst": 4169.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00237",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "36MVLCO6823F1ZQ",
+     "trdnm": "Lotus Wires Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "21-09-2026",
+       "val": 35760.83,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30305.79,
+         "igst": 5455.04,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0509",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 105850.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 75607.64,
+         "igst": 30243.06,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0513",
+       "typ": "R"
+      },
+      {
+       "dt": "23-09-2026",
+       "val": 152178.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 144931.59,
+         "igst": 7246.58,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0514",
+       "typ": "R"
+      },
+      {
+       "dt": "04-09-2026",
+       "val": 27835.34,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 23589.27,
+         "igst": 4246.07,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0516",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 51404.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 43562.86,
+         "igst": 7841.31,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0518",
+       "typ": "R"
+      },
+      {
+       "dt": "18-09-2026",
+       "val": 35949.87,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30465.99,
+         "igst": 5483.88,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0522",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 69489.61,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 58889.5,
+         "igst": 10600.11,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0526",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 54607.52,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 46277.56,
+         "igst": 8329.96,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0529",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33RZPPH9572I1ZC",
+     "trdnm": "Navkar Traders Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "14-09-2026",
+       "val": 33975.41,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24268.15,
+         "igst": 9707.26,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NTT-864",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 53862.78,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 45646.42,
+         "igst": 8216.36,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NTT-867",
+       "typ": "R"
+      },
+      {
+       "dt": "01-09-2026",
+       "val": 14935.31,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 12657.04,
+         "igst": 2278.27,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NTT-871",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 14879.71,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 12609.92,
+         "igst": 2269.79,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NTT-872",
+       "typ": "R"
+      },
+      {
+       "dt": "16-09-2026",
+       "val": 42313.05,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30223.61,
+         "igst": 12089.44,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NTT-873",
+       "typ": "R"
+      },
+      {
+       "dt": "22-09-2026",
+       "val": 29025.04,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 20732.17,
+         "igst": 8292.87,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NTT-875",
+       "typ": "R"
+      },
+      {
+       "dt": "09-09-2026",
+       "val": 40099.69,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 33982.79,
+         "igst": 6116.9,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NTT-877",
+       "typ": "R"
+      },
+      {
+       "dt": "06-09-2026",
+       "val": 11220.95,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 9509.28,
+         "igst": 1711.67,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NTT-881",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "29DVUFV9110R1ZP",
+     "trdnm": "Everest Office Supplies LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "06-09-2026",
+       "val": 47055.49,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 39877.53,
+         "igst": 7177.96,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOI00317",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 36937.72,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 31303.15,
+         "igst": 5634.57,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOI00319",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 90842.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 76985.17,
+         "igst": 13857.33,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOI00323",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 28002.51,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 23730.94,
+         "igst": 4271.57,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOI00325",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 377235.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 269454.0,
+         "igst": 107781.6,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOI00328",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 10229.36,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 8668.95,
+         "igst": 1560.41,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOI00329",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 265023.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 189302.57,
+         "igst": 75721.03,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOI00330",
+       "typ": "R"
+      },
+      {
+       "dt": "23-09-2026",
+       "val": 74707.33,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 53362.38,
+         "igst": 21344.95,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "EOI00333",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33QRPCR1930H1ZZ",
+     "trdnm": "Vardhan Paints & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "14-09-2026",
+       "val": 52783.93,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 44732.14,
+         "igst": 8051.79,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "46",
+       "typ": "R"
+      },
+      {
+       "dt": "08-09-2026",
+       "val": 29302.56,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 20930.4,
+         "igst": 8372.16,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "47",
+       "typ": "R"
+      },
+      {
+       "dt": "22-09-2026",
+       "val": 12888.21,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10922.21,
+         "igst": 1966.0,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "50",
+       "typ": "R"
+      },
+      {
+       "dt": "22-09-2026",
+       "val": 53849.47,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 45635.14,
+         "igst": 8214.33,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "51",
+       "typ": "R"
+      },
+      {
+       "dt": "09-09-2026",
+       "val": 38457.83,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27469.88,
+         "igst": 10987.95,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "54",
+       "typ": "R"
+      },
+      {
+       "dt": "25-09-2026",
+       "val": 22531.41,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 21458.49,
+         "igst": 1072.92,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "56",
+       "typ": "R"
+      },
+      {
+       "dt": "17-09-2026",
+       "val": 16352.63,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 13858.16,
+         "igst": 2494.47,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "57",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 18632.58,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17745.31,
+         "igst": 887.27,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "60",
+       "typ": "R"
+      },
+      {
+       "dt": "23-09-2026",
+       "val": 11231.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 9518.44,
+         "igst": 1713.32,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "61",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "07QNQCR3487Q1Z2",
+     "trdnm": "Saraswati Wires & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "13-09-2026",
+       "val": 80771.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 68450.04,
+         "igst": 0.0,
+         "cgst": 6160.51,
+         "sgst": 6160.51,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0898",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 48431.88,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 34594.34,
+         "igst": 13837.54,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0901",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 50050.95,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35750.68,
+         "igst": 14300.27,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0902",
+       "typ": "R"
+      },
+      {
+       "dt": "28-09-2026",
+       "val": 128707.77,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 91934.12,
+         "igst": 36773.65,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0904",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 169046.71,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 143259.92,
+         "igst": 25786.79,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0907",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 2243.49,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 1901.26,
+         "igst": 342.23,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0908",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 59278.95,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 50236.41,
+         "igst": 0.0,
+         "cgst": 4521.27,
+         "sgst": 4521.27,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0910",
+       "typ": "R"
+      },
+      {
+       "dt": "29-09-2026",
+       "val": 78393.41,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 74660.39,
+         "igst": 3733.02,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0913",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 50664.84,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 48252.23,
+         "igst": 2412.61,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0915",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33WCSCT4374P1ZQ",
+     "trdnm": "Navkar Hydraulics Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "16-09-2026",
+       "val": 68571.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 48979.43,
+         "igst": 19591.77,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NHT00441",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 81647.93,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 69193.16,
+         "igst": 12454.77,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NHT00444",
+       "typ": "R"
+      },
+      {
+       "dt": "18-09-2026",
+       "val": 401004.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 339833.95,
+         "igst": 61170.11,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NHT00446",
+       "typ": "R"
+      },
+      {
+       "dt": "09-09-2026",
+       "val": 73004.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 61868.44,
+         "igst": 11136.32,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NHT00450",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 221320.61,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 187559.84,
+         "igst": 33760.77,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NHT00451",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27IOAFL6389R1ZD",
+     "trdnm": "Vardhan Wires LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "21-09-2026",
+       "val": 63586.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 45418.58,
+         "igst": 0.0,
+         "cgst": 9083.72,
+         "sgst": 9083.72,
+         "cess": 0
+        }
+       ],
+       "inum": "VWI-40",
+       "typ": "R"
+      },
+      {
+       "dt": "29-09-2026",
+       "val": 18945.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 16055.18,
+         "igst": 0.0,
+         "cgst": 1444.96,
+         "sgst": 1444.96,
+         "cess": 0
+        }
+       ],
+       "inum": "VWI-41",
+       "typ": "R"
+      },
+      {
+       "dt": "24-09-2026",
+       "val": 4538.52,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 3241.8,
+         "igst": 0.0,
+         "cgst": 648.36,
+         "sgst": 648.36,
+         "cess": 0
+        }
+       ],
+       "inum": "VWI-43",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 81365.53,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 68953.83,
+         "igst": 0.0,
+         "cgst": 6205.85,
+         "sgst": 6205.85,
+         "cess": 0
+        }
+       ],
+       "inum": "VWI-46",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 150003.83,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 127121.89,
+         "igst": 0.0,
+         "cgst": 11440.97,
+         "sgst": 11440.97,
+         "cess": 0
+        }
+       ],
+       "inum": "VWI-52",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 88473.48,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 74977.52,
+         "igst": 0.0,
+         "cgst": 6747.98,
+         "sgst": 6747.98,
+         "cess": 0
+        }
+       ],
+       "inum": "VWI-53",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27IAUCZ5268C1ZH",
+     "trdnm": "Vardhan Chemicals Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "07-09-2026",
+       "val": 5948.22,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 5664.98,
+         "igst": 0.0,
+         "cgst": 141.62,
+         "sgst": 141.62,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-73",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 32647.96,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 23319.98,
+         "igst": 0.0,
+         "cgst": 4663.99,
+         "sgst": 4663.99,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-75",
+       "typ": "R"
+      },
+      {
+       "dt": "17-09-2026",
+       "val": 199633.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 169180.78,
+         "igst": 0.0,
+         "cgst": 15226.27,
+         "sgst": 15226.27,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-78",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 149149.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 126397.48,
+         "igst": 0.0,
+         "cgst": 11375.77,
+         "sgst": 11375.77,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-79",
+       "typ": "R"
+      },
+      {
+       "dt": "04-09-2026",
+       "val": 15502.95,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14764.71,
+         "igst": 0.0,
+         "cgst": 369.12,
+         "sgst": 369.12,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-83",
+       "typ": "R"
+      },
+      {
+       "dt": "01-09-2026",
+       "val": 16800.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14237.34,
+         "igst": 0.0,
+         "cgst": 1281.36,
+         "sgst": 1281.36,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-84",
+       "typ": "R"
+      },
+      {
+       "dt": "25-09-2026",
+       "val": 36058.36,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30557.92,
+         "igst": 5500.44,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-85",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 310870.93,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 263449.95,
+         "igst": 0.0,
+         "cgst": 23710.49,
+         "sgst": 23710.49,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-86",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 111805.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 106481.14,
+         "igst": 0.0,
+         "cgst": 2662.03,
+         "sgst": 2662.03,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-87",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 34337.53,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24526.81,
+         "igst": 0.0,
+         "cgst": 4905.36,
+         "sgst": 4905.36,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-89",
+       "typ": "R"
+      },
+      {
+       "dt": "06-09-2026",
+       "val": 15958.33,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 13524.01,
+         "igst": 0.0,
+         "cgst": 1217.16,
+         "sgst": 1217.16,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT-92",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27GWXPE7630L1ZO",
+     "trdnm": "Nirmal Electricals LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "14-09-2026",
+       "val": 34787.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24847.88,
+         "igst": 0.0,
+         "cgst": 4969.57,
+         "sgst": 4969.57,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-18",
+       "typ": "R"
+      },
+      {
+       "dt": "25-09-2026",
+       "val": 93453.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 79197.46,
+         "igst": 0.0,
+         "cgst": 7127.77,
+         "sgst": 7127.77,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-19",
+       "typ": "R"
+      },
+      {
+       "dt": "18-09-2026",
+       "val": 61588.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 52193.74,
+         "igst": 0.0,
+         "cgst": 4697.44,
+         "sgst": 4697.44,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-21",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 42457.77,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 40435.97,
+         "igst": 0.0,
+         "cgst": 1010.9,
+         "sgst": 1010.9,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-25",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 72512.05,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 51794.33,
+         "igst": 0.0,
+         "cgst": 10358.86,
+         "sgst": 10358.86,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-26",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 33529.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 31932.82,
+         "igst": 0.0,
+         "cgst": 798.32,
+         "sgst": 798.32,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-29",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 38846.56,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27747.54,
+         "igst": 0.0,
+         "cgst": 5549.51,
+         "sgst": 5549.51,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-33",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 43193.05,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 36604.27,
+         "igst": 0.0,
+         "cgst": 3294.39,
+         "sgst": 3294.39,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-36",
+       "typ": "R"
+      },
+      {
+       "dt": "17-09-2026",
+       "val": 42063.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30045.46,
+         "igst": 0.0,
+         "cgst": 6009.09,
+         "sgst": 6009.09,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-40",
+       "typ": "R"
+      },
+      {
+       "dt": "21-09-2026",
+       "val": 29868.79,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 28446.45,
+         "igst": 0.0,
+         "cgst": 711.17,
+         "sgst": 711.17,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-41",
+       "typ": "R"
+      },
+      {
+       "dt": "01-09-2026",
+       "val": 139658.73,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 133008.31,
+         "igst": 0.0,
+         "cgst": 3325.21,
+         "sgst": 3325.21,
+         "cess": 0
+        }
+       ],
+       "inum": "NE-43",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "36QTUPX1884O1ZV",
+     "trdnm": "Saraswati Paints LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "10-09-2026",
+       "val": 26169.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22177.76,
+         "igst": 3992.0,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00404",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 26510.21,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 25247.82,
+         "igst": 1262.39,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00406",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 133068.68,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 112770.07,
+         "igst": 20298.61,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00408",
+       "typ": "R"
+      },
+      {
+       "dt": "27-09-2026",
+       "val": 23621.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 20017.81,
+         "igst": 3603.21,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00412",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 72527.69,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 61464.14,
+         "igst": 11063.55,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00413",
+       "typ": "R"
+      },
+      {
+       "dt": "27-09-2026",
+       "val": 81692.99,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 69231.35,
+         "igst": 12461.64,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00417",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 30680.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 29219.35,
+         "igst": 1460.97,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00421",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 22932.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 19434.05,
+         "igst": 3498.13,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00425",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 7438.37,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7084.16,
+         "igst": 354.21,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00427",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 29519.87,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 25016.84,
+         "igst": 4503.03,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00430",
+       "typ": "R"
+      },
+      {
+       "dt": "18-09-2026",
+       "val": 77073.33,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 55052.38,
+         "igst": 22020.95,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00431",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 81798.37,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 69320.65,
+         "igst": 12477.72,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SPT00435",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27FGJPJ9701Y1Z5",
+     "trdnm": "Kaveri Chemicals Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "16-09-2026",
+       "val": 210516.21,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 150368.73,
+         "igst": 0.0,
+         "cgst": 30073.74,
+         "sgst": 30073.74,
+         "cess": 0
+        }
+       ],
+       "inum": "459",
+       "typ": "R"
+      },
+      {
+       "dt": "24-09-2026",
+       "val": 24371.27,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 20653.61,
+         "igst": 0.0,
+         "cgst": 1858.83,
+         "sgst": 1858.83,
+         "cess": 0
+        }
+       ],
+       "inum": "463",
+       "typ": "R"
+      },
+      {
+       "dt": "17-09-2026",
+       "val": 34312.58,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 29078.46,
+         "igst": 0.0,
+         "cgst": 2617.06,
+         "sgst": 2617.06,
+         "cess": 0
+        }
+       ],
+       "inum": "465",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 62100.69,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 52627.71,
+         "igst": 0.0,
+         "cgst": 4736.49,
+         "sgst": 4736.49,
+         "cess": 0
+        }
+       ],
+       "inum": "467",
+       "typ": "R"
+      },
+      {
+       "dt": "13-09-2026",
+       "val": 61431.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 52060.42,
+         "igst": 0.0,
+         "cgst": 4685.44,
+         "sgst": 4685.44,
+         "cess": 0
+        }
+       ],
+       "inum": "471",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 141565.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 119971.1,
+         "igst": 0.0,
+         "cgst": 10797.4,
+         "sgst": 10797.4,
+         "cess": 0
+        }
+       ],
+       "inum": "473",
+       "typ": "R"
+      },
+      {
+       "dt": "27-09-2026",
+       "val": 31350.92,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26568.58,
+         "igst": 0.0,
+         "cgst": 2391.17,
+         "sgst": 2391.17,
+         "cess": 0
+        }
+       ],
+       "inum": "475",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27KRNFT3117B1Z5",
+     "trdnm": "Trident Logistics Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "05-09-2026",
+       "val": 74499.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 53214.22,
+         "igst": 0.0,
+         "cgst": 10642.84,
+         "sgst": 10642.84,
+         "cess": 0
+        }
+       ],
+       "inum": "TLT/249/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 17689.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14991.44,
+         "igst": 0.0,
+         "cgst": 1349.23,
+         "sgst": 1349.23,
+         "cess": 0
+        }
+       ],
+       "inum": "TLT/250/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 196890.77,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 166856.65,
+         "igst": 0.0,
+         "cgst": 15017.06,
+         "sgst": 15017.06,
+         "cess": 0
+        }
+       ],
+       "inum": "TLT/251/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "01-09-2026",
+       "val": 16163.37,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 15393.69,
+         "igst": 0.0,
+         "cgst": 384.84,
+         "sgst": 384.84,
+         "cess": 0
+        }
+       ],
+       "inum": "TLT/254/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "28-09-2026",
+       "val": 42435.97,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35962.69,
+         "igst": 0.0,
+         "cgst": 3236.64,
+         "sgst": 3236.64,
+         "cess": 0
+        }
+       ],
+       "inum": "TLT/257/26-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33HYSFI9918N1ZX",
+     "trdnm": "Trident Electricals Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "15-09-2026",
+       "val": 142823.15,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 121036.57,
+         "igst": 21786.58,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TE/26-27/0761",
+       "typ": "R"
+      },
+      {
+       "dt": "27-09-2026",
+       "val": 36583.08,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26130.77,
+         "igst": 10452.31,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TE/26-27/0763",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27VCYPS6140K1Z6",
+     "trdnm": "Zenith Office Supplies Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "01-09-2026",
+       "val": 23536.89,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22416.09,
+         "igst": 0.0,
+         "cgst": 560.4,
+         "sgst": 560.4,
+         "cess": 0
+        }
+       ],
+       "inum": "610",
+       "typ": "R"
+      },
+      {
+       "dt": "01-09-2026",
+       "val": 22001.12,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 18645.02,
+         "igst": 0.0,
+         "cgst": 1678.05,
+         "sgst": 1678.05,
+         "cess": 0
+        }
+       ],
+       "inum": "612",
+       "typ": "R"
+      },
+      {
+       "dt": "16-09-2026",
+       "val": 238756.66,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 202336.14,
+         "igst": 0.0,
+         "cgst": 18210.26,
+         "sgst": 18210.26,
+         "cess": 0
+        }
+       ],
+       "inum": "614",
+       "typ": "R"
+      },
+      {
+       "dt": "09-09-2026",
+       "val": 144585.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 137700.62,
+         "igst": 0.0,
+         "cgst": 3442.51,
+         "sgst": 3442.51,
+         "cess": 0
+        }
+       ],
+       "inum": "616",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 51748.84,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 43854.94,
+         "igst": 0.0,
+         "cgst": 3946.95,
+         "sgst": 3946.95,
+         "cess": 0
+        }
+       ],
+       "inum": "619",
+       "typ": "R"
+      },
+      {
+       "dt": "28-09-2026",
+       "val": 60750.36,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 51483.36,
+         "igst": 0.0,
+         "cgst": 4633.5,
+         "sgst": 4633.5,
+         "cess": 0
+        }
+       ],
+       "inum": "623",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 99871.26,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 84636.66,
+         "igst": 0.0,
+         "cgst": 7617.3,
+         "sgst": 7617.3,
+         "cess": 0
+        }
+       ],
+       "inum": "625",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 353633.26,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 336793.58,
+         "igst": 0.0,
+         "cgst": 8419.84,
+         "sgst": 8419.84,
+         "cess": 0
+        }
+       ],
+       "inum": "628",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 47569.67,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 40313.27,
+         "igst": 0.0,
+         "cgst": 3628.2,
+         "sgst": 3628.2,
+         "cess": 0
+        }
+       ],
+       "inum": "631",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "24ERDPJ3961D1Z0",
+     "trdnm": "Tulsi Fasteners Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "15-09-2026",
+       "val": 62940.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 53339.24,
+         "igst": 9601.06,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00656",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 21864.55,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 18529.28,
+         "igst": 3335.27,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00659",
+       "typ": "R"
+      },
+      {
+       "dt": "28-09-2026",
+       "val": 215122.14,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 182306.9,
+         "igst": 32815.24,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00660",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 53873.16,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 45655.22,
+         "igst": 8217.94,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00665",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 89642.13,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 75967.91,
+         "igst": 13674.22,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00669",
+       "typ": "R"
+      },
+      {
+       "dt": "12-09-2026",
+       "val": 33479.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 28372.56,
+         "igst": 5107.06,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00671",
+       "typ": "R"
+      },
+      {
+       "dt": "18-09-2026",
+       "val": 136301.72,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 129811.16,
+         "igst": 6490.56,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00674",
+       "typ": "R"
+      },
+      {
+       "dt": "09-09-2026",
+       "val": 7769.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7399.64,
+         "igst": 369.98,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00677",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 19409.55,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 16448.77,
+         "igst": 2960.78,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00678",
+       "typ": "R"
+      },
+      {
+       "dt": "10-09-2026",
+       "val": 16345.77,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 15567.4,
+         "igst": 778.37,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00679",
+       "typ": "R"
+      },
+      {
+       "dt": "03-09-2026",
+       "val": 84705.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 71784.07,
+         "igst": 12921.13,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00681",
+       "typ": "R"
+      },
+      {
+       "dt": "25-09-2026",
+       "val": 100099.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "N",
+       "rsn": "POS and supplier state are same but recipient state is different",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 71499.6,
+         "igst": 28599.84,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00690",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27YZECE8757T1ZG",
+     "trdnm": "Bharat Chemicals Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "27-09-2026",
+       "val": 12055.14,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 11481.1,
+         "igst": 0.0,
+         "cgst": 287.02,
+         "sgst": 287.02,
+         "cess": 0
+        }
+       ],
+       "inum": "BCT/26-27/0574",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 10937.71,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10416.87,
+         "igst": 0.0,
+         "cgst": 260.42,
+         "sgst": 260.42,
+         "cess": 0
+        }
+       ],
+       "inum": "BCT/26-27/0579",
+       "typ": "R"
+      },
+      {
+       "dt": "24-09-2026",
+       "val": 45832.56,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 38841.14,
+         "igst": 0.0,
+         "cgst": 3495.71,
+         "sgst": 3495.71,
+         "cess": 0
+        }
+       ],
+       "inum": "BCT/26-27/0581",
+       "typ": "R"
+      },
+      {
+       "dt": "29-09-2026",
+       "val": 7949.65,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 6736.99,
+         "igst": 0.0,
+         "cgst": 606.33,
+         "sgst": 606.33,
+         "cess": 0
+        }
+       ],
+       "inum": "BCT/26-27/0583",
+       "typ": "R"
+      },
+      {
+       "dt": "23-09-2026",
+       "val": 47466.75,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 40226.07,
+         "igst": 0.0,
+         "cgst": 3620.34,
+         "sgst": 3620.34,
+         "cess": 0
+        }
+       ],
+       "inum": "BCT/26-27/0585",
+       "typ": "R"
+      },
+      {
+       "dt": "01-09-2026",
+       "val": 60337.39,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 57464.17,
+         "igst": 0.0,
+         "cgst": 1436.61,
+         "sgst": 1436.61,
+         "cess": 0
+        }
+       ],
+       "inum": "BCT/26-27/0586",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 240648.72,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 203939.52,
+         "igst": 0.0,
+         "cgst": 18354.6,
+         "sgst": 18354.6,
+         "cess": 0
+        }
+       ],
+       "inum": "BCT/26-27/0587",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27AKRFO1296M1ZV",
+     "trdnm": "Prism Packaging & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "11-09-2026",
+       "val": 46934.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 39774.74,
+         "igst": 0.0,
+         "cgst": 3579.72,
+         "sgst": 3579.72,
+         "cess": 0
+        }
+       ],
+       "inum": "PPI00641",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 29225.09,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24767.03,
+         "igst": 0.0,
+         "cgst": 2229.03,
+         "sgst": 2229.03,
+         "cess": 0
+        }
+       ],
+       "inum": "PPI00642",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 59783.09,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 42702.21,
+         "igst": 0.0,
+         "cgst": 8540.44,
+         "sgst": 8540.44,
+         "cess": 0
+        }
+       ],
+       "inum": "PPI00646",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 36314.65,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30775.13,
+         "igst": 0.0,
+         "cgst": 2769.76,
+         "sgst": 2769.76,
+         "cess": 0
+        }
+       ],
+       "inum": "PPI00647",
+       "typ": "R"
+      },
+      {
+       "dt": "23-09-2026",
+       "val": 41997.78,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35591.32,
+         "igst": 0.0,
+         "cgst": 3203.23,
+         "sgst": 3203.23,
+         "cess": 0
+        }
+       ],
+       "inum": "PPI00650",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ESOPE8771V1ZB",
+     "trdnm": "Orion Chemicals LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "09-09-2026",
+       "val": 23856.26,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 20217.16,
+         "igst": 0.0,
+         "cgst": 1819.55,
+         "sgst": 1819.55,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-565",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 128978.12,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 109303.48,
+         "igst": 0.0,
+         "cgst": 9837.32,
+         "sgst": 9837.32,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-568",
+       "typ": "R"
+      },
+      {
+       "dt": "15-09-2026",
+       "val": 31278.98,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26507.62,
+         "igst": 0.0,
+         "cgst": 2385.68,
+         "sgst": 2385.68,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-570",
+       "typ": "R"
+      },
+      {
+       "dt": "09-09-2026",
+       "val": 17101.08,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14492.44,
+         "igst": 0.0,
+         "cgst": 1304.32,
+         "sgst": 1304.32,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-574",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 74874.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 63452.56,
+         "igst": 0.0,
+         "cgst": 5710.73,
+         "sgst": 5710.73,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-575",
+       "typ": "R"
+      },
+      {
+       "dt": "17-09-2026",
+       "val": 2463.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 2087.82,
+         "igst": 0.0,
+         "cgst": 187.91,
+         "sgst": 187.91,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-578",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 83481.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 70746.94,
+         "igst": 0.0,
+         "cgst": 6367.23,
+         "sgst": 6367.23,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-581",
+       "typ": "R"
+      },
+      {
+       "dt": "09-09-2026",
+       "val": 13662.24,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 11578.16,
+         "igst": 0.0,
+         "cgst": 1042.04,
+         "sgst": 1042.04,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-587",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 32628.56,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27651.32,
+         "igst": 0.0,
+         "cgst": 2488.62,
+         "sgst": 2488.62,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-589",
+       "typ": "R"
+      },
+      {
+       "dt": "17-09-2026",
+       "val": 26752.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22671.33,
+         "igst": 0.0,
+         "cgst": 2040.42,
+         "sgst": 2040.42,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-591",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27XIPPF9459A1ZE",
+     "trdnm": "Sahyadri Logistics & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "25-09-2026",
+       "val": 8874.23,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7520.53,
+         "igst": 0.0,
+         "cgst": 676.85,
+         "sgst": 676.85,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00374",
+       "typ": "R"
+      },
+      {
+       "dt": "04-09-2026",
+       "val": 68240.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 57830.86,
+         "igst": 0.0,
+         "cgst": 5204.77,
+         "sgst": 5204.77,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00375",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 66140.28,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 56051.08,
+         "igst": 0.0,
+         "cgst": 5044.6,
+         "sgst": 5044.6,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00378",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 359095.43,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 304318.17,
+         "igst": 0.0,
+         "cgst": 27388.63,
+         "sgst": 27388.63,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00383",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 106393.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 101326.86,
+         "igst": 0.0,
+         "cgst": 2533.17,
+         "sgst": 2533.17,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00384",
+       "typ": "R"
+      },
+      {
+       "dt": "16-09-2026",
+       "val": 68287.38,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 57870.66,
+         "igst": 0.0,
+         "cgst": 5208.36,
+         "sgst": 5208.36,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00385",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 60066.33,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 50903.71,
+         "igst": 0.0,
+         "cgst": 4581.31,
+         "sgst": 4581.31,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00389",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 83783.07,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 79793.39,
+         "igst": 0.0,
+         "cgst": 1994.84,
+         "sgst": 1994.84,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00393",
+       "typ": "R"
+      },
+      {
+       "dt": "08-09-2026",
+       "val": 9131.49,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 6522.49,
+         "igst": 0.0,
+         "cgst": 1304.5,
+         "sgst": 1304.5,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00394",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "08RIWFL7233H1ZU",
+     "trdnm": "Trident Fasteners Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "05-09-2026",
+       "val": 19387.98,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 18464.74,
+         "igst": 923.24,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0184",
+       "typ": "R"
+      },
+      {
+       "dt": "24-09-2026",
+       "val": 19949.68,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 16906.51,
+         "igst": 3043.17,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0190",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 44603.75,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 42479.76,
+         "igst": 2123.99,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0191",
+       "typ": "R"
+      },
+      {
+       "dt": "18-09-2026",
+       "val": 23831.11,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17022.22,
+         "igst": 6808.89,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0192",
+       "typ": "R"
+      },
+      {
+       "dt": "17-09-2026",
+       "val": 176531.24,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 168124.99,
+         "igst": 8406.25,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0196",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 103134.82,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 87402.39,
+         "igst": 15732.43,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0198",
+       "typ": "R"
+      },
+      {
+       "dt": "22-09-2026",
+       "val": 64841.92,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 54950.78,
+         "igst": 9891.14,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0200",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 62362.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 59392.56,
+         "igst": 2969.61,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0204",
+       "typ": "R"
+      },
+      {
+       "dt": "27-09-2026",
+       "val": 84843.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 71901.44,
+         "igst": 12942.26,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0207",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "08IMEPQ9103W1ZV",
+     "trdnm": "Sahyadri Rubber & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "12-09-2026",
+       "val": 16564.88,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14038.03,
+         "igst": 2526.85,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SRI/26-27/0289",
+       "typ": "R"
+      },
+      {
+       "dt": "30-09-2026",
+       "val": 30904.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 29432.95,
+         "igst": 1471.65,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SRI/26-27/0291",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 33490.78,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 28382.02,
+         "igst": 5108.76,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SRI/26-27/0294",
+       "typ": "R"
+      },
+      {
+       "dt": "16-09-2026",
+       "val": 7430.11,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 6296.7,
+         "igst": 1133.41,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SRI/26-27/0296",
+       "typ": "R"
+      },
+      {
+       "dt": "22-09-2026",
+       "val": 58898.59,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 49914.06,
+         "igst": 8984.53,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SRI/26-27/0299",
+       "typ": "R"
+      },
+      {
+       "dt": "18-09-2026",
+       "val": 17072.55,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 16259.57,
+         "igst": 812.98,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SRI/26-27/0302",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "06HDCFI1648Y1Z8",
+     "trdnm": "Mahalaxmi Packaging Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "29-09-2026",
+       "val": 69634.97,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 59012.69,
+         "igst": 10622.28,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "777",
+       "typ": "R"
+      },
+      {
+       "dt": "09-09-2026",
+       "val": 758585.97,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 541847.12,
+         "igst": 216738.85,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "779",
+       "typ": "R"
+      },
+      {
+       "dt": "17-09-2026",
+       "val": 47923.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 34231.26,
+         "igst": 13692.5,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "780",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 28343.21,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 20245.15,
+         "igst": 8098.06,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "781",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "08CIPPV2064B1Z2",
+     "trdnm": "Crescent Wires Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "11-09-2026",
+       "val": 77672.86,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 65824.46,
+         "igst": 11848.4,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "CWT/321/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 9009.96,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7635.56,
+         "igst": 1374.4,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "CWT/325/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 44946.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 42806.1,
+         "igst": 2140.3,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "CWT/327/26-27",
+       "typ": "R"
+      },
+      {
+       "dt": "23-09-2026",
+       "val": 8261.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7868.0,
+         "igst": 393.4,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "CWT/330/26-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27APSCI5619A1ZM",
+     "trdnm": "Sahyadri Castings & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "13-09-2026",
+       "val": 155548.51,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 111106.07,
+         "igst": 0.0,
+         "cgst": 22221.22,
+         "sgst": 22221.22,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/549",
+       "typ": "R"
+      },
+      {
+       "dt": "14-09-2026",
+       "val": 24309.23,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17363.73,
+         "igst": 0.0,
+         "cgst": 3472.75,
+         "sgst": 3472.75,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/550",
+       "typ": "R"
+      },
+      {
+       "dt": "23-09-2026",
+       "val": 52710.58,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 44669.98,
+         "igst": 0.0,
+         "cgst": 4020.3,
+         "sgst": 4020.3,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/554",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 49701.09,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 42119.57,
+         "igst": 0.0,
+         "cgst": 3790.76,
+         "sgst": 3790.76,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/556",
+       "typ": "R"
+      },
+      {
+       "dt": "19-09-2026",
+       "val": 117137.03,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 99268.67,
+         "igst": 0.0,
+         "cgst": 8934.18,
+         "sgst": 8934.18,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/559",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 329686.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 279395.42,
+         "igst": 0.0,
+         "cgst": 25145.59,
+         "sgst": 25145.59,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/562",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "06UKCPM8588M1ZU",
+     "trdnm": "Vertex Chemicals Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "08-09-2026",
+       "val": 26031.8,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22060.85,
+         "igst": 3970.95,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT/26-27/0746",
+       "typ": "R"
+      },
+      {
+       "dt": "24-09-2026",
+       "val": 1613880.58,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 1152771.84,
+         "igst": 461108.74,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT/26-27/0747",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 179067.11,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 151751.79,
+         "igst": 27315.32,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT/26-27/0749",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 38848.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 36998.67,
+         "igst": 1849.93,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT/26-27/0752",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 47869.65,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 40567.5,
+         "igst": 7302.15,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT/26-27/0756",
+       "typ": "R"
+      },
+      {
+       "dt": "11-09-2026",
+       "val": 28653.49,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24282.62,
+         "igst": 4370.87,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT/26-27/0758",
+       "typ": "R"
+      },
+      {
+       "dt": "06-09-2026",
+       "val": 16868.87,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14295.65,
+         "igst": 2573.22,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT/26-27/0764",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 70494.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 59740.93,
+         "igst": 10753.37,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VCT/26-27/0767",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "09LZUCV2964M1ZJ",
+     "trdnm": "Sunrise Steel Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "14-09-2026",
+       "val": 80855.61,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 68521.7,
+         "igst": 12333.91,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SST-493",
+       "typ": "R"
+      },
+      {
+       "dt": "26-09-2026",
+       "val": 28465.72,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24123.49,
+         "igst": 4342.23,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SST-495",
+       "typ": "R"
+      },
+      {
+       "dt": "20-09-2026",
+       "val": 57424.15,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 48664.53,
+         "igst": 8759.62,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SST-498",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 596125.23,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 505190.87,
+         "igst": 90934.36,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SST-501",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "07LPDCP8634P1ZL",
+     "trdnm": "Sahyadri Traders Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "13-09-2026",
+       "val": 105001.49,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 88984.31,
+         "igst": 16017.18,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "92",
+       "typ": "R"
+      },
+      {
+       "dt": "05-09-2026",
+       "val": 4096.94,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 3471.98,
+         "igst": 624.96,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "93",
+       "typ": "R"
+      },
+      {
+       "dt": "27-09-2026",
+       "val": 499305.39,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 423140.16,
+         "igst": 76165.23,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "96",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 31287.29,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26514.65,
+         "igst": 4772.64,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "98",
+       "typ": "R"
+      },
+      {
+       "dt": "02-09-2026",
+       "val": 179062.61,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 170535.82,
+         "igst": 8526.79,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "101",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27HDHFG6533G1Z0",
+     "trdnm": "Bharat Hydraulics Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "27-09-2026",
+       "val": 96071.72,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 81416.7,
+         "igst": 0.0,
+         "cgst": 7327.51,
+         "sgst": 7327.51,
+         "cess": 0
+        }
+       ],
+       "inum": "BHI00629",
+       "typ": "R"
+      },
+      {
+       "dt": "07-09-2026",
+       "val": 89759.31,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 64113.79,
+         "igst": 0.0,
+         "cgst": 12822.76,
+         "sgst": 12822.76,
+         "cess": 0
+        }
+       ],
+       "inum": "BHI00632",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27WCSCT4374P1ZJ",
+     "trdnm": "Navkar Hydraulics Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "16-09-2026",
+       "val": 75877.53,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 64302.99,
+         "igst": 11574.54,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NHT00455",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "29ERDPJ3961D1ZQ",
+     "trdnm": "Tulsi Fasteners Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "30-09-2026",
+       "val": 70882.81,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 60070.18,
+         "igst": 10812.63,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00684",
+       "typ": "R"
+      },
+      {
+       "dt": "17-09-2026",
+       "val": 60854.31,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 51571.45,
+         "igst": 9282.86,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00687",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33AYFPI4881W1ZI",
+     "trdnm": "Shree Trading Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "02-09-2026",
+       "val": 20573.35,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17435.04,
+         "igst": 3138.31,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "116",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "08QUDCH1930E1ZE",
+     "trdnm": "Konark Trading Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "03-09-2026",
+       "val": 34540.41,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 29271.53,
+         "igst": 5268.88,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27RUAPK1451G1ZI",
+     "trdnm": "Prism Trading Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "inv": [
+      {
+       "dt": "28-09-2026",
+       "val": 86345.48,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 61675.34,
+         "igst": 0.0,
+         "cgst": 12335.07,
+         "sgst": 12335.07,
+         "cess": 0
+        }
+       ],
+       "inum": "169",
+       "typ": "R"
+      }
+     ]
+    }
+   ],
+   "cdnr": [
+    {
+     "ctin": "09LZUCV2964M1ZJ",
+     "trdnm": "Sunrise Steel Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "nt": [
+      {
+       "dt": "06-09-2026",
+       "val": 4392.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 4183.03,
+         "igst": 209.15,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CN/21",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ZAICA1302X1ZJ",
+     "trdnm": "Everest Chemicals Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "nt": [
+      {
+       "dt": "20-09-2026",
+       "val": 17359.87,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14711.75,
+         "igst": 0.0,
+         "cgst": 1324.06,
+         "sgst": 1324.06,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CN/61",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27XIPPF9459A1ZE",
+     "trdnm": "Sahyadri Logistics & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "nt": [
+      {
+       "dt": "15-09-2026",
+       "val": 41519.42,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35185.94,
+         "igst": 0.0,
+         "cgst": 3166.74,
+         "sgst": 3166.74,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CN/82",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "29DVUFV9110R1ZP",
+     "trdnm": "Everest Office Supplies LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "nt": [
+      {
+       "dt": "11-09-2026",
+       "val": 4871.83,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 4128.67,
+         "igst": 743.16,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CRN-195",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27HUUPB7499B1ZZ",
+     "trdnm": "Deccan Polymers Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "nt": [
+      {
+       "dt": "05-09-2026",
+       "val": 11798.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 9998.32,
+         "igst": 0.0,
+         "cgst": 899.85,
+         "sgst": 899.85,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CRN-933",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ESOPE8771V1ZB",
+     "trdnm": "Orion Chemicals LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "nt": [
+      {
+       "dt": "14-09-2026",
+       "val": 21106.54,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 15076.1,
+         "igst": 0.0,
+         "cgst": 3015.22,
+         "sgst": 3015.22,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CRN-716",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "08IMEPQ9103W1ZV",
+     "trdnm": "Sahyadri Rubber & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "092026",
+     "nt": [
+      {
+       "dt": "11-09-2026",
+       "val": 15036.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10740.12,
+         "igst": 4296.05,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CRN-589",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

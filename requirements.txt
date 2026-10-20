@@ -1,0 +1,8 @@
+pandas>=2.0
+openpyxl>=3.1
+streamlit>=1.40
+pytest>=8.0
+# Module 1 (invoice OCR) only:
+pymupdf>=1.24
+pytesseract>=0.3.10
+pillow>=10.0

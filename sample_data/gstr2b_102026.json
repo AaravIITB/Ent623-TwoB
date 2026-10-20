@@ -1,0 +1,1073 @@
+{
+ "chksum": "synthetic",
+ "data": {
+  "gstin": "27KEMPB2186R1ZM",
+  "rtnprd": "102026",
+  "version": "1.0",
+  "gendt": "14-10-2026",
+  "docdata": {
+   "b2b": [
+    {
+     "ctin": "27YZECE8757T1ZG",
+     "trdnm": "Bharat Chemicals Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "29-09-2026",
+       "val": 22864.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 19376.92,
+         "igst": 0.0,
+         "cgst": 1743.92,
+         "sgst": 1743.92,
+         "cess": 0
+        }
+       ],
+       "inum": "BCT/26-27/0576",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ZXUCQ3281N1ZI",
+     "trdnm": "Ganesh Fasteners Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "03-09-2026",
+       "val": 253749.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 215041.9,
+         "igst": 0.0,
+         "cgst": 19353.77,
+         "sgst": 19353.77,
+         "cess": 0
+        }
+       ],
+       "inum": "GF-35",
+       "typ": "R"
+      },
+      {
+       "dt": "05-10-2026",
+       "val": 64205.04,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 54411.06,
+         "igst": 0.0,
+         "cgst": 4896.99,
+         "sgst": 4896.99,
+         "cess": 0
+        }
+       ],
+       "inum": "GF-48",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "08RIWFL7233H1ZU",
+     "trdnm": "Trident Fasteners Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "13-09-2026",
+       "val": 23804.54,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17003.24,
+         "igst": 6801.3,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TF/26-27/0187",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27MOKCV4942N1ZG",
+     "trdnm": "Bharat Fasteners Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "08-09-2026",
+       "val": 51873.69,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 43960.75,
+         "igst": 0.0,
+         "cgst": 3956.47,
+         "sgst": 3956.47,
+         "cess": 0
+        }
+       ],
+       "inum": "BF-692",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27TZZCZ4922M1ZA",
+     "trdnm": "Ganesh Paints & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "27-09-2026",
+       "val": 125988.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 106769.88,
+         "igst": 0.0,
+         "cgst": 9609.29,
+         "sgst": 9609.29,
+         "cess": 0
+        }
+       ],
+       "inum": "GPT-216",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "36MVLCO6823F1ZQ",
+     "trdnm": "Lotus Wires Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "18-09-2026",
+       "val": 32192.45,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27281.74,
+         "igst": 4910.71,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0517",
+       "typ": "R"
+      },
+      {
+       "dt": "09-10-2026",
+       "val": 52907.31,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 44836.7,
+         "igst": 8070.61,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0530",
+       "typ": "R"
+      },
+      {
+       "dt": "27-10-2026",
+       "val": 27105.83,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22971.04,
+         "igst": 4134.79,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "LWT/26-27/0533",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "09HFWFQ7616K1ZU",
+     "trdnm": "Unity Office Supplies LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "08-09-2026",
+       "val": 38987.69,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 37131.13,
+         "igst": 1856.56,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "UOI-380",
+       "typ": "R"
+      },
+      {
+       "dt": "12-10-2026",
+       "val": 136422.94,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 115612.66,
+         "igst": 20810.28,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "UOI-392",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27QGBCN7851C1ZR",
+     "trdnm": "Kaveri Hydraulics Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "12-09-2026",
+       "val": 145520.84,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 123322.74,
+         "igst": 0.0,
+         "cgst": 11099.05,
+         "sgst": 11099.05,
+         "cess": 0
+        }
+       ],
+       "inum": "KH/26-27/0579",
+       "typ": "R"
+      },
+      {
+       "dt": "02-10-2026",
+       "val": 47867.35,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 40565.55,
+         "igst": 0.0,
+         "cgst": 3650.9,
+         "sgst": 3650.9,
+         "cess": 0
+        }
+       ],
+       "inum": "KH/26-27/0581",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ESOPE8771V1ZB",
+     "trdnm": "Orion Chemicals LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "25-09-2026",
+       "val": 86408.56,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 61720.4,
+         "igst": 0.0,
+         "cgst": 12344.08,
+         "sgst": 12344.08,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-583",
+       "typ": "R"
+      },
+      {
+       "dt": "02-10-2026",
+       "val": 74174.25,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 62859.53,
+         "igst": 0.0,
+         "cgst": 5657.36,
+         "sgst": 5657.36,
+         "cess": 0
+        }
+       ],
+       "inum": "OCI-597",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27IOAFL6389R1ZD",
+     "trdnm": "Vardhan Wires LLP",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "17-09-2026",
+       "val": 49584.92,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 42021.12,
+         "igst": 0.0,
+         "cgst": 3781.9,
+         "sgst": 3781.9,
+         "cess": 0
+        }
+       ],
+       "inum": "VWI-50",
+       "typ": "R"
+      },
+      {
+       "dt": "04-10-2026",
+       "val": 49475.25,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 41928.19,
+         "igst": 0.0,
+         "cgst": 3773.53,
+         "sgst": 3773.53,
+         "cess": 0
+        }
+       ],
+       "inum": "VWI-54",
+       "typ": "R"
+      },
+      {
+       "dt": "02-10-2026",
+       "val": 66413.45,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 47438.17,
+         "igst": 0.0,
+         "cgst": 9487.64,
+         "sgst": 9487.64,
+         "cess": 0
+        }
+       ],
+       "inum": "VWI-58",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27XHMFP2320F1ZF",
+     "trdnm": "Vardhan Electricals Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "21-10-2026",
+       "val": 11459.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 9711.06,
+         "igst": 0.0,
+         "cgst": 874.0,
+         "sgst": 874.0,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/587",
+       "typ": "R"
+      },
+      {
+       "dt": "29-10-2026",
+       "val": 130742.15,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 110798.43,
+         "igst": 0.0,
+         "cgst": 9971.86,
+         "sgst": 9971.86,
+         "cess": 0
+        }
+       ],
+       "inum": "GST/2026-27/589",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "06HDCFI1648Y1Z8",
+     "trdnm": "Mahalaxmi Packaging Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "25-10-2026",
+       "val": 19681.24,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14058.03,
+         "igst": 5623.21,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "783",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "07LPDCP8634P1ZL",
+     "trdnm": "Sahyadri Traders Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "15-10-2026",
+       "val": 146027.8,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 123752.37,
+         "igst": 22275.43,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "105",
+       "typ": "R"
+      },
+      {
+       "dt": "06-10-2026",
+       "val": 103229.08,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 87482.27,
+         "igst": 15746.81,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "108",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27HDHFG6533G1Z0",
+     "trdnm": "Bharat Hydraulics Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "26-10-2026",
+       "val": 12212.52,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 11630.98,
+         "igst": 0.0,
+         "cgst": 290.77,
+         "sgst": 290.77,
+         "cess": 0
+        }
+       ],
+       "inum": "BHI00633",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27SERCL1417C1ZX",
+     "trdnm": "Prism Polymers Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "19-10-2026",
+       "val": 8314.31,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 5938.79,
+         "igst": 0.0,
+         "cgst": 1187.76,
+         "sgst": 1187.76,
+         "cess": 0
+        }
+       ],
+       "inum": "PP00408",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ZAICA1302X1ZJ",
+     "trdnm": "Everest Chemicals Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "28-10-2026",
+       "val": 76040.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 64441.06,
+         "igst": 0.0,
+         "cgst": 5799.69,
+         "sgst": 5799.69,
+         "cess": 0
+        }
+       ],
+       "inum": "ECT00243",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27PUMCG2103G1ZC",
+     "trdnm": "Unity Bearings Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "11-10-2026",
+       "val": 67137.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 56895.92,
+         "igst": 0.0,
+         "cgst": 5120.64,
+         "sgst": 5120.64,
+         "cess": 0
+        }
+       ],
+       "inum": "UBI-137",
+       "typ": "R"
+      },
+      {
+       "dt": "19-10-2026",
+       "val": 26326.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22310.56,
+         "igst": 0.0,
+         "cgst": 2007.95,
+         "sgst": 2007.95,
+         "cess": 0
+        }
+       ],
+       "inum": "UBI-139",
+       "typ": "R"
+      },
+      {
+       "dt": "19-10-2026",
+       "val": 129014.21,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 92153.01,
+         "igst": 0.0,
+         "cgst": 18430.6,
+         "sgst": 18430.6,
+         "cess": 0
+        }
+       ],
+       "inum": "UBI-140",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "29RAYCO6334T1ZJ",
+     "trdnm": "Pioneer Logistics Pvt Ltd",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "22-10-2026",
+       "val": 19382.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 13844.41,
+         "igst": 5537.76,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "PLT00548",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33HYSFI9918N1ZX",
+     "trdnm": "Trident Electricals Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "29-10-2026",
+       "val": 6288.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 4491.64,
+         "igst": 1796.66,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TE/26-27/0766",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27BCVFQ5619T1ZS",
+     "trdnm": "Apex Traders Industries",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "18-10-2026",
+       "val": 69674.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 66356.48,
+         "igst": 0.0,
+         "cgst": 1658.91,
+         "sgst": 1658.91,
+         "cess": 0
+        }
+       ],
+       "inum": "AT/323/26-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "07QNQCR3487Q1Z2",
+     "trdnm": "Saraswati Wires & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "28-10-2026",
+       "val": 36756.45,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 31149.53,
+         "igst": 5606.92,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SWT/26-27/0918",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27XIPPF9459A1ZE",
+     "trdnm": "Sahyadri Logistics & Co",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "23-10-2026",
+       "val": 64378.23,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 54557.83,
+         "igst": 0.0,
+         "cgst": 4910.2,
+         "sgst": 4910.2,
+         "cess": 0
+        }
+       ],
+       "inum": "SL00399",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "24ERDPJ3961D1Z0",
+     "trdnm": "Tulsi Fasteners Enterprises",
+     "supfildt": "10-10-2026",
+     "supprd": "102026",
+     "inv": [
+      {
+       "dt": "30-10-2026",
+       "val": 38968.17,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27834.41,
+         "igst": 11133.76,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFT00691",
+       "typ": "R"
+      }
+     ]
+    }
+   ],
+   "cdnr": []
+  }
+ }
+}

@@ -60,18 +60,28 @@ class ExtractionResult:
     errors:     list = field(default_factory=list)
 
     @property
+    def has_tax(self):
+        return any(f and f.value for f in (self.cgst, self.sgst, self.igst))
+
+    @property
     def overall_confidence(self):
-        fields = [
-            self.supplier_gstin, self.invoice_number,
-            self.invoice_date, self.taxable_value,
-            self.cgst, self.sgst, self.total_amount,
-        ]
-        valid = [f.confidence for f in fields if f and f.value]
-        return round(sum(valid) / len(valid), 2) if valid else 0.0
+        """Average over the fields every invoice must have; a missing field counts as 0."""
+        if self.source_type != "invoice":
+            return 1.0 if not self.errors else 0.0
+        core = [self.supplier_gstin, self.invoice_number, self.invoice_date, self.taxable_value,
+                self.total_amount]
+        scores = [f.confidence if (f and f.value) else 0.0 for f in core]
+        tax = [f.confidence for f in (self.cgst, self.sgst, self.igst) if f and f.value]
+        scores.append(max(tax) if tax else 0.0)
+        return round(sum(scores) / len(scores), 2)
 
     @property
     def needs_review(self):
-        return self.overall_confidence < 0.80
+        if self.source_type != "invoice":
+            return bool(self.errors)
+        missing = not (self.supplier_gstin and self.supplier_gstin.value) or \
+            not (self.invoice_number and self.invoice_number.value) or not self.has_tax
+        return missing or self.overall_confidence < 0.80
 
     def to_dict(self):
         return asdict(self)
@@ -84,16 +94,9 @@ GSTIN_PATTERN = re.compile(
 )
 
 def validate_gstin(gstin: str) -> bool:
-    """Validate GSTIN using checksum algorithm."""
-    if not gstin or len(gstin) != 15:
-        return False
-    if not GSTIN_PATTERN.match(gstin):
-        return False
-    # State code check (01-38 valid)
-    state = int(gstin[:2])
-    if not (1 <= state <= 38):
-        return False
-    return True
+    """Validate GSTIN: format, state code and the official check digit."""
+    from taxmind.gstin import is_valid
+    return is_valid(gstin)
 
 
 # ── Regex field extractors ────────────────────────────────────────────────────
@@ -130,10 +133,10 @@ def extract_amounts(text: str) -> dict:
     result = {}
 
     amount_patterns = {
-        # Match CGST/SGST/IGST followed by optional rate then Rs/amount — amount must be >100 to avoid capturing rates
-        "cgst":          r'(?:CGST|Central\s*GST)\s*(?:@\s*[\d\.]+\s*%\s*)?[:\-]?\s*(?:Rs\.?|INR|₹)\s*([\d,]{3,}(?:\.\d{1,2})?)',
-        "sgst":          r'(?:SGST|State\s*GST)\s*(?:@\s*[\d\.]+\s*%\s*)?[:\-]?\s*(?:Rs\.?|INR|₹)\s*([\d,]{3,}(?:\.\d{1,2})?)',
-        "igst":          r'(?:IGST|Integrated\s*GST)\s*(?:@\s*[\d\.]+\s*%\s*)?[:\-]?\s*(?:Rs\.?|INR|₹)\s*([\d,]{3,}(?:\.\d{1,2})?)',
+        # Tax label, optional rate ('@18%' or '18%'), optional currency, then the amount (3+ digits so a rate is never taken as the amount)
+        "cgst":        r'(?:CGST|Central\s*GST|Central\s*Tax)\s*(?:@?\s*[\d\.]+\s*%\s*)?[:\-]?\s*(?:Rs\.?|INR|₹)?\s*([\d,]{3,}(?:\.\d{1,2})?)',
+        "sgst":        r'(?:SGST|UTGST|State\s*GST|State\s*Tax)\s*(?:@?\s*[\d\.]+\s*%\s*)?[:\-]?\s*(?:Rs\.?|INR|₹)?\s*([\d,]{3,}(?:\.\d{1,2})?)',
+        "igst":        r'(?:IGST|Integrated\s*GST|Integrated\s*Tax)\s*(?:@?\s*[\d\.]+\s*%\s*)?[:\-]?\s*(?:Rs\.?|INR|₹)?\s*([\d,]{3,}(?:\.\d{1,2})?)',
         "taxable_value": r'(?:Taxable\s*(?:Value|Amount)|Taxable)\s*[:\-]?\s*(?:Rs\.?|INR|₹)?\s*([\d,]{3,}(?:\.\d{1,2})?)',
         "total_amount":  r'(?:Total\s*(?:Invoice\s*Value|Amount|Value)|Grand\s*Total|Invoice\s*Total)\s*[:\-]?\s*(?:Rs\.?|INR|₹)?\s*([\d,]{3,}(?:\.\d{1,2})?)',
     }
@@ -341,76 +344,41 @@ def parse_xlsx_bank_statement(filepath: str) -> ExtractionResult:
         result.errors.append(f"XLSX parse error: {e}")
     return result
 
-def parse_gstr_json(filepath: str) -> ExtractionResult:
-    """Parse GSTR-1 / GSTR-2B JSON export from GST portal."""
-    result = ExtractionResult(
-        filename=Path(filepath).name,
-        doc_type="json",
-        source_type="gstr_json"
-    )
-    try:
-        with open(filepath) as f:
-            data = json.load(f)
-
-        # Extract filing GSTIN
-        gstin = data.get("gstin", data.get("ctin", ""))
-        if gstin:
-            result.supplier_gstin = score_gstin(gstin, 1.0)
-
-        # Parse B2B invoices (standard GSTR schema)
-        invoices = data.get("b2b", [])
-        for supplier in invoices:
-            supplier_gstin = supplier.get("ctin", "")
-            for inv in supplier.get("inv", []):
-                item = LineItem(
-                    description=f"Invoice {inv.get('inum', '')}",
-                    hsn_code=None,
-                    quantity=None,
-                    rate=None,
-                    amount=str(inv.get("val", "")),
-                    taxable_value=str(inv.get("itms", [{}])[0].get("itm_det", {}).get("txval", "")),
-                    gst_rate=str(inv.get("itms", [{}])[0].get("itm_det", {}).get("rt", "")),
-                )
-                result.line_items.append(item)
-
-        result.raw_text = json.dumps(data, indent=2)
-    except Exception as e:
-        result.errors.append(f"GSTR JSON parse error: {e}")
+def _docs_to_result(filepath: str, doc_type: str, source_type: str, docs, notes) -> ExtractionResult:
+    result = ExtractionResult(filename=Path(filepath).name, doc_type=doc_type, source_type=source_type)
+    for d in docs:
+        result.line_items.append(LineItem(
+            description=f"{d.supplier_gstin} | {d.doc_type.value} {d.doc_no} | {d.doc_date}",
+            hsn_code=None, quantity=None, rate=None,
+            amount=f"{d.taxable + d.tax:.2f}", taxable_value=f"{d.taxable:.2f}", gst_rate=None))
+    result.raw_text = "\n".join(notes)
+    if not docs:
+        result.errors.append("No documents found in file")
     return result
+
+
+def parse_gstr_json(filepath: str) -> ExtractionResult:
+    """GSTR-2B / GSTR-2A / IMS JSON from the GST portal (via taxmind.loaders)."""
+    from taxmind.loaders import portal_json
+    try:
+        docs, notes = portal_json.load(filepath)
+    except Exception as e:
+        r = ExtractionResult(filename=Path(filepath).name, doc_type="json", source_type="gstr_json")
+        r.errors.append(f"GSTR JSON parse error: {e}")
+        return r
+    return _docs_to_result(filepath, "json", "gstr_json", docs, notes)
+
 
 def parse_tally_xml(filepath: str) -> ExtractionResult:
-    """Parse Tally Prime XML export."""
-    result = ExtractionResult(
-        filename=Path(filepath).name,
-        doc_type="xml",
-        source_type="tally_xml"
-    )
+    """Tally XML export: purchase vouchers with the supplier's invoice no. (REFERENCE)."""
+    from taxmind.loaders import tally_xml
     try:
-        tree = ET.parse(filepath)
-        root = tree.getroot()
-
-        for voucher in root.iter("VOUCHER"):
-            v_type = voucher.find("VOUCHERTYPENAME")
-            if v_type is not None and "purchase" in v_type.text.lower():
-                inv_no = voucher.find("VOUCHERNUMBER")
-                date   = voucher.find("DATE")
-                amount = voucher.find("AMOUNT")
-
-                item = LineItem(
-                    description=f"Voucher {inv_no.text if inv_no is not None else ''}",
-                    hsn_code=None,
-                    quantity=None,
-                    rate=None,
-                    amount=amount.text if amount is not None else "",
-                    taxable_value=None,
-                    gst_rate=None,
-                )
-                result.line_items.append(item)
-
-        result.raw_text = ET.tostring(root, encoding="unicode")
+        docs, notes = tally_xml.load(filepath)
     except Exception as e:
-        result.errors.append(f"Tally XML parse error: {e}")
-    return result
+        r = ExtractionResult(filename=Path(filepath).name, doc_type="xml", source_type="tally_xml")
+        r.errors.append(f"Tally XML parse error: {e}")
+        return r
+    return _docs_to_result(filepath, "xml", "tally_xml", docs, notes)
 
 
 # ── Main field extraction from raw text ──────────────────────────────────────
