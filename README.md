@@ -4,7 +4,7 @@ TaxMind matches a client's purchase register against GSTR-2B / IMS and recommend
 
 It also runs pre-filing checks before GSTR-3B is filed, drafts WhatsApp/email messages for suppliers who need to fix something, and writes an Excel workbook for the CA.
 
-Built for ENT 623. The recommendations are defaults for a CA to review, not filing advice.
+Built by team TwoB for ENT 623. The recommendations are defaults for a CA to review, not filing advice.
 
 ## Quick start
 
