@@ -203,6 +203,7 @@ def generate(out_dir: str | Path, seed: int = 7, n_suppliers: int = 45, n_invoic
         elif kind == "other_gstin":
             cases.append(Case(kind, [Status.OTHER_GSTIN], [inv], [clone(inv, gstin=s.alt_gstin)]))
         elif kind == "split":
+            d = min(d, date(2026, 9, 27))           # all parts stay inside September
             parts = [new_inv(s, d + timedelta(days=k), rate=18) for k in range(rng.choice([2, 3]))]
             intra = s.gstin[:2] == client_gstin[:2]
             tot = round(sum(x.taxable for x in parts), 2)

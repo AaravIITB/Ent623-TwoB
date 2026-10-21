@@ -14,11 +14,12 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import dataclass
+from datetime import date
 from itertools import combinations
 
 from .config import Config
 from .models import Doc, Status
-from .normalize import days_apart, doc_relation, is_typo, k3
+from .normalize import days_apart, digits, doc_relation, is_typo, k1, k2, k3, serial_runs
 
 
 @dataclass
@@ -31,6 +32,7 @@ class Pair:
     date_gap: int | None = None
     tax_diff: float = 0.0
     taxable_diff: float = 0.0
+    repeat_amount: bool = False     # supplier bills this same amount repeatedly -> amounts prove little
 
 
 def _amounts_equal(a: Doc, b: Doc, tol: float) -> bool:
@@ -44,9 +46,10 @@ def _head_mismatch(a: Doc, b: Doc, tol: float) -> bool:
     return a_inter != b_inter and abs(a.tax - b.tax) <= tol and abs(a.taxable - b.taxable) <= tol
 
 
-def score_pair(bk: Doc, pt: Doc, cfg: Config) -> Pair | None:
+def score_pair(bk: Doc, pt: Doc, cfg: Config, repeats: set | None = None) -> Pair | None:
     if bk.pan != pt.pan or bk.doc_type != pt.doc_type:
         return None
+    repeat = bool(repeats) and (pt.supplier_gstin, round(pt.tax)) in repeats
     tol = cfg.amount_tolerance
     rel = doc_relation(bk.doc_no, pt.doc_no)
     if rel == 3 and len(_core(bk.doc_no)) < cfg.min_core_digits:
@@ -59,17 +62,22 @@ def score_pair(bk: Doc, pt: Doc, cfg: Config) -> Pair | None:
 
     def mk(status, score):
         return Pair([bk], [pt], status, score, rel, gap,
-                    round(pt.tax - bk.tax, 2), round(pt.taxable - bk.taxable, 2))
+                    round(pt.tax - bk.tax, 2), round(pt.taxable - bk.taxable, 2), repeat)
+
+    if repeat and rel == 0:
+        return None          # same amount but unrelated number: with recurring bills that is no evidence
 
     if not same_gstin:
-        if rel in (1, 2, 3) and (eq or head):
+        if rel in (1, 2, 3) and (eq or head) and (gap is None or gap <= 31):
             return mk(Status.OTHER_GSTIN, 70 - rel)
         return None
     if head and rel in (1, 2, 3, 4):
         return mk(Status.HEAD_MISMATCH, 76 - rel)
     if eq:
         if rel == 1:
-            return mk(Status.EXACT, 100) if gap == 0 else mk(Status.DATE_DIFF, 94)
+            if gap == 0:
+                return mk(Status.EXACT, 100)
+            return mk(Status.DATE_DIFF, 94 if (gap is not None and gap <= 45) else 72)
         if rel in (2, 3):
             return mk(Status.FORMAT_DIFF, 92 - rel) if (gap is None or gap <= 45) else None
         if rel == 4 and (near or gap is None):
@@ -89,22 +97,74 @@ def score_pair(bk: Doc, pt: Doc, cfg: Config) -> Pair | None:
 
 
 def _core(doc_no: str) -> str:
-    from .normalize import k3
     return k3(doc_no)
 
 
-def match_one_to_one(books: list[Doc], portal: list[Doc], cfg: Config, exclude: set | None = None):
+def _tax_bucket(x: float, tol: float) -> int:
+    return int(x // max(tol, 1.0))
+
+
+def _candidates(books: list[Doc], portal: list[Doc], cfg: Config):
+    """Only pairs that could score: same PAN and type, and either a related invoice
+    number (k1 / k2 / serial digits) or the same tax amount. Avoids all-vs-all."""
+    import bisect
+    tol = cfg.amount_tolerance
+    win = cfg.date_window_days                 # amount-only statuses (typo, look-alike) need close dates
+    by_no = defaultdict(set)
+    by_tax = defaultdict(list)                 # bucket -> sorted [(ordinal date, idx)]
+    undated = defaultdict(set)
+    for i, p in enumerate(portal):
+        base = (p.pan, p.doc_type)
+        for key in (k1(p.doc_no), k2(p.doc_no), "#" + digits(p.doc_no)):
+            if key and key != "#":
+                by_no[base + (key,)].add(i)
+        bk = base + (_tax_bucket(p.tax, tol),)
+        if p.doc_date:
+            by_tax[bk].append((p.doc_date.toordinal(), i))
+        else:
+            undated[bk].add(i)
+    for lst in by_tax.values():
+        lst.sort()
+    for b in books:
+        base = (b.pan, b.doc_type)
+        idx = set()
+        for key in (k1(b.doc_no), k2(b.doc_no), "#" + digits(b.doc_no)):
+            if key and key != "#":
+                idx |= by_no.get(base + (key,), set())
+        t = _tax_bucket(b.tax, tol)
+        for bucket in (t - 1, t, t + 1):
+            bk = base + (bucket,)
+            idx |= undated.get(bk, set())
+            lst = by_tax.get(bk)
+            if not lst:
+                continue
+            if b.doc_date is None:
+                idx |= {i for _, i in lst}
+            else:
+                o = b.doc_date.toordinal()
+                lo = bisect.bisect_left(lst, (o - win, -1))
+                hi = bisect.bisect_right(lst, (o + win, len(portal)))
+                idx |= {i for _, i in lst[lo:hi]}
+        for i in idx:
+            yield b, portal[i]
+
+
+def repeated_amounts(docs: list[Doc], min_count: int = 3) -> set:
+    """(supplier GSTIN, rounded tax) pairs that occur at least `min_count` times: recurring bills."""
+    from collections import Counter
+    c = Counter((d.supplier_gstin, round(d.tax)) for d in docs)
+    return {k for k, n in c.items() if n >= min_count}
+
+
+def match_one_to_one(books: list[Doc], portal: list[Doc], cfg: Config, exclude: set | None = None,
+                     repeats: set | None = None):
     """Assign pairs one-to-one, strongest first. `exclude` skips statuses
     (used to hold weak pairings back until split invoices are found)."""
-    by_key = defaultdict(list)
-    for p in portal:
-        by_key[(p.pan, p.doc_type)].append(p)
     cands: list[Pair] = []
-    for b in books:
-        for p in by_key.get((b.pan, b.doc_type), []):
-            pr = score_pair(b, p, cfg)
-            if pr and not (exclude and pr.status in exclude):
-                cands.append(pr)
+    for b, p in _candidates(books, portal, cfg):
+        pr = score_pair(b, p, cfg, repeats)
+        if pr and not (exclude and pr.status in exclude):
+            cands.append(pr)
     # strongest first; ties -> closer dates, smaller differences
     cands.sort(key=lambda c: (-c.score, c.date_gap if c.date_gap is not None else 999,
                               abs(c.tax_diff) + abs(c.taxable_diff)))
@@ -121,6 +181,16 @@ def match_one_to_one(books: list[Doc], portal: list[Doc], cfg: Config, exclude: 
     return pairs, rest_b, rest_p
 
 
+def _related(target: Doc, parts) -> bool:
+    """A split is only believable if the numbers connect: the combined entry quotes one
+    of the invoice numbers, or a range like '471 to 473'."""
+    runs = set(serial_runs(target.doc_no))
+    for p in parts:
+        if doc_relation(target.doc_no, p.doc_no) in (1, 2, 3, 4) or (k3(p.doc_no) and k3(p.doc_no) in runs):
+            return True
+    return False
+
+
 def _subset_match(target: Doc, pool: list[Doc], cfg: Config):
     tol = cfg.amount_tolerance
     pool = [d for d in pool
@@ -131,7 +201,7 @@ def _subset_match(target: Doc, pool: list[Doc], cfg: Config):
     for size in range(2, cfg.split_max_parts + 1):
         for combo in combinations(pool, size):
             if (abs(sum(d.taxable for d in combo) - target.taxable) <= tol * size and
-                    abs(sum(d.tax for d in combo) - target.tax) <= tol * size):
+                    abs(sum(d.tax for d in combo) - target.tax) <= tol * size and _related(target, combo)):
                 return list(combo)
     return None
 
@@ -171,8 +241,23 @@ def match_splits(books: list[Doc], portal: list[Doc], cfg: Config):
 
 def find_duplicates(books: list[Doc]) -> list[list[Doc]]:
     """Same supplier GSTIN + same normalised invoice no. + same type + same tax, booked twice."""
-    from .normalize import k2
     groups = defaultdict(list)
     for b in books:
         groups[(b.supplier_gstin, k2(b.doc_no), b.doc_type, round(b.tax))].append(b)
-    return [g for g in groups.values() if len(g) > 1]
+    out = []
+    for g in groups.values():
+        if len(g) < 2:
+            continue
+        g = sorted(g, key=lambda d: d.doc_date or date.min)
+        cluster = [g[0]]
+        for d in g[1:]:
+            gap = days_apart(d.doc_date, cluster[-1].doc_date)
+            if gap is None or gap <= 45:
+                cluster.append(d)
+            else:
+                if len(cluster) > 1:
+                    out.append(cluster)
+                cluster = [d]
+        if len(cluster) > 1:
+            out.append(cluster)
+    return out

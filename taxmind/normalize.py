@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import re
 from datetime import date
+from functools import lru_cache
 
 _SEP = re.compile(r"[^0-9A-Z]")
 def _is_year(t: str) -> bool:
@@ -56,10 +57,12 @@ def _fix_ocr_letters(s: str) -> str:
     return s
 
 
+@lru_cache(maxsize=200_000)
 def k1(doc_no: str) -> str:
     return _SEP.sub("", str(doc_no or "").upper())
 
 
+@lru_cache(maxsize=200_000)
 def k2(doc_no: str) -> str:
     s = str(doc_no or "").upper()
     s = _strip_fy(s)
@@ -69,12 +72,33 @@ def k2(doc_no: str) -> str:
     return s
 
 
-def k3(doc_no: str) -> str:
+@lru_cache(maxsize=200_000)
+def serial_runs(doc_no: str) -> tuple:
+    """Digit runs that make up the serial: financial years and standalone years removed.
+    'INV/045/2026' -> ('45',), 'SEP/0012/26' -> ('12',), 'SA-1203' -> ('1203',)."""
     s = _fix_ocr_letters(_strip_fy(str(doc_no or "").upper()))
     runs = re.findall(r"\d+", s)
-    if not runs:
-        return ""
-    return runs[-1].lstrip("0") or "0"
+    trailing_yy = re.search(r"[-/]\s*(\d{2})\s*$", s)     # '.../26' at the very end
+    if len(runs) > 1:
+        keep = []
+        for i, r in enumerate(runs):
+            is_year = (len(r) == 4 and r.startswith("20") and 15 <= int(r[2:]) <= 45) or \
+                      (len(r) == 2 and i == len(runs) - 1 and trailing_yy and 15 <= int(r) <= 45)
+            if not is_year:
+                keep.append(r)
+        runs = keep or runs
+    return tuple(r.lstrip("0") or "0" for r in runs)
+
+
+def k3(doc_no: str) -> str:
+    """The core serial number (last serial digit run)."""
+    runs = serial_runs(doc_no)
+    return runs[-1] if runs else ""
+
+
+def digits(doc_no: str) -> str:
+    """All serial digits in order, e.g. 'PO12/INV45' -> '1245'."""
+    return "".join(serial_runs(doc_no))
 
 
 def edit_distance(a: str, b: str, cap: int = 3) -> int:
@@ -99,6 +123,7 @@ def edit_distance(a: str, b: str, cap: int = 3) -> int:
     return prev[lb]
 
 
+@lru_cache(maxsize=500_000)
 def doc_relation(a: str, b: str) -> int:
     """How strongly two invoice numbers look like the same document.
 
@@ -117,23 +142,45 @@ def doc_relation(a: str, b: str) -> int:
     if a2 and a2 == b2:
         return 2
     a3, b3 = k3(a), k3(b)
-    if a3 and a3 == b3 and len(a3) >= 2:
+    if a3 and a3 == b3 and len(a3) >= 2 and digits(a) == digits(b):
         return 3
     if is_typo(a, b, min_len=4):
         return 4
     return 0
 
 
+@lru_cache(maxsize=200_000)
 def _kz(doc_no: str) -> str:
     """Like k2 but keeps leading zeros (so 1083 vs 0083 is one edit, not two)."""
     s = _fix_ocr_letters(_strip_fy(str(doc_no or "").upper()))
     return _SEP.sub("", s)
 
 
+def within_one(x: str, y: str) -> bool:
+    """True if x and y differ by at most one substitution, insertion, deletion or
+    adjacent swap. Linear time (no full edit-distance table)."""
+    if x == y:
+        return True
+    lx, ly = len(x), len(y)
+    if abs(lx - ly) > 1:
+        return False
+    i = 0
+    while i < min(lx, ly) and x[i] == y[i]:
+        i += 1
+    if lx == ly:
+        if x[i + 1:] == y[i + 1:]:
+            return True                                   # substitution
+        return i + 1 < lx and x[i] == y[i + 1] and x[i + 1] == y[i] and x[i + 2:] == y[i + 2:]  # swap
+    if lx > ly:
+        return x[i + 1:] == y[i:]                         # deletion
+    return x[i:] == y[i + 1:]                             # insertion
+
+
+@lru_cache(maxsize=500_000)
 def is_typo(a: str, b: str, min_len: int = 4) -> bool:
     """One character apart (substitution, insertion, deletion or swap)."""
     for x, y in ((k2(a), k2(b)), (_kz(a), _kz(b))):
-        if x and y and max(len(x), len(y)) >= min_len and edit_distance(x, y, cap=1) <= 1:
+        if x and y and max(len(x), len(y)) >= min_len and within_one(x, y):
             return True
     return False
 

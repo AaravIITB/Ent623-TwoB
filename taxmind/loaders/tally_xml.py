@@ -17,14 +17,8 @@ from pathlib import Path
 
 from ..models import Doc, DocType, Side
 from .. import gstin as G
-from .common import to_date, to_float
+from .common import tax_kind, to_date, to_float
 
-_TAX = {
-    "igst": ("igst", "integrated"),
-    "cgst": ("cgst", "central"),
-    "sgst": ("sgst", "utgst", "state tax", "sgst/utgst"),
-    "cess": ("cess",),
-}
 _SKIP_LEDGER = ("round", "tds", "discount")
 
 
@@ -51,20 +45,13 @@ def _txt(el, *tags):
     return ""
 
 
-def _tax_kind(ledger: str) -> str | None:
-    l = ledger.lower()
-    for kind, keys in _TAX.items():
-        if any(k in l for k in keys):
-            return kind
-    return None
-
-
 def load(path: str | Path, uid_prefix: str = "B") -> tuple[list[Doc], list[str]]:
     path = Path(path)
     root = ET.fromstring(_read_text(path))
     docs: list[Doc] = []
     notes: list[str] = []
     no_ref = 0
+    no_gstin = 0
     n = 0
     for v in root.iter("VOUCHER"):
         vtype = (_txt(v, "VOUCHERTYPENAME") or v.get("VCHTYPE") or "").lower()
@@ -88,15 +75,27 @@ def load(path: str | Path, uid_prefix: str = "B") -> tuple[list[Doc], list[str]]
         taxable = 0.0
         party_amt = None
         entries = list(v.iter("ALLLEDGERENTRIES.LIST")) + list(v.iter("LEDGERENTRIES.LIST"))
-        for e in entries:
-            led = _txt(e, "LEDGERNAME")
-            amt = abs(to_float(_txt(e, "AMOUNT")))
-            if not led:
-                continue
-            if party and led.strip().lower() == party.strip().lower():
+        lines = [(_txt(e, "LEDGERNAME"), to_float(_txt(e, "AMOUNT")),
+                  _txt(e, "ISPARTYLEDGER").lower() == "yes") for e in entries if _txt(e, "LEDGERNAME")]
+        party_idx = next((i for i, (led, _, flag) in enumerate(lines) if flag), None)
+        if party_idx is None and party:
+            party_idx = next((i for i, (led, _, _) in enumerate(lines)
+                              if led.strip().lower() == party.strip().lower()), None)
+        if party_idx is None and len(lines) > 1:
+            # PARTYNAME is often the mailing name; the party line is the one that balances the rest
+            for i, (led, amt, _) in enumerate(lines):
+                others = sum(a for j, (_, a, _) in enumerate(lines) if j != i)
+                if amt and abs(amt + others) <= 2 and all((a > 0) != (amt > 0) for j, (_, a, _) in
+                                                           enumerate(lines) if j != i and a):
+                    party_idx = i
+                    break
+        for i, (led, amt, _) in enumerate(lines):
+            amt = abs(amt)
+            if i == party_idx:
                 party_amt = amt
+                party = party or led
                 continue
-            kind = _tax_kind(led)
+            kind = tax_kind(led)
             if kind:
                 amounts[kind] += amt
             elif not any(s in led.lower() for s in _SKIP_LEDGER):
@@ -106,6 +105,7 @@ def load(path: str | Path, uid_prefix: str = "B") -> tuple[list[Doc], list[str]]
         if inv_total and not taxable:
             taxable = inv_total
         if not g:
+            no_gstin += 1
             continue
         n += 1
         d = Doc(
@@ -122,6 +122,9 @@ def load(path: str | Path, uid_prefix: str = "B") -> tuple[list[Doc], list[str]]
         d.period = (voucher_date or d.doc_date).strftime("%m%Y") if (voucher_date or d.doc_date) else ""
         docs.append(d)
     notes.append(f"{path.name}: {len(docs)} purchase/debit-note vouchers read")
+    if no_gstin:
+        notes.append(f"{path.name}: {no_gstin} purchase vouchers skipped - no supplier GSTIN on the voucher "
+                     "(older Tally exports keep it on the ledger; export with GSTIN or use the Excel register)")
     if no_ref:
         notes.append(f"{path.name}: {no_ref} vouchers have no supplier invoice no. (REFERENCE); "
                      "Tally voucher no. used instead - these will match poorly")

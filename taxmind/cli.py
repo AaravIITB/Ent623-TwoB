@@ -27,7 +27,8 @@ def _reconcile(a):
                     planned_itc=a.planned_itc, notes=n1 + n2)
     from .report import write_excel, write_html
     out = Path(a.out)
-    stem = f"taxmind_{(a.client or 'client').replace(' ', '_')}_{res.period}"
+    import re
+    stem = f"taxmind_{re.sub(r'[^A-Za-z0-9]+', '_', a.client or 'client').strip('_')}_{res.period}"
     x = write_excel(res, out / f"{stem}.xlsx")
     h = write_html(res, out / f"{stem}_prefiling.html")
     s = res.summary

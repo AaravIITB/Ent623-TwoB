@@ -84,7 +84,7 @@ def load(path: str | Path, uid_prefix: str = "P") -> tuple[list[Doc], list[str]]
     root = raw.get("data", raw) if isinstance(raw, dict) else {}
     period = to_period(root.get("rtnprd") or raw.get("rtnprd") or root.get("fp") or raw.get("fp") or "")
     docdata = root.get("docdata", root)
-    known = {"b2b", "b2ba", "cdnr", "cdnra"}
+    known = {"b2b", "b2ba", "cdnr", "cdnra", "cdn", "cdna"}
     if not isinstance(docdata, dict) or not (known & set(docdata)):
         docs = _walk_generic(raw, path.name, uid_prefix, period)
         notes.append(f"{path.name}: read {len(docs)} records with the generic (IMS) reader")
@@ -92,7 +92,8 @@ def load(path: str | Path, uid_prefix: str = "P") -> tuple[list[Doc], list[str]]
 
     docs: list[Doc] = []
     n = 0
-    sections = [("b2b", "inv", None), ("cdnr", "nt", "note"), ("b2ba", "inv", None), ("cdnra", "nt", "note")]
+    sections = [("b2b", "inv", None), ("cdnr", "nt", "note"), ("cdn", "nt", "note"),     # cdn/cdna: GSTR-2A
+                ("b2ba", "inv", None), ("cdnra", "nt", "note"), ("cdna", "nt", "note")]
     amended: dict[tuple, Doc] = {}
     for sec, inner, kind in sections:
         for sup in docdata.get(sec, []) or []:
@@ -102,14 +103,24 @@ def load(path: str | Path, uid_prefix: str = "P") -> tuple[list[Doc], list[str]]
                 dt = _note_type(rec) if kind else DocType.INVOICE
                 d = _make(rec, sup, period or sup_period, f"{path.name}:{sec}", uid_prefix, dt, n)
                 if sec.endswith("a"):
-                    orig = str(rec.get("oinum") or rec.get("ontnum") or "")
+                    orig = str(rec.get("oinum") or rec.get("ontnum") or rec.get("ont_num") or "")
+                    d.amends = orig or "(original no. not given)"
                     amended[(d.supplier_gstin, orig)] = d
                     d.source += f" (amends {orig})"
                 else:
                     docs.append(d)
+    if not docs and not amended:
+        docs = _walk_generic(raw, path.name, uid_prefix, period)
+        notes.append(f"{path.name}: read {len(docs)} records with the generic (IMS) reader")
+        return docs, notes
     if amended:
+        replaced = {(d.supplier_gstin, d.doc_no) for d in docs} & set(amended)
+        for d in amended.values():
+            if (d.supplier_gstin, d.amends) in replaced:
+                d.amends = ""            # original was in this same file and is now replaced
         docs = [d for d in docs if (d.supplier_gstin, d.doc_no) not in amended] + list(amended.values())
-        notes.append(f"{path.name}: applied {len(amended)} amendments (b2ba/cdnra)")
+        notes.append(f"{path.name}: {len(amended)} amendments (b2ba/cdnra); amendments of earlier months "
+                     "count only for the difference")
     skipped = [s for s in ("isd", "isda", "impg", "impgsez", "ecom", "ecoma") if docdata.get(s)]
     if skipped:
         notes.append(f"{path.name}: sections not reconciled here (imports/ISD/e-com): {', '.join(skipped)}")
@@ -118,7 +129,20 @@ def load(path: str | Path, uid_prefix: str = "P") -> tuple[list[Doc], list[str]]
     return docs, notes
 
 
-def _walk_generic(obj, fname, prefix, period, parent=None, out=None, ctx=None):
+def _section_type(key: str):
+    """Doc type implied by an IMS section name: 'b2bcn' -> CN, 'b2bdn' -> DN, 'b2b' -> invoice."""
+    import re
+    k = str(key).lower()
+    if re.search(r"(^|_|b2b)(dn|dbn|debit)", k):
+        return DocType.DEBIT_NOTE
+    if re.search(r"cdn|crn|credit|(^|_|b2b)cn", k):
+        return DocType.CREDIT_NOTE
+    if "b2b" in k or "inv" in k:
+        return DocType.INVOICE
+    return None
+
+
+def _walk_generic(obj, fname, prefix, period, parent=None, out=None, ctx=None, sec_type=None):
     """Find any dict with a document number and a supplier GSTIN (own or inherited)."""
     if out is None:
         out, ctx = [], {"n": 0}
@@ -129,17 +153,19 @@ def _walk_generic(obj, fname, prefix, period, parent=None, out=None, ctx=None):
         if _first(obj, _DOC_KEYS) is not None and (g or (parent and _first(parent, _GSTIN_KEYS))):
             ctx["n"] += 1
             sup = obj if g else parent
-            dt_raw = str(_first(obj, ("doctyp", "typ", "ntty", "doc_type"), "INV")).upper()
+            dt_raw = str(_first(obj, ("doctyp", "typ", "ntty", "doc_type"), "")).upper()
             dt = (DocType.CREDIT_NOTE if dt_raw in ("C", "CN", "CRN", "CREDIT NOTE") else
-                  DocType.DEBIT_NOTE if dt_raw in ("D", "DN", "DBN", "DEBIT NOTE") else DocType.INVOICE)
+                  DocType.DEBIT_NOTE if dt_raw in ("D", "DN", "DBN", "DEBIT NOTE") else
+                  sec_type or DocType.INVOICE)
             d = _make(obj, sup, local_period, f"{fname}:ims", prefix, dt, ctx["n"])
             if not d.ims_action:
                 d.ims_action = ims_action(_first(obj, ("status", "act", "imsstatus"), "")) or ""
             out.append(d)
         else:
             for k, v in obj.items():
-                _walk_generic(v, fname, prefix, local_period, here_parent, out, ctx)
+                _walk_generic(v, fname, prefix, local_period, here_parent, out, ctx,
+                              _section_type(k) if isinstance(v, (list, dict)) and _section_type(k) else sec_type)
     elif isinstance(obj, list):
         for v in obj:
-            _walk_generic(v, fname, prefix, period, parent, out, ctx)
+            _walk_generic(v, fname, prefix, period, parent, out, ctx, sec_type)
     return out

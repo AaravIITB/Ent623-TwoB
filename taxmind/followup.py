@@ -40,10 +40,11 @@ def _next_period(period: str) -> str:
 def _line(f) -> str:
     b = f.books[0] if f.books else None
     p = f.portal[0] if f.portal else None
+    kind = "Credit note" if (b or p).doc_type.value == "CN" else "Invoice"
     if f.status == Status.BOOKS_ONLY:
-        return f"Invoice {b.doc_no} dated {dt(b.doc_date)}, GST {inr(b.tax)}: not reported in your GSTR-1."
+        return f"{kind} {b.doc_no} dated {dt(b.doc_date)}, GST {inr(b.tax)}: not reported in your GSTR-1."
     if f.status == Status.VALUE_DIFF:
-        return (f"Invoice {b.doc_no} dated {dt(b.doc_date)}: you reported GST {inr(p.tax)}, our invoice "
+        return (f"{kind} {b.doc_no} dated {dt(b.doc_date)}: you reported GST {inr(p.tax)}, our copy "
                 f"shows {inr(b.tax)}. Please amend.")
     if f.status == Status.HEAD_MISMATCH:
         ph = "IGST" if p.igst else "CGST+SGST"
@@ -69,17 +70,19 @@ def build_supplier_messages(res, cfg: Config) -> list[SupplierMessage]:
     for g, fs in sorted(groups.items(), key=lambda kv: -sum(f.itc_at_stake for f in kv[1])):
         name = next((d.supplier_name for f in fs for d in f.books + f.portal if d.supplier_name), g)
         total = round(sum(f.itc_at_stake for f in fs), 2)
+        claimable = round(sum(f.itc_at_stake for f in fs if f.books[0].doc_type.value != "CN"), 2)
+        ask = (f"so we can claim the GST credit of {inr(claimable)} in our {claim_in} return" if claimable
+               else "so that our GST records match yours")
         lines = [_line(f) for f in sorted(fs, key=lambda f: f.books[0].doc_date or date.min)]
         bullets = "\n".join(f"• {x}" for x in lines)
         wa = (f"Hello {name}, this is {who}, your customer.\n"
               f"While reconciling our GSTR-2B for {period_label(res.period)}, we found:\n{bullets}\n"
-              f"Please report/correct these in your GSTR-1 (or GSTR-1A) by {dt(fix_by)} so we can claim "
-              f"the GST credit of {inr(total)} in our {claim_in} return. Thank you.")
+              f"Please report/correct these in your GSTR-1 (or GSTR-1A) by {dt(fix_by)}, {ask}. Thank you.")
         subject = f"GST: {len(fs)} invoice(s) to report/correct for {period_label(res.period)} - {who}"
         body = (f"Dear {name},\n\nWhile reconciling our GSTR-2B for {period_label(res.period)}, we found "
                 f"the following differences with invoices you issued to us (your GSTIN {g}):\n\n{bullets}\n\n"
                 f"Total GST credit affected: {inr(total)}.\n\nPlease report or correct these in your "
-                f"GSTR-1 / GSTR-1A by {dt(fix_by)}, so that they reflect in our {claim_in} GSTR-2B. "
+                f"GSTR-1 / GSTR-1A by {dt(fix_by)}, {ask}. "
                 f"If you think our records are wrong, please send us a copy of the invoice.\n\n"
                 f"Regards,\n{who}")
         out.append(SupplierMessage(g, name, len(fs), total, wa, subject, body))

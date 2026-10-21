@@ -110,3 +110,26 @@ IMS_ACTIONS = {"a": "Accepted", "accept": "Accepted", "accepted": "Accepted",
 
 def ims_action(v) -> str:
     return IMS_ACTIONS.get(norm_header(v), "")
+
+
+# Tax ledgers / columns, matched as words so that 'Processing Charges' is not cess and
+# 'Integrated' is not a rate. Names that describe purchases/expenses are never tax.
+_NOT_TAX = re.compile(r"purchase|sales|sale\b|charges?|expense|freight|income|discount|rate\b|rates\b|"
+                      r"applicable|percent|round", re.I)
+_TAX_PATTERNS = {
+    "igst": re.compile(r"(?<![a-z])igst(?![a-z])|integrated\s*(tax|gst)", re.I),
+    "cgst": re.compile(r"(?<![a-z])cgst(?![a-z])|central\s*(tax|gst)", re.I),
+    "sgst": re.compile(r"(?<![a-z])(sgst|utgst)(?![a-z])|state\s*/?\s*(ut)?\s*(tax|gst)|(?<![a-z])ut\s*tax", re.I),
+    "cess": re.compile(r"(?<![a-z])cess(?![a-z])", re.I),
+}
+
+
+def tax_kind(name) -> str | None:
+    """'Input IGST @18%' -> 'igst'; 'Purchase IGST 18%' -> None; 'Processing Charges' -> None."""
+    s = str(name or "")
+    if not s or _NOT_TAX.search(s):
+        return None
+    for kind, pat in _TAX_PATTERNS.items():
+        if pat.search(s):
+            return kind
+    return None

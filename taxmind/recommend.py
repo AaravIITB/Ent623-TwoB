@@ -15,6 +15,7 @@ from . import gstin as G
 from .config import Config
 from .matcher import Pair
 from .models import Action, Confidence, Doc, DocType, Finding, Owner, Status
+from .normalize import k3
 
 
 # ── formatting ───────────────────────────────────────────────────────────────
@@ -87,9 +88,20 @@ def from_pair(fid: str, pr: Pair, cfg: Config) -> Finding:
         f.itc_to_claim = f.itc_in_2b
     elif s == Status.DATE_DIFF:
         f.action, f.confidence, f.owner = Action.ACCEPT, Confidence.HIGH, Owner.NONE
-        f.reason = (f"Same invoice no. and amounts; only the date differs ({dt(p0.doc_date)} in 2B, "
-                    f"{dt(b0.doc_date)} in books).")
-        f.next_step = "Optional: correct the date in books."
+        if pr.date_gap is None:
+            f.confidence, f.owner = Confidence.MEDIUM, Owner.CA
+            missing = "books" if b0.doc_date is None else "2B"
+            f.reason = (f"Same invoice no. and amounts; the date is missing in {missing} "
+                        f"(2B: {dt(p0.doc_date)}, books: {dt(b0.doc_date)}).")
+            f.next_step = "Add the invoice date in books, then accept."
+        else:
+            f.reason = (f"Same invoice no. and amounts; only the date differs ({dt(p0.doc_date)} in 2B, "
+                        f"{dt(b0.doc_date)} in books).")
+            f.next_step = "Optional: correct the date in books."
+            if pr.date_gap > 45:
+                f.confidence, f.owner = Confidence.MEDIUM, Owner.CA
+                f.reason += f" The dates are {pr.date_gap} days apart - check it is the same bill."
+                f.next_step = "Check the invoice copy before accepting."
         f.itc_to_claim = f.itc_in_2b
     elif s == Status.TYPO:
         f.action, f.confidence, f.owner = Action.ACCEPT, Confidence.MEDIUM, Owner.CA
@@ -98,6 +110,20 @@ def from_pair(fid: str, pr: Pair, cfg: Config) -> Finding:
                     + ("same date." if not pr.date_gap else f"dates {pr.date_gap} days apart."))
         f.next_step = "Glance at the physical invoice, then accept and fix the number in books."
         f.itc_to_claim = f.itc_in_2b
+        a_core, b_core = k3(p0.doc_no), k3(b0.doc_no)
+        if pr.repeat_amount:
+            f.action, f.confidence = Action.PENDING, Confidence.LOW
+            f.reason += (" But this supplier bills the same amount repeatedly, so matching amounts "
+                         "do not confirm it is the same bill.")
+            f.next_step = "Check the invoice copy: same bill -> accept and fix books; different bill -> book it."
+            f.itc_to_claim = 0.0
+        elif a_core.isdigit() and b_core.isdigit() and 0 < abs(int(a_core) - int(b_core)) <= 3:
+            # 1203 vs 1204: as likely to be the supplier's next bill (e.g. recurring rent) as a typo
+            f.action, f.confidence = Action.PENDING, Confidence.LOW
+            f.reason += (" The numbers are next to each other in sequence, so this may be a different "
+                         "(consecutive) bill rather than a typo.")
+            f.next_step = "Check the invoice copy: same bill -> accept and fix books; different bill -> book it."
+            f.itc_to_claim = 0.0
     elif s == Status.PROBABLE:
         f.action, f.confidence, f.owner = Action.PENDING, Confidence.LOW, Owner.CA
         f.reason = (f"Same supplier, same date and same amounts ({inr(p0.tax)} tax), but the numbers "
@@ -121,16 +147,23 @@ def from_pair(fid: str, pr: Pair, cfg: Config) -> Finding:
                        "GSTR-1A; if books are wrong, correct books and accept.")
     elif s == Status.VALUE_DIFF:
         diff = round(p0.tax - b0.tax, 2)
-        if diff > 0:
+        doc = _kind(p0)
+        if p0.doc_type == DocType.CREDIT_NOTE:
             f.action, f.confidence, f.owner = Action.PENDING, Confidence.MEDIUM, Owner.CLIENT
-            f.reason = (f"Supplier reported {inr(diff)} more tax than your books "
+            f.reason = (f"Credit note amounts differ: {inr(p0.tax)} tax in 2B vs {inr(b0.tax)} in books. "
+                        "Accepting it reduces your ITC by the 2B amount.")
+            f.next_step = ("Check the credit note copy. If 2B is right, correct books and accept; if books "
+                           "are right, ask the supplier to amend first.")
+        elif diff > 0:
+            f.action, f.confidence, f.owner = Action.PENDING, Confidence.MEDIUM, Owner.CLIENT
+            f.reason = (f"Supplier reported {inr(diff)} more tax on this {doc} than your books "
                         f"({inr(p0.tax)} in 2B vs {inr(b0.tax)} in books; taxable "
                         f"{inr(p0.taxable)} vs {inr(b0.taxable)}).")
             f.next_step = ("Check whether the purchase was under-booked. If books are right, ask the "
                            "supplier to amend before accepting.")
         else:
             f.action, f.confidence, f.owner = Action.ACCEPT, Confidence.MEDIUM, Owner.SUPPLIER
-            f.reason = (f"Supplier reported {inr(-diff)} less tax than your books "
+            f.reason = (f"Supplier reported {inr(-diff)} less tax on this {doc} than your books "
                         f"({inr(p0.tax)} in 2B vs {inr(b0.tax)} in books). Only the 2B amount can be "
                         "claimed.")
             f.next_step = (f"Accept and claim {inr(p0.tax)}. Ask the supplier to amend for the "
@@ -160,8 +193,9 @@ def from_other_period(fid: str, pr: Pair, target: str, cfg: Config) -> Finding:
         f.status = Status.LATE_FILED
         f.action, f.owner = Action.NONE, Owner.NONE
         f.confidence = Confidence.HIGH if pr.score >= 80 else Confidence.MEDIUM
-        f.reason = (f"Not in the {period_label(target)} 2B: the supplier reported it late, in "
-                    f"{period_label(p0.period)} 2B. ITC can be claimed only in that month. ({detail})")
+        f.reason = (f"Not in the {period_label(target)} 2B: the supplier reported it late, in the "
+                    f"{period_label(p0.period)} 2B. ITC can be claimed from that month's return onward "
+                    f"(before the Sec 16(4) deadline), not in {period_label(target)}. ({detail})")
         f.next_step = f"Defer this ITC to the {period_label(p0.period)} return."
     else:
         f.status = Status.EARLIER_PERIOD
@@ -243,6 +277,12 @@ def from_books_only(fid: str, b: Doc, as_of: date, cfg: Config, duplicate_of: Do
         f.next_step = "Include in 3B reverse-charge tables."
         return f
     f.confidence, f.owner = Confidence.HIGH, Owner.SUPPLIER
+    if b.doc_type == DocType.CREDIT_NOTE:
+        f.reason = (f"Credit note '{b.doc_no}' ({inr(b.tax)} tax) is in your books but the supplier has not "
+                    "reported it, so 2B still shows the full ITC on the original bill.")
+        f.next_step = ("Ask the supplier to report the credit note. Until then, do not claim the ITC it "
+                       "cancels; reverse it in 3B if already claimed.")
+        return f
     f.reason = (f"In your books but not in this 2B ({inr(b.tax)} tax). The supplier has not reported it "
                 "(or reported it to a different GSTIN). This ITC cannot be claimed this month.")
     f.next_step = "Ask the supplier to report it in GSTR-1; claim the ITC in the month it appears in 2B."

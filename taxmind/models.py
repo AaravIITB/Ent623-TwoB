@@ -46,6 +46,7 @@ class Doc:
     supplier_filing_date: Optional[date] = None
     irn: str = ""
     ims_action: str = ""             # current IMS action if known: Accepted/Rejected/Pending/No action
+    amends: str = ""                 # for 2B amendments (b2ba/cdnra): the original document no.
     source: str = ""                 # file + section, for traceability
     row_ref: str = ""                # row / voucher reference inside the source
 

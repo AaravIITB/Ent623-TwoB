@@ -182,3 +182,96 @@ def test_reports(tmp_path: Path):
                              "Client questions", "All findings"]
     assert "Pre-filing report" in h.read_text()
     assert res.supplier_messages and "GSTR-1" in res.supplier_messages[0].whatsapp
+
+
+# ── regressions from the independent review ─────────────────────────────────
+def test_year_suffix_invoices_are_not_paired():
+    B, P = Side.BOOKS, Side.PORTAL
+    res = reconcile([doc(B, "INV/045/2026")], [doc(P, "INV/051/2026", taxable=80000, cgst=7200, sgst=7200)],
+                    period="092026")
+    assert {f.status for f in res.findings} == {Status.BOOKS_ONLY, Status.PORTAL_ONLY_KNOWN}
+
+
+def test_recurring_amounts_do_not_create_matches():
+    B, P = Side.BOOKS, Side.PORTAL
+    books = [doc(B, f"FUEL/{i}", d=date(2026, 9, 2 + i)) for i in (1, 2, 3, 4)]
+    portal = [doc(P, f"FUEL/{i}", d=date(2026, 9, 2 + i)) for i in (1, 2, 3)] + \
+             [doc(P, "FUEL/1004", d=date(2026, 9, 6))]          # one digit added, same recurring amount
+    res = reconcile(books, portal, period="092026")
+    odd = [f for f in res.findings if any(d.doc_no in ("FUEL/4", "FUEL/1004") for d in f.books + f.portal)]
+    assert all(f.action != Action.ACCEPT for f in odd)
+
+
+def test_period_formats_and_bad_period():
+    from taxmind.engine import clean_period
+    for p in ("092026", "09/2026", "2026-09", "202609", "Sep 2026", "Sep-26"):
+        assert clean_period(p) == "092026"
+    with pytest.raises(ValueError):
+        clean_period("132026")
+
+
+def test_amendment_counts_only_the_difference(tmp_path: Path):
+    import json
+    aug = {"data": {"rtnprd": "082026", "docdata": {"b2b": [{"ctin": A, "inv": [
+        {"inum": "INV-5", "dt": "20-08-2026", "txval": 10000, "cgst": 900, "sgst": 900, "itcavl": "Y"}]}]}}}
+    sep = {"data": {"rtnprd": "092026", "docdata": {"b2ba": [{"ctin": A, "inv": [
+        {"oinum": "INV-5", "inum": "INV-5", "dt": "20-08-2026", "txval": 15000, "cgst": 1350, "sgst": 1350,
+         "itcavl": "Y"}]}]}}}
+    (tmp_path / "aug.json").write_text(json.dumps(aug))
+    (tmp_path / "sep.json").write_text(json.dumps(sep))
+    portal, _ = load_many([tmp_path / "aug.json", tmp_path / "sep.json"], Side.PORTAL)
+    res = reconcile([], portal, period="092026")
+    assert res.summary["itc_2b"] == pytest.approx(900)            # 2,700 - 1,800
+
+
+def test_ims_credit_note_section(tmp_path: Path):
+    import json
+    ims = {"b2b": [{"stin": A, "inum": "INV-1", "dt": "05-09-2026", "txval": 10000, "cgst": 900, "sgst": 900}],
+           "b2bcn": [{"stin": A, "inum": "CN-7", "dt": "06-09-2026", "txval": 5000, "cgst": 450, "sgst": 450}]}
+    f = tmp_path / "ims.json"
+    f.write_text(json.dumps(ims))
+    docs, _ = load_file(f, Side.PORTAL, period="092026")
+    assert {d.doc_no: d.doc_type for d in docs} == {"INV-1": DocType.INVOICE, "CN-7": DocType.CREDIT_NOTE}
+
+
+def test_ledger_names_and_negative_rows(tmp_path: Path):
+    wb = Workbook()
+    ws = wb.active
+    ws.append(["Date", "Supplier Invoice No.", "GSTIN/UIN", "Taxable Value", "Purchase IGST 18%",
+               "Processing Charges", "Input IGST"])
+    ws.append([date(2026, 9, 5), "A1", A, 10000, 10000, 500, 1800])
+    ws.append([date(2026, 9, 6), "R1", A, -5000, -5000, 0, -900])          # a return entered as minus
+    f = tmp_path / "reg.xlsx"
+    wb.save(f)
+    docs, _ = load_file(f, Side.BOOKS)
+    a1, r1 = docs
+    assert a1.igst == 1800 and a1.cess == 0 and a1.doc_type == DocType.INVOICE
+    assert r1.doc_type == DocType.CREDIT_NOTE and r1.igst == 900
+
+
+def test_tally_party_by_mailing_name(tmp_path: Path):
+    xml = ("<ENVELOPE><VOUCHER VCHTYPE=\"Purchase\"><DATE>20260905</DATE><VOUCHERTYPENAME>Purchase</VOUCHERTYPENAME>"
+           f"<REFERENCE>A3</REFERENCE><PARTYNAME>ABC Limited, Pune</PARTYNAME><PARTYGSTIN>{A}</PARTYGSTIN>"
+           "<ALLLEDGERENTRIES.LIST><LEDGERNAME>ABC Ltd</LEDGERNAME><AMOUNT>11800</AMOUNT></ALLLEDGERENTRIES.LIST>"
+           "<ALLLEDGERENTRIES.LIST><LEDGERNAME>Purchases @18%</LEDGERNAME><AMOUNT>-10000</AMOUNT></ALLLEDGERENTRIES.LIST>"
+           "<ALLLEDGERENTRIES.LIST><LEDGERNAME>Input CGST</LEDGERNAME><AMOUNT>-900</AMOUNT></ALLLEDGERENTRIES.LIST>"
+           "<ALLLEDGERENTRIES.LIST><LEDGERNAME>Input SGST</LEDGERNAME><AMOUNT>-900</AMOUNT></ALLLEDGERENTRIES.LIST>"
+           "</VOUCHER></ENVELOPE>")
+    f = tmp_path / "t.xml"
+    f.write_text(xml)
+    (d,), _ = load_file(f, Side.BOOKS)
+    assert d.taxable == 10000 and d.tax == 1800
+
+
+def test_same_number_in_two_years_is_not_a_duplicate():
+    B = Side.BOOKS
+    res = reconcile([doc(B, "RENT/25-26/001", d=date(2025, 9, 1)), doc(B, "RENT/26-27/001", d=date(2026, 9, 1))],
+                    [], period="092026")
+    assert all(f.status != Status.BOOKS_DUPLICATE for f in res.findings)
+
+
+def test_books_credit_note_wording():
+    B = Side.BOOKS
+    res = reconcile([doc(B, "DN-3", typ=DocType.CREDIT_NOTE)], [], period="092026")
+    f = res.findings[0]
+    assert "Credit note" in f.reason and not f.flags

@@ -34,7 +34,7 @@ def run_checks(res, books, target, planned_itc, as_of: date, cfg: Config) -> lis
     excess = round(planned - itc_2b, 2)
     if excess <= cfg.amount_tolerance:
         out.append(Check("3B claim vs 2B (DRC-01C)", "OK",
-                         f"{basis.capitalize()} ({inr(planned)}) does not exceed 2B ITC ({inr(itc_2b)}).",
+                         f"{basis[0].upper() + basis[1:]} ({inr(planned)}) does not exceed 2B ITC ({inr(itc_2b)}).",
                          0.0))
     else:
         pct = excess / itc_2b if itc_2b else 1.0

@@ -36,9 +36,12 @@ with st.sidebar:
 # Reconciliation
 # ══════════════════════════════════════════════════════════════════════════════
 def _save_uploads(files, folder: Path) -> list[Path]:
+    """Each upload in its own sub-folder, so two files with the same name don't overwrite."""
     out = []
-    for f in files or []:
-        p = folder / f.name
+    for i, f in enumerate(files or []):
+        sub = folder / f"{i:02d}"
+        sub.mkdir(parents=True, exist_ok=True)
+        p = sub / f.name
         p.write_bytes(f.getbuffer())
         out.append(p)
     return out
@@ -83,15 +86,20 @@ def recon_page():
     if b1.button("Reconcile", type="primary", disabled=not (books_up and portal_up)):
         folder = Path(tempfile.mkdtemp())
         try:
-            _run(_save_uploads(books_up, folder), _save_uploads(portal_up, folder), client, period,
-                 planned or None, tol)
+            _run(_save_uploads(books_up, folder / "books"), _save_uploads(portal_up, folder / "portal"),
+                 client, period, planned or None, tol)
+        except ValueError as e:
+            st.error(str(e))
         except Exception as e:
             st.error(f"Could not read the files: {e}")
     if b2.button("Try with sample data"):
         _ensure_sample()
-        _run([SAMPLE / "purchase_register_092026.xlsx"],
-             [SAMPLE / "gstr2b_092026.json", SAMPLE / "gstr2b_102026.json"],
-             client or "Sharma Auto Components (sample)", period, planned or None, tol)
+        try:
+            _run([SAMPLE / "purchase_register_092026.xlsx"],
+                 [SAMPLE / "gstr2b_092026.json", SAMPLE / "gstr2b_102026.json"],
+                 client or "Sharma Auto Components (sample)", period, planned or None, tol)
+        except ValueError as e:
+            st.error(str(e))
 
     res = st.session_state.get("res")
     if not res:
