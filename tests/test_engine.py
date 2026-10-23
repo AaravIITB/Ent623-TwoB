@@ -179,7 +179,7 @@ def test_reports(tmp_path: Path):
     h = write_html(res, tmp_path / "out.html")
     wb = load_workbook(x)
     assert wb.sheetnames == ["Summary", "IMS decisions", "Books not in 2B", "Supplier follow-ups",
-                             "Client questions", "All findings"]
+                             "Client questions", "Blocked credit review", "All findings"]
     assert "Pre-filing report" in h.read_text()
     assert res.supplier_messages and "GSTR-1" in res.supplier_messages[0].whatsapp
 
@@ -275,3 +275,134 @@ def test_books_credit_note_wording():
     res = reconcile([doc(B, "DN-3", typ=DocType.CREDIT_NOTE)], [], period="092026")
     f = res.findings[0]
     assert "Credit note" in f.reason and not f.flags
+
+
+# ── Sec 17(5) blocked-credit flags ──────────────────────────────────────────
+from taxmind.blocked import classify  # noqa: E402
+
+
+def _rids(**kw):
+    d = Doc(Side.BOOKS, "u", A, "1", date(2026, 9, 5), **kw)
+    return {f.rid: f.confidence for f in classify([d])}
+
+
+@pytest.mark.parametrize("kw,want", [
+    (dict(ledger="Staff Welfare - Food"), {"food": "Likely"}),
+    (dict(ledger="Travelling Expenses", supplier_name="Hotel Sagar Residency"), {"hotel_mixed": "Review"}),
+    (dict(ledger="Lodging - Business Travel", supplier_name="Hotel Sagar Residency"), {}),
+    (dict(hsn="996311"), {}),                                  # room only
+    (dict(hsn="996331"), {"food": "Likely"}),
+    (dict(ledger="Car Repairs & Maintenance"), {"motor_vehicle": "Likely"}),
+    (dict(ledger="Goods Vehicle Hire", hsn="996601"), {}),     # SAC 9966 also covers trucks
+    (dict(ledger="Car Spare Parts Purchase"), {}),             # auto-component maker's raw material
+    (dict(hsn="87032291"), {"motor_vehicle": "Likely"}),
+    (dict(ledger="Fire Insurance - Factory"), {}),
+    (dict(ledger="Group Health Insurance"), {"insurance": "Likely"}),
+    (dict(ledger="Medical Equipment Purchase"), {}),
+    (dict(ledger="PPE Kits / Personal Protective Equipment"), {}),
+    (dict(ledger="Diwali Gifts to Customers"), {"gifts": "Likely"}),
+    (dict(ledger="CSR Expenses"), {"csr": "Likely"}),
+    (dict(ledger="Office Expenses", supplier_name="Kaveri Caterers"), {"food": "Possible"}),
+    (dict(ledger="Purchase @18%", supplier_name="Kaveri Caterers"), {}),        # trading purchase: for supply
+    (dict(ledger="Hotel Exp", description="Room tariff (room only, no F&B)", hsn="996311"), {}),
+    (dict(ledger="Canteen Exp", description="Statutory canteen u/s 46 Factories Act", hsn="996334"), {}),
+    (dict(ledger="Lodging & Boarding", supplier_name="Ginger Hotels"), {"hotel_mixed": "Review"}),
+    (dict(ledger="Purchase - Vehicles", description="Baleno - stock-in-trade", hsn="8703"), {}),
+    (dict(ledger="Motor Car", description="Swift - dual control, driving school", hsn="8703"), {}),
+    (dict(ledger="Repair & Maint - Bldg", description="Roof leakage repair", hsn="995419"), {}),
+    (dict(ledger="Conveyance"), {"motor_vehicle": "Possible"}),
+    (dict(ledger="Stock Written Off", description="Expired goods destroyed"), {"lost_destroyed": "Likely"}),
+    (dict(ledger="Helicopter Charter", hsn="996603"), {"vessel_aircraft": "Likely"}),
+    (dict(ledger="Staff Bus Hire", description="32 seater", hsn="996601"), {}),
+    (dict(ledger="Lodging", description="Room with breakfast", supplier_name="Hotel Kohinoor"),
+     {"hotel_mixed": "Review"}),
+    (dict(ledger="Creche charges", hsn="999351"), {}),           # social care, not a health service
+    (dict(ledger="Cartage Inward"), {}),
+])
+def test_blocked_rules(kw, want):
+    assert _rids(**kw) == want
+
+
+def test_blocked_flags_reach_findings_and_report(tmp_path: Path):
+    B, P = Side.BOOKS, Side.PORTAL
+    b = doc(B, "H-1")
+    b.ledger = "Hotel - Food & Beverages"
+    res = reconcile([b], [doc(P, "H-1")], period="092026")
+    f = res.findings[0]
+    assert f.action == Action.ACCEPT                         # matched: IMS action unchanged
+    assert [x.rid for x in f.blocked] == ["food"] and f.itc_to_claim == 18000   # never reversed automatically
+    assert res.summary["blocked_review"] == 1 and res.summary["blocked_review_itc"] == 18000
+    chk = next(c for c in res.checks if "Sec 17(5)" in c.name)
+    assert chk.level == "High"
+    ws = load_workbook(write_excel(res, tmp_path / "o.xlsx"))["Blocked credit review"]
+    assert ws.cell(2, 1).value == "Likely" and ws.cell(2, 6).value == "H-1"
+
+
+def test_blocked_credit_from_tally_and_columnar_register(tmp_path: Path):
+    generate(tmp_path, seed=3, hard=True)            # hard = Tally-style columnar register
+    for books in ("purchase_register_092026.xlsx", "tally_daybook_092026.xml"):
+        r = run_benchmark(tmp_path, books_file=tmp_path / books)["accuracy"]["blocked_credit"]
+        assert r["should_flag"] > 10 and r["recall"] == 1.0 and r["false_flags"] == 0
+
+
+# ── month-close pack ────────────────────────────────────────────────────────
+import json  # noqa: E402
+import zipfile  # noqa: E402
+
+from taxmind.closepack import CloseInfo, build_close_pack, load_overrides, pack_fingerprint, verify_pack  # noqa: E402
+
+
+def test_close_pack_overrides_hashes_and_tamper(tmp_path: Path):
+    generate(tmp_path, seed=2)
+    bf, pf = tmp_path / "purchase_register_092026.xlsx", sorted(tmp_path.glob("gstr2b_*.json"))
+    books, _ = load_many([bf], Side.BOOKS)
+    portal, _ = load_many(pf, Side.PORTAL)
+    res = reconcile(books, portal, client="Test client")
+    # the CA edits the workbook: one held-back record accepted, one accept rejected
+    x = write_excel(res, tmp_path / "out.xlsx")
+    wb = load_workbook(x)
+    ws = wb["All findings"]
+    assert [c.value for c in ws[1]][2:5] == ["Recommended", "Final decision", "CA note"]
+    by_id = {f.fid: f for f in res.findings}
+    pend = next(r for r in range(2, ws.max_row + 1) if ws.cell(r, 3).value == "Pending"
+                and by_id[ws.cell(r, 1).value].portal and by_id[ws.cell(r, 1).value].status != Status.LATE_FILED)
+    acc = next(r for r in range(2, ws.max_row + 1) if ws.cell(r, 3).value == "Accept"
+               and by_id[ws.cell(r, 1).value].itc_to_claim > 0)
+    ws.cell(pend, 4).value, ws.cell(pend, 5).value = "accept", "Bill seen"
+    ws.cell(acc, 4).value, ws.cell(acc, 5).value = "Reject", "Goods returned"
+    wb.save(tmp_path / "edited.xlsx")
+    ov = load_overrides(tmp_path / "edited.xlsx")
+    assert len(ov) == 2 and ov[ws.cell(pend, 1).value] == ("Accept", "Bill seen")
+
+    z = build_close_pack(res, tmp_path / "pack.zip", input_files=[bf, *pf],
+                         info=CloseInfo(preparer="Riya", reviewer="CA Mehta", overrides=ov))
+    fp = pack_fingerprint(z)
+    assert verify_pack(z, fp) == (True, [])
+    with zipfile.ZipFile(z) as zz:
+        names = set(zz.namelist())
+        assert {"manifest.json", "record.html", "decisions.csv", "decisions.json", "reconciliation.xlsx",
+                f"inputs/{bf.name}"} <= names
+        d = json.loads(zz.read("decisions.json"))
+        m = json.loads(zz.read("manifest.json"))
+        html = zz.read("record.html").decode()
+    fp_ = by_id[ws.cell(pend, 1).value]
+    fa = by_id[ws.cell(acc, 1).value]
+    assert d["itc_after_ca_decisions"] == pytest.approx(res.summary["itc_to_claim"] + fp_.itc_in_2b - fa.itc_to_claim)
+    assert m["changed_by_ca"] == 2 and m["prepared_by"] == "Riya" and m["data_fingerprint"] in html
+    assert "Goods returned" in html
+
+    # change one input inside the pack -> caught
+    t = tmp_path / "tampered.zip"
+    with zipfile.ZipFile(z) as src, zipfile.ZipFile(t, "w") as dst:
+        for n in src.namelist():
+            data = src.read(n)
+            dst.writestr(n, data.replace(b'"inum"', b'"inum" ') if n.endswith(".json") and "inputs/" in n else data)
+    ok, problems = verify_pack(t, fp)
+    assert not ok and any("inputs/" in p for p in problems)
+
+
+def test_bad_override_value_is_rejected(tmp_path: Path):
+    f = tmp_path / "d.csv"
+    f.write_text("ID,Final decision,CA note\nF0001,Maybe,\n")
+    with pytest.raises(ValueError, match="not one of"):
+        load_overrides(f)

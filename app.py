@@ -60,6 +60,9 @@ def _run(book_paths, portal_paths, client, period, planned, tol):
                     planned_itc=planned, notes=n1 + n2)
     tmp = Path(tempfile.mkdtemp())
     st.session_state.res = res
+    st.session_state.inputs = [Path(x) for x in list(book_paths) + list(portal_paths)]
+    st.session_state.pop("pack", None)
+    st.session_state.pop("imported", None)
     st.session_state.xlsx = write_excel(res, tmp / f"taxmind_{res.period}.xlsx").read_bytes()
     st.session_state.html = write_html(res, tmp / f"taxmind_{res.period}_prefiling.html").read_bytes()
 
@@ -120,8 +123,9 @@ def recon_page():
     for c in res.checks:
         st.markdown(f"{icon[c.level]} **{c.name}** — {c.detail}")
 
-    tabs = st.tabs(["IMS decisions", "Books not in 2B", "Supplier messages", "Client questions",
-                    "Downloads", "Loading notes"])
+    nb = sum(len(f.blocked) for f in res.findings)
+    tabs = st.tabs(["IMS decisions", "Books not in 2B", f"Blocked credit ({nb})", "Supplier messages",
+                    "Client questions", "Month-close", "Downloads", "Loading notes"])
     other = (Status.LATE_FILED, Status.EARLIER_PERIOD)
     with tabs[0]:
         rows = []
@@ -167,6 +171,8 @@ def recon_page():
                              "Flags": "; ".join(f.flags)})
         st.dataframe(pd.DataFrame(rows), width="stretch", hide_index=True, height=420)
     with tabs[2]:
+        blocked_tab(res)
+    with tabs[3]:
         if not res.supplier_messages:
             st.caption("No supplier needs to fix anything.")
         for msg in res.supplier_messages:
@@ -174,17 +180,103 @@ def recon_page():
                 st.text_area("WhatsApp", msg.whatsapp, height=180, key=f"wa_{msg.supplier_gstin}")
                 st.text_input("Email subject", msg.email_subject, key=f"es_{msg.supplier_gstin}")
                 st.text_area("Email body", msg.email_body, height=220, key=f"eb_{msg.supplier_gstin}")
-    with tabs[3]:
-        st.dataframe(pd.DataFrame(res.client_questions), width="stretch", hide_index=True)
     with tabs[4]:
+        st.dataframe(pd.DataFrame(res.client_questions), width="stretch", hide_index=True)
+    with tabs[5]:
+        close_tab(res)
+    with tabs[6]:
         st.download_button("Download Excel workbook", st.session_state.xlsx,
                            file_name=f"taxmind_{res.period}.xlsx",
                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
         st.download_button("Download pre-filing report (HTML)", st.session_state.html,
                            file_name=f"taxmind_{res.period}_prefiling.html", mime="text/html")
-    with tabs[5]:
+    with tabs[7]:
         for n in res.notes:
             st.markdown(f"- {n}")
+
+
+def blocked_tab(res):
+    st.caption("Invoices that match 2B can still carry ITC the law blocks under Sec 17(5) — food, motor "
+               "vehicles, club fees, gifts, CSR, construction. TaxMind reads the ledger, item description, "
+               "HSN/SAC and supplier name and flags these for review. It does not reverse anything itself: "
+               "most blocks have exceptions.")
+    rows = []
+    for f in res.findings:
+        for fl in f.blocked:
+            d = (f.books or f.portal)[0]
+            rows.append({"Confidence": fl.confidence, "Possible block": fl.label, "Section": fl.section,
+                         "Supplier": f.supplier_name or d.supplier_gstin, "Doc no.": d.doc_no,
+                         "Date": dt(d.doc_date), "ITC (₹)": round(max(f.itc_to_claim, f.itc_in_books, 0), 2),
+                         "Why flagged": fl.evidence, "What to do": fl.advice,
+                         "When ITC is still allowed": fl.exceptions, "IMS action": f.action.value, "ID": f.fid})
+    if not rows:
+        st.success("Nothing in this month's purchases looks like blocked credit. (Needs ledger names, item "
+                   "descriptions or HSN/SAC in the books to check properly.)")
+        return
+    df = pd.DataFrame(rows)
+    df["_o"] = df["Confidence"].map({"Likely": 0, "Review": 1, "Possible": 2})
+    df = df.sort_values(["_o", "ITC (₹)"], ascending=[True, False]).drop(columns="_o")
+    st.metric("ITC on possible blocked credit", inr(df["ITC (₹)"].sum()), help=f"{len(df)} flags")
+    st.dataframe(df, width="stretch", hide_index=True, height=420)
+
+
+def close_tab(res):
+    from taxmind.closepack import ACTIONS, CloseInfo, build_close_pack, final_claim, final_decisions, load_overrides, \
+        pack_fingerprint
+    st.caption("Record the final decision for each item, then create a dated month-close pack: the decisions, "
+               "the reasons, who prepared and reviewed it, and exact copies of the files used, each with a "
+               "SHA-256 hash. Keep it with the client file — notices can come up to 42 months later, and the "
+               "portal does not keep a history of IMS actions.")
+    with st.expander("Import decisions from an edited TaxMind workbook"):
+        up = st.file_uploader("Workbook with 'Final decision' / 'CA note' filled in on the All findings sheet",
+                              type=["xlsx", "csv"], key="dec_up")
+        if up is not None:
+            tmp = Path(tempfile.mkdtemp()) / up.name
+            tmp.write_bytes(up.getbuffer())
+            try:
+                st.session_state.imported = load_overrides(tmp)
+                st.success(f"Read {len(st.session_state.imported)} decisions.")
+            except ValueError as e:
+                st.error(str(e))
+    imported = st.session_state.get("imported", {})
+    rows = []
+    for f in res.findings:
+        fin, note = imported.get(f.fid, (f.action.value, ""))
+        d = (f.portal or f.books)[0]
+        rows.append({"ID": f.fid, "Needs a person": "Yes" if f.needs_human else "", "Recommended": f.action.value,
+                     "Final decision": fin, "CA note": note, "Supplier": f.supplier_name or f.supplier_gstin,
+                     "Document": d.doc_no, "ITC to claim (₹)": f.itc_to_claim, "Status": f.status.value,
+                     "Reason": f.reason})
+    df = pd.DataFrame(rows).sort_values(["Needs a person", "ITC to claim (₹)"], ascending=[False, False])
+    ed = st.data_editor(df, hide_index=True, width="stretch", height=420, key=f"close_ed_{len(imported)}",
+                        disabled=[c for c in df.columns if c not in ("Final decision", "CA note")],
+                        column_config={"Final decision": st.column_config.SelectboxColumn(options=ACTIONS,
+                                                                                          required=True),
+                                       "CA note": st.column_config.TextColumn(width="medium")})
+    overrides = {r["ID"]: (r["Final decision"], r["CA note"] or "") for _, r in ed.iterrows()
+                 if r["Final decision"] != r["Recommended"] or (r["CA note"] or "").strip()}
+    decisions = final_decisions(res, overrides)
+    changed = sum(d.overridden for d in decisions)
+    c1, c2, c3 = st.columns([1, 1, 1])
+    c1.metric("Changed by CA", changed)
+    c2.metric("ITC after CA decisions", inr(final_claim(res, decisions)),
+              delta=None if not changed else inr(final_claim(res, decisions) - res.summary["itc_to_claim"]))
+    n1, n2, n3 = st.columns([1, 1, 1])
+    prep = n1.text_input("Prepared by", key="prep")
+    rev = n2.text_input("Reviewed by (CA)", key="rev")
+    n3.write("")
+    if n3.button("Create month-close pack", type="primary", disabled=not prep.strip()):
+        out = Path(tempfile.mkdtemp()) / f"taxmind_{res.period}_close_pack.zip"
+        build_close_pack(res, out, input_files=st.session_state.get("inputs", []),
+                         info=CloseInfo(preparer=prep.strip(), reviewer=rev.strip(), overrides=overrides))
+        st.session_state.pack = (out.read_bytes(), pack_fingerprint(out), out.name)
+    if not prep.strip():
+        st.caption("Enter who prepared it to create the pack.")
+    if st.session_state.get("pack"):
+        data, fp, name = st.session_state.pack
+        st.download_button("Download month-close pack (.zip)", data, file_name=name, mime="application/zip")
+        st.markdown(f"**Pack fingerprint** — note it in the client file or the covering email:  \n`{fp}`")
+        st.caption("To check a pack later: `python -m taxmind verify <pack.zip> --fingerprint <fingerprint>`")
 
 
 # ══════════════════════════════════════════════════════════════════════════════

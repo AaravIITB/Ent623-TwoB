@@ -47,6 +47,9 @@ class Doc:
     irn: str = ""
     ims_action: str = ""             # current IMS action if known: Accepted/Rejected/Pending/No action
     amends: str = ""                 # for 2B amendments (b2ba/cdnra): the original document no.
+    ledger: str = ""                 # books: purchase / expense ledger(s) used
+    description: str = ""            # books: item description or narration
+    hsn: str = ""                    # HSN / SAC code(s)
     source: str = ""                 # file + section, for traceability
     row_ref: str = ""                # row / voucher reference inside the source
 
@@ -136,6 +139,7 @@ class Finding:
     itc_to_claim: float = 0.0       # signed ITC we recommend claiming this period
     flags: list = field(default_factory=list)
     match_score: float = 0.0
+    blocked: list = field(default_factory=list)   # blocked-credit (Sec 17(5)) flags for review
 
     @property
     def supplier_gstin(self) -> str:
@@ -156,5 +160,7 @@ class Finding:
     @property
     def needs_human(self) -> bool:
         """True when a person has to decide or act (not just glance)."""
+        if self.blocked:                 # possible Sec 17(5) block: a CA has to look, even on a clean match
+            return True
         return not (self.action in (Action.ACCEPT, Action.NONE) and self.confidence == Confidence.HIGH
                     and self.owner == Owner.NONE)

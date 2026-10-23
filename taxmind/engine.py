@@ -151,6 +151,8 @@ def reconcile(books: list[Doc], portal: list[Doc], period: str = "", client: str
         findings.append(from_books_only(fid(), b, as_of, cfg, duplicate_of=original))
 
     amend_delta = _apply_amendments(findings, portal, target, notes)
+    from . import blocked
+    blocked.apply(findings)
     summary = summarise(books, target, findings, period, amend_delta)
     res = Result(client=client, period=period, findings=findings, notes=notes, summary=summary, config=cfg)
     res.checks = run_checks(res, books, target, planned_itc, as_of, cfg)
@@ -227,4 +229,6 @@ def summarise(books, target, findings, period, amend_delta=None) -> dict:
         "by_status": dict(by_status),
         "by_action": dict(by_action),
         "exact": by_status.get(Status.EXACT.value, 0),
+        "blocked_review": sum(1 for f in findings if f.blocked),
+        "blocked_review_itc": round(sum(max(f.itc_to_claim, f.itc_in_books, 0) for f in findings if f.blocked), 2),
     }

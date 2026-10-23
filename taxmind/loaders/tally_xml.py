@@ -89,6 +89,7 @@ def load(path: str | Path, uid_prefix: str = "B") -> tuple[list[Doc], list[str]]
                                                            enumerate(lines) if j != i and a):
                     party_idx = i
                     break
+        other_ledgers = []
         for i, (led, amt, _) in enumerate(lines):
             amt = abs(amt)
             if i == party_idx:
@@ -100,8 +101,19 @@ def load(path: str | Path, uid_prefix: str = "B") -> tuple[list[Doc], list[str]]
                 amounts[kind] += amt
             elif not any(s in led.lower() for s in _SKIP_LEDGER):
                 taxable += amt
+                other_ledgers.append(led)
         inv = list(v.iter("ALLINVENTORYENTRIES.LIST")) + list(v.iter("INVENTORYENTRIES.LIST"))
         inv_total = sum(abs(to_float(_txt(i, "AMOUNT"))) for i in inv)
+        items = [_txt(i, "STOCKITEMNAME") for i in inv if _txt(i, "STOCKITEMNAME")]
+        hsns = []
+        for i in inv:
+            for el in i.iter():
+                if "HSN" in el.tag.upper() and el.text and re.fullmatch(r"\s*\d{4,8}\s*", el.text):
+                    hsns.append(el.text.strip())
+        for led_el in v.iter("ACCOUNTINGALLOCATIONS.LIST"):
+            name = _txt(led_el, "LEDGERNAME")
+            if name and name not in other_ledgers:
+                other_ledgers.append(name)
         if inv_total and not taxable:
             taxable = inv_total
         if not g:
@@ -117,6 +129,9 @@ def load(path: str | Path, uid_prefix: str = "B") -> tuple[list[Doc], list[str]]
             supplier_name=party, total_value=party_amt,
             reverse_charge=(_txt(v, "ISREVERSECHARGEAPPLICABLE").lower() == "yes"),
             source=f"{path.name}:voucher {vno}", row_ref=f"Tally voucher {vno}",
+            ledger="; ".join(dict.fromkeys(other_ledgers)),
+            description="; ".join(x for x in items + [_txt(v, "NARRATION")] if x),
+            hsn=", ".join(dict.fromkeys(hsns)),
         )
         voucher_date = to_date(_txt(v, "DATE"))
         d.period = (voucher_date or d.doc_date).strftime("%m%Y") if (voucher_date or d.doc_date) else ""

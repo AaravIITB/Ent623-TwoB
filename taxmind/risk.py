@@ -136,6 +136,21 @@ def run_checks(res, books, target, planned_itc, as_of: date, cfg: Config) -> lis
                              "month's ITC: " + ", ".join(f.portal[0].doc_no for f in big[:5]) + ".",
                              sum(f.itc_to_claim for f in big), len(big)))
 
+    # 12. Blocked credit (Sec 17(5)) - matched in 2B does not mean eligible
+    bl = [f for f in F if f.blocked]
+    if bl:
+        a = sum(max(f.itc_to_claim, f.itc_in_books, 0) for f in bl)
+        kinds = sorted({fl.label for f in bl for fl in f.blocked})
+        likely = sum(1 for f in bl if any(fl.confidence != "Possible" for fl in f.blocked))
+        out.append(Check("Possible blocked credit (Sec 17(5))", "High" if likely else "Review",
+                         f"{len(bl)} invoices ({inr(a)} ITC) look like blocked credit: " + ", ".join(kinds[:5]) +
+                         ". GSTR-2B does not check this. Review each; reverse blocked ITC in 3B Table 4(B)(1).",
+                         a, len(bl)))
+    else:
+        out.append(Check("Possible blocked credit (Sec 17(5))", "OK",
+                         "No purchase looks like blocked credit from its ledger, description, HSN/SAC or "
+                         "supplier name. Without ledger or HSN columns this check is weak.", 0.0, 0))
+
     order = {"High": 0, "Review": 1, "OK": 2}
     out.sort(key=lambda c: order[c.level])
     return out

@@ -4,6 +4,8 @@
                               --client "ABC Pvt Ltd" --out output/
   python -m taxmind sample --out sample_data [--hard]
   python -m taxmind benchmark --data sample_data
+  python -m taxmind reconcile ... --close-pack --preparer "Riya" --reviewer "CA Mehta" [--decisions edited.xlsx]
+  python -m taxmind verify output/taxmind_..._close_pack.zip
 """
 from __future__ import annotations
 
@@ -43,6 +45,22 @@ def _reconcile(a):
         if c.level != "OK":
             print(f"  [{c.level}] {c.name}: {c.detail}")
     print(f"\n  Excel:  {x}\n  Report: {h}")
+    if a.close_pack:
+        from .closepack import CloseInfo, build_close_pack, load_overrides, pack_fingerprint
+        overrides = load_overrides(a.decisions) if a.decisions else {}
+        z = build_close_pack(res, out / f"{stem}_close_pack.zip", input_files=list(a.books) + list(a.portal),
+                             info=CloseInfo(preparer=a.preparer, reviewer=a.reviewer, overrides=overrides))
+        print(f"  Month-close pack: {z}  ({len(overrides)} CA decisions read)")
+        print(f"  Pack fingerprint (note it in the client file / covering email): {pack_fingerprint(z)}")
+
+
+def _verify(a):
+    from .closepack import verify_pack
+    ok, problems = verify_pack(a.pack, a.fingerprint or "")
+    print("Pack intact: every file matches manifest.json." if ok else "Pack has been changed:")
+    for x in problems:
+        print("  -", x)
+    return 0 if ok else 1
 
 
 def _sample(a):
@@ -57,11 +75,15 @@ def _benchmark(a):
     acc = r["accuracy"]
     print(json.dumps({"baseline (Tally-style exact rules)": r["baseline"], "engine": r["engine"],
                       "accuracy": {k: acc[k] for k in ("cases", "correct", "accuracy", "wrong_pairings",
-                                                        "wrong_accepts", "by_case")}}, indent=1))
+                                                        "wrong_accepts", "by_case")},
+                      "blocked_credit (Sec 17(5))": {k: v for k, v in acc["blocked_credit"].items()
+                                                     if k != "failures"}}, indent=1))
     if acc["failures"]:
         print(f"\n{len(acc['failures'])} failures, first 10:")
         for f in acc["failures"][:10]:
             print(" ", f)
+    for f in acc["blocked_credit"]["failures"][:10]:
+        print("  blocked-credit miss/false flag:", f)
 
 
 def main(argv=None):
@@ -75,7 +97,16 @@ def main(argv=None):
     r.add_argument("--planned-itc", type=float, help="ITC you plan to claim in 3B (for the DRC-01C check)")
     r.add_argument("--tolerance", type=float, default=1.0, help="rounding tolerance in rupees (default 1)")
     r.add_argument("--out", default="output", help="output folder")
+    r.add_argument("--close-pack", action="store_true", help="also write a dated month-close pack (.zip)")
+    r.add_argument("--decisions", help="CA's final decisions: the TaxMind workbook with 'Final decision' / "
+                                       "'CA note' filled in, or a CSV with ID, Final decision, CA note")
+    r.add_argument("--preparer", default="", help="name of the person who prepared the reconciliation")
+    r.add_argument("--reviewer", default="", help="name of the CA who reviewed it")
     r.set_defaults(fn=_reconcile)
+    v = sub.add_parser("verify", help="check a month-close pack has not been changed")
+    v.add_argument("pack")
+    v.add_argument("--fingerprint", help="the pack fingerprint noted when the month was closed")
+    v.set_defaults(fn=_verify)
     s = sub.add_parser("sample", help="generate synthetic sample data with known answers")
     s.add_argument("--out", default="sample_data")
     s.add_argument("--seed", type=int, default=7)
@@ -85,7 +116,7 @@ def main(argv=None):
     b.add_argument("--data", default="sample_data")
     b.set_defaults(fn=_benchmark)
     a = p.parse_args(argv)
-    a.fn(a)
+    return a.fn(a)
 
 
 if __name__ == "__main__":

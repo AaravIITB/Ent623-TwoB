@@ -5,6 +5,8 @@ import html
 from pathlib import Path
 
 from openpyxl import Workbook
+from openpyxl.comments import Comment
+from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
@@ -69,6 +71,8 @@ def write_excel(res, path: str | Path) -> Path:
         ("Need a person (decide, check or chase)", s["needs_human"]),
         ("ITC in items that need a person", s["itc_needing_attention"]),
         ("Records at risk of deemed acceptance", s["deemed_acceptance_records"]),
+        ("Possible blocked credit (Sec 17(5)) to review", s.get("blocked_review", 0)),
+        ("ITC on possible blocked credit", s.get("blocked_review_itc", 0.0)),
     ]
     for i, (k, v) in enumerate(rows, 3):
         ws.cell(row=i, column=1, value=k)
@@ -144,20 +148,43 @@ def write_excel(res, path: str | Path) -> Path:
              q["context"], q["id"]) for q in res.client_questions],
            [26, 18, 18, 11, 12, 12, 60, 60, 8], wrap_cols=("What to ask / do", "Why"), action_col=5)
 
+    # ── Blocked credit review ──
+    ws = wb.create_sheet("Blocked credit review")
+    rows = []
+    for f in res.findings:
+        for fl in f.blocked:
+            d = (f.books or f.portal)[0]
+            rows.append([fl.confidence, fl.label, fl.section, f.supplier_name or d.supplier_gstin, d.supplier_gstin,
+                         d.doc_no, dt(d.doc_date), round(max(f.itc_to_claim, f.itc_in_books, 0), 2), fl.evidence,
+                         fl.advice, fl.exceptions, f.action.value, f.fid])
+    rows.sort(key=lambda r: ({"Likely": 0, "Review": 1, "Possible": 2}.get(r[0], 3), -(r[7] or 0)))
+    _table(ws, ["Confidence", "Possible block", "Section", "Supplier", "GSTIN", "Doc no.", "Date", "ITC (₹)",
+                "Why flagged", "What to do", "When ITC is still allowed", "IMS action", "ID"], rows,
+           [11, 34, 22, 26, 18, 16, 11, 12, 40, 48, 60, 13, 8],
+           wrap_cols=("Possible block", "Why flagged", "What to do", "When ITC is still allowed"))
+
     # ── All findings ──
     ws = wb.create_sheet("All findings")
     rows = []
     for f in res.findings:
-        rows.append([f.fid, f.status.value, f.action.value, f.confidence.value, f.owner.value,
+        rows.append([f.fid, f.status.value, f.action.value, "", "", f.confidence.value, f.owner.value,
                      f.supplier_gstin, f.supplier_name,
                      " + ".join(d.doc_no for d in f.books), " + ".join(d.doc_no for d in f.portal),
                      f.itc_in_books, f.itc_in_2b, f.itc_to_claim, f.reason, f.next_step, "; ".join(f.flags),
                      f.match_score])
-    _table(ws, ["ID", "Status", "Recommended", "Confidence", "Who acts", "GSTIN", "Supplier", "Books doc(s)",
-                "2B doc(s)", "ITC books (₹)", "ITC 2B (₹)", "ITC to claim (₹)", "Reason", "Next step", "Flags",
-                "Match score"], rows,
-           [8, 28, 13, 11, 10, 18, 24, 20, 20, 13, 13, 14, 60, 50, 30, 8],
-           wrap_cols=("Reason", "Next step", "Flags"), action_col=2)
+    _table(ws, ["ID", "Status", "Recommended", "Final decision", "CA note", "Confidence", "Who acts", "GSTIN",
+                "Supplier", "Books doc(s)", "2B doc(s)", "ITC books (₹)", "ITC 2B (₹)", "ITC to claim (₹)", "Reason",
+                "Next step", "Flags", "Match score"], rows,
+           [8, 28, 13, 14, 30, 11, 10, 18, 24, 20, 20, 13, 13, 14, 60, 50, 30, 8],
+           wrap_cols=("CA note", "Reason", "Next step", "Flags"), action_col=2)
+    # The CA records any change here; the month-close pack reads these two columns back.
+    ws["D1"].comment = Comment("Leave blank to keep the recommendation, or pick Accept / Reject / Pending / "
+                               "No IMS action. Add the reason in 'CA note'. TaxMind's month-close pack reads "
+                               "these columns back.", "TaxMind")
+    if rows:
+        dv = DataValidation(type="list", formula1='"Accept,Reject,Pending,No IMS action"', allow_blank=True)
+        ws.add_data_validation(dv)
+        dv.add(f"D2:D{len(rows) + 1}")
 
     path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(path)

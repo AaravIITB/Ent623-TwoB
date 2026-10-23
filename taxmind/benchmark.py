@@ -62,6 +62,7 @@ def evaluate(res, books, portal, truth_path) -> dict:
     case_of = {}
     per_type = defaultdict(lambda: [0, 0])
     failures = []
+    blk, blk_fail = Counter(), []
     for i, c in enumerate(truth["cases"]):
         b_uids = [u for k in c["books"] for u in bidx.get(tuple(k[:5]), [])]
         p_uids = [u for k in c["portal"] for u in pidx.get(tuple(k), [])]
@@ -76,6 +77,17 @@ def evaluate(res, books, portal, truth_path) -> dict:
         for f in fs:
             if any(case_of.get(d.uid, i) != i for d in f.books + f.portal):
                 ok = False
+        flagged = {fl.rid for f in fs for fl in f.blocked}
+        flagged |= {"food"} if "hotel_mixed" in flagged else set()
+        want = c.get("blocked", "")
+        if want:
+            blk["should_flag"] += 1
+            blk["flagged"] += want in flagged
+            if want not in flagged:
+                blk_fail.append({"case": c["case"], "want": want, "got": sorted(flagged), "docs": c["books"]})
+        elif flagged:
+            blk["false_flags"] += 1
+            blk_fail.append({"case": c["case"], "want": "", "got": sorted(flagged), "docs": c["books"] + c["portal"]})
         per_type[c["case"]][1] += 1
         if ok:
             per_type[c["case"]][0] += 1
@@ -95,7 +107,10 @@ def evaluate(res, books, portal, truth_path) -> dict:
     return {"cases": total, "correct": correct, "accuracy": round(correct / total, 4) if total else 0,
             "wrong_pairings": wrong, "wrong_accepts": wrong_accepts,
             "by_case": {k: f"{v[0]}/{v[1]}" for k, v in sorted(per_type.items())},
-            "failures": failures}
+            "failures": failures,
+            "blocked_credit": {"should_flag": blk["should_flag"], "flagged": blk["flagged"],
+                               "recall": round(blk["flagged"] / blk["should_flag"], 4) if blk["should_flag"] else None,
+                               "false_flags": blk["false_flags"], "failures": blk_fail}}
 
 
 def engine_effort(res) -> dict:
@@ -103,9 +118,11 @@ def engine_effort(res) -> dict:
     auto = [f for f in F if not f.needs_human]
     judge = [f for f in F if f.needs_human and f.owner == Owner.CA and f.confidence != Confidence.HIGH]
     outreach = [f for f in F if f.owner in (Owner.CLIENT, Owner.SUPPLIER)]
-    info = [f for f in F if f.needs_human and f not in judge and f not in outreach]
+    blocked = [f for f in F if f.blocked and f not in judge and f not in outreach]
+    info = [f for f in F if f.needs_human and f not in judge and f not in outreach and f not in blocked]
     return {"decisions": len(F), "auto_cleared": len(auto), "quick_check_by_CA": len(judge),
-            "ask_client_or_supplier": len(outreach), "info_or_housekeeping": len(info),
+            "ask_client_or_supplier": len(outreach), "blocked_credit_check": len(blocked),
+            "info_or_housekeeping": len(info),
             "unexplained": sum(1 for f in F if not f.reason)}
 
 

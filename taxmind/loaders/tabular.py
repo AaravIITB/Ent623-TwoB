@@ -45,7 +45,16 @@ SYNONYMS = {
     "note_type": ["notetype", "typeofnote", "ntty", "notetypecreditdebit"],
     "voucher_type": ["vouchertype", "vchtype", "transactiontype"],
     "ims": ["imsaction", "actiontaken", "action", "imsstatus", "currentaction"],
+    "ledger": ["purchaseledger", "expenseledger", "expensehead", "accounthead", "ledger", "account",
+               "glaccount", "natureofexpense", "expensetype", "category"],
+    "description": ["itemdescription", "descriptionofgoods", "descriptionofgoodsservices", "goodsdescription",
+                    "description", "itemname", "item", "stockitem", "productname", "narration", "remarks"],
+    "hsn": ["hsnsac", "hsnsaccode", "hsncode", "saccode", "hsn", "sac", "hsnorsac"],
 }
+# Columnar registers (Tally) put each purchase/expense ledger in its own amount column.
+# A non-zero amount under a header we don't otherwise recognise is read as that ledger.
+_NOT_LEDGER = re.compile(r"total|value|amount|gross|net|round|rate|qty|quantity|balance|tds|tcs|voucher|"
+                         r"^\s*(sl|sr|s)\.?\s*no|number|date|gstin|invoice|bill|reference|period|place", re.I)
 TAX_FIELDS = ("igst", "cgst", "sgst", "cess")
 VOUCHER_DATE = ("date", "voucherdate", "vchdate", "postingdate", "accountingdate")
 AMENDMENT_NO = ("originalinvoicenumber", "originalinvoiceno", "originalnotenumber", "originalnoteno",
@@ -204,6 +213,11 @@ def load(path: str | Path, side: Side, uid_prefix: str | None = None,
                          "(matching will be weak - export the supplier invoice number)")
         vdate = next((i for i, lab in enumerate(labels) if norm_header(lab) in VOUCHER_DATE
                       and i != cols.get("date")), None)
+        used_cols = {v for v in cols.values() if not isinstance(v, list)} | \
+                    {i for v in cols.values() if isinstance(v, list) for i in v}
+        ledger_cols = [i for i, lab in enumerate(labels) if i not in used_cols and i != vdate
+                       and str(lab).strip() and str(lab).strip().lower() != "nan"
+                       and not _NOT_LEDGER.search(str(lab))] if side == Side.BOOKS else []
         sheet_type = _sheet_doc_type(sheet)
         low = sheet.lower()
         amendment_sheet = side == Side.PORTAL and ("b2ba" in norm_header(low) or "cdnra" in norm_header(low)
@@ -258,6 +272,15 @@ def load(path: str | Path, side: Side, uid_prefix: str | None = None,
                 ims_action=ims_action(val("ims")) if "ims" in cols and pd.notna(val("ims")) else "",
                 source=f"{path.name}:{sheet}", row_ref=f"row {r + 1}",
             )
+            if side == Side.BOOKS:
+                d.ledger = "" if val("ledger") is None or pd.isna(val("ledger")) else str(val("ledger")).strip()
+                d.description = ("" if val("description") is None or pd.isna(val("description"))
+                                 else str(val("description")).strip())
+                h = val("hsn")
+                d.hsn = "" if h is None or pd.isna(h) else str(h).strip().removesuffix(".0")
+                extra = [str(labels[i]).strip() for i in ledger_cols if to_float(row[i])]
+                if extra:
+                    d.ledger = "; ".join(x for x in [d.ledger] + extra if x)
             if amendment_sheet:
                 orig = val("amends")
                 d.amends = "" if orig is None or pd.isna(orig) else str(orig).strip()

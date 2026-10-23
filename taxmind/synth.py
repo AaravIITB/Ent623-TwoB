@@ -5,7 +5,7 @@ Writes, for a fictional client:
   gstr2b_092026.xlsx                         portal Excel layout (title rows, 2-row header)
   purchase_register_092026.xlsx              Tally-style purchase register
   tally_daybook_092026.xml                   Tally XML export of the same vouchers
-  truth.json                                 the correct status for every case
+  truth.json                                 the correct status (and any Sec 17(5) block) for every case
 
 All names and GSTINs are invented (GSTINs carry valid check digits).
 """
@@ -30,6 +30,19 @@ WORDS_A = ["Shree", "Vardhan", "Apex", "Kaveri", "Sahyadri", "Orion", "Navkar", 
 WORDS_B = ["Steel", "Polymers", "Packaging", "Logistics", "Fasteners", "Chemicals", "Electricals", "Castings",
            "Traders", "Tooling", "Paints", "Hydraulics", "Bearings", "Rubber", "Wires", "Office Supplies"]
 SUFFIX = ["Pvt Ltd", "LLP", "Enterprises", "Industries", "Pvt Ltd", "& Co"]
+# Purchase / expense ledgers. Normal ones carry full ITC; the second list are Sec 17(5) cases with the
+# block TaxMind should flag ('' = looks risky but is allowed, so it must NOT be flagged).
+NORMAL_LEDGERS = [("Purchase @18%", "7318"), ("Raw Material Purchase", "7208"), ("Packing Material", "4819"),
+                  ("Freight Inward", "996511"), ("Consumables", "8207"), ("Repairs - Plant & Machinery", "998719"),
+                  ("Professional Fees", "998221"), ("Purchase @5%", "3901"), ("Job Work Charges", "998898")]
+BLOCKED_LEDGERS = [("Staff Welfare - Food", "996334", "food"), ("Hotel - Food & Beverages", "996332", "food"),
+                   ("Car Repairs & Maintenance", "998714", "motor_vehicle"), ("Cab Hire Charges", "996601", "motor_vehicle"),
+                   ("Club Membership Fees", "999652", "club"), ("Group Health Insurance", "997133", "insurance"),
+                   ("Diwali Gifts to Customers", "9505", "gifts"), ("CSR Expenses", "999799", "csr"),
+                   ("Leave Travel Concession", "998552", "travel_vacation"),
+                   ("Office Building Construction", "995411", "construction")]
+LOOKALIKE_LEDGERS = [("Lodging - Business Travel", "996311", ""), ("Goods Vehicle Hire", "996601", ""),
+                     ("Fire Insurance - Factory", "997135", ""), ("Truck Freight Charges", "996511", "")]
 STATES = ["27"] * 6 + ["24", "29", "33", "07", "09", "36", "06", "08"]
 
 
@@ -66,6 +79,9 @@ class Inv:
     itcavl: str = "Y"
     rsn: str = ""
     period: str = "092026"
+    ledger: str = ""
+    hsn: str = ""
+    blocked: str = ""            # Sec 17(5) rule TaxMind should flag ('' = none)
 
 
 @dataclass
@@ -105,13 +121,14 @@ def _typo_seq(n: int, rng) -> int:
     d = list(str(n))
     if len(d) >= 2 and rng.random() < 0.5:
         i = rng.randrange(len(d) - 1)
-        if d[i] != d[i + 1]:
+        if d[i] != d[i + 1] and not (i == 0 and d[1] == "0"):
             d[i], d[i + 1] = d[i + 1], d[i]
             return int("".join(d))
     i = rng.randrange(len(d))
     d[i] = str((int(d[i]) + rng.randint(1, 8)) % 10)
     m = int("".join(d))
-    return m if m != n and m > 0 else n + 10
+    # a leading 0 would silently drop digits (604 -> 004 -> 4): that is not a one-key typo
+    return m if m != n and len(str(m)) == len(str(n)) else n + 10
 
 
 def _tax(rng, taxable, intra, rate=None):
@@ -156,6 +173,7 @@ def generate(out_dir: str | Path, seed: int = 7, n_suppliers: int = 45, n_invoic
                    "internal_no": 3, "dup": 2}
     kinds = list(weights)
     cases: list[Case] = []
+    blocked_share = 0.10 if hard else 0.06
 
     def new_inv(s: Supplier, d: date, taxable=None, rate=None) -> Inv:
         s.seq += rng.randint(1, 4)
@@ -163,7 +181,14 @@ def generate(out_dir: str | Path, seed: int = 7, n_suppliers: int = 45, n_invoic
         taxable = min(max(taxable, 1500.0), 2_500_000.0)
         intra = s.gstin[:2] == client_gstin[:2]
         ig, cg, sg = _tax(rng, taxable, intra, rate)
-        return Inv(s.gstin, s.name, _number(s, s.seq), d, taxable, ig, cg, sg)
+        r = rng.random()
+        if r < blocked_share:
+            ledger, hsn, blk = rng.choice(BLOCKED_LEDGERS)
+        elif r < blocked_share + 0.03:
+            ledger, hsn, blk = rng.choice(LOOKALIKE_LEDGERS)
+        else:
+            (ledger, hsn), blk = rng.choice(NORMAL_LEDGERS), ""
+        return Inv(s.gstin, s.name, _number(s, s.seq), d, taxable, ig, cg, sg, ledger=ledger, hsn=hsn, blocked=blk)
 
     def clone(x: Inv, **kw) -> Inv:
         y = Inv(**{**x.__dict__})
@@ -209,7 +234,8 @@ def generate(out_dir: str | Path, seed: int = 7, n_suppliers: int = 45, n_invoic
             tot = round(sum(x.taxable for x in parts), 2)
             b = Inv(s.gstin, s.name, parts[-1].no, parts[-1].dt, tot,
                     round(sum(x.igst for x in parts), 2), round(sum(x.cgst for x in parts), 2),
-                    round(sum(x.sgst for x in parts), 2))
+                    round(sum(x.sgst for x in parts), 2), ledger=parts[0].ledger, hsn=parts[0].hsn,
+                    blocked=parts[0].blocked)
             if rng.random() < 0.5:
                 b.no = f"{parts[0].no} to {parts[-1].no}"
             cases.append(Case(kind, [Status.SPLIT], [b], parts))
@@ -245,8 +271,10 @@ def generate(out_dir: str | Path, seed: int = 7, n_suppliers: int = 45, n_invoic
                     cases.append(Case("recurring_late", [Status.LATE_FILED], [inv], [clone(inv, period="102026")]))
 
     # portal-only and credit notes
+    in_books = sorted({b.gstin for c in cases for b in c.books})
+    known = [x for x in sups if x.gstin in in_books]        # 'known' = the client has booked from them
     for _ in range(6):
-        s = rng.choice(sups)
+        s = rng.choice(known)
         cases.append(Case("portal_known", [Status.PORTAL_ONLY_KNOWN], [], [new_inv(s, date(2026, 9, rng.randint(1, 30)))]))
     for _ in range(3):
         g = make_gstin(rng, rng.choice(STATES))
@@ -279,13 +307,14 @@ def generate(out_dir: str | Path, seed: int = 7, n_suppliers: int = 45, n_invoic
     for per in ("092026", "102026"):
         _write_2b_json(out / f"gstr2b_{per}.json", client_gstin, per, [p for p in portal if p.period == per])
     _write_2b_excel(out / "gstr2b_092026.xlsx", client_gstin, [p for p in portal if p.period == "092026"])
-    _write_register(out / "purchase_register_092026.xlsx", client_name, books)
+    _write_register(out / "purchase_register_092026.xlsx", client_name, books, columnar=hard)
     _write_tally_xml(out / "tally_daybook_092026.xml", books)
 
     truth = []
     for c in cases:
         truth.append({"case": c.case, "expected": [e.value for e in c.expected],
-                      "books": [_key(b) for b in c.books], "portal": [_key(p) for p in c.portal]})
+                      "books": [_key(b) for b in c.books], "portal": [_key(p) for p in c.portal],
+                      "blocked": next((b.blocked for b in c.books if b.blocked and b.typ != "CN"), "")})
     meta = {"client_gstin": client_gstin, "client_name": client_name, "period": "092026",
             "books_entries": len(books), "portal_sep": sum(1 for p in portal if p.period == "092026"),
             "cases": len(cases), "seed": seed, "hard": hard}
@@ -351,20 +380,29 @@ def _write_2b_excel(path, client, invs):
     wb.save(path)
 
 
-def _write_register(path, client_name, books):
+def _write_register(path, client_name, books, columnar=False):
+    """columnar=False: one 'Purchase Ledger' + 'HSN/SAC' column (a typical Excel export).
+    columnar=True: Tally's columnar register - every purchase/expense ledger is its own amount column."""
     wb = Workbook()
     ws = wb.active
     ws.title = "Purchase Register"
     ws.append([client_name])
     ws.append(["Purchase Register", "1-Sep-26 to 30-Sep-26"])
     ws.append([])
-    ws.append(["Date", "Particulars", "Voucher Type", "Voucher No.", "Supplier Invoice No.",
-               "Supplier Invoice Date", "GSTIN/UIN", "Taxable Value", "Input CGST", "Input SGST",
-               "Input IGST", "Gross Total"])
+    head = ["Date", "Particulars", "Voucher Type", "Voucher No.", "Supplier Invoice No.",
+            "Supplier Invoice Date", "GSTIN/UIN", "Taxable Value", "Input CGST", "Input SGST", "Input IGST",
+            "Gross Total"]
+    ledgers = sorted({b.ledger for b in books if b.ledger}) if columnar else []
+    ws.append(head + (ledgers if columnar else ["Purchase Ledger", "HSN/SAC"]))
     for i, b in enumerate(sorted(books, key=lambda x: x.dt), 1):
         vt = "Debit Note" if b.typ == "CN" else "Purchase"
-        ws.append([b.dt + timedelta(days=1), b.name, vt, i, b.no, b.dt, b.gstin, b.taxable, b.cgst, b.sgst,
-                   b.igst, round(b.taxable + b.igst + b.cgst + b.sgst, 2)])
+        row = [b.dt + timedelta(days=1), b.name, vt, i, b.no, b.dt, b.gstin, b.taxable, b.cgst, b.sgst,
+               b.igst, round(b.taxable + b.igst + b.cgst + b.sgst, 2)]
+        if columnar:
+            row += [b.taxable if b.ledger == lg else None for lg in ledgers]
+        else:
+            row += [b.ledger, b.hsn]
+        ws.append(row)
     for row in ws.iter_rows(min_row=5):
         row[0].number_format = row[5].number_format = "dd-mmm-yy"
     wb.save(path)
@@ -378,7 +416,7 @@ def _write_tally_xml(path, books):
         name = b.name.replace("&", "&amp;")
         total = round(b.taxable + b.igst + b.cgst + b.sgst, 2)
         led = [f"<ALLLEDGERENTRIES.LIST><LEDGERNAME>{name}</LEDGERNAME><AMOUNT>{total:.2f}</AMOUNT></ALLLEDGERENTRIES.LIST>",
-               f"<ALLLEDGERENTRIES.LIST><LEDGERNAME>Purchase @ GST</LEDGERNAME><AMOUNT>-{b.taxable:.2f}</AMOUNT></ALLLEDGERENTRIES.LIST>"]
+               f"<ALLLEDGERENTRIES.LIST><LEDGERNAME>{(b.ledger or 'Purchase @ GST').replace('&', '&amp;')}</LEDGERNAME><AMOUNT>-{b.taxable:.2f}</AMOUNT></ALLLEDGERENTRIES.LIST>"]
         for ln, amt in (("Input IGST", b.igst), ("Input CGST", b.cgst), ("Input SGST", b.sgst)):
             if amt:
                 led.append(f"<ALLLEDGERENTRIES.LIST><LEDGERNAME>{ln}</LEDGERNAME><AMOUNT>-{amt:.2f}</AMOUNT></ALLLEDGERENTRIES.LIST>")
