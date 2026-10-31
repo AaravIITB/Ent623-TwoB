@@ -1,0 +1,10 @@
+services:
+  taxmind:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      TAXMIND_ADMIN_PASSWORD: "change-me"     # first start only: password of the 'admin' user
+    volumes: ["taxmind-data:/data"]          # database, uploaded files, close packs - back this up
+    restart: unless-stopped
+volumes:
+  taxmind-data:

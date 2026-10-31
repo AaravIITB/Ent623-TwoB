@@ -6,12 +6,47 @@ It also runs pre-filing checks before GSTR-3B is filed, flags possible **Sec 17(
 
 Built by team TwoB for ENT 623. The recommendations are defaults for a CA to review, not filing advice.
 
-## Quick start
+## The product: TaxMind web app
+
+A web app for a CA firm's GST team: one login per staff member, every client on one dashboard, and each client's month taken from upload to a closed, signed-off record.
+
+```bash
+scripts/run.sh                     # installs, builds the web app once, serves http://localhost:8000
+# or: docker compose up --build    # same, in a container; data kept in the 'taxmind-data' volume
+```
+
+The first start creates the user `admin` with password `admin123` (set `TAXMIND_ADMIN_PASSWORD` before the first start to choose another). To try it with data, log in as admin and press **Load demo clients**, or call `POST /api/demo/seed`. This adds six fictional clients from `test_data/`, with Jun 2026 reconciled, plus demo users `riya` / `aman` (preparers) and `camehta` (reviewer), all with password `demo123`.
+
+| Step | Who | What the app does |
+|---|---|---|
+| Dashboard | everyone | All clients for the month: status, open items, ITC at risk, high-risk checks, follow-ups, days to the IMS (14th) and 3B (20th) deadlines |
+| Upload | preparer | Purchase register (Excel / CSV / Tally XML) and GSTR-2B / IMS for this and nearby months. The vendor master is stored once per client |
+| Reconcile | preparer | Runs the engine with the client's settings and last month's reversal ledger. Re-running keeps decisions already taken |
+| Review | preparer | Works supplier by supplier: bulk Accept / Reject / Pending / No IMS action, use the recommendation, notes, assign to a colleague, keyboard shortcuts, and *same as last month* suggestions taken from the previous month's decisions |
+| Follow-ups | preparer | One message per supplier (WhatsApp / email), contact details remembered, status to send → sent → replied → resolved |
+| 3B Table 4 | everyone | Live from the final decisions, with the reversal ledger |
+| Sign-off | reviewer | Submit → approve or send back with a note → close. Closing builds the month-close pack (SHA-256 fingerprint) and carries the reversal ledger into next month. 3B filing date recorded; reopen with a reason |
+| Exports | everyone | Workbook with the final decisions, IMS actions CSV, pre-filing report, ledger CSV, close pack |
+
+Roles: `preparer` (do the work), `reviewer` (also approve, send back, close, reopen) and `admin` (also users, delete clients). Every action is logged on the activity feed.
+
+Architecture:
+- `server/taxmind_server/` is FastAPI + SQLAlchemy on SQLite: one file in `data/` (or `TAXMIND_DATA`) with the uploads and packs next to it.
+- The API contract is `docs/API.md`; the live docs are at `/api/docs`.
+- `web/` is React + TypeScript (Vite), served by the same process.
+- Each run stores the exact files, settings, vendor master and prior ledger it used, so exports and the close pack always describe exactly what was reviewed.
+- Back up the `data/` folder.
+
+Tests: `python -m pytest -q` (engine) and `python -m pytest -q server/tests` (API). For the web app, run `cd web && npm run typecheck && npm test`.
+
+The older Streamlit demo (`streamlit run app.py`) still works for a quick single-user look.
+
+## Quick start (engine)
 
 ```bash
 pip install -r requirements.txt
 
-# the app (upload files, or click "Try with sample data")
+# the Streamlit demo (upload files, or click "Try with sample data")
 streamlit run app.py
 
 # command line
@@ -277,14 +312,17 @@ Synthetic data reflects only the mismatch types we thought of. **Re-measure on m
 - **Not yet implemented:**
   - pushing IMS actions to the portal (needs a GSP)
   - the 180-day payment rule (needs bank data)
-  - a cross-client dashboard
-  - learning from past decisions
   - splitting a hotel bill into room and food (needs the bill lines)
 
 ## Layout
 
 ```
-app.py                  Streamlit app (reconciliation + Module 1 invoice reader)
+server/taxmind_server/  web backend: FastAPI app (api.py), database (db.py), engine bridge (service.py), auth, demo
+server/tests/           API tests
+web/                    React + TypeScript front end (Vite)
+docs/API.md             API contract between web/ and server/
+Dockerfile, docker-compose.yml, scripts/run.sh
+app.py                  Streamlit demo (reconciliation + Module 1 invoice reader)
 extractor.py            Module 1: OCR / PDF field extraction (Tesseract + PyMuPDF)
 taxmind/
   models.py             Doc, Finding, Status, Action ...

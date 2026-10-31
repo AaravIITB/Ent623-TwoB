@@ -3,3 +3,7 @@ __pycache__/
 .pytest_cache/
 output/
 sample_data_hard/
+data/
+web/node_modules/
+web/dist/
+*.db
