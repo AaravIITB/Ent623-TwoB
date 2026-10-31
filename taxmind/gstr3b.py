@@ -291,12 +291,12 @@ def after_decisions(res, decisions) -> dict:
     for f in res.findings:
         g = copy.copy(f)
         d = by.get(f.fid)
-        if d is not None and d.overridden:
-            g.action = Action(d.final) if d.final in {a.value for a in Action} else g.action
-            if g.action == Action.ACCEPT and f.portal:
-                g.itc_to_claim = f.itc_in_2b if all(p.itc_available is not False for p in f.portal) else 0.0
-            elif g.action in (Action.REJECT, Action.PENDING):
-                g.itc_to_claim = 0.0
+        if d is not None and d.overridden and d.final in {a.value for a in Action}:
+            from .closepack import finding_claim
+            g.itc_to_claim = finding_claim(f, d.final)
+            g.action = Action(d.final)
+            if g.reclaim and g.itc_to_claim == 0:
+                g.reclaim = 0.0
         fs.append(g)
     tmp = SimpleNamespace(period=res.period, findings=fs)
     t4 = res.table4 or {}

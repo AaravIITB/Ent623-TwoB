@@ -76,11 +76,22 @@ def log(db: Session, user: str, client: Client | None, period: str, action: str,
 
 
 def doc_key(d) -> str:
-    return f"{d.side.value}|{d.source}|{d.row_ref or d.doc_no}|{d.supplier_gstin}|{d.doc_type.value}|{d.doc_no}"
+    """What a record IS (supplier, type, number, date, tax) - not where it sits in a file, so inserting a
+    row or renaming a file doesn't detach a staff decision, but a changed amount does."""
+    from taxmind.normalize import k2
+    dd = d.doc_date.isoformat() if d.doc_date else ""
+    return f"{d.side.value}|{d.supplier_gstin}|{d.doc_type.value}|{k2(d.doc_no) or d.doc_no}|{dd}|{round(d.tax)}"
 
 
 def finding_key(f) -> str:
-    return "||".join(sorted(doc_key(d) for d in f.books + f.portal))[:600]
+    return "||".join(sorted(doc_key(d) for d in f.books + f.portal))[:560]
+
+
+_running: set = set()
+
+
+def is_running(period_id: int) -> bool:
+    return period_id in _running
 
 
 def doc_out(d) -> dict:
@@ -120,7 +131,10 @@ def _run(spec: dict):
     books, portal, notes = _load_inputs(spec)
     master = load_vendor_master(spec["vendor_master"]) if spec.get("vendor_master") and \
         Path(spec["vendor_master"]).exists() else None
-    prior = [LedgerItem(**it) for it in spec.get("prior_ledger", [])] or None
+    fields = ("gstin", "doc_no", "doc_date", "period_reversed", "igst", "cgst", "sgst", "cess", "reason", "supplier")
+    prior = [LedgerItem(**{k: it.get(k, "" if k in ("gstin", "doc_no", "doc_date", "period_reversed", "reason",
+                                                     "supplier") else 0.0) for k in fields})
+             for it in spec.get("prior_ledger", [])] or None
     res = reconcile(books, portal, period=spec["period"], client=spec.get("client_name", ""), cfg=_config(spec),
                     notes=notes, prior_ledger=prior, vendor_master=master)
     return res
@@ -144,13 +158,19 @@ def result_for(period: Period):
 
 
 def previous_ledger(db: Session, period: Period) -> list[dict]:
-    """Open reversal-ledger items from the latest closed month before this one."""
-    earlier = [p for p in period.client.periods if p.status == "closed" and pkey(p.period) < pkey(period.period)
-               and p.ledger_json]
-    if not earlier:
+    """Open reversal-ledger items from the month just before this one, if that month is closed."""
+    prev = next((p for p in period.client.periods if p.period == prev_month(period.period)), None)
+    if prev is None or prev.status != "closed":
         return []
-    last = max(earlier, key=lambda p: pkey(p.period))
-    return jload(last.ledger_json, []) or []
+    return jload(prev.ledger_json, []) or []
+
+
+def ledger_warning(period: Period) -> str:
+    prev = next((p for p in period.client.periods if p.period == prev_month(period.period)), None)
+    if prev is not None and prev.status != "closed" and prev.run_no:
+        return (f"{label(prev.period)} is not closed, so its reversal ledger was not brought into this month. "
+                f"Close {label(prev.period)} and reconcile again to reclaim its reversals.")
+    return ""
 
 
 _run_locks: dict = {}
@@ -161,8 +181,12 @@ def run_period(db: Session, period: Period, user: str) -> Period:
     with _lock:
         lk = _run_locks.setdefault(period.id, threading.Lock())
     with lk:
-        db.refresh(period)
-        return _run_period(db, period, user)
+        _running.add(period.id)
+        try:
+            db.refresh(period)
+            return _run_period(db, period, user)
+        finally:
+            _running.discard(period.id)
 
 
 def _run_period(db: Session, period: Period, user: str) -> Period:
@@ -180,26 +204,63 @@ def _run_period(db: Session, period: Period, user: str) -> Period:
         "prior_ledger": previous_ledger(db, period),
     }
     res = _run(spec)
-    old = {d.key: d for d in db.query(DecisionRow).filter_by(period_id=period.id)}
+    if not any(True for _ in res.findings):
+        raise ValueError("Nothing was read from the files - check that they are a purchase register and a GSTR-2B.")
+    s0 = res.summary
+    if not s0["books_entries"]:
+        raise ValueError("No purchase entries were read from the books file(s). Check the file: it needs the "
+                         "supplier GSTIN or name, invoice no. and tax columns.")
+    if not s0["portal_records"]:
+        raise ValueError(f"No GSTR-2B records for {label(period.period)} were read. Check that the 2B file is for "
+                         "this month (or enter its month when uploading).")
+    old: dict = {}
+    for d in db.query(DecisionRow).filter_by(period_id=period.id).order_by(DecisionRow.id):
+        old.setdefault(d.key, []).append(d)
     old_fu = {f.supplier_gstin: f for f in db.query(FollowUpRow).filter_by(period_id=period.id)}
-    db.query(DecisionRow).filter_by(period_id=period.id).delete()
     db.query(FollowUpRow).filter_by(period_id=period.id).delete()
-    carried = 0
+    carried = changed = 0
     memory = history(db, period)
+    seen: dict = {}
+    keep_ids = set()
     for f in res.findings:
-        row = decision_row(period, f)
-        h = memory.get((row.supplier_gstin, row.status_code))
+        new = decision_row(period, f)
+        n = seen.get(new.key, 0)
+        seen[new.key] = n + 1
+        if n:                                   # the same record twice in one run (e.g. booked twice)
+            new.key = f"{new.key}#{n}"[:600]
+        h = memory.get((new.supplier_gstin, new.status_code))
         if h:
-            data = jload(row.data_json, {})
+            data = jload(new.data_json, {})
             data["history"] = h
-            row.data_json = jdump(data)
-        prev = old.get(row.key)
-        if prev is not None and (prev.final or prev.note or prev.assignee_id):
-            row.final = prev.final if prev.final in ACTIONS else None
-            row.note, row.assignee_id = prev.note, prev.assignee_id
-            row.updated_by, row.updated_at = prev.updated_by, prev.updated_at
+            new.data_json = jdump(data)
+        prevs = old.get(new.key) or []
+        prev = prevs.pop(0) if prevs else None
+        if prev is None:
+            db.add(new)
+            continue
+        # update in place: the decision keeps its id, so open screens and links stay valid
+        old_status = prev.status_code
+        for col in ("fid", "status", "status_code", "recommended", "confidence", "owner", "needs_human", "blocked",
+                    "supplier_gstin", "supplier_name", "itc_in_2b", "itc_in_books", "itc_to_claim", "itc_at_stake",
+                    "in_period_2b", "all_available", "search", "data_json"):
+            setattr(prev, col, getattr(new, col))
+        keep_ids.add(prev.id)
+        if prev.final and old_status != new.status_code:
+            # same records, but the situation changed (e.g. now a tax-head mismatch): ask again
+            prev.note = (f"[Earlier decision '{prev.final}' cleared: the situation changed to '{new.status}'.] "
+                         + (prev.note or ""))[:2000]
+            prev.final = None
+            changed += 1
+        elif prev.final or prev.note or prev.assignee_id:
             carried += 1
-        db.add(row)
+        if prev.final and prev.final not in ACTIONS:
+            prev.final = None
+    for rows in old.values():
+        for d in rows:
+            if d.id not in keep_ids:
+                if d.final or d.note:
+                    changed += 1
+                db.delete(d)
     contacts = _known_contacts(db, client, period)
     for m in res.supplier_messages:
         prev = old_fu.get(m.supplier_gstin)
@@ -217,7 +278,15 @@ def _run_period(db: Session, period: Period, user: str) -> Period:
     period.prior_ledger_json = jdump(spec["prior_ledger"])
     period.summary_json = jdump(res.summary)
     period.checks_json = jdump([c.__dict__ for c in res.checks])
-    period.notes_json = jdump(res.notes + ([f"{carried} decisions from the previous run were kept."] if carried else []))
+    extra = [f"{carried} decisions from the previous run were kept."] if carried else []
+    if changed:
+        extra.append(f"{changed} earlier decisions were dropped because their records changed (amount, date or "
+                     "number) or are no longer in the files - check those suppliers again.")
+    warn = ledger_warning(period)
+    if warn:
+        extra.append(warn)
+    period.notes_json = jdump(res.notes + extra)
+    period.stale = False
     period.status = "reconciled"
     with _lock:
         _cache[(period.id, period.run_no)] = res
@@ -264,13 +333,10 @@ def effective(d: DecisionRow) -> str:
 
 
 def claim_after(d: DecisionRow) -> float:
-    """ITC this decision claims once the staff's final decision is applied (closepack.final_claim rules)."""
-    if not d.final or d.final == d.recommended:
-        return d.itc_to_claim
-    if d.final == Action.ACCEPT.value and d.in_period_2b and d.all_available and \
-            d.status_code not in ("LATE_FILED", "EARLIER_PERIOD"):
-        return d.itc_in_2b
-    return 0.0
+    """ITC this decision claims once the staff's final decision is applied (same rule as Table 4 and the pack)."""
+    from taxmind.closepack import claim_with
+    return claim_with(d.status_code, d.recommended, d.final or d.recommended, d.itc_to_claim, d.itc_in_2b,
+                      d.in_period_2b or bool(jload(d.data_json, {}).get("portal")), d.all_available)
 
 
 def is_open(d: DecisionRow) -> bool:

@@ -10,6 +10,7 @@ from typing import Optional
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, UploadFile
 from fastapi.responses import FileResponse, Response
+from starlette.background import BackgroundTask
 from pydantic import BaseModel
 from sqlalchemy import func, or_
 from sqlalchemy.orm import Session
@@ -33,7 +34,7 @@ PERIOD_STATUSES = ["not_started", "files_uploaded", "reconciled", "in_review", "
 # ── serialisers ─────────────────────────────────────────────────────────────
 
 def user_out(u: User) -> dict:
-    return {"id": u.id, "username": u.username, "name": u.name or u.username, "role": u.role}
+    return {"id": u.id, "username": u.username, "name": u.name or u.username, "role": u.role, "active": u.active}
 
 
 def client_out(c: Client) -> dict:
@@ -70,7 +71,7 @@ def period_out(db: Session, p: Period) -> dict:
             "run_at": S.iso(p.run_at), "run_by": p.run_by, "submitted_by": p.submitted_by,
             "submitted_at": S.iso(p.submitted_at), "approved_by": p.approved_by, "approved_at": S.iso(p.approved_at),
             "closed_by": p.closed_by, "closed_at": S.iso(p.closed_at), "pack_fingerprint": p.pack_fingerprint,
-            "review_note": p.review_note or "",
+            "review_note": p.review_note or "", "stale": bool(p.stale),
             "prior_ledger_items": len(jload(p.prior_ledger_json, []) or []) if p.run_no
             else len(S.previous_ledger(db, p))}
 
@@ -133,6 +134,8 @@ def get_period(db: Session, cid: int, p: str, create: bool = True) -> Period:
 
 
 def editable(p: Period):
+    if S.is_running(p.id):
+        raise HTTPException(409, "TaxMind is reconciling this month right now; try again in a moment.")
     if p.status not in EDITABLE:
         raise HTTPException(409, {"approved": "This month is approved; reopen it to change decisions.",
                                   "closed": "This month is closed; reopen it to change decisions."}.get(
@@ -193,7 +196,10 @@ class UserPatch(BaseModel):
 
 @router.get("/users")
 def users(db: Session = Depends(get_db), user: User = Depends(current_user)):
-    return [user_out(u) for u in db.query(User).filter_by(active=True).order_by(User.name)]
+    q = db.query(User)
+    if user.role != "admin":
+        q = q.filter_by(active=True)
+    return [user_out(u) for u in q.order_by(User.name)]
 
 
 @router.post("/users")
@@ -202,6 +208,8 @@ def add_user(body: UserIn, db: Session = Depends(get_db), user: User = Depends(r
         raise HTTPException(400, f"Role must be one of {', '.join(ROLES)}.")
     if len(body.password) < 6:
         raise HTTPException(400, "Use a password of at least 6 characters.")
+    if not body.username.strip():
+        raise HTTPException(400, "Enter a username.")
     if db.query(User).filter(func.lower(User.username) == body.username.strip().lower()).first():
         raise HTTPException(400, "That username is taken.")
     u = User(username=body.username.strip(), name=body.name.strip(), role=body.role,
@@ -232,7 +240,14 @@ def edit_user(uid: int, body: UserPatch, db: Session = Depends(get_db), user: Us
         u.password_hash = hash_password(body.password)
         db.query(Token).filter(Token.user_id == u.id).delete()
     if body.active is not None:
+        if not body.active and u.role == "admin" and \
+                db.query(User).filter_by(role="admin", active=True).count() <= 1:
+            raise HTTPException(400, "Keep at least one active admin.")
+        if not body.active and u.id == user.id:
+            raise HTTPException(400, "You can't disable your own account.")
         u.active = body.active
+        if not body.active:
+            db.query(Token).filter(Token.user_id == u.id).delete()
     db.commit()
     return user_out(u)
 
@@ -348,6 +363,7 @@ def delete_client(cid: int, db: Session = Depends(get_db), user: User = Depends(
     db.delete(c)
     db.commit()
     shutil.rmtree(FILES / str(cid), ignore_errors=True)
+    shutil.rmtree(PACKS / str(cid), ignore_errors=True)
     return {"ok": True}
 
 
@@ -451,20 +467,48 @@ def upload_files(cid: int, p: str, role: str = Form(...), period_hint: str = For
     hint = ""
     if period_hint:
         hint = check_period(period_hint)
-    names = []
     for up in files:
-        folder = FILES / str(cid) / p / now().strftime("%Y%m%d%H%M%S%f")
-        dest, size, sha = _save_upload(up, folder)
-        f = StoredFile(period_id=per.id, role=role, filename=dest.name, path=str(dest), size=size, sha256=sha,
-                       period_hint=hint or (_detect_month(dest) if role == "portal" else ""), uploaded_by=uname(user))
-        db.add(f)
-        names.append(dest.name)
-    if per.status == "not_started":
-        per.status = "files_uploaded"
+        _check_name(up)
+    names, saved = [], []
+    have = {f.sha256: f.filename for f in per.files if f.role == role}
+    try:
+        for up in files:
+            folder = FILES / str(cid) / p / now().strftime("%Y%m%d%H%M%S%f")
+            dest, size, sha = _save_upload(up, folder)
+            saved.append(dest)
+            if sha in have:
+                raise HTTPException(409, f"{dest.name} is the same file as {have[sha]}, already uploaded here.")
+            have[sha] = dest.name
+            f = StoredFile(period_id=per.id, role=role, filename=dest.name, path=str(dest), size=size, sha256=sha,
+                           period_hint=hint or (_detect_month(dest) if role == "portal" else ""),
+                           uploaded_by=uname(user))
+            db.add(f)
+            names.append(dest.name)
+    except HTTPException:
+        db.rollback()
+        for d in saved:
+            shutil.rmtree(d.parent, ignore_errors=True)
+        raise
+    _files_changed(per)
     S.log(db, uname(user), per.client, p, "files uploaded", f"{role}: {', '.join(names)}")
     db.commit()
     db.refresh(per)
     return period_out(db, per)
+
+
+def _check_name(up: UploadFile):
+    name = Path(up.filename or "upload").name
+    if Path(name).suffix.lower() not in (".xlsx", ".xlsm", ".xls", ".csv", ".json", ".xml"):
+        raise HTTPException(400, f"{name}: use Excel, CSV, JSON or Tally XML files.")
+
+
+def _files_changed(per: Period):
+    """New or removed files make the last run out of date: the month goes back to 'files uploaded' until it
+    is reconciled again (decisions are kept and carried over by that run)."""
+    if per.status == "not_started":
+        per.status = "files_uploaded"
+    elif per.status in ("reconciled", "in_review"):
+        per.status, per.stale = "files_uploaded", True
 
 
 def _detect_month(path: Path) -> str:
@@ -489,11 +533,13 @@ def delete_file(cid: int, p: str, fid: int, db: Session = Depends(get_db), user:
         raise HTTPException(404, "File not found.")
     S.log(db, uname(user), per.client, p, "file removed", f.filename)
     db.delete(f)
-    db.commit()
+    db.flush()
     db.refresh(per)
-    if not per.files and per.status == "files_uploaded":
-        per.status = "not_started"
-        db.commit()
+    if per.files:
+        _files_changed(per)
+    elif per.status in ("files_uploaded", "reconciled", "in_review"):
+        per.status, per.stale = ("files_uploaded", True) if per.run_no else ("not_started", False)
+    db.commit()
     return period_out(db, per)
 
 
@@ -508,7 +554,10 @@ def reconcile_period(cid: int, p: str, db: Session = Depends(get_db), user: User
         raise HTTPException(400, str(e))
     except Exception as e:  # noqa: BLE001
         db.rollback()
-        raise HTTPException(422, f"TaxMind could not read the files: {e}")
+        msg = str(e)
+        if "format cannot be determined" in msg or "zip file" in msg.lower() or "codec" in msg:
+            msg = "one of the files is not a valid Excel / CSV / JSON / Tally XML file"
+        raise HTTPException(422, f"TaxMind could not read the files: {msg}.")
     db.refresh(per)
     return period_out(db, per)
 
@@ -539,6 +588,8 @@ def _decision_query(db: Session, per: Period, user: User, view="open", supplier=
     if owner:
         qry = qry.filter(DecisionRow.owner.in_([o.strip() for o in owner.split(",")]))
     if assignee:
+        if assignee != "me" and not assignee.isdigit():
+            raise HTTPException(400, "assignee must be 'me' or a user id.")
         qry = qry.filter(DecisionRow.assignee_id == (user.id if assignee == "me" else int(assignee)))
     if q:
         for word in q.lower().split():
@@ -549,7 +600,7 @@ def _decision_query(db: Session, per: Period, user: User, view="open", supplier=
 @router.get("/clients/{cid}/periods/{p}/decisions")
 def decisions(cid: int, p: str, view: str = "open", supplier: str = "", status_code: str = "", action: str = "",
               owner: str = "", assignee: str = "", q: str = "", sort: str = "itc", offset: int = 0,
-              limit: int = Query(100, le=500), db: Session = Depends(get_db), user: User = Depends(current_user)):
+              limit: int = Query(100, ge=1, le=500), db: Session = Depends(get_db), user: User = Depends(current_user)):
     per = get_period(db, cid, p)
     qry = _decision_query(db, per, user, view, supplier, status_code, action, owner, assignee, q)
     total = qry.count()
@@ -558,7 +609,8 @@ def decisions(cid: int, p: str, view: str = "open", supplier: str = "", status_c
              "status": (DecisionRow.status_code, DecisionRow.itc_at_stake.desc())}.get(sort)
     if order is None:
         raise HTTPException(400, "sort must be itc, supplier or status.")
-    items = qry.order_by(*order).offset(max(offset, 0)).limit(limit).all()
+    offset = max(offset, 0)
+    items = qry.order_by(*order).offset(offset).limit(limit).all()
     return {"items": [decision_out(d) for d in items], "total": total, "offset": offset, "limit": limit}
 
 
@@ -569,6 +621,14 @@ def decision(cid: int, p: str, did: int, db: Session = Depends(get_db), user: Us
     if d is None or d.period_id != per.id:
         raise HTTPException(404, "Decision not found.")
     return decision_out(d)
+
+
+def _check_assignee(db: Session, aid):
+    if aid in (-1, None):
+        return
+    u = db.get(User, aid)
+    if u is None or not u.active:
+        raise HTTPException(400, "No such active user to assign.")
 
 
 class DecisionPatch(BaseModel):
@@ -610,8 +670,7 @@ def edit_decision(cid: int, p: str, did: int, body: DecisionPatch, db: Session =
     d = db.get(DecisionRow, did)
     if d is None or d.period_id != per.id:
         raise HTTPException(404, "Decision not found.")
-    if body.assignee_id not in (-1, None) and db.get(User, body.assignee_id) is None:
-        raise HTTPException(400, "No such user to assign.")
+    _check_assignee(db, body.assignee_id)
     _apply(d, body.final, body.note, body.assignee_id, user)
     db.commit()
     db.refresh(d)
@@ -642,8 +701,7 @@ def bulk(cid: int, p: str, body: BulkIn, db: Session = Depends(get_db), user: Us
     editable(per)
     if body.ids is None and body.filter is None:
         raise HTTPException(400, "Give ids or a filter.")
-    if body.assignee_id not in (-1, None) and db.get(User, body.assignee_id) is None:
-        raise HTTPException(400, "No such user to assign.")
+    _check_assignee(db, body.assignee_id)
     if body.ids is not None:
         rows = db.query(DecisionRow).filter(DecisionRow.period_id == per.id, DecisionRow.id.in_(body.ids)).all()
     else:
@@ -740,6 +798,8 @@ def edit_followup(cid: int, p: str, fid: int, body: FollowUpPatch, db: Session =
     f = db.get(FollowUpRow, fid)
     if f is None or f.period_id != per.id:
         raise HTTPException(404, "Follow-up not found.")
+    if per.status == "closed":
+        raise HTTPException(409, "This month is closed; follow up from the next month's list.")
     if body.status is not None:
         if body.status not in FOLLOWUP_STATUSES:
             raise HTTPException(400, f"status must be one of {', '.join(FOLLOWUP_STATUSES)}.")
@@ -820,15 +880,19 @@ def close(cid: int, p: str, db: Session = Depends(get_db), user: User = Depends(
     per = get_period(db, cid, p)
     if per.status != "approved":
         raise HTTPException(409, "Approve the month before closing it.")
+    if per.stale:
+        raise HTTPException(409, "Files changed after the last reconciliation; reopen and reconcile again.")
     res = S.result_for(per)
     rows = db.query(DecisionRow).filter_by(period_id=per.id).all()
     out = PACKS / str(cid) / f"taxmind_{per.client.id}_{p}_close_pack.zip"
-    files = [f.path for f in per.files] + ([per.client.vendor_master_path] if per.client.vendor_master_path else [])
+    spec = jload(per.run_settings_json, {})
+    files = [f["path"] for f in spec.get("books", []) + spec.get("portal", [])] + \
+        ([spec["vendor_master"]] if spec.get("vendor_master") else [])
     z = build_close_pack(res, out, input_files=[x for x in files if Path(x).exists()],
                          info=CloseInfo(preparer=per.submitted_by or per.run_by or "", reviewer=uname(user),
                                         overrides=S.overrides(rows, res)))
     t4 = S.table4(per, rows, "final")
-    per.ledger_json = jdump(t4["ledger"])
+    per.ledger_json = jdump([{k: v for k, v in it.items() if k != "tax"} for it in t4["ledger"]])
     per.pack_path, per.pack_fingerprint = str(z), pack_fingerprint(z)
     per.status, per.closed_by, per.closed_at = "closed", uname(user), now()
     S.log(db, uname(user), per.client, p, "closed", f"fingerprint {per.pack_fingerprint}; "
@@ -847,6 +911,7 @@ def reopen(cid: int, p: str, body: NoteIn, db: Session = Depends(get_db), user: 
     was = per.status
     per.status = "reconciled" if per.run_no else ("files_uploaded" if per.files else "not_started")
     per.approved_by = per.approved_at = per.closed_by = per.closed_at = None
+    per.pack_fingerprint, per.ledger_json = None, ""      # the old pack stays on disk; a new close makes a new one
     per.review_note = body.note
     S.log(db, uname(user), per.client, p, "reopened", f"was {was}: {body.note}")
     db.commit()
@@ -899,7 +964,7 @@ def export_workbook(cid: int, p: str, db: Session = Depends(get_db), user: User 
         if fid in ov:
             ws.cell(r, 4).value, ws.cell(r, 5).value = ov[fid]
     wb.save(tmp)
-    return FileResponse(tmp, filename=tmp.name,
+    return FileResponse(tmp, filename=tmp.name, background=BackgroundTask(shutil.rmtree, tmp.parent, True),
                         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
 
@@ -933,7 +998,8 @@ def export_prefiling(cid: int, p: str, db: Session = Depends(get_db), user: User
     res = _need_result(per)
     tmp = Path(tempfile.mkdtemp()) / _fname(per, "_prefiling.html")
     write_html(res, tmp)
-    return FileResponse(tmp, filename=tmp.name, media_type="text/html")
+    return FileResponse(tmp, filename=tmp.name, media_type="text/html",
+                        background=BackgroundTask(shutil.rmtree, tmp.parent, True))
 
 
 @router.get("/clients/{cid}/periods/{p}/export/ledger.csv")

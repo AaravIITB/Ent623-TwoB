@@ -193,3 +193,114 @@ def test_history_suggestion_next_month(client, admin):
     assert r.json()["updated"] == len(items)
     d = client.get(P + f"/decisions?view=decided&supplier={S3}", headers=admin).json()["items"][0]
     assert d["final"] == "No IMS action" and "booked in expense register" in d["note"]
+
+
+# ── regressions from the backend review ─────────────────────────────────────
+
+def _month(client, h, cid, per, books=BOOKS, twob=TWOB, run=True):
+    P = f"/api/clients/{cid}/periods/{per}"
+    client.post(P + "/files", headers=h, data={"role": "books"}, files={"files": ("pr.xlsx", books)})
+    client.post(P + "/files", headers=h, data={"role": "portal", "period_hint": per},
+                files={"files": (f"gstr2b_{per}.xlsx", twob)})
+    if run:
+        r = client.post(P + "/reconcile", headers=h)
+        assert r.status_code == 200, r.text
+    return P
+
+
+def _close(client, h, P):
+    assert client.post(P + "/approve", headers=h, json={"force": True}).status_code == 200
+    r = client.post(P + "/close", headers=h)
+    assert r.status_code == 200, r.text
+    return r.json()
+
+
+def test_next_month_runs_with_the_closed_ledger(client, admin):
+    c = client.post("/api/clients", headers=admin, json={"name": "Ledger Co", "settings": {"policy": "reverse"}}).json()
+    twob_extra = xlsx([[S1, "ALPHA STEEL", "A-101", date(2026, 5, 5), 100000, 0, 9000, 9000],
+                       [S1, "ALPHA STEEL", "A-199", date(2026, 5, 20), 20000, 0, 1800, 1800]],
+                      ["GSTIN of supplier", "Trade/Legal name", "Invoice number", "Invoice Date", "Taxable Value",
+                       "Integrated Tax", "Central Tax", "State/UT Tax"])
+    may_books = xlsx([["A-101", date(2026, 5, 5), S1, "Alpha Steel", 100000, 9000, 9000, 0, "Raw material"]],
+                     ["Supplier Invoice No", "Invoice Date", "GSTIN of Supplier", "Party Name", "Taxable Value",
+                      "CGST", "SGST", "IGST", "Purchase Ledger"])
+    P = _month(client, admin, c["id"], "052026", books=may_books, twob=twob_extra)
+    closed = _close(client, admin, P)
+    tok = admin["Authorization"][7:]
+    n = len(client.get(P + f"/export/ledger.csv?token={tok}").text.strip().splitlines()) - 1
+    assert n > 0
+    J = _month(client, admin, c["id"], "062026")
+    assert client.get(J, headers=admin).json()["prior_ledger_items"] == n
+    # reopening May: June must not silently use an older ledger, and says why
+    client.post(P + "/reopen", headers=admin, json={"note": "fix"})
+    j = client.post(J + "/reconcile", headers=admin).json()
+    assert j["prior_ledger_items"] == 0 and any("not closed" in x for x in j["notes"])
+    assert closed["pack_fingerprint"] and client.get(P, headers=admin).json()["pack_fingerprint"] is None
+
+
+def test_itc_after_decisions_agrees_everywhere(client, admin):
+    import json as _json
+    import zipfile
+    c = client.post("/api/clients", headers=admin, json={"name": "Agree Co"}).json()
+    P = _month(client, admin, c["id"], "062026")
+    ex = client.get(P + "/decisions?view=all&status_code=EXACT,FORMAT_DIFF", headers=admin).json()["items"]
+    client.post(P + "/decisions/bulk", headers=admin, json={"ids": [d["id"] for d in ex], "final": "No IMS action"})
+    client.post(P + "/decisions/bulk", headers=admin, json={"ids": [ex[0]["id"]], "final": "Reject"})
+    s = client.get(P, headers=admin).json()["summary"]
+    lines = {ln["code"]: ln["total"] for ln in client.get(P + "/table4", headers=admin).json()["lines"]}
+    claim_t4 = round(lines["4(C)"] + lines["4(B)(1)"], 2)
+    assert abs(s["itc_after_decisions"] - claim_t4) < 1
+    _close(client, admin, P)
+    z = zipfile.ZipFile(io.BytesIO(client.get(P + f"/export/close-pack?token={admin['Authorization'][7:]}").content))
+    pack = _json.loads(z.read("decisions.json"))
+    assert abs(pack["itc_after_ca_decisions"] - s["itc_after_decisions"]) < 1
+
+
+def test_changing_files_needs_a_new_run_and_keeps_ids(client, admin):
+    c = client.post("/api/clients", headers=admin, json={"name": "Stale Co"}).json()
+    P = _month(client, admin, c["id"], "062026")
+    d = client.get(P + f"/decisions?supplier={S3}", headers=admin).json()["items"][0]
+    client.patch(P + f"/decisions/{d['id']}", headers=admin, json={"final": "Reject", "note": "not ours"})
+    # same 2B again -> refused
+    r = client.post(P + "/files", headers=admin, data={"role": "portal"}, files={"files": ("copy.xlsx", TWOB)})
+    assert r.status_code == 409
+    # a 2B with an extra row inserted at the top: decisions follow the records, not the row numbers
+    twob2 = xlsx([[S2, "BETA CABS", "C-9", date(2026, 6, 10), 2000, 0, 50, 50]] +
+                 [[S1, "ALPHA STEEL", "A-101", date(2026, 6, 5), 100000, 0, 9000, 9000],
+                  [S1, "ALPHA STEEL", "A/102", date(2026, 6, 6), 50000, 0, 4500, 4500],
+                  [S2, "BETA CABS", "B/77", date(2026, 6, 9), 10000, 0, 250, 250],
+                  [S3, "GAMMA AIR", "G1", date(2026, 6, 12), 4000, 200, 0, 0],
+                  [S3, "GAMMA AIR", "G2", date(2026, 6, 13), 4000, 200, 0, 0]],
+                 ["GSTIN of supplier", "Trade/Legal name", "Invoice number", "Invoice Date", "Taxable Value",
+                  "Integrated Tax", "Central Tax", "State/UT Tax"])
+    per = client.get(P, headers=admin).json()
+    client.delete(P + f"/files/{[f for f in per['files'] if f['role'] == 'portal'][0]['id']}", headers=admin)
+    per = client.post(P + "/files", headers=admin, data={"role": "portal", "period_hint": "062026"},
+                      files={"files": ("gstr2b_v2.xlsx", twob2)}).json()
+    assert per["status"] == "files_uploaded" and per["stale"]
+    assert client.post(P + "/submit", headers=admin, json={}).status_code == 409
+    assert client.patch(P + f"/decisions/{d['id']}", headers=admin, json={"note": "x"}).status_code == 409
+    client.post(P + "/reconcile", headers=admin)
+    same = client.get(P + f"/decisions/{d['id']}", headers=admin).json()
+    assert same["final"] == "Reject" and same["note"] == "not ours"          # same id, decision kept
+
+
+def test_auth_hardening(client, admin):
+    tok = admin["Authorization"][7:]
+    c = client.post("/api/clients", headers=admin, json={"name": "Auth Co"}).json()
+    assert client.post(f"/api/clients/{c['id']}/periods/062026/decisions/bulk?token={tok}",
+                       json={"filter": {"view": "all"}, "final": "Reject"}).status_code == 401
+    me = client.get("/api/me", headers=admin).json()
+    assert client.patch(f"/api/users/{me['id']}", headers=admin, json={"active": False}).status_code == 400
+    assert client.post("/api/users", headers=admin, json={"username": " ", "password": "secret1"}).status_code == 400
+    P = f"/api/clients/{c['id']}/periods/062026"
+    assert client.get(P + "/decisions?assignee=abc", headers=admin).status_code == 400
+    assert client.get(P + "/decisions?limit=0", headers=admin).status_code == 422
+
+
+def test_empty_books_is_refused(client, admin):
+    c = client.post("/api/clients", headers=admin, json={"name": "Empty Co"}).json()
+    empty = xlsx([], ["Supplier Invoice No", "Invoice Date", "GSTIN of Supplier", "Taxable Value", "CGST", "SGST"])
+    P = _month(client, admin, c["id"], "062026", books=empty, run=False)
+    r = client.post(P + "/reconcile", headers=admin)
+    assert r.status_code == 400 and "No purchase entries" in r.json()["detail"]

@@ -19,4 +19,4 @@ COPY test_data/ test_data/
 COPY --from=web /web/dist web/dist
 VOLUME /data
 EXPOSE 8000
-CMD ["python", "-m", "uvicorn", "taxmind_server.main:app", "--app-dir", "server", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "uvicorn", "taxmind_server.main:app", "--app-dir", "server", "--no-access-log", "--host", "0.0.0.0", "--port", "8000"]

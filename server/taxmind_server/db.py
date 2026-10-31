@@ -108,6 +108,7 @@ class Period(Base):
     pack_fingerprint: Mapped[str | None] = mapped_column(String(80), nullable=True)
     review_note: Mapped[str] = mapped_column(Text, default="")
     filed_3b_on: Mapped[object | None] = mapped_column(Date, nullable=True)
+    stale: Mapped[bool] = mapped_column(Boolean, default=False)       # files changed since the last run
     client: Mapped[Client] = relationship(back_populates="periods")
     files: Mapped[list["StoredFile"]] = relationship(back_populates="period", cascade="all, delete-orphan",
                                                      order_by="StoredFile.id")
@@ -192,4 +193,17 @@ class ActivityRow(Base):
 
 
 def init_db():
+    """Create tables, and add columns that newer versions introduced (SQLite has no migrations tool here)."""
+    from sqlalchemy import inspect, text
     Base.metadata.create_all(engine)
+    insp = inspect(engine)
+    with engine.begin() as conn:
+        for table in Base.metadata.sorted_tables:
+            have = {c["name"] for c in insp.get_columns(table.name)}
+            for col in table.columns:
+                if col.name in have:
+                    continue
+                ddl = col.type.compile(engine.dialect)
+                default = col.default.arg if col.default is not None and not callable(col.default.arg) else None
+                dflt = "" if default is None else f" DEFAULT {int(default) if isinstance(default, bool) else repr(default)}"
+                conn.execute(text(f'ALTER TABLE {table.name} ADD COLUMN {col.name} {ddl}{dflt}'))

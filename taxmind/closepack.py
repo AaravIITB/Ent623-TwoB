@@ -100,19 +100,39 @@ def final_decisions(res, overrides: dict) -> list[Decision]:
     return out
 
 
+def claim_with(status_name: str, recommended: str, final: str, itc_to_claim: float, itc_in_2b: float,
+               has_portal: bool, all_available: bool) -> float:
+    """ITC a decision claims once the CA's final action replaces TaxMind's recommendation.
+
+    The one rule used everywhere (close record, 3B Table 4, the web app's progress figures):
+      unchanged                -> TaxMind's amount
+      Accept                   -> the 2B amount (if every record is available); a reclaim keeps its amount
+      Reject / Pending         -> nothing this month
+      No IMS action            -> TaxMind's amount when it recommended Accept / no action (deemed accepted),
+                                  otherwise nothing
+    """
+    if not final or final == recommended:
+        return itc_to_claim
+    if final == Action.ACCEPT.value:
+        if status_name in ("LATE_FILED",):
+            return 0.0
+        if status_name == "EARLIER_PERIOD":
+            return itc_to_claim if itc_to_claim else itc_in_2b
+        return itc_in_2b if (has_portal and all_available) else 0.0
+    if final == Action.NONE.value:
+        return itc_to_claim if recommended in (Action.ACCEPT.value, Action.NONE.value) else 0.0
+    return 0.0
+
+
+def finding_claim(f, final: str | None) -> float:
+    return claim_with(f.status.name, f.action.value, final or f.action.value, f.itc_to_claim, f.itc_in_2b,
+                      bool(f.portal), all(p.itc_available is not False for p in f.portal))
+
+
 def final_claim(res, decisions: list[Decision]) -> float:
     """ITC to claim after the CA's decisions (recommended amount where unchanged)."""
     by = {d.fid: d for d in decisions}
-    total = 0.0
-    for f in res.findings:
-        d = by[f.fid]
-        if not d.overridden:
-            total += f.itc_to_claim
-        elif (d.final == Action.ACCEPT.value and f.portal and f.status not in OTHER_PERIOD
-              and all(p.itc_available is not False for p in f.portal)):
-            total += f.itc_in_2b          # CA accepts a record TaxMind held back
-        # Reject / Pending / No IMS action: nothing claimed this month
-    return round(total, 2)
+    return round(sum(finding_claim(f, by[f.fid].final if f.fid in by else None) for f in res.findings), 2)
 
 
 def _rows(res, decisions):

@@ -48,7 +48,9 @@ def issue_token(db: Session, user: User) -> str:
 
 def current_user(request: Request, db: Session = Depends(get_db)) -> User:
     h = request.headers.get("authorization", "")
-    tok = h[7:].strip() if h.lower().startswith("bearer ") else request.query_params.get("token", "")
+    tok = h[7:].strip() if h.lower().startswith("bearer ") else ""
+    if not tok and request.method == "GET" and "/export/" in request.url.path:
+        tok = request.query_params.get("token", "")      # download links only
     if not tok:
         raise HTTPException(401, "Please log in.")
     row = db.get(Token, tok)

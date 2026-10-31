@@ -6,4 +6,4 @@ pip install -q -r requirements.txt -r server/requirements.txt
 if [ ! -f web/dist/index.html ] || [ "${REBUILD:-0}" = "1" ]; then
   (cd web && npm ci && npm run build)
 fi
-exec python -m uvicorn taxmind_server.main:app --app-dir server --host "${HOST:-127.0.0.1}" --port "${PORT:-8000}"
+exec python -m uvicorn taxmind_server.main:app --app-dir server --no-access-log --host "${HOST:-127.0.0.1}" --port "${PORT:-8000}"
