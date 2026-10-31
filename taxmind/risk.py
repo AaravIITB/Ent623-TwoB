@@ -57,12 +57,59 @@ def run_checks(res, books, target, planned_itc, as_of: date, cfg: Config) -> lis
          "Anything left untouched is deemed accepted when 2B is generated on the 14th.") if n else
         "No record that should be rejected or held is sitting without an IMS action.", amt, n))
 
-    # 3. Unknown suppliers
+    # 3. Unknown suppliers - or a register that covers only part of the purchases
     unk = [f for f in F if f.status == Status.PORTAL_ONLY_UNKNOWN]
     a = sum(abs(f.itc_in_2b) for f in unk)
-    out.append(Check("Unknown suppliers in 2B", "High" if unk else "OK",
-                     (f"{len(unk)} records ({inr(a)} ITC) from suppliers never seen in the books - "
-                      "possible wrong GSTIN or fake invoices.") if unk else "None.", a, len(unk)))
+    tot2b = sum(abs(f.itc_in_2b) for f in F if f.portal) or 1.0
+    n2b = sum(len(f.portal) for f in F if f.portal) or 1
+    n_sup = len({f.supplier_gstin for f in unk})
+    share = max(a / tot2b, len(unk) / n2b)
+    if unk and share > cfg.partial_register_pct:
+        out.append(Check("Purchase register looks incomplete", "High",
+                         f"{len(unk) / n2b:.0%} of this 2B's records ({len(unk)}, {inr(a)} ITC, from {n_sup} suppliers) come "
+                         "from suppliers that never appear in the books loaded. The register probably covers only "
+                         "part of the purchases (e.g. only Journal vouchers, or one branch). Load the full purchase "
+                         "register; otherwise decide these supplier by supplier on the 'By supplier' sheet rather "
+                         "than one by one.", a, len(unk)))
+    else:
+        out.append(Check("Unknown suppliers in 2B", "High" if unk else "OK",
+                         (f"{len(unk)} records ({inr(a)} ITC) from {n_sup} suppliers never seen in the books - "
+                          "possible wrong GSTIN or fake invoices.") if unk else "None.", a, len(unk)))
+
+    # 3a. Books rows the engine could not tie to a supplier
+    ng = [f for f in F if f.status == Status.BOOKS_NO_GSTIN]
+    if ng:
+        a = sum(abs(f.itc_in_books) for f in ng)
+        out.append(Check("Books entries without a supplier GSTIN", "High" if a > 0 else "Review",
+                         f"{len(ng)} entries ({inr(a)} GST) have no GSTIN in books and could not be matched to a "
+                         "supplier by PAN, invoice no. or name. Their ITC can't be supported until the GSTIN is "
+                         "added to the ledger master.", a, len(ng)))
+
+    # 3b. Bills booked without GST that the supplier charged GST on
+    nog = [f for f in F if f.status == Status.BOOKED_NO_GST]
+    if nog:
+        a = sum(abs(f.itc_in_2b) for f in nog)
+        out.append(Check("Bills booked without GST", "Review",
+                         f"{len(nog)} bills ({inr(a)} tax in 2B) were booked with no GST although the supplier "
+                         "charged it. Either correct the books and claim the ITC (if eligible), or reverse it in "
+                         "3B Table 4(B).", a, len(nog)))
+
+    # 3c. Older bills booked now: likely in an earlier 2B, possibly reclaimable
+    older = [f for f in F if f.status == Status.BOOKS_OLDER and not f.reclaim]
+    if older:
+        a = sum(abs(f.itc_in_books) for f in older)
+        out.append(Check("Older bills not in this 2B", "Review",
+                         f"{len(older)} bills ({inr(a)} ITC) are dated before this month and are not in this 2B; "
+                         "the suppliers most likely reported them earlier. Load those months' 2B (or last month's "
+                         "reversal ledger) to see which are reclaims and which were already claimed.", a, len(older)))
+
+    # 3d. Books keying errors
+    kerr = [f for f in F if any(x.startswith("Books: ") for x in f.flags)]
+    if kerr:
+        a = sum(abs(f.itc_in_books) for f in kerr)
+        out.append(Check("Tax keyed oddly in books", "Review",
+                         f"{len(kerr)} entries have a tax rate that is not a GST rate, unequal CGST/SGST, or both "
+                         "IGST and CGST/SGST. These are usually keying errors or part-booked bills.", a, len(kerr)))
 
     # 4. Duplicates in books
     dup = [f for f in F if f.status == Status.BOOKS_DUPLICATE]
@@ -87,12 +134,19 @@ def run_checks(res, books, target, planned_itc, as_of: date, cfg: Config) -> lis
                      a, len(old)))
 
     # 7. Earlier-period records (double-claim risk)
-    early = [f for f in F if f.status == Status.EARLIER_PERIOD]
+    early = [f for f in F if f.status == Status.EARLIER_PERIOD and not f.reclaim]
     if early:
         a = sum(abs(f.itc_in_books) for f in early)
         out.append(Check("Possible double claim", "Review",
                          f"{len(early)} books entries ({inr(a)} ITC) already appeared in an earlier 2B. "
                          "Confirm they were not claimed before.", a, len(early)))
+    recl = [f for f in F if f.reclaim]
+    if recl:
+        a = sum(f.reclaim for f in recl)
+        out.append(Check("Reclaims this month (3B 4(D)(1))", "Review",
+                         f"{len(recl)} bills ({inr(a)} ITC) were in an earlier 2B, reversed then as not in books, and are "
+                         "booked now, so they are reclaimed in 4(A)(5) and shown in 4(D)(1). Tick them off against the "
+                         "earlier 3B working (or load last month's reversal ledger, which makes this exact).", a, len(recl)))
 
     # 8. Wrong tax head
     head = [f for f in F if f.status == Status.HEAD_MISMATCH]
@@ -133,19 +187,23 @@ def run_checks(res, books, target, planned_itc, as_of: date, cfg: Config) -> lis
         if big:
             out.append(Check("Large single invoices", "Review",
                              f"{len(big)} invoices each carry over {cfg.large_invoice_pct:.0%} of this "
-                             "month's ITC: " + ", ".join(f.portal[0].doc_no for f in big[:5]) + ".",
+                             "month's ITC: " + ", ".join((f.portal or f.books)[0].doc_no for f in big[:5]) + ".",
                              sum(f.itc_to_claim for f in big), len(big)))
 
     # 12. Blocked credit (Sec 17(5)) - matched in 2B does not mean eligible
     bl = [f for f in F if f.blocked]
     if bl:
-        a = sum(max(f.itc_to_claim, f.itc_in_books, 0) for f in bl)
-        kinds = sorted({fl.label for f in bl for fl in f.blocked})
-        likely = sum(1 for f in bl if any(fl.confidence != "Possible" for fl in f.blocked))
+        now = [f for f in bl if f.itc_to_claim > 0]
+        later = [f for f in bl if f.itc_to_claim <= 0]
+        a = sum(f.itc_to_claim for f in now)
+        a2 = sum(max(f.itc_in_books, f.itc_in_2b, 0) for f in later)
+        kinds = sorted({fl.label for f in (now or bl) for fl in f.blocked})
+        likely = sum(1 for f in now if any(fl.confidence != "Possible" for fl in f.blocked))
         out.append(Check("Possible blocked credit (Sec 17(5))", "High" if likely else "Review",
-                         f"{len(bl)} invoices ({inr(a)} ITC) look like blocked credit: " + ", ".join(kinds[:5]) +
-                         ". GSTR-2B does not check this. Review each; reverse blocked ITC in 3B Table 4(B)(1).",
-                         a, len(bl)))
+                         f"{len(now)} invoices you would claim now ({inr(a)} ITC) look like blocked credit: "
+                         + ", ".join(kinds[:5]) + ". GSTR-2B does not check this. Review each; reverse blocked ITC in "
+                         f"3B Table 4(B)(1). {len(later)} more ({inr(a2)}) are among bills not claimed this month "
+                         "- check them when they are.", a, len(now)))
     else:
         out.append(Check("Possible blocked credit (Sec 17(5))", "OK",
                          "No purchase looks like blocked credit from its ledger, description, HSN/SAC or "

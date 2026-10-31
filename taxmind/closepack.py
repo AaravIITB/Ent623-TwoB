@@ -232,7 +232,11 @@ def build_close_pack(res, out_path: str | Path, input_files=(), info: CloseInfo 
 
     seen = set()
     inputs_meta = []
+    resolved = set()
     for p in map(Path, input_files):
+        if p.resolve() in resolved:               # the same workbook given as books and as 2B
+            continue
+        resolved.add(p.resolve())
         name = p.name
         while name in seen:                       # two inputs with the same name
             name = "_" + name
@@ -251,6 +255,16 @@ def build_close_pack(res, out_path: str | Path, input_files=(), info: CloseInfo 
         "client": res.client, "period": res.period, "summary": res.summary, "itc_after_ca_decisions": claim_final,
         "checks": [c.__dict__ for c in res.checks], "decisions": rows, "notes": res.notes,
     }, indent=1, default=str, ensure_ascii=False).encode("utf-8")
+    if getattr(res, "table4", None):
+        from .gstr3b import LEDGER_FIELDS, after_decisions, table_csv
+        t4 = after_decisions(res, decisions)
+        files["gstr3b_table4.csv"] = table_csv(t4).encode("utf-8-sig")
+        lio = io.StringIO()
+        lw = csv.DictWriter(lio, fieldnames=LEDGER_FIELDS)
+        lw.writeheader()
+        for it in t4["ledger"]:
+            lw.writerow({k: getattr(it, k) for k in LEDGER_FIELDS})
+        files["itc_reversal_ledger.csv"] = lio.getvalue().encode("utf-8")
     tmp = Path(out_path).with_suffix(".tmp.xlsx")
     write_excel(res, tmp)
     files["reconciliation.xlsx"] = tmp.read_bytes()
@@ -268,7 +282,10 @@ def build_close_pack(res, out_path: str | Path, input_files=(), info: CloseInfo 
         "kind": "TaxMind month-close pack", "engine_version": __version__,
         "client": res.client, "period": res.period, "closed_at": info.closed_at.isoformat(),
         "prepared_by": info.preparer, "reviewed_by": info.reviewer,
-        "settings": {"amount_tolerance": res.config.amount_tolerance},
+        "settings": {"amount_tolerance": res.config.amount_tolerance,
+                     "amount_tolerance_pct": getattr(res.config, "amount_tolerance_pct", 0.0),
+                     "line_of_business": getattr(res.config, "line_of_business", ""),
+                     "not_in_books_policy": getattr(res.config, "not_in_books_policy", "pending")},
         "itc_recommended": res.summary["itc_to_claim"], "itc_after_ca_decisions": claim_final,
         "decisions": len(decisions), "changed_by_ca": sum(d.overridden for d in decisions),
         "data_fingerprint": data_fp,

@@ -22,11 +22,22 @@ from .recommend import inr
 
 
 def _reconcile(a):
-    cfg = Config(amount_tolerance=a.tolerance)
+    from .loaders.tabular import detect_client_gstin
+    gstin = a.gstin or next((g for g in (detect_client_gstin(x) for x in list(a.books) + list(a.portal)) if g), "")
+    cfg = Config(amount_tolerance=a.tolerance, amount_tolerance_pct=a.tolerance_pct,
+                 line_of_business=a.line_of_business or "", client_gstin=gstin, not_in_books_policy=a.policy)
     books, n1 = load_many(a.books, Side.BOOKS)
     portal, n2 = load_many(a.portal, Side.PORTAL, period=a.period or "")
+    prior = None
+    if a.prior_ledger:
+        from .gstr3b import load_ledger
+        prior = load_ledger(a.prior_ledger)
+    master = None
+    if a.vendor_master:
+        from .prepare import load_vendor_master
+        master = load_vendor_master(a.vendor_master)
     res = reconcile(books, portal, period=a.period or "", client=a.client, cfg=cfg,
-                    planned_itc=a.planned_itc, notes=n1 + n2)
+                    planned_itc=a.planned_itc, notes=n1 + n2, prior_ledger=prior, vendor_master=master)
     from .report import write_excel, write_html
     out = Path(a.out)
     import re
@@ -40,11 +51,16 @@ def _reconcile(a):
     print(f"  books entries {s['books_entries']}, 2B records {s['portal_records']}")
     print(f"  ITC books {inr(s['itc_books'])} | ITC 2B {inr(s['itc_2b'])} | recommended claim {inr(s['itc_to_claim'])}")
     print(f"  {s['auto_cleared']} cleared automatically, {s['needs_human']} need a person "
-          f"({inr(s['itc_needing_attention'])} ITC)")
+          f"({inr(s['itc_needing_attention'])} ITC) - {s.get('supplier_groups', 0)} supplier-level decisions")
     for c in res.checks:
         if c.level != "OK":
             print(f"  [{c.level}] {c.name}: {c.detail}")
-    print(f"\n  Excel:  {x}\n  Report: {h}")
+    from .gstr3b import write_ledger
+    led = write_ledger(res.table4.get("ledger", []), out / f"{stem}_itc_reversal_ledger.csv")
+    for ln in res.table4.get("lines", []):
+        if ln.code in ("4(A)(5)", "4(B)(1)", "4(B)(2)", "4(C)", "4(D)(1)"):
+            print(f"  3B {ln.code:8} {inr(ln.total):>16}  {ln.label}")
+    print(f"\n  Excel:  {x}\n  Report: {h}\n  Reversal ledger (load next month with --prior-ledger): {led}")
     if a.close_pack:
         from .closepack import CloseInfo, build_close_pack, load_overrides, pack_fingerprint
         overrides = load_overrides(a.decisions) if a.decisions else {}
@@ -96,6 +112,18 @@ def main(argv=None):
     r.add_argument("--client", default="", help="client name for reports and messages")
     r.add_argument("--planned-itc", type=float, help="ITC you plan to claim in 3B (for the DRC-01C check)")
     r.add_argument("--tolerance", type=float, default=1.0, help="rounding tolerance in rupees (default 1)")
+    r.add_argument("--tolerance-pct", type=float, default=0.0,
+                   help="also allow this %% of the amount as rounding, whichever is larger (default 0 = off)")
+    r.add_argument("--gstin", default="", help="the client's own GSTIN (default: read from a 3B summary sheet)")
+    r.add_argument("--line-of-business", default="",
+                   help="comma list: vehicle_maker, vehicle_dealer, caterer, hotel, works_contractor, insurer, "
+                        "travel_operator, gym_club (switches off blocked-credit flags that don't apply)")
+    r.add_argument("--policy", choices=("pending", "reverse"), default="pending",
+                   help="2B bills not in books: keep Pending in IMS (default) or accept and reverse in 3B 4(B)(2)")
+    r.add_argument("--prior-ledger", help="last month's ITC reversal ledger CSV, to reclaim bills booked now")
+    r.add_argument("--vendor-master", help="the firm's vendor master (Excel/CSV with GSTIN, name, and optionally "
+                                           "Activity / ITC eligibility): fills blank GSTINs, recognises suppliers "
+                                           "booked in another register, feeds the blocked-credit check")
     r.add_argument("--out", default="output", help="output folder")
     r.add_argument("--close-pack", action="store_true", help="also write a dated month-close pack (.zip)")
     r.add_argument("--decisions", help="CA's final decisions: the TaxMind workbook with 'Final decision' / "

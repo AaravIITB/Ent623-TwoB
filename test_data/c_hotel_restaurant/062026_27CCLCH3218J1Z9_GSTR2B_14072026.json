@@ -1,0 +1,8159 @@
+{
+ "chksum": "synthetic-ca",
+ "data": {
+  "gstin": "27CCLCH3218J1Z9",
+  "rtnprd": "062026",
+  "version": "1.0",
+  "gendt": "14-07-2026",
+  "docdata": {
+   "b2b": [
+    {
+     "ctin": "03BZUFS3685H1Z9",
+     "trdnm": "SHUBHANKAR GAS AGENCY & CO",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "05-06-2026",
+       "val": 39335.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 33335.0,
+         "igst": 0.0,
+         "cgst": 3000.15,
+         "sgst": 3000.15,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/HO/202",
+       "typ": "R"
+      },
+      {
+       "dt": "22-06-2026",
+       "val": 62189.54,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 52703.0,
+         "igst": 9486.54,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/HO/201",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "03IUWCK7925Y1ZQ",
+     "trdnm": "KAMDHENU BEVERAGES INDIA PRIVATE LIMITED",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "22-05-2026",
+       "val": 65169.03,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 46549.31,
+         "igst": 18619.72,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "558/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "03IUWCK7925Y1ZQ",
+     "trdnm": "KAMDHENU BEVERAGES INDIA PRIVATE LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "18-06-2026",
+       "val": 52058.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 44117.0,
+         "igst": 7941.06,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "561/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "03KPZFY3278M1Z1",
+     "trdnm": "YOJAK SPICES & CO",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "21-05-2026",
+       "val": 40371.45,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 38449.0,
+         "igst": 1922.45,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC570/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "03KPZFY3278M1Z1",
+     "trdnm": "YOJAK SPICES & CO",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "05-06-2026",
+       "val": 43314.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 41252.0,
+         "igst": 2062.6,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC577/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "05-06-2026",
+       "val": 50794.8,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 48376.0,
+         "igst": 2418.8,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC578/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "05-06-2026",
+       "val": 19349.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 18428.23,
+         "igst": 921.41,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC588/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "06-06-2026",
+       "val": 27638.77,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 26322.64,
+         "igst": 1316.13,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC567/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "07-06-2026",
+       "val": 21983.85,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 20937.0,
+         "igst": 1046.85,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC571/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "11-06-2026",
+       "val": 7595.87,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 7234.16,
+         "igst": 361.71,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC582/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 44442.36,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 42326.06,
+         "igst": 2116.3,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC584/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "24-06-2026",
+       "val": 34519.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 32875.62,
+         "igst": 1643.78,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC569/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "24-06-2026",
+       "val": 85229.55,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 81171.0,
+         "igst": 4058.55,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "YSC587/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "03MIGPP2592K1ZP",
+     "trdnm": "PARIJAT ENGINEERING SERVICES",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "17-06-2026",
+       "val": 42304.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35851.0,
+         "igst": 6453.18,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/HO/331",
+       "typ": "R"
+      },
+      {
+       "dt": "25-06-2026",
+       "val": 36936.36,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 31302.0,
+         "igst": 5634.36,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/HO/329",
+       "typ": "R"
+      },
+      {
+       "dt": "27-06-2026",
+       "val": 23799.42,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 20169.0,
+         "igst": 3630.42,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/HO/334",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "06LMPPG4098E1ZK",
+     "trdnm": "GAIKWAD GANESH KIRAN",
+     "supfildt": "09-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "08-06-2026",
+       "val": 51203.74,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 43393.0,
+         "igst": 7810.74,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0880",
+       "typ": "R"
+      },
+      {
+       "dt": "14-06-2026",
+       "val": 27671.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 23450.0,
+         "igst": 4221.0,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0879",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "06PEUCD8364G1ZH",
+     "trdnm": "DNYANESH TOOLS INDIA PRIVATE LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "12-06-2026",
+       "val": 2653.82,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 2249.0,
+         "igst": 404.82,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DTI/26-27/146",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 20451.67,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 19477.78,
+         "igst": 973.89,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DTI/26-27/140",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 1649.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 1398.0,
+         "igst": 251.64,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DTI/26-27/136",
+       "typ": "R"
+      },
+      {
+       "dt": "25-06-2026",
+       "val": 15953.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 13520.0,
+         "igst": 2433.6,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DTI/26-27/143",
+       "typ": "R"
+      },
+      {
+       "dt": "30-06-2026",
+       "val": 185368.05,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 176541.0,
+         "igst": 8827.05,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DTI/26-27/138",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "06UCWFC4933G1ZI",
+     "trdnm": "Chaitanya Spices & Co",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "07-06-2026",
+       "val": 12002.55,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 11431.0,
+         "igst": 571.55,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "CSC-84",
+       "typ": "R"
+      },
+      {
+       "dt": "08-06-2026",
+       "val": 19104.75,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 18195.0,
+         "igst": 909.75,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "CSC-83",
+       "typ": "R"
+      },
+      {
+       "dt": "10-06-2026",
+       "val": 26968.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 25684.0,
+         "igst": 1284.2,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "CSC-64",
+       "typ": "R"
+      },
+      {
+       "dt": "12-06-2026",
+       "val": 28459.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 27104.0,
+         "igst": 1355.2,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "CSC-70",
+       "typ": "R"
+      },
+      {
+       "dt": "15-06-2026",
+       "val": 15086.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 14368.0,
+         "igst": 718.4,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "CSC-75",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "06UVFFN5295L1Z1",
+     "trdnm": "NILKANTH SPICES & CO",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "12-05-2026",
+       "val": 18650.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 17762.0,
+         "igst": 888.1,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NSC-86",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "06UVFFN5295L1Z1",
+     "trdnm": "NILKANTH SPICES & CO",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "18-06-2026",
+       "val": 18515.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 17634.0,
+         "igst": 881.7,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NSC-81",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 111437.93,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 106131.36,
+         "igst": 5306.57,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "NSC-79",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "06YRNFS5448R1ZL",
+     "trdnm": "SHUBHANKAR IMPEX LLP",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "27-06-2026",
+       "val": 133499.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 113135.0,
+         "igst": 20364.3,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "SIL/GGN/2627/231",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "07LYUFT3763C1Z7",
+     "trdnm": "TANMAY FOODS & CO",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "08-06-2026",
+       "val": 18021.15,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 17163.0,
+         "igst": 858.15,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFC502/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "15-06-2026",
+       "val": 13631.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 12982.0,
+         "igst": 649.1,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "TFC506/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "08CNDFD6993E1ZF",
+     "trdnm": "DEVGIRI PROVISION STORES LLP",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "03-06-2026",
+       "val": 12612.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 12012.0,
+         "igst": 600.6,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "404",
+       "typ": "R"
+      },
+      {
+       "dt": "09-06-2026",
+       "val": 7456.05,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 7101.0,
+         "igst": 355.05,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "398",
+       "typ": "R"
+      },
+      {
+       "dt": "12-06-2026",
+       "val": 23997.75,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 22855.0,
+         "igst": 1142.75,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "395",
+       "typ": "R"
+      },
+      {
+       "dt": "14-06-2026",
+       "val": 14110.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 13438.11,
+         "igst": 671.91,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "392",
+       "typ": "R"
+      },
+      {
+       "dt": "15-06-2026",
+       "val": 6927.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 6598.0,
+         "igst": 329.9,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "409",
+       "typ": "R"
+      },
+      {
+       "dt": "16-06-2026",
+       "val": 20955.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 19958.0,
+         "igst": 997.9,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "413",
+       "typ": "R"
+      },
+      {
+       "dt": "16-06-2026",
+       "val": 4589.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 4370.9,
+         "igst": 218.54,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "417",
+       "typ": "R"
+      },
+      {
+       "dt": "22-06-2026",
+       "val": 117686.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 112082.0,
+         "igst": 5604.1,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "410",
+       "typ": "R"
+      },
+      {
+       "dt": "25-06-2026",
+       "val": 25331.25,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 24125.0,
+         "igst": 1206.25,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "416",
+       "typ": "R"
+      },
+      {
+       "dt": "25-06-2026",
+       "val": 14764.05,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 14061.0,
+         "igst": 703.05,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "420",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "09ARDCD6380E1ZO",
+     "trdnm": "DEVGIRI BEVERAGES INDIA PRIVATE LIMITED",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "22-05-2026",
+       "val": 21237.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17998.0,
+         "igst": 3239.64,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/648",
+       "typ": "R"
+      },
+      {
+       "dt": "25-05-2026",
+       "val": 500526.74,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 424175.2,
+         "igst": 76351.54,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/653",
+       "typ": "R"
+      },
+      {
+       "dt": "27-05-2026",
+       "val": 68030.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 48593.0,
+         "igst": 19437.2,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/628",
+       "typ": "R"
+      },
+      {
+       "dt": "29-05-2026",
+       "val": 13874.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 11758.0,
+         "igst": 2116.44,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/646",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "09ARDCD6380E1ZO",
+     "trdnm": "DEVGIRI BEVERAGES INDIA PRIVATE LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "02-06-2026",
+       "val": 36099.74,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30593.0,
+         "igst": 5506.74,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/629",
+       "typ": "R"
+      },
+      {
+       "dt": "03-06-2026",
+       "val": 28646.86,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24277.0,
+         "igst": 4369.86,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/639",
+       "typ": "R"
+      },
+      {
+       "dt": "09-06-2026",
+       "val": 59018.88,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 50016.0,
+         "igst": 9002.88,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/642",
+       "typ": "R"
+      },
+      {
+       "dt": "15-06-2026",
+       "val": 40747.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 34532.0,
+         "igst": 6215.76,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/633",
+       "typ": "R"
+      },
+      {
+       "dt": "16-06-2026",
+       "val": 27829.12,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 23584.0,
+         "igst": 4245.12,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/644",
+       "typ": "R"
+      },
+      {
+       "dt": "18-06-2026",
+       "val": 200878.48,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 170236.0,
+         "igst": 30642.48,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DBI/26-27/636",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "09YGNPS9198C1ZX",
+     "trdnm": "SHAH POOJA SHILPA",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 89070.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 75483.58,
+         "igst": 13587.04,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DES-685",
+       "typ": "R"
+      },
+      {
+       "dt": "07-06-2026",
+       "val": 16125.88,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 13666.0,
+         "igst": 2459.88,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DES-689",
+       "typ": "R"
+      },
+      {
+       "dt": "09-06-2026",
+       "val": 7856.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 6658.0,
+         "igst": 1198.44,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DES-680",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 67529.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 57228.24,
+         "igst": 10301.08,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DES-686",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "19IXTFP6504I1Z6",
+     "trdnm": "Parijat Spices & Co",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "21-05-2026",
+       "val": 39191.25,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 37325.0,
+         "igst": 1866.25,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "178",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "19IXTFP6504I1Z6",
+     "trdnm": "Parijat Spices & Co",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "20-06-2026",
+       "val": 19435.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 18510.0,
+         "igst": 925.5,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "169",
+       "typ": "R"
+      },
+      {
+       "dt": "24-06-2026",
+       "val": 13170.15,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 12543.0,
+         "igst": 627.15,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "172",
+       "typ": "R"
+      },
+      {
+       "dt": "25-06-2026",
+       "val": 39407.55,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 37531.0,
+         "igst": 1876.55,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "175",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "19KBTPA3075Y1Z7",
+     "trdnm": "ADVAIT DRY CLEANERS",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 42403.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35935.0,
+         "igst": 6468.3,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ADC-75",
+       "typ": "R"
+      },
+      {
+       "dt": "01-06-2026",
+       "val": 36004.16,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30512.0,
+         "igst": 5492.16,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ADC-77",
+       "typ": "R"
+      },
+      {
+       "dt": "01-06-2026",
+       "val": 7056.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 5980.0,
+         "igst": 1076.4,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ADC-80",
+       "typ": "R"
+      },
+      {
+       "dt": "01-06-2026",
+       "val": 47843.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 40545.0,
+         "igst": 7298.1,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ADC-81",
+       "typ": "R"
+      },
+      {
+       "dt": "07-06-2026",
+       "val": 28832.12,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24434.0,
+         "igst": 4398.12,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ADC-84",
+       "typ": "R"
+      },
+      {
+       "dt": "23-06-2026",
+       "val": 28887.58,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24481.0,
+         "igst": 4406.58,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "ADC-85",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "22GKHCD1157R1ZO",
+     "trdnm": "Dnyanesh Constructions",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "02-06-2026",
+       "val": 1445003.22,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 1224579.0,
+         "igst": 220424.22,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DC391/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "06-06-2026",
+       "val": 1701787.74,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 1442193.0,
+         "igst": 259594.74,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DC392/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "22RBTFV4802S1ZW",
+     "trdnm": "VIGHNAHARTA GAS DISTRIBUTORS & CO",
+     "supfildt": "09-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "10-06-2026",
+       "val": 96889.8,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 82110.0,
+         "igst": 14779.8,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/HO/834",
+       "typ": "R"
+      },
+      {
+       "dt": "18-06-2026",
+       "val": 42759.66,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 36237.0,
+         "igst": 6522.66,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/HO/837",
+       "typ": "R"
+      },
+      {
+       "dt": "24-06-2026",
+       "val": 88044.94,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 74614.36,
+         "igst": 13430.58,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/HO/832",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "22TTFPK8868M1ZJ",
+     "trdnm": "KULKARNI ANJALI MANOJ",
+     "supfildt": "12-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "23-05-2026",
+       "val": 65236.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 55285.0,
+         "igst": 9951.3,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "183/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "22TTFPK8868M1ZJ",
+     "trdnm": "KULKARNI ANJALI MANOJ",
+     "supfildt": "07-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "12-06-2026",
+       "val": 30130.12,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 25534.0,
+         "igst": 4596.12,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "194/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "22WHDFO9805P1ZV",
+     "trdnm": "OJAS CAR RENTALS & CO",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "06-03-2026",
+       "val": 36288.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 34560.0,
+         "igst": 1728.0,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "OCCG03260000254",
+       "typ": "R"
+      },
+      {
+       "dt": "10-06-2026",
+       "val": 16722.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 15926.0,
+         "igst": 796.3,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "OCCG06260000264",
+       "typ": "R"
+      },
+      {
+       "dt": "17-06-2026",
+       "val": 27808.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 26484.0,
+         "igst": 1324.2,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "OCCG06260000265",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "22WHDFO9805P1ZV",
+     "trdnm": "OJAS CAR RENTALS & CO",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "25-05-2026",
+       "val": 14516.25,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 13825.0,
+         "igst": 691.25,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "OCCG05260000255",
+       "typ": "R"
+      },
+      {
+       "dt": "28-05-2026",
+       "val": 22547.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 21474.0,
+         "igst": 1073.7,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "OCCG05260000252",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "24ATCCK3484G1ZJ",
+     "trdnm": "KARMVEER CONSTRUCTIONS",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 2002867.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 1697345.0,
+         "igst": 305522.1,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "KC/AMD/2627/590",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 979405.19,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 830004.4,
+         "igst": 149400.79,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "KC/AMD/2627/592",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "24RAJFN7701R1ZA",
+     "trdnm": "NAKSHATRA DAIRY LLP",
+     "supfildt": "08-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "24-06-2026",
+       "val": 93505.81,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 79242.21,
+         "igst": 0.0,
+         "cgst": 7131.8,
+         "sgst": 7131.8,
+         "cess": 0
+        }
+       ],
+       "inum": "NDL294/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27AJYCD6596V1ZC",
+     "trdnm": "DEVGIRI ELECTRO SERVICES LIMITED",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "29-05-2026",
+       "val": 144905.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 122801.0,
+         "igst": 22104.18,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/MUM/458",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27AQUCS7558A1ZY",
+     "trdnm": "SAPTASHRUNGI DISTRIBUTORS PRIVATE LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "25-06-2026",
+       "val": 19017.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 13584.0,
+         "igst": 0.0,
+         "cgst": 2716.8,
+         "sgst": 2716.8,
+         "cess": 0
+        }
+       ],
+       "inum": "SDP-104",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ASKFV8813K1ZI",
+     "trdnm": "VINAYAK GAS AGENCY & CO",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "25-05-2026",
+       "val": 59354.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 50300.0,
+         "igst": 0.0,
+         "cgst": 4527.0,
+         "sgst": 4527.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/AUR/591",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ASKFV8813K1ZI",
+     "trdnm": "VINAYAK GAS AGENCY & CO",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "19-06-2026",
+       "val": 58014.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 49165.0,
+         "igst": 0.0,
+         "cgst": 4424.85,
+         "sgst": 4424.85,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/AUR/589",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27AULFS2274R1Z7",
+     "trdnm": "SAHYOG CONSULTANTS LLP",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "14-06-2026",
+       "val": 145901.51,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 123645.35,
+         "igst": 0.0,
+         "cgst": 11128.08,
+         "sgst": 11128.08,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0778",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 151304.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 128224.0,
+         "igst": 0.0,
+         "cgst": 11540.16,
+         "sgst": 11540.16,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0776",
+       "typ": "R"
+      },
+      {
+       "dt": "20-06-2026",
+       "val": 192187.78,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 162871.0,
+         "igst": 0.0,
+         "cgst": 14658.39,
+         "sgst": 14658.39,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0773",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27AZGPM3499C1Z5",
+     "trdnm": "MANE PRIYA POOJA",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "13-06-2026",
+       "val": 44604.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 37800.0,
+         "igst": 0.0,
+         "cgst": 3402.0,
+         "sgst": 3402.0,
+         "cess": 0
+        }
+       ],
+       "inum": "RLS503/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27BDVFS2564M1Z4",
+     "trdnm": "SANKALP SPICES",
+     "supfildt": "12-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "22-05-2026",
+       "val": 6195.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 5900.0,
+         "igst": 0.0,
+         "cgst": 147.5,
+         "sgst": 147.5,
+         "cess": 0
+        }
+       ],
+       "inum": "SS-583",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27BDVFS2564M1Z4",
+     "trdnm": "SANKALP SPICES",
+     "supfildt": "08-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "02-06-2026",
+       "val": 16044.69,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 15280.65,
+         "igst": 0.0,
+         "cgst": 382.02,
+         "sgst": 382.02,
+         "cess": 0
+        }
+       ],
+       "inum": "SS-581",
+       "typ": "R"
+      },
+      {
+       "dt": "16-06-2026",
+       "val": 19839.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 18895.0,
+         "igst": 0.0,
+         "cgst": 472.38,
+         "sgst": 472.38,
+         "cess": 0
+        }
+       ],
+       "inum": "SS-578",
+       "typ": "R"
+      },
+      {
+       "dt": "25-06-2026",
+       "val": 33101.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 31525.48,
+         "igst": 0.0,
+         "cgst": 788.14,
+         "sgst": 788.14,
+         "cess": 0
+        }
+       ],
+       "inum": "SS-587",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27BHAFM2737V1Z6",
+     "trdnm": "MAYUR SPICES",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "18-06-2026",
+       "val": 71631.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 68220.0,
+         "igst": 0.0,
+         "cgst": 1705.5,
+         "sgst": 1705.5,
+         "cess": 0
+        }
+       ],
+       "inum": "MS577/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 67006.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 56785.0,
+         "igst": 0.0,
+         "cgst": 5110.65,
+         "sgst": 5110.65,
+         "cess": 0
+        }
+       ],
+       "inum": "MS592/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "23-06-2026",
+       "val": 36040.36,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 34324.16,
+         "igst": 0.0,
+         "cgst": 858.1,
+         "sgst": 858.1,
+         "cess": 0
+        }
+       ],
+       "inum": "MS574/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "25-06-2026",
+       "val": 43262.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 41202.0,
+         "igst": 0.0,
+         "cgst": 1030.05,
+         "sgst": 1030.05,
+         "cess": 0
+        }
+       ],
+       "inum": "MS571/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27BUXPP4758J1ZJ",
+     "trdnm": "PATIL RUPALI NITIN",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "30-05-2026",
+       "val": 44242.92,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 37494.0,
+         "igst": 0.0,
+         "cgst": 3374.46,
+         "sgst": 3374.46,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/PUN/9",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27BUXPP4758J1ZJ",
+     "trdnm": "PATIL RUPALI NITIN",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "07-06-2026",
+       "val": 56706.08,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 48056.0,
+         "igst": 0.0,
+         "cgst": 4325.04,
+         "sgst": 4325.04,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/PUN/14",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27CMRCH2673M1Z3",
+     "trdnm": "HARSHAL EXPRESS COURIERS",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "16-06-2026",
+       "val": 2594.82,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 2199.0,
+         "igst": 0.0,
+         "cgst": 197.91,
+         "sgst": 197.91,
+         "cess": 0
+        }
+       ],
+       "inum": "2630000129",
+       "typ": "R"
+      },
+      {
+       "dt": "22-06-2026",
+       "val": 507.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 430.0,
+         "igst": 0.0,
+         "cgst": 38.7,
+         "sgst": 38.7,
+         "cess": 0
+        }
+       ],
+       "inum": "2630000130",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27CTJCN7430J1Z0",
+     "trdnm": "NANDADEEP CLEANING SUPPLIES PRIVATE LIMITED",
+     "supfildt": "09-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "08-06-2026",
+       "val": 48739.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 41305.0,
+         "igst": 0.0,
+         "cgst": 3717.45,
+         "sgst": 3717.45,
+         "cess": 0
+        }
+       ],
+       "inum": "777/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 35623.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 30189.0,
+         "igst": 0.0,
+         "cgst": 2717.01,
+         "sgst": 2717.01,
+         "cess": 0
+        }
+       ],
+       "inum": "766/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "24-06-2026",
+       "val": 33761.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 28611.4,
+         "igst": 0.0,
+         "cgst": 2575.03,
+         "sgst": 2575.03,
+         "cess": 0
+        }
+       ],
+       "inum": "769/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27DVICV4970Y1ZN",
+     "trdnm": "Vedant Cleaning Supplies Limited",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "07-06-2026",
+       "val": 12533.96,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10622.0,
+         "igst": 0.0,
+         "cgst": 955.98,
+         "sgst": 955.98,
+         "cess": 0
+        }
+       ],
+       "inum": "VCS728/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ENUFS6833N1ZB",
+     "trdnm": "SUVIDHA SUPPLIERS",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "23-05-2026",
+       "val": 42782.08,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 36256.0,
+         "igst": 0.0,
+         "cgst": 3263.04,
+         "sgst": 3263.04,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/MUM/242",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27EOYCH2942A1ZJ",
+     "trdnm": "HARSHAL ELECTRICALS PRIVATE LIMITED",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "14-05-2026",
+       "val": 4626.39,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 4406.09,
+         "igst": 0.0,
+         "cgst": 110.15,
+         "sgst": 110.15,
+         "cess": 0
+        }
+       ],
+       "inum": "HEP-333",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27EOYCH2942A1ZJ",
+     "trdnm": "HARSHAL ELECTRICALS PRIVATE LIMITED",
+     "supfildt": "07-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "17-06-2026",
+       "val": 23946.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 22806.0,
+         "igst": 0.0,
+         "cgst": 570.15,
+         "sgst": 570.15,
+         "cess": 0
+        }
+       ],
+       "inum": "HEP-330",
+       "typ": "R"
+      },
+      {
+       "dt": "27-06-2026",
+       "val": 69408.16,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 66103.0,
+         "igst": 0.0,
+         "cgst": 1652.58,
+         "sgst": 1652.58,
+         "cess": 0
+        }
+       ],
+       "inum": "HEP-335",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27FCUFD4874A1ZY",
+     "trdnm": "DNYANESH GYMKHANA CLUB LLP",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "12-06-2026",
+       "val": 63264.52,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 53614.0,
+         "igst": 0.0,
+         "cgst": 4825.26,
+         "sgst": 4825.26,
+         "cess": 0
+        }
+       ],
+       "inum": "685",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27FFXCS8503N1ZZ",
+     "trdnm": "Sahyog Electro Services Private Limited",
+     "supfildt": "08-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "09-06-2026",
+       "val": 61442.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 52070.26,
+         "igst": 0.0,
+         "cgst": 4686.32,
+         "sgst": 4686.32,
+         "cess": 0
+        }
+       ],
+       "inum": "SES-305",
+       "typ": "R"
+      },
+      {
+       "dt": "18-06-2026",
+       "val": 41689.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35330.0,
+         "igst": 0.0,
+         "cgst": 3179.7,
+         "sgst": 3179.7,
+         "cess": 0
+        }
+       ],
+       "inum": "SES-308",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27FRCFH7676J1ZS",
+     "trdnm": "HARSHAL PROVISION STORES & CO",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "02-06-2026",
+       "val": 26905.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 25623.8,
+         "igst": 0.0,
+         "cgst": 640.6,
+         "sgst": 640.6,
+         "cess": 0
+        }
+       ],
+       "inum": "37",
+       "typ": "R"
+      },
+      {
+       "dt": "03-06-2026",
+       "val": 15163.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 12850.0,
+         "igst": 0.0,
+         "cgst": 1156.5,
+         "sgst": 1156.5,
+         "cess": 0
+        }
+       ],
+       "inum": "25",
+       "typ": "R"
+      },
+      {
+       "dt": "04-06-2026",
+       "val": 31618.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26795.0,
+         "igst": 0.0,
+         "cgst": 2411.55,
+         "sgst": 2411.55,
+         "cess": 0
+        }
+       ],
+       "inum": "35",
+       "typ": "R"
+      },
+      {
+       "dt": "20-06-2026",
+       "val": 6084.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 5795.0,
+         "igst": 0.0,
+         "cgst": 144.88,
+         "sgst": 144.88,
+         "cess": 0
+        }
+       ],
+       "inum": "23",
+       "typ": "R"
+      },
+      {
+       "dt": "20-06-2026",
+       "val": 7848.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 6651.0,
+         "igst": 0.0,
+         "cgst": 598.59,
+         "sgst": 598.59,
+         "cess": 0
+        }
+       ],
+       "inum": "28",
+       "typ": "R"
+      },
+      {
+       "dt": "25-06-2026",
+       "val": 19230.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 16297.0,
+         "igst": 0.0,
+         "cgst": 1466.73,
+         "sgst": 1466.73,
+         "cess": 0
+        }
+       ],
+       "inum": "34",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27FUCPN6851E1ZF",
+     "trdnm": "NAVDURGA ENGINEERING SERVICES",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "29-05-2026",
+       "val": 26807.24,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22718.0,
+         "igst": 0.0,
+         "cgst": 2044.62,
+         "sgst": 2044.62,
+         "cess": 0
+        }
+       ],
+       "inum": "NES00734",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27FUCPN6851E1ZF",
+     "trdnm": "NAVDURGA ENGINEERING SERVICES",
+     "supfildt": "07-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "20-06-2026",
+       "val": 21837.08,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 18506.0,
+         "igst": 0.0,
+         "cgst": 1665.54,
+         "sgst": 1665.54,
+         "cess": 0
+        }
+       ],
+       "inum": "NES00736",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27GGXFP5316K1Z2",
+     "trdnm": "Pushpak Suppliers LLP",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "23-06-2026",
+       "val": 79634.27,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 67486.67,
+         "igst": 0.0,
+         "cgst": 6073.8,
+         "sgst": 6073.8,
+         "cess": 0
+        }
+       ],
+       "inum": "PSL/PUN/2627/415",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27GKKCA1649K1ZN",
+     "trdnm": "AKSHAR CONSTRUCTIONS",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "16-06-2026",
+       "val": 1531660.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 1298017.0,
+         "igst": 0.0,
+         "cgst": 116821.53,
+         "sgst": 116821.53,
+         "cess": 0
+        }
+       ],
+       "inum": "AC/NSK/2627/192",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27GUJCA6608I1Z7",
+     "trdnm": "AADESH MAINTENANCE SERVICES INDIA PRIVATE LIMITED",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "29-05-2026",
+       "val": 141506.78,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 119921.0,
+         "igst": 0.0,
+         "cgst": 10792.89,
+         "sgst": 10792.89,
+         "cess": 0
+        }
+       ],
+       "inum": "21/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27GUJCA6608I1Z7",
+     "trdnm": "AADESH MAINTENANCE SERVICES INDIA PRIVATE LIMITED",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "03-06-2026",
+       "val": 111401.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 94408.0,
+         "igst": 0.0,
+         "cgst": 8496.72,
+         "sgst": 8496.72,
+         "cess": 0
+        }
+       ],
+       "inum": "23/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "16-06-2026",
+       "val": 92403.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 78308.0,
+         "igst": 0.0,
+         "cgst": 7047.72,
+         "sgst": 7047.72,
+         "cess": 0
+        }
+       ],
+       "inum": "26/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27GXJFM8214Z1ZN",
+     "trdnm": "MRUGANK AGRO FOODS LLP",
+     "supfildt": "12-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "24-05-2026",
+       "val": 24955.26,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 23766.92,
+         "igst": 0.0,
+         "cgst": 594.17,
+         "sgst": 594.17,
+         "cess": 0
+        }
+       ],
+       "inum": "MAF517/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "29-05-2026",
+       "val": 10283.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 9794.0,
+         "igst": 0.0,
+         "cgst": 244.85,
+         "sgst": 244.85,
+         "cess": 0
+        }
+       ],
+       "inum": "MAF515/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27GXJFM8214Z1ZN",
+     "trdnm": "MRUGANK AGRO FOODS LLP",
+     "supfildt": "09-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "15-06-2026",
+       "val": 9927.76,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "N",
+       "rsn": "P",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 9455.0,
+         "igst": 0.0,
+         "cgst": 236.38,
+         "sgst": 236.38,
+         "cess": 0
+        }
+       ],
+       "inum": "MAF519/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27HEBFS6622C1Z2",
+     "trdnm": "SHARDUL PROVISION STORES",
+     "supfildt": "12-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "23-05-2026",
+       "val": 8147.67,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 7759.69,
+         "igst": 0.0,
+         "cgst": 193.99,
+         "sgst": 193.99,
+         "cess": 0
+        }
+       ],
+       "inum": "SPS-19",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27HEBFS6622C1Z2",
+     "trdnm": "SHARDUL PROVISION STORES",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 3382.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 3221.0,
+         "igst": 0.0,
+         "cgst": 80.53,
+         "sgst": 80.53,
+         "cess": 0
+        }
+       ],
+       "inum": "SPS-12",
+       "typ": "R"
+      },
+      {
+       "dt": "04-06-2026",
+       "val": 13794.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 13138.0,
+         "igst": 0.0,
+         "cgst": 328.45,
+         "sgst": 328.45,
+         "cess": 0
+        }
+       ],
+       "inum": "SPS-15",
+       "typ": "R"
+      },
+      {
+       "dt": "07-06-2026",
+       "val": 21090.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 20086.0,
+         "igst": 0.0,
+         "cgst": 502.15,
+         "sgst": 502.15,
+         "cess": 0
+        }
+       ],
+       "inum": "SPS-30",
+       "typ": "R"
+      },
+      {
+       "dt": "10-06-2026",
+       "val": 6148.8,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 5856.0,
+         "igst": 0.0,
+         "cgst": 146.4,
+         "sgst": 146.4,
+         "cess": 0
+        }
+       ],
+       "inum": "SPS-13",
+       "typ": "R"
+      },
+      {
+       "dt": "22-06-2026",
+       "val": 2111.54,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 2011.0,
+         "igst": 0.0,
+         "cgst": 50.27,
+         "sgst": 50.27,
+         "cess": 0
+        }
+       ],
+       "inum": "SPS-14",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27HKUFE4143U1ZN",
+     "trdnm": "Ekdant Motors",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "22-06-2026",
+       "val": 18253.42,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 15469.0,
+         "igst": 0.0,
+         "cgst": 1392.21,
+         "sgst": 1392.21,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0441",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27JCDCI5675N1ZK",
+     "trdnm": "INDRAYANI HYGIENE SOLUTIONS PRIVATE LIMITED",
+     "supfildt": "12-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "30-05-2026",
+       "val": 20924.94,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17733.0,
+         "igst": 0.0,
+         "cgst": 1595.97,
+         "sgst": 1595.97,
+         "cess": 0
+        }
+       ],
+       "inum": "IHS-125",
+       "typ": "R"
+      },
+      {
+       "dt": "30-05-2026",
+       "val": 63924.14,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 54173.0,
+         "igst": 0.0,
+         "cgst": 4875.57,
+         "sgst": 4875.57,
+         "cess": 0
+        }
+       ],
+       "inum": "IHS-139",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27JCDCI5675N1ZK",
+     "trdnm": "INDRAYANI HYGIENE SOLUTIONS PRIVATE LIMITED",
+     "supfildt": "08-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 23862.58,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 20222.52,
+         "igst": 0.0,
+         "cgst": 1820.03,
+         "sgst": 1820.03,
+         "cess": 0
+        }
+       ],
+       "inum": "IHS-127",
+       "typ": "R"
+      },
+      {
+       "dt": "05-06-2026",
+       "val": 12640.16,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10712.0,
+         "igst": 0.0,
+         "cgst": 964.08,
+         "sgst": 964.08,
+         "cess": 0
+        }
+       ],
+       "inum": "IHS-138",
+       "typ": "R"
+      },
+      {
+       "dt": "14-06-2026",
+       "val": 32814.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27809.0,
+         "igst": 0.0,
+         "cgst": 2502.81,
+         "sgst": 2502.81,
+         "cess": 0
+        }
+       ],
+       "inum": "IHS-130",
+       "typ": "R"
+      },
+      {
+       "dt": "14-06-2026",
+       "val": 15302.24,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 12968.0,
+         "igst": 0.0,
+         "cgst": 1167.12,
+         "sgst": 1167.12,
+         "cess": 0
+        }
+       ],
+       "inum": "IHS-136",
+       "typ": "R"
+      },
+      {
+       "dt": "18-06-2026",
+       "val": 66316.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 56200.0,
+         "igst": 0.0,
+         "cgst": 5058.0,
+         "sgst": 5058.0,
+         "cess": 0
+        }
+       ],
+       "inum": "IHS-131",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27JFGFS8818N1ZW",
+     "trdnm": "SHARDUL GAS AGENCY & CO",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 31032.82,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 26299.0,
+         "igst": 0.0,
+         "cgst": 2366.91,
+         "sgst": 2366.91,
+         "cess": 0
+        }
+       ],
+       "inum": "SGA00419",
+       "typ": "R"
+      },
+      {
+       "dt": "15-06-2026",
+       "val": 40347.74,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 34193.0,
+         "igst": 0.0,
+         "cgst": 3077.37,
+         "sgst": 3077.37,
+         "cess": 0
+        }
+       ],
+       "inum": "SGA00415",
+       "typ": "R"
+      },
+      {
+       "dt": "20-06-2026",
+       "val": 61947.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 52498.0,
+         "igst": 0.0,
+         "cgst": 4724.82,
+         "sgst": 4724.82,
+         "cess": 0
+        }
+       ],
+       "inum": "SGA00417",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27JWVFA7221U1ZZ",
+     "trdnm": "ADVAIT GAS DISTRIBUTORS LLP",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "05-06-2026",
+       "val": 45061.84,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 38188.0,
+         "igst": 0.0,
+         "cgst": 3436.92,
+         "sgst": 3436.92,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/PUN/236",
+       "typ": "R"
+      },
+      {
+       "dt": "11-06-2026",
+       "val": 46445.98,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 39361.0,
+         "igst": 0.0,
+         "cgst": 3542.49,
+         "sgst": 3542.49,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/PUN/233",
+       "typ": "R"
+      },
+      {
+       "dt": "18-06-2026",
+       "val": 53548.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 45380.0,
+         "igst": 0.0,
+         "cgst": 4084.2,
+         "sgst": 4084.2,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/PUN/227",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 50829.68,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 43076.0,
+         "igst": 0.0,
+         "cgst": 3876.84,
+         "sgst": 3876.84,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/PUN/230",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27JXSCD2538V1ZZ",
+     "trdnm": "DHRUV POLYMERS PRIVATE LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "19-06-2026",
+       "val": 8169.81,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 7780.77,
+         "igst": 0.0,
+         "cgst": 194.52,
+         "sgst": 194.52,
+         "cess": 0
+        }
+       ],
+       "inum": "DPP/AUR/2627/236",
+       "typ": "R"
+      },
+      {
+       "dt": "20-06-2026",
+       "val": 13132.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 9380.0,
+         "igst": 0.0,
+         "cgst": 1876.0,
+         "sgst": 1876.0,
+         "cess": 0
+        }
+       ],
+       "inum": "DPP/AUR/2627/239",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27KIPPY9489O1Z9",
+     "trdnm": "IYER ROHAN SHILPA",
+     "supfildt": "08-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "10-06-2026",
+       "val": 440106.91,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 372971.95,
+         "igst": 0.0,
+         "cgst": 33567.48,
+         "sgst": 33567.48,
+         "cess": 0
+        }
+       ],
+       "inum": "YC/26-27/020",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27LAUFT6316Y1ZE",
+     "trdnm": "Thorat & Associates",
+     "supfildt": "12-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "23-05-2026",
+       "val": 89898.71,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 76185.35,
+         "igst": 0.0,
+         "cgst": 6856.68,
+         "sgst": 6856.68,
+         "cess": 0
+        }
+       ],
+       "inum": "TA-292",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27LAUFT6316Y1ZE",
+     "trdnm": "Thorat & Associates",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "02-06-2026",
+       "val": 88763.14,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 75223.0,
+         "igst": 0.0,
+         "cgst": 6770.07,
+         "sgst": 6770.07,
+         "cess": 0
+        }
+       ],
+       "inum": "TA-297",
+       "typ": "R"
+      },
+      {
+       "dt": "05-06-2026",
+       "val": 58238.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 49355.0,
+         "igst": 0.0,
+         "cgst": 4441.95,
+         "sgst": 4441.95,
+         "cess": 0
+        }
+       ],
+       "inum": "TA-298",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27LJCFN6616D1ZN",
+     "trdnm": "NAVDURGA SPICES",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "05-06-2026",
+       "val": 64978.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 61884.0,
+         "igst": 0.0,
+         "cgst": 1547.1,
+         "sgst": 1547.1,
+         "cess": 0
+        }
+       ],
+       "inum": "NS-757",
+       "typ": "R"
+      },
+      {
+       "dt": "08-06-2026",
+       "val": 15533.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 14794.0,
+         "igst": 0.0,
+         "cgst": 369.85,
+         "sgst": 369.85,
+         "cess": 0
+        }
+       ],
+       "inum": "NS-762",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 18231.14,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 17363.0,
+         "igst": 0.0,
+         "cgst": 434.07,
+         "sgst": 434.07,
+         "cess": 0
+        }
+       ],
+       "inum": "NS-755",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27LSJCP4323U1ZB",
+     "trdnm": "PRANAV BROADBAND INDIA PRIVATE LIMITED",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "13-06-2026",
+       "val": 12381.74,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10493.0,
+         "igst": 0.0,
+         "cgst": 944.37,
+         "sgst": 944.37,
+         "cess": 0
+        }
+       ],
+       "inum": "2650000561",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 26013.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22045.0,
+         "igst": 0.0,
+         "cgst": 1984.05,
+         "sgst": 1984.05,
+         "cess": 0
+        }
+       ],
+       "inum": "2650000560",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27QXHPK4677J1ZH",
+     "trdnm": "KULKARNI NEHA SANJAY",
+     "supfildt": "12-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "21-05-2026",
+       "val": 16256.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 15482.0,
+         "igst": 0.0,
+         "cgst": 387.05,
+         "sgst": 387.05,
+         "cess": 0
+        }
+       ],
+       "inum": "644",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27QXHPK4677J1ZH",
+     "trdnm": "KULKARNI NEHA SANJAY",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 10765.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 10253.0,
+         "igst": 0.0,
+         "cgst": 256.32,
+         "sgst": 256.32,
+         "cess": 0
+        }
+       ],
+       "inum": "651",
+       "typ": "R"
+      },
+      {
+       "dt": "02-06-2026",
+       "val": 14773.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 14070.0,
+         "igst": 0.0,
+         "cgst": 351.75,
+         "sgst": 351.75,
+         "cess": 0
+        }
+       ],
+       "inum": "654",
+       "typ": "R"
+      },
+      {
+       "dt": "20-06-2026",
+       "val": 25717.66,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 24493.0,
+         "igst": 0.0,
+         "cgst": 612.33,
+         "sgst": 612.33,
+         "cess": 0
+        }
+       ],
+       "inum": "642",
+       "typ": "R"
+      },
+      {
+       "dt": "25-06-2026",
+       "val": 23467.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 22350.0,
+         "igst": 0.0,
+         "cgst": 558.75,
+         "sgst": 558.75,
+         "cess": 0
+        }
+       ],
+       "inum": "649",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27RAJFN7701R1Z4",
+     "trdnm": "NAKSHATRA DAIRY LLP",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "27-05-2026",
+       "val": 18003.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 17146.0,
+         "igst": 0.0,
+         "cgst": 428.65,
+         "sgst": 428.65,
+         "cess": 0
+        }
+       ],
+       "inum": "NDL291/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27RQIPS3597B1Z1",
+     "trdnm": "SHAH VIKAS VIKAS",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "09-06-2026",
+       "val": 29358.54,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24880.12,
+         "igst": 0.0,
+         "cgst": 2239.21,
+         "sgst": 2239.21,
+         "cess": 0
+        }
+       ],
+       "inum": "IES/26-27/618",
+       "typ": "R"
+      },
+      {
+       "dt": "22-06-2026",
+       "val": 37293.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 31605.0,
+         "igst": 0.0,
+         "cgst": 2844.45,
+         "sgst": 2844.45,
+         "cess": 0
+        }
+       ],
+       "inum": "IES/26-27/619",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27RSRCM4129M1ZC",
+     "trdnm": "MAYUR EXPRESS COURIERS",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "13-05-2026",
+       "val": 536.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 455.0,
+         "igst": 0.0,
+         "cgst": 40.95,
+         "sgst": 40.95,
+         "cess": 0
+        }
+       ],
+       "inum": "2640000623",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27RSRCM4129M1ZC",
+     "trdnm": "MAYUR EXPRESS COURIERS",
+     "supfildt": "08-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 282.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 239.0,
+         "igst": 0.0,
+         "cgst": 21.51,
+         "sgst": 21.51,
+         "cess": 0
+        }
+       ],
+       "inum": "2640000624",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27RYCCG1797E1ZQ",
+     "trdnm": "GIRNAR HYGIENE SOLUTIONS LIMITED",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "06-06-2026",
+       "val": 6971.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 5908.0,
+         "igst": 0.0,
+         "cgst": 531.72,
+         "sgst": 531.72,
+         "cess": 0
+        }
+       ],
+       "inum": "471/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "23-06-2026",
+       "val": 28156.19,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 23861.17,
+         "igst": 0.0,
+         "cgst": 2147.51,
+         "sgst": 2147.51,
+         "cess": 0
+        }
+       ],
+       "inum": "477/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27SAQCT9705X1ZC",
+     "trdnm": "TRIMBAK TOOLS PRIVATE LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "22-06-2026",
+       "val": 79426.98,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 67311.0,
+         "igst": 0.0,
+         "cgst": 6057.99,
+         "sgst": 6057.99,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/PUN/162",
+       "typ": "R"
+      },
+      {
+       "dt": "29-06-2026",
+       "val": 32892.39,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27874.91,
+         "igst": 0.0,
+         "cgst": 2508.74,
+         "sgst": 2508.74,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/PUN/159",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27SBTCO2684D1ZH",
+     "trdnm": "OJAS BEVERAGES LIMITED",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "06-06-2026",
+       "val": 110583.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 78988.0,
+         "igst": 0.0,
+         "cgst": 15797.6,
+         "sgst": 15797.6,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0034",
+       "typ": "R"
+      },
+      {
+       "dt": "15-06-2026",
+       "val": 66578.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 47556.0,
+         "igst": 0.0,
+         "cgst": 9511.2,
+         "sgst": 9511.2,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0039",
+       "typ": "R"
+      },
+      {
+       "dt": "23-06-2026",
+       "val": 22293.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 15924.0,
+         "igst": 0.0,
+         "cgst": 3184.8,
+         "sgst": 3184.8,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0033",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27TBWCA9637C1ZM",
+     "trdnm": "ASHWAMEDH HYGIENE SOLUTIONS PRIVATE LIMITED",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "24-05-2026",
+       "val": 9225.24,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7818.0,
+         "igst": 0.0,
+         "cgst": 703.62,
+         "sgst": 703.62,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS278/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "29-05-2026",
+       "val": 28334.16,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24012.0,
+         "igst": 0.0,
+         "cgst": 2161.08,
+         "sgst": 2161.08,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS284/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27TBWCA9637C1ZM",
+     "trdnm": "ASHWAMEDH HYGIENE SOLUTIONS PRIVATE LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "02-06-2026",
+       "val": 22051.84,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 18688.0,
+         "igst": 0.0,
+         "cgst": 1681.92,
+         "sgst": 1681.92,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS268/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "05-06-2026",
+       "val": 29527.14,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 25023.0,
+         "igst": 0.0,
+         "cgst": 2252.07,
+         "sgst": 2252.07,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS281/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "09-06-2026",
+       "val": 25191.82,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 21349.0,
+         "igst": 0.0,
+         "cgst": 1921.41,
+         "sgst": 1921.41,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS285/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "12-06-2026",
+       "val": 35355.16,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 29962.0,
+         "igst": 0.0,
+         "cgst": 2696.58,
+         "sgst": 2696.58,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS274/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "18-06-2026",
+       "val": 27727.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 23498.0,
+         "igst": 0.0,
+         "cgst": 2114.82,
+         "sgst": 2114.82,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS283/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 41400.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35085.0,
+         "igst": 0.0,
+         "cgst": 3157.65,
+         "sgst": 3157.65,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS287/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "22-06-2026",
+       "val": 15802.56,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 13392.0,
+         "igst": 0.0,
+         "cgst": 1205.28,
+         "sgst": 1205.28,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS272/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "22-06-2026",
+       "val": 21051.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 17840.0,
+         "igst": 0.0,
+         "cgst": 1605.6,
+         "sgst": 1605.6,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS288/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "24-06-2026",
+       "val": 43035.61,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 36470.85,
+         "igst": 0.0,
+         "cgst": 3282.38,
+         "sgst": 3282.38,
+         "cess": 0
+        }
+       ],
+       "inum": "AHS269/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27WALFP2290C1ZO",
+     "trdnm": "PRANAV DAIRY LLP",
+     "supfildt": "13-06-2026",
+     "supprd": "032026",
+     "inv": [
+      {
+       "dt": "06-11-2025",
+       "val": 36935.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 31301.0,
+         "igst": 0.0,
+         "cgst": 2817.09,
+         "sgst": 2817.09,
+         "cess": 0
+        }
+       ],
+       "inum": "PDL-511",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27WALFP2290C1ZO",
+     "trdnm": "PRANAV DAIRY LLP",
+     "supfildt": "12-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "31-05-2026",
+       "val": 17156.02,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14539.0,
+         "igst": 0.0,
+         "cgst": 1308.51,
+         "sgst": 1308.51,
+         "cess": 0
+        }
+       ],
+       "inum": "PDL-515",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27WALFP2290C1ZO",
+     "trdnm": "PRANAV DAIRY LLP",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "21-06-2026",
+       "val": 40327.63,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 34175.95,
+         "igst": 0.0,
+         "cgst": 3075.84,
+         "sgst": 3075.84,
+         "cess": 0
+        }
+       ],
+       "inum": "PDL-512",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27WVMFH3937U1ZJ",
+     "trdnm": "HIRANYA FOODS LLP",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "26-05-2026",
+       "val": 12936.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 12320.0,
+         "igst": 0.0,
+         "cgst": 308.0,
+         "sgst": 308.0,
+         "cess": 0
+        }
+       ],
+       "inum": "709",
+       "typ": "R"
+      },
+      {
+       "dt": "28-05-2026",
+       "val": 2505.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 2386.0,
+         "igst": 0.0,
+         "cgst": 59.65,
+         "sgst": 59.65,
+         "cess": 0
+        }
+       ],
+       "inum": "698",
+       "typ": "R"
+      },
+      {
+       "dt": "30-05-2026",
+       "val": 93879.44,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 89409.0,
+         "igst": 0.0,
+         "cgst": 2235.22,
+         "sgst": 2235.22,
+         "cess": 0
+        }
+       ],
+       "inum": "693",
+       "typ": "R"
+      },
+      {
+       "dt": "06-06-2026",
+       "val": 61359.51,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 58437.63,
+         "igst": 0.0,
+         "cgst": 1460.94,
+         "sgst": 1460.94,
+         "cess": 0
+        }
+       ],
+       "inum": "691",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27WVMFH3937U1ZJ",
+     "trdnm": "HIRANYA FOODS LLP",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "02-06-2026",
+       "val": 19795.92,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 18853.26,
+         "igst": 0.0,
+         "cgst": 471.33,
+         "sgst": 471.33,
+         "cess": 0
+        }
+       ],
+       "inum": "687",
+       "typ": "R"
+      },
+      {
+       "dt": "05-06-2026",
+       "val": 30183.63,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 28746.31,
+         "igst": 0.0,
+         "cgst": 718.66,
+         "sgst": 718.66,
+         "cess": 0
+        }
+       ],
+       "inum": "705",
+       "typ": "R"
+      },
+      {
+       "dt": "06-06-2026",
+       "val": 14900.54,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 14191.0,
+         "igst": 0.0,
+         "cgst": 354.77,
+         "sgst": 354.77,
+         "cess": 0
+        }
+       ],
+       "inum": "695",
+       "typ": "R"
+      },
+      {
+       "dt": "07-06-2026",
+       "val": 5415.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 5158.0,
+         "igst": 0.0,
+         "cgst": 128.95,
+         "sgst": 128.95,
+         "cess": 0
+        }
+       ],
+       "inum": "713",
+       "typ": "R"
+      },
+      {
+       "dt": "09-06-2026",
+       "val": 15929.54,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 15171.0,
+         "igst": 0.0,
+         "cgst": 379.27,
+         "sgst": 379.27,
+         "cess": 0
+        }
+       ],
+       "inum": "708",
+       "typ": "R"
+      },
+      {
+       "dt": "12-06-2026",
+       "val": 46219.94,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 44019.0,
+         "igst": 0.0,
+         "cgst": 1100.47,
+         "sgst": 1100.47,
+         "cess": 0
+        }
+       ],
+       "inum": "702",
+       "typ": "R"
+      },
+      {
+       "dt": "13-06-2026",
+       "val": 15507.56,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 14769.1,
+         "igst": 0.0,
+         "cgst": 369.23,
+         "sgst": 369.23,
+         "cess": 0
+        }
+       ],
+       "inum": "685",
+       "typ": "R"
+      },
+      {
+       "dt": "14-06-2026",
+       "val": 53236.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 50701.0,
+         "igst": 0.0,
+         "cgst": 1267.53,
+         "sgst": 1267.53,
+         "cess": 0
+        }
+       ],
+       "inum": "714",
+       "typ": "R"
+      },
+      {
+       "dt": "18-06-2026",
+       "val": 41400.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 39429.0,
+         "igst": 0.0,
+         "cgst": 985.73,
+         "sgst": 985.73,
+         "cess": 0
+        }
+       ],
+       "inum": "716",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 4930.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 4695.54,
+         "igst": 0.0,
+         "cgst": 117.39,
+         "sgst": 117.39,
+         "cess": 0
+        }
+       ],
+       "inum": "701",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 41208.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 39246.0,
+         "igst": 0.0,
+         "cgst": 981.15,
+         "sgst": 981.15,
+         "cess": 0
+        }
+       ],
+       "inum": "718",
+       "typ": "R"
+      },
+      {
+       "dt": "23-06-2026",
+       "val": 10521.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 10020.0,
+         "igst": 0.0,
+         "cgst": 250.5,
+         "sgst": 250.5,
+         "cess": 0
+        }
+       ],
+       "inum": "712",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27XASCS5591V1Z6",
+     "trdnm": "SANKET CHEMICALS LIMITED",
+     "supfildt": "07-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "02-06-2026",
+       "val": 49277.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 35198.0,
+         "igst": 0.0,
+         "cgst": 7039.6,
+         "sgst": 7039.6,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/434",
+       "typ": "R"
+      },
+      {
+       "dt": "04-06-2026",
+       "val": 42867.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 40826.0,
+         "igst": 0.0,
+         "cgst": 1020.65,
+         "sgst": 1020.65,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/444",
+       "typ": "R"
+      },
+      {
+       "dt": "05-06-2026",
+       "val": 58147.94,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 55379.0,
+         "igst": 0.0,
+         "cgst": 1384.47,
+         "sgst": 1384.47,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/449",
+       "typ": "R"
+      },
+      {
+       "dt": "14-06-2026",
+       "val": 93366.32,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 79124.0,
+         "igst": 0.0,
+         "cgst": 7121.16,
+         "sgst": 7121.16,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/446",
+       "typ": "R"
+      },
+      {
+       "dt": "17-06-2026",
+       "val": 17122.98,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 14511.0,
+         "igst": 0.0,
+         "cgst": 1305.99,
+         "sgst": 1305.99,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/435",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 114097.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 81498.0,
+         "igst": 0.0,
+         "cgst": 16299.6,
+         "sgst": 16299.6,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/438",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 5379.62,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 4559.0,
+         "igst": 0.0,
+         "cgst": 410.31,
+         "sgst": 410.31,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/445",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 156082.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 148650.0,
+         "igst": 0.0,
+         "cgst": 3716.25,
+         "sgst": 3716.25,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/448",
+       "typ": "R"
+      },
+      {
+       "dt": "29-06-2026",
+       "val": 466853.8,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 333467.0,
+         "igst": 0.0,
+         "cgst": 66693.4,
+         "sgst": 66693.4,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/441",
+       "typ": "R"
+      },
+      {
+       "dt": "29-06-2026",
+       "val": 25842.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 24612.0,
+         "igst": 0.0,
+         "cgst": 615.3,
+         "sgst": 615.3,
+         "cess": 0
+        }
+       ],
+       "inum": "SCL/26-27/443",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27YHZCM4754Z1ZN",
+     "trdnm": "Mrugank Electricals Private Limited",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "16-05-2026",
+       "val": 41680.07,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 35322.09,
+         "igst": 0.0,
+         "cgst": 3178.99,
+         "sgst": 3178.99,
+         "cess": 0
+        }
+       ],
+       "inum": "MEP-850",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27YHZCM4754Z1ZN",
+     "trdnm": "Mrugank Electricals Private Limited",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "11-06-2026",
+       "val": 26462.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 25202.0,
+         "igst": 0.0,
+         "cgst": 630.05,
+         "sgst": 630.05,
+         "cess": 0
+        }
+       ],
+       "inum": "MEP-852",
+       "typ": "R"
+      },
+      {
+       "dt": "14-06-2026",
+       "val": 40547.84,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 38617.0,
+         "igst": 0.0,
+         "cgst": 965.42,
+         "sgst": 965.42,
+         "cess": 0
+        }
+       ],
+       "inum": "MEP-851",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27YNNFK8767D1ZE",
+     "trdnm": "KADAM & ASSOCIATES",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "04-06-2026",
+       "val": 750481.18,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 636001.0,
+         "igst": 0.0,
+         "cgst": 57240.09,
+         "sgst": 57240.09,
+         "cess": 0
+        }
+       ],
+       "inum": "KA00774",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27YTXCV4623T1ZB",
+     "trdnm": "VEDANT HYGIENE SOLUTIONS INDIA PRIVATE LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "14-11-2025",
+       "val": 38919.94,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 32983.0,
+         "igst": 0.0,
+         "cgst": 2968.47,
+         "sgst": 2968.47,
+         "cess": 0
+        }
+       ],
+       "inum": "VHS335/2025-26",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27YVQCN8413N1ZU",
+     "trdnm": "Nilkanth Interiors Private Limited",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 513844.86,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 435461.74,
+         "igst": 0.0,
+         "cgst": 39191.56,
+         "sgst": 39191.56,
+         "cess": 0
+        }
+       ],
+       "inum": "NIP/PUN/2627/105",
+       "typ": "R"
+      },
+      {
+       "dt": "06-06-2026",
+       "val": 1088780.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 922695.0,
+         "igst": 0.0,
+         "cgst": 83042.55,
+         "sgst": 83042.55,
+         "cess": 0
+        }
+       ],
+       "inum": "NIP/PUN/2627/111",
+       "typ": "R"
+      },
+      {
+       "dt": "29-06-2026",
+       "val": 1469648.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 1245465.0,
+         "igst": 0.0,
+         "cgst": 112091.85,
+         "sgst": 112091.85,
+         "cess": 0
+        }
+       ],
+       "inum": "NIP/PUN/2627/118",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ZFYCC7428R1ZG",
+     "trdnm": "CHINTAMANI ENGINEERING SERVICES INDIA PRIVATE LIMITED",
+     "supfildt": "13-06-2026",
+     "supprd": "032025",
+     "inv": [
+      {
+       "dt": "11-02-2025",
+       "val": 22994.66,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "N",
+       "rsn": "C",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 19487.0,
+         "igst": 0.0,
+         "cgst": 1753.83,
+         "sgst": 1753.83,
+         "cess": 0
+        }
+       ],
+       "inum": "CES708/2024-25",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ZFYCC7428R1ZG",
+     "trdnm": "CHINTAMANI ENGINEERING SERVICES INDIA PRIVATE LIMITED",
+     "supfildt": "09-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "03-06-2026",
+       "val": 70995.88,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 60166.0,
+         "igst": 0.0,
+         "cgst": 5414.94,
+         "sgst": 5414.94,
+         "cess": 0
+        }
+       ],
+       "inum": "CES706/2026-27",
+       "typ": "R"
+      },
+      {
+       "dt": "15-06-2026",
+       "val": 26030.77,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 22059.97,
+         "igst": 0.0,
+         "cgst": 1985.4,
+         "sgst": 1985.4,
+         "cess": 0
+        }
+       ],
+       "inum": "CES702/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ZQUFS4691A1Z7",
+     "trdnm": "SAPTASHRUNGI SPICES LLP",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "21-05-2026",
+       "val": 13450.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 12810.0,
+         "igst": 0.0,
+         "cgst": 320.25,
+         "sgst": 320.25,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-763",
+       "typ": "R"
+      },
+      {
+       "dt": "22-05-2026",
+       "val": 6103.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 5813.0,
+         "igst": 0.0,
+         "cgst": 145.32,
+         "sgst": 145.32,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-781",
+       "typ": "R"
+      },
+      {
+       "dt": "06-06-2026",
+       "val": 35188.66,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 33513.0,
+         "igst": 0.0,
+         "cgst": 837.83,
+         "sgst": 837.83,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-788",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ZQUFS4691A1Z7",
+     "trdnm": "SAPTASHRUNGI SPICES LLP",
+     "supfildt": "08-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "01-06-2026",
+       "val": 119928.99,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 114218.09,
+         "igst": 0.0,
+         "cgst": 2855.45,
+         "sgst": 2855.45,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-799",
+       "typ": "R"
+      },
+      {
+       "dt": "04-06-2026",
+       "val": 21231.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 20220.0,
+         "igst": 0.0,
+         "cgst": 505.5,
+         "sgst": 505.5,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-793",
+       "typ": "R"
+      },
+      {
+       "dt": "06-06-2026",
+       "val": 26376.58,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 25120.56,
+         "igst": 0.0,
+         "cgst": 628.01,
+         "sgst": 628.01,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-764",
+       "typ": "R"
+      },
+      {
+       "dt": "07-06-2026",
+       "val": 33723.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 32118.0,
+         "igst": 0.0,
+         "cgst": 802.95,
+         "sgst": 802.95,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-740",
+       "typ": "R"
+      },
+      {
+       "dt": "07-06-2026",
+       "val": 11766.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 11206.0,
+         "igst": 0.0,
+         "cgst": 280.15,
+         "sgst": 280.15,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-773",
+       "typ": "R"
+      },
+      {
+       "dt": "09-06-2026",
+       "val": 15889.64,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 15133.0,
+         "igst": 0.0,
+         "cgst": 378.32,
+         "sgst": 378.32,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-737",
+       "typ": "R"
+      },
+      {
+       "dt": "09-06-2026",
+       "val": 4481.72,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 4268.3,
+         "igst": 0.0,
+         "cgst": 106.71,
+         "sgst": 106.71,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-751",
+       "typ": "R"
+      },
+      {
+       "dt": "10-06-2026",
+       "val": 59043.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 56232.0,
+         "igst": 0.0,
+         "cgst": 1405.8,
+         "sgst": 1405.8,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-744",
+       "typ": "R"
+      },
+      {
+       "dt": "14-06-2026",
+       "val": 4793.24,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 4565.0,
+         "igst": 0.0,
+         "cgst": 114.12,
+         "sgst": 114.12,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-756",
+       "typ": "R"
+      },
+      {
+       "dt": "14-06-2026",
+       "val": 10950.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 10429.0,
+         "igst": 0.0,
+         "cgst": 260.73,
+         "sgst": 260.73,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-760",
+       "typ": "R"
+      },
+      {
+       "dt": "15-06-2026",
+       "val": 10316.24,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 9825.0,
+         "igst": 0.0,
+         "cgst": 245.62,
+         "sgst": 245.62,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-776",
+       "typ": "R"
+      },
+      {
+       "dt": "16-06-2026",
+       "val": 11882.86,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 11317.0,
+         "igst": 0.0,
+         "cgst": 282.93,
+         "sgst": 282.93,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-784",
+       "typ": "R"
+      },
+      {
+       "dt": "17-06-2026",
+       "val": 66412.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 63250.0,
+         "igst": 0.0,
+         "cgst": 1581.25,
+         "sgst": 1581.25,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-766",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 87693.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 83518.0,
+         "igst": 0.0,
+         "cgst": 2087.95,
+         "sgst": 2087.95,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-746",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 10526.78,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 8921.0,
+         "igst": 0.0,
+         "cgst": 802.89,
+         "sgst": 802.89,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-789",
+       "typ": "R"
+      },
+      {
+       "dt": "20-06-2026",
+       "val": 96646.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 92044.0,
+         "igst": 0.0,
+         "cgst": 2301.1,
+         "sgst": 2301.1,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-732",
+       "typ": "R"
+      },
+      {
+       "dt": "20-06-2026",
+       "val": 23881.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 22744.0,
+         "igst": 0.0,
+         "cgst": 568.6,
+         "sgst": 568.6,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-771",
+       "typ": "R"
+      },
+      {
+       "dt": "23-06-2026",
+       "val": 9438.82,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7999.0,
+         "igst": 0.0,
+         "cgst": 719.91,
+         "sgst": 719.91,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-794",
+       "typ": "R"
+      },
+      {
+       "dt": "24-06-2026",
+       "val": 35293.66,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 33613.0,
+         "igst": 0.0,
+         "cgst": 840.33,
+         "sgst": 840.33,
+         "cess": 0
+        }
+       ],
+       "inum": "SSL-787",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27ZUXFD6085L1ZO",
+     "trdnm": "DHRUV IMPEX & CO",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "15-06-2026",
+       "val": 107199.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 90847.0,
+         "igst": 0.0,
+         "cgst": 8176.23,
+         "sgst": 8176.23,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/NSK/761",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "29HKUFE4143U1ZJ",
+     "trdnm": "Ekdant Motors",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "23-06-2026",
+       "val": 65021.54,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 55103.0,
+         "igst": 0.0,
+         "cgst": 4959.27,
+         "sgst": 4959.27,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0435",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "29VIBCV7579G1ZO",
+     "trdnm": "VARAD ENGINEERING INDIA PRIVATE LIMITED",
+     "supfildt": "07-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "23-06-2026",
+       "val": 103849.2,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 74178.0,
+         "igst": 29671.2,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0556",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "29VMJCV8743B1ZQ",
+     "trdnm": "VINAYAK ELECTRO SERVICES INDIA PRIVATE LIMITED",
+     "supfildt": "07-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "10-01-2026",
+       "val": 28550.1,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 24195.0,
+         "igst": 4355.1,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VES140/2025-26",
+       "typ": "R"
+      },
+      {
+       "dt": "01-06-2026",
+       "val": 35123.11,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 29765.35,
+         "igst": 5357.76,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "VES137/2026-27",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33CUBFN2643S1ZS",
+     "trdnm": "NILKANTH PROVISION STORES LLP",
+     "supfildt": "13-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "28-05-2026",
+       "val": 17793.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 16946.0,
+         "igst": 847.3,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "215",
+       "typ": "R"
+      },
+      {
+       "dt": "31-05-2026",
+       "val": 52910.55,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 50391.0,
+         "igst": 2519.55,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "220",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33CUBFN2643S1ZS",
+     "trdnm": "NILKANTH PROVISION STORES LLP",
+     "supfildt": "09-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "02-06-2026",
+       "val": 4816.35,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 4587.0,
+         "igst": 229.35,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "221",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 35968.8,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 34256.0,
+         "igst": 1712.8,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "226",
+       "typ": "R"
+      },
+      {
+       "dt": "22-06-2026",
+       "val": 80120.25,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 76305.0,
+         "igst": 3815.25,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "229",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33NWOFI4919E1ZR",
+     "trdnm": "ISHAAN SUPPLIERS",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "21-06-2026",
+       "val": 55463.53,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 47002.99,
+         "igst": 8460.54,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "IS00438",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33OEHFN6874V1ZK",
+     "trdnm": "NAVDURGA TRADING CO & CO",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "25-06-2026",
+       "val": 517039.42,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 438169.0,
+         "igst": 78870.42,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "2026-27/0671",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33YHOCN1214G1ZQ",
+     "trdnm": "NANDADEEP CHEMICALS LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "17-06-2026",
+       "val": 24426.52,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 20700.44,
+         "igst": 3726.08,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "26-27/CHN/468",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33ZYMCR4643V1ZE",
+     "trdnm": "RAJHANS BEVERAGES LIMITED",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "10-06-2026",
+       "val": 24894.8,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 40,
+         "txval": 17782.0,
+         "igst": 7112.8,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "RBL00194",
+       "typ": "R"
+      },
+      {
+       "dt": "19-06-2026",
+       "val": 116331.48,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 98586.0,
+         "igst": 17745.48,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "RBL00192",
+       "typ": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "36OBCCG3210U1ZW",
+     "trdnm": "Gajraj Distributors India Private Limited",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "inv": [
+      {
+       "dt": "05-06-2026",
+       "val": 92154.46,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 78097.0,
+         "igst": 14057.46,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "GDI00844",
+       "typ": "R"
+      },
+      {
+       "dt": "05-06-2026",
+       "val": 177944.0,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 150800.0,
+         "igst": 27144.0,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "GDI00847",
+       "typ": "R"
+      },
+      {
+       "dt": "07-06-2026",
+       "val": 32193.94,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27283.0,
+         "igst": 4910.94,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "GDI00841",
+       "typ": "R"
+      },
+      {
+       "dt": "17-06-2026",
+       "val": 44960.36,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 38102.0,
+         "igst": 6858.36,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "GDI00850",
+       "typ": "R"
+      },
+      {
+       "dt": "21-06-2026",
+       "val": 32150.28,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 27246.0,
+         "igst": 4904.28,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "inum": "GDI00855",
+       "typ": "R"
+      }
+     ]
+    }
+   ],
+   "cdnr": [
+    {
+     "ctin": "07ZMWCB4913P1ZI",
+     "trdnm": "BLUEJAY AIRWAYS PRIVATE LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "19-06-2026",
+       "val": 43674.75,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 41595.0,
+         "igst": 2079.75,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "DL2606BK18724",
+       "typ": "D",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "09YGNPS9198C1ZX",
+     "trdnm": "SHAH POOJA SHILPA",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "22-06-2026",
+       "val": 9034.08,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 7656.0,
+         "igst": 1378.08,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CN/26-27/271",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "22BVHCN7177M1ZR",
+     "trdnm": "NIMBUS AIR SERVICES LIMITED",
+     "supfildt": "07-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "04-06-2026",
+       "val": 6759.9,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 6438.0,
+         "igst": 321.9,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CG2606AB55971",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "22TTFPK8868M1ZJ",
+     "trdnm": "KULKARNI ANJALI MANOJ",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "18-06-2026",
+       "val": 12802.06,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 10849.2,
+         "igst": 1952.86,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "2026-27/33",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "22ZMWCB4913P1ZQ",
+     "trdnm": "BLUEJAY AIRWAYS PRIVATE LIMITED",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "20-06-2026",
+       "val": 5382.3,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 5126.0,
+         "igst": 256.3,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CG2606AA72946",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27BHAFM2737V1Z6",
+     "trdnm": "MAYUR SPICES",
+     "supfildt": "13-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "23-06-2026",
+       "val": 28633.5,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 27270.0,
+         "igst": 0.0,
+         "cgst": 681.75,
+         "sgst": 681.75,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CN/26-27/026",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27BVHCN7177M1ZH",
+     "trdnm": "NIMBUS AIR SERVICES LIMITED",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "22-06-2026",
+       "val": 6545.7,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 6234.0,
+         "igst": 0.0,
+         "cgst": 155.85,
+         "sgst": 155.85,
+         "cess": 0
+        }
+       ],
+       "ntnum": "MH2606AB61504",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27KIPPY9489O1Z9",
+     "trdnm": "IYER ROHAN SHILPA",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "11-06-2026",
+       "val": 1486.8,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 1260.0,
+         "igst": 0.0,
+         "cgst": 113.4,
+         "sgst": 113.4,
+         "cess": 0
+        }
+       ],
+       "ntnum": "CN/26-27/009",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "27RYCCG1797E1ZQ",
+     "trdnm": "GIRNAR HYGIENE SOLUTIONS LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "21-06-2026",
+       "val": 10957.66,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 18,
+         "txval": 9286.16,
+         "igst": 0.0,
+         "cgst": 835.75,
+         "sgst": 835.75,
+         "cess": 0
+        }
+       ],
+       "ntnum": "2026-27/06",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "29WXVCA1493M1ZW",
+     "trdnm": "AEROLARK AVIATION LIMITED",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "11-06-2026",
+       "val": 6319.95,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 6019.0,
+         "igst": 300.95,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "KA2606BK50015",
+       "typ": "D",
+       "suptyp": "R"
+      },
+      {
+       "dt": "28-06-2026",
+       "val": 17235.75,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 16415.0,
+         "igst": 820.75,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "KA2606CX50014",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "33WXVCA1493M1Z7",
+     "trdnm": "AEROLARK AVIATION LIMITED",
+     "supfildt": "11-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "09-06-2026",
+       "val": 20147.4,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 19188.0,
+         "igst": 959.4,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "TN2606AB27499",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    },
+    {
+     "ctin": "36WXVCA1493M1Z1",
+     "trdnm": "AEROLARK AVIATION LIMITED",
+     "supfildt": "10-07-2026",
+     "supprd": "062026",
+     "nt": [
+      {
+       "dt": "23-06-2026",
+       "val": 4149.6,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "e-Invoice",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 3952.0,
+         "igst": 197.6,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "ntnum": "TG2606CX85379",
+       "typ": "C",
+       "suptyp": "R"
+      }
+     ]
+    }
+   ],
+   "b2ba": [
+    {
+     "ctin": "06UVFFN5295L1Z1",
+     "trdnm": "NILKANTH SPICES & CO",
+     "supfildt": "14-06-2026",
+     "supprd": "052026",
+     "inv": [
+      {
+       "dt": "21-05-2026",
+       "val": 12258.41,
+       "pos": "27",
+       "rev": "N",
+       "itcavl": "Y",
+       "rsn": "",
+       "diffprcnt": 1,
+       "srctyp": "",
+       "irn": "",
+       "irngendate": "",
+       "items": [
+        {
+         "num": 1,
+         "rt": 5,
+         "txval": 11674.68,
+         "igst": 583.73,
+         "cgst": 0.0,
+         "sgst": 0.0,
+         "cess": 0
+        }
+       ],
+       "oinum": "NSC-87",
+       "oidt": "21-05-2026",
+       "inum": "NSC-87",
+       "typ": "R"
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

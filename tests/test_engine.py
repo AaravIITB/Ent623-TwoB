@@ -178,8 +178,8 @@ def test_reports(tmp_path: Path):
     x = write_excel(res, tmp_path / "out.xlsx")
     h = write_html(res, tmp_path / "out.html")
     wb = load_workbook(x)
-    assert wb.sheetnames == ["Summary", "IMS decisions", "Books not in 2B", "Supplier follow-ups",
-                             "Client questions", "Blocked credit review", "All findings"]
+    assert wb.sheetnames == ["Summary", "3B Table 4", "IMS decisions", "By supplier", "Books not in 2B",
+                             "Supplier follow-ups", "Client questions", "Blocked credit review", "All findings"]
     assert "Pre-filing report" in h.read_text()
     assert res.supplier_messages and "GSTR-1" in res.supplier_messages[0].whatsapp
 

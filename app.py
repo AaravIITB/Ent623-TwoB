@@ -53,11 +53,24 @@ def _ensure_sample():
         generate(SAMPLE)
 
 
-def _run(book_paths, portal_paths, client, period, planned, tol):
+def _run(book_paths, portal_paths, client, period, planned, tol, opts=None):
+    from taxmind.gstr3b import load_ledger
+    from taxmind.loaders.tabular import detect_client_gstin
+    opts = opts or {}
     books, n1 = load_many(book_paths, Side.BOOKS)
     portal, n2 = load_many(portal_paths, Side.PORTAL, period=period or "")
-    res = reconcile(books, portal, period=period or "", client=client, cfg=Config(amount_tolerance=tol),
-                    planned_itc=planned, notes=n1 + n2)
+    gstin = opts.get("gstin") or next((g for g in (detect_client_gstin(x) for x in list(book_paths) + list(portal_paths))
+                                       if g), "")
+    cfg = Config(amount_tolerance=tol, amount_tolerance_pct=opts.get("tol_pct", 0.0),
+                 line_of_business=",".join(opts.get("lob", [])), client_gstin=gstin,
+                 not_in_books_policy=opts.get("policy", "pending"))
+    prior = load_ledger(opts["ledger"]) if opts.get("ledger") else None
+    master = None
+    if opts.get("master"):
+        from taxmind.prepare import load_vendor_master
+        master = load_vendor_master(opts["master"])
+    res = reconcile(books, portal, period=period or "", client=client, cfg=cfg,
+                    planned_itc=planned, notes=n1 + n2, prior_ledger=prior, vendor_master=master)
     tmp = Path(tempfile.mkdtemp())
     st.session_state.res = res
     st.session_state.inputs = [Path(x) for x in list(book_paths) + list(portal_paths)]
@@ -65,6 +78,9 @@ def _run(book_paths, portal_paths, client, period, planned, tol):
     st.session_state.pop("imported", None)
     st.session_state.xlsx = write_excel(res, tmp / f"taxmind_{res.period}.xlsx").read_bytes()
     st.session_state.html = write_html(res, tmp / f"taxmind_{res.period}_prefiling.html").read_bytes()
+    from taxmind.gstr3b import write_ledger
+    st.session_state.ledger = write_ledger(res.table4.get("ledger", []),
+                                           tmp / f"taxmind_{res.period}_itc_reversal_ledger.csv").read_bytes()
 
 
 def recon_page():
@@ -85,12 +101,36 @@ def recon_page():
     planned = c5.number_input("ITC you plan to claim (₹)", min_value=0.0, value=0.0, step=1000.0,
                               help="Optional. Used for the DRC-01C check; blank = ITC as per books")
     tol = c6.number_input("Rounding tolerance (₹)", min_value=0.0, value=1.0, step=0.5)
+    from taxmind.blocked import LINES_OF_BUSINESS
+    opts = {}
+    with st.expander("Client settings (tolerance %, line of business, last month's reversal ledger)"):
+        e1, e2, e3 = st.columns([1, 1, 2])
+        opts["tol_pct"] = e1.number_input("…or tolerance as % of amount", min_value=0.0, max_value=5.0, value=0.0,
+                                          step=0.05, help="Whichever is larger of ₹ and % is treated as rounding")
+        opts["gstin"] = e2.text_input("Client GSTIN", value="", help="Blank = read from a 3B summary sheet if present")
+        opts["lob"] = e3.multiselect("Line of business (switches off blocks that don't apply)",
+                                     list(LINES_OF_BUSINESS), help="; ".join(f"{k}: {v}" for k, v in LINES_OF_BUSINESS.items()))
+        e4, e5 = st.columns([1, 2])
+        opts["policy"] = e4.radio("2B bills not in books", ["pending", "reverse"],
+                                  format_func=lambda x: "Keep Pending in IMS" if x == "pending"
+                                  else "Accept, reverse in 4(B)(2)")
+        led = e5.file_uploader("Last month's ITC reversal ledger (CSV from TaxMind)", type=["csv"], key="led_up")
+        if led is not None:
+            lp = Path(tempfile.mkdtemp()) / led.name
+            lp.write_bytes(led.getbuffer())
+            opts["ledger"] = lp
+        vm = st.file_uploader("Vendor master (GSTIN, name, Activity, ITC eligibility)", type=["xlsx", "xls", "csv"],
+                              key="vm_up")
+        if vm is not None:
+            vp = Path(tempfile.mkdtemp()) / vm.name
+            vp.write_bytes(vm.getbuffer())
+            opts["master"] = vp
     b1, b2, _ = st.columns([1, 1.6, 4])
     if b1.button("Reconcile", type="primary", disabled=not (books_up and portal_up)):
         folder = Path(tempfile.mkdtemp())
         try:
             _run(_save_uploads(books_up, folder / "books"), _save_uploads(portal_up, folder / "portal"),
-                 client, period, planned or None, tol)
+                 client, period, planned or None, tol, opts)
         except ValueError as e:
             st.error(str(e))
         except Exception as e:
@@ -100,7 +140,7 @@ def recon_page():
         try:
             _run([SAMPLE / "purchase_register_092026.xlsx"],
                  [SAMPLE / "gstr2b_092026.json", SAMPLE / "gstr2b_102026.json"],
-                 client or "Sharma Auto Components (sample)", period, planned or None, tol)
+                 client or "Sharma Auto Components (sample)", period, planned or None, tol, opts)
         except ValueError as e:
             st.error(str(e))
 
@@ -124,8 +164,8 @@ def recon_page():
         st.markdown(f"{icon[c.level]} **{c.name}** — {c.detail}")
 
     nb = sum(len(f.blocked) for f in res.findings)
-    tabs = st.tabs(["IMS decisions", "Books not in 2B", f"Blocked credit ({nb})", "Supplier messages",
-                    "Client questions", "Month-close", "Downloads", "Loading notes"])
+    tabs = st.tabs(["IMS decisions", "Books not in 2B", f"Blocked credit ({nb})", "3B Table 4", "By supplier",
+                    "Supplier messages", "Client questions", "Month-close", "Downloads", "Loading notes"])
     other = (Status.LATE_FILED, Status.EARLIER_PERIOD)
     with tabs[0]:
         rows = []
@@ -173,6 +213,22 @@ def recon_page():
     with tabs[2]:
         blocked_tab(res)
     with tabs[3]:
+        t4 = res.table4 or {}
+        st.caption("What to enter in GSTR-3B Table 4, from the current recommendations. Lines ending in '?' are "
+                   "for the CA to decide and are not in the totals.")
+        st.dataframe(pd.DataFrame([{"Table": ln.code, "Line": ln.label, "IGST": ln.amounts["igst"],
+                                    "CGST": ln.amounts["cgst"], "SGST/UTGST": ln.amounts["sgst"],
+                                    "Cess": ln.amounts["cess"], "Total": ln.total, "Records": ln.count}
+                                   for ln in t4.get("lines", [])]), width="stretch", hide_index=True)
+        st.caption(f"Reversal ledger: {t4.get('new_reversals', 0)} reversed this month, {t4.get('carried', 0)} carried "
+                   f"from earlier months, {t4.get('reclaimed', 0)} reclaimed now. Download it from Downloads and "
+                   "load it next month.")
+    with tabs[4]:
+        st.caption("One line per supplier. Use it to decide many records at once - e.g. every ticket from an "
+                   "airline that the client books in another register.")
+        st.dataframe(pd.DataFrame(res.suppliers).drop(columns=["in_books"], errors="ignore"), width="stretch",
+                     hide_index=True, height=480)
+    with tabs[5]:
         if not res.supplier_messages:
             st.caption("No supplier needs to fix anything.")
         for msg in res.supplier_messages:
@@ -180,17 +236,20 @@ def recon_page():
                 st.text_area("WhatsApp", msg.whatsapp, height=180, key=f"wa_{msg.supplier_gstin}")
                 st.text_input("Email subject", msg.email_subject, key=f"es_{msg.supplier_gstin}")
                 st.text_area("Email body", msg.email_body, height=220, key=f"eb_{msg.supplier_gstin}")
-    with tabs[4]:
-        st.dataframe(pd.DataFrame(res.client_questions), width="stretch", hide_index=True)
-    with tabs[5]:
-        close_tab(res)
     with tabs[6]:
+        st.dataframe(pd.DataFrame(res.client_questions), width="stretch", hide_index=True)
+    with tabs[7]:
+        close_tab(res)
+    with tabs[8]:
         st.download_button("Download Excel workbook", st.session_state.xlsx,
                            file_name=f"taxmind_{res.period}.xlsx",
                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
         st.download_button("Download pre-filing report (HTML)", st.session_state.html,
                            file_name=f"taxmind_{res.period}_prefiling.html", mime="text/html")
-    with tabs[7]:
+        if st.session_state.get("ledger"):
+            st.download_button("Download ITC reversal ledger (load next month)", st.session_state.ledger,
+                               file_name=f"taxmind_{res.period}_itc_reversal_ledger.csv", mime="text/csv")
+    with tabs[9]:
         for n in res.notes:
             st.markdown(f"- {n}")
 
