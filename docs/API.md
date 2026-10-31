@@ -34,7 +34,7 @@ month; GSTR-3B due the **20th** of the next month.
 ## Objects
 
 ```ts
-type User = { id: number; username: string; name: string; role: "admin" | "reviewer" | "preparer" };
+type User = { id: number; username: string; name: string; role: "admin" | "reviewer" | "preparer"; active: boolean };
 
 type ClientSettings = {
   tolerance: number;            // ₹, default 1
@@ -81,6 +81,8 @@ type Period = {
   closed_by: string | null; closed_at: string | null; pack_fingerprint: string | null;
   review_note: string;          // last send-back / approval note
   prior_ledger_items: number;   // open reversal-ledger items brought from the previous closed month
+  stale: boolean;               // files changed since the last run: reconcile again (decisions are kept)
+  checks_ack: { by: string; at: string } | null;   // high pre-filing checks acknowledged (reset by a new run)
 };
 
 type DocOut = {
@@ -119,6 +121,7 @@ type SupplierRow = {
   itc_2b: number; itc_books: number; itc_claim: number; itc_open: number;
   main_status: string; suggestion: string; statuses: string;
   in_books: boolean; followup_status: FollowUp["status"] | null;
+  history_final: Action | null; history_count: number;   // most common 'same as last month' among open rows
 };
 
 type FollowUp = {
@@ -142,7 +145,8 @@ type DashboardRow = {
   open: number; itc_at_risk: number; high_checks: number; followups_open: number;
   days_to_3b: number;           // negative = overdue
 };
-type Activity = { at: string; user: string; client: string; period: string; action: string; detail: string };
+type Activity = { at: string; user: string; client: string; client_id: number | null; period: string;
+                  action: string; detail: string };
 ```
 
 ## Endpoints
@@ -155,8 +159,8 @@ type Activity = { at: string; user: string; client: string; period: string; acti
 - `GET /api/meta` → `{lines_of_business: {tag: description}, actions: Action[], statuses: {code: label},
   roles: [...], period_statuses: [...]}`
 
-### Users (admin)
-- `GET /api/users` → `User[]`
+### Users
+- `GET /api/users` → `User[]` (any role: active users, for assigning; admins also get disabled users)
 - `POST /api/users` `{username, name, role, password}` → `User`
 - `PATCH /api/users/{id}` `{name?, role?, password?}` → `User`
 
@@ -206,6 +210,7 @@ type Activity = { at: string; user: string; client: string; period: string; acti
   unless `{force: true}`.
 - `POST /api/clients/{cid}/periods/{p}/close` → `Period` (reviewer; status must be `approved`)
 - `POST /api/clients/{cid}/periods/{p}/reopen` `{note}` → `Period` (reviewer)
+- `POST /api/clients/{cid}/periods/{p}/checks/ack` `{ack: boolean}` → `Period` (records who acknowledged the High checks)
 - `POST /api/clients/{cid}/periods/{p}/filed` `{filed_3b_on: "YYYY-MM-DD" | null}` → `Period`
 
 ### Downloads (return files; `?token=` query param accepted instead of the header so links work)

@@ -287,6 +287,7 @@ def _run_period(db: Session, period: Period, user: str) -> Period:
         extra.append(warn)
     period.notes_json = jdump(res.notes + extra)
     period.stale = False
+    period.checks_ack_by = period.checks_ack_at = None     # new run, new checks: acknowledge again
     period.status = "reconciled"
     with _lock:
         _cache[(period.id, period.run_no)] = res

@@ -109,6 +109,8 @@ class Period(Base):
     review_note: Mapped[str] = mapped_column(Text, default="")
     filed_3b_on: Mapped[object | None] = mapped_column(Date, nullable=True)
     stale: Mapped[bool] = mapped_column(Boolean, default=False)       # files changed since the last run
+    checks_ack_by: Mapped[str | None] = mapped_column(String(120), nullable=True)
+    checks_ack_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     client: Mapped[Client] = relationship(back_populates="periods")
     files: Mapped[list["StoredFile"]] = relationship(back_populates="period", cascade="all, delete-orphan",
                                                      order_by="StoredFile.id")

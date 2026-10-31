@@ -1,0 +1,141 @@
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "tailwindcss";
+
+/*
+  TaxMind tokens.
+  Paper: cool neutral page. Ink: text. Accent "challan blue": the blue-black of a stamped challan,
+  the only accent. High / Review / OK carry check and risk levels and nothing else.
+*/
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-paper: #f4f5f7;
+  --color-surface: #ffffff;
+  --color-sunken: #f8f9fa;
+  --color-ink: #18212c;
+  --color-ink-2: #3a4451;
+  --color-muted: #69737f;
+  --color-faint: #98a1ab;
+  --color-rule: #e2e5e9;
+  --color-rule-strong: #c8cdd4;
+
+  --color-accent: #1e4f8a;
+  --color-accent-hover: #173f6f;
+  --color-accent-soft: #edf2f9;
+  --color-accent-line: #c7d6ea;
+
+  --color-high: #b42318;
+  --color-high-soft: #fdeceb;
+  --color-review: #9a5b06;
+  --color-review-soft: #fdf3e1;
+  --color-ok: #1b7443;
+  --color-ok-soft: #e7f3eb;
+
+  --text-2xs: 11px;
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-base: 14px;
+  --text-lg: 16px;
+  --text-xl: 19px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+}
+
+@layer base {
+  html {
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-paper text-ink font-sans;
+    line-height: 1.45;
+    font-feature-settings: "tnum" 0;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 1px;
+    border-radius: 3px;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+  ::selection {
+    background: var(--color-accent-line);
+  }
+}
+
+@utility num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+  white-space: nowrap;
+}
+
+@utility code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  letter-spacing: -0.01em;
+}
+
+/* Dense data tables */
+.tbl {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 13px;
+}
+.tbl th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-sunken);
+  color: var(--color-muted);
+  font-weight: 500;
+  text-align: left;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--color-rule);
+  white-space: nowrap;
+}
+.tbl td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--color-rule);
+  vertical-align: middle;
+}
+.tbl tr:last-child td {
+  border-bottom: 0;
+}
+.tbl .r {
+  text-align: right;
+}
+.tbl tbody tr.hoverable:hover td {
+  background: #f7f9fc;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #eceef1 0%, #f4f5f7 50%, #eceef1 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+  border-radius: 4px;
+}
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+  * {
+    transition: none !important;
+  }
+}

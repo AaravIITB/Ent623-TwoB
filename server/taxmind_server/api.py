@@ -72,6 +72,7 @@ def period_out(db: Session, p: Period) -> dict:
             "submitted_at": S.iso(p.submitted_at), "approved_by": p.approved_by, "approved_at": S.iso(p.approved_at),
             "closed_by": p.closed_by, "closed_at": S.iso(p.closed_at), "pack_fingerprint": p.pack_fingerprint,
             "review_note": p.review_note or "", "stale": bool(p.stale),
+            "checks_ack": {"by": p.checks_ack_by, "at": S.iso(p.checks_ack_at)} if p.checks_ack_by else None,
             "prior_ledger_items": len(jload(p.prior_ledger_json, []) or []) if p.run_no
             else len(S.previous_ledger(db, p))}
 
@@ -723,6 +724,7 @@ def suppliers(cid: int, p: str, q: str = "", only_open: bool = False, db: Sessio
     rows = db.query(DecisionRow).filter_by(period_id=per.id).all()
     fu = {f.supplier_gstin: f.status for f in db.query(FollowUpRow).filter_by(period_id=per.id)}
     out: dict = {}
+    hist_by: dict = {}
     from collections import Counter
     for d in rows:
         r = out.setdefault(d.supplier_gstin, {"gstin": d.supplier_gstin, "name": d.supplier_name, "records_2b": 0,
@@ -739,6 +741,9 @@ def suppliers(cid: int, p: str, q: str = "", only_open: bool = False, db: Sessio
         if S.is_open(d):
             r["open"] += 1
             r["itc_open"] += d.itc_at_stake
+            h = data.get("history")
+            if h:
+                hist_by.setdefault(d.supplier_gstin, Counter())[h["final"]] += 1
         r["itc_2b"] += d.itc_in_2b
         r["itc_books"] += d.itc_in_books
         r["itc_claim"] += S.claim_after(d)
@@ -759,6 +764,8 @@ def suppliers(cid: int, p: str, q: str = "", only_open: bool = False, db: Sessio
         else:
             r["suggestion"] = "All clear."
         r["followup_status"] = fu.get(r["gstin"])
+        hist = hist_by.get(r["gstin"])
+        r["history_final"], r["history_count"] = (hist.most_common(1)[0] if hist else (None, 0))
         if only_open and not r["open"]:
             continue
         if ql and ql not in r["name"].lower() and ql not in r["gstin"].lower():
@@ -914,6 +921,25 @@ def reopen(cid: int, p: str, body: NoteIn, db: Session = Depends(get_db), user: 
     per.pack_fingerprint, per.ledger_json = None, ""      # the old pack stays on disk; a new close makes a new one
     per.review_note = body.note
     S.log(db, uname(user), per.client, p, "reopened", f"was {was}: {body.note}")
+    db.commit()
+    return period_out(db, per)
+
+
+class AckIn(BaseModel):
+    ack: bool = True
+
+
+@router.post("/clients/{cid}/periods/{p}/checks/ack")
+def ack_checks(cid: int, p: str, body: AckIn, db: Session = Depends(get_db), user: User = Depends(current_user)):
+    per = get_period(db, cid, p)
+    if not per.run_no:
+        raise HTTPException(409, "Reconcile this month first.")
+    if body.ack:
+        per.checks_ack_by, per.checks_ack_at = uname(user), now()
+        highs = [c["name"] for c in jload(per.checks_json, []) if c.get("level") == "High"]
+        S.log(db, uname(user), per.client, p, "checks acknowledged", "; ".join(highs))
+    else:
+        per.checks_ack_by = per.checks_ack_at = None
     db.commit()
     return period_out(db, per)
 
