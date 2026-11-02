@@ -10,10 +10,14 @@ Built by team TwoB for ENT 623. The recommendations are defaults for a CA to rev
 
 A web app for a CA firm's GST team: one login per staff member, every client on one dashboard, and each client's month taken from upload to a closed, signed-off record.
 
+On a Mac: install Python 3.10+ from python.org if you don't have it, unzip TwoB, then in Terminal:
+
 ```bash
-scripts/run.sh                     # installs, builds the web app once, serves http://localhost:8000
-# or: docker compose up --build    # same, in a container; data kept in the 'taxmind-data' volume
+cd ~/Downloads/TwoB        # wherever you unzipped it
+bash scripts/run.sh        # first run sets up (a few minutes), then opens http://localhost:8000
 ```
+
+Or double-click `Start TwoB.command`. Linux works the same way. With Docker, use `docker compose up --build`. Working from the git repo rather than the zip also needs Node.js, to build `web/` once.
 
 The first start creates the user `admin` with password `admin123` (set `TAXMIND_ADMIN_PASSWORD` before the first start to choose another). To try it with data, log in as admin and press **Load demo clients**, or call `POST /api/demo/seed`. This adds six fictional clients from `test_data/`, with Jun 2026 reconciled, plus demo users `riya` / `aman` (preparers) and `camehta` (reviewer), all with password `demo123`.
 
