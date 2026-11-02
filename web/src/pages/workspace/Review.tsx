@@ -769,7 +769,7 @@ function SupplierHeader({
             </Button>
           )}
           {s.open > 0 ? (
-            <Button size="sm" variant="primary" busy={busy} disabledReason={locked} onClick={onAcceptAll} title="Use TaxMind's recommendation for every open item of this supplier, then go to the next supplier">
+            <Button size="sm" variant="primary" busy={busy} disabledReason={locked} onClick={onAcceptAll} title="Use TwoB's recommendation for every open item of this supplier, then go to the next supplier">
               Accept all recommendations ({count(s.open)})
             </Button>
           ) : (
@@ -921,7 +921,7 @@ function DecisionTable({
               </td>
               <td>
                 <div className="flex items-center gap-1.5">
-                  <span className="w-[44px] shrink-0 text-xs text-muted truncate" title={`TaxMind recommends ${r.recommended}`}>
+                  <span className="w-[44px] shrink-0 text-xs text-muted truncate" title={`TwoB recommends ${r.recommended}`}>
                     {ACTION_SHORT[r.recommended]}
                   </span>
                   <span className="text-faint text-xs">→</span>
@@ -1139,7 +1139,7 @@ function ShortcutHelp({ open, onClose }: { open: boolean; onClose: () => void })
     [["r"], "Reject"],
     [["p"], "Pending"],
     [["n"], "No IMS action"],
-    [["u"], "Use TaxMind's recommendation"],
+    [["u"], "Use TwoB's recommendation"],
     [["h"], "Same as last month"],
     [["x"], "Select or unselect the current row"],
     [["Shift", "click"], "Select a range of rows"],

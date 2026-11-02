@@ -1,12 +1,12 @@
-# TaxMind: GSTR-2B / IMS reconciliation engine
+# TwoB: GSTR-2B / IMS reconciliation engine
 
-TaxMind matches a client's purchase register against GSTR-2B / IMS and recommends **Accept / Reject / Pending** for every record. Each recommendation comes with a plain-English reason, the person who has to act (nobody, CA, client or supplier), and how much ITC is at stake.
+TwoB matches a client's purchase register against GSTR-2B / IMS and recommends **Accept / Reject / Pending** for every record. Each recommendation comes with a plain-English reason, the person who has to act (nobody, CA, client or supplier), and how much ITC is at stake.
 
 It also runs pre-filing checks before GSTR-3B is filed, flags possible **Sec 17(5) blocked credit** on invoices that match perfectly, drafts WhatsApp/email messages for suppliers who need to fix something, writes an Excel workbook for the CA with a ready **GSTR-3B Table 4 working**, carries a month-to-month **ITC reversal ledger** so reversed ITC is reclaimed when the bill is finally booked, and produces a dated **month-close pack** recording the CA's final decisions.
 
 Built by team TwoB for ENT 623. The recommendations are defaults for a CA to review, not filing advice.
 
-## The product: TaxMind web app
+## The product: TwoB web app
 
 A web app for a CA firm's GST team: one login per staff member, every client on one dashboard, and each client's month taken from upload to a closed, signed-off record.
 
@@ -75,11 +75,11 @@ python -m pytest -q                                   # tests
 
 Columns are recognised by name, the header row is found automatically, and tax split across rate-wise columns (e.g. "Input CGST 9%", "Input CGST 2.5%") is summed.
 
-What real registers look like, and how TaxMind copes (built from a CA firm's actual month, see "Accuracy"):
+What real registers look like, and how TwoB copes (built from a CA firm's actual month, see "Accuracy"):
 
 - **One workbook, both sides.** A firm's working file often holds a 3B Summary, the purchase register and its own flattened 2B sheet. Pass the same file as books and as portal; each sheet is read by the side it belongs to (by its headers and name), the Summary is skipped, and the client's GSTIN is read from it.
 - **Tally journal registers.** When the register's only date is the voucher (booking) date, the **supplier's invoice date is read from the narration** ("dtd 18 May 2026", "\t30-Apr-26", "dated 01st Jun 2026"; service-period dates are ignored). A blank **Invoice No is read from the narration** too ("Inv No PX4/26-27/052 dtd ...", "as per invoices : X", typos like "INVOCIE"). Junk such as "No-ABX123", "_x000D_", tabs and "M/s" is cleaned.
-- **Blank GSTINs** are kept, not dropped: TaxMind fills them from the PAN column, from the same invoice number in 2B under a similar name, or from a unique supplier name, and says so on the record. The rest become "Supplier GSTIN missing in books".
+- **Blank GSTINs** are kept, not dropped: TwoB fills them from the PAN column, from the same invoice number in 2B under a similar name, or from a unique supplier name, and says so on the record. The rest become "Supplier GSTIN missing in books".
 - **Entries with no GST** (diesel, rent to an individual, advances against proforma invoices, provision reversals) are listed as "No GST on this entry" and kept out of matching.
 - **Debit Note vouchers** whose Invoice No column holds the original invoice: the credit note no. is read from the narration ("Credit note no X, against invoice no Y").
 - **Correction entries** ("excess booking rectified", "less booking made earlier") are shown as corrections of the invoice they name, not as new bills.
@@ -113,7 +113,7 @@ For the blocked-credit check the books should also carry at least one of: the **
 
 ## Blocked credit (Sec 17(5))
 
-A bill can match 2B exactly and still carry ITC the law blocks. GSTR-2B only marks place-of-supply and Sec 16(4) cases as "ITC not available", so nothing on the portal catches these. TaxMind flags them **for review** and never reverses ITC itself, because most blocks have exceptions (a caterer buying food to resell, a car dealer buying cars, insurance an employer must provide by law).
+A bill can match 2B exactly and still carry ITC the law blocks. GSTR-2B only marks place-of-supply and Sec 16(4) cases as "ITC not available", so nothing on the portal catches these. TwoB flags them **for review** and never reverses ITC itself, because most blocks have exceptions (a caterer buying food to resell, a car dealer buying cars, insurance an employer must provide by law).
 
 | Flag | Section | Typical evidence |
 |---|---|---|
@@ -164,7 +164,7 @@ Every 4(B)(2) reversal is written to `..._itc_reversal_ledger.csv`. Load it next
 | Prior ledger | `--prior-ledger file.csv` | see above |
 | Vendor master | `--vendor-master vendors.xlsx` | GSTIN + name (+ Activity, ITC eligibility): fills blank GSTINs (also proprietor vs trade names), marks suppliers whose bills are booked in another register as known, and feeds the blocked-credit check |
 
-When most 2B records come from suppliers the books never mention, the register is probably partial (e.g. only journal vouchers). TaxMind then says so, holds those records **Pending instead of Reject** (rejecting genuine airline or hotel bills would lose ITC), and the **By supplier** sheet lets staff decide them one supplier at a time: the summary shows how many supplier-level decisions the open items reduce to.
+When most 2B records come from suppliers the books never mention, the register is probably partial (e.g. only journal vouchers). TwoB then says so, holds those records **Pending instead of Reject** (rejecting genuine airline or hotel bills would lose ITC), and the **By supplier** sheet lets staff decide them one supplier at a time: the summary shows how many supplier-level decisions the open items reduce to.
 
 ## Month-close pack
 
@@ -222,13 +222,13 @@ A CA firm shared its working file for one client: a 537-line Tally journal regis
 | The firm's 88 matched pairs found | 84 | **88**, plus 2 more pairs the firm's VLOOKUP missed (a one-digit typo, and a purchase return with no number). Both are held for a CA check |
 | Matched as exact (invoice date read from the narration) | 1 (67 shown as "date differs") | 70 |
 | Bills the firm marked "booked with non-GST" | missed | 3 of 3 caught as *Booked without GST* |
-| Firm says ITC ineligible → TaxMind flags it | | 115 of 116 |
-| Firm says eligible → TaxMind still flags it | | 58 of 274 (car-lease rentals, which TaxMind reads as blocked under Sec 17(5); hotel bills to split; works contracts marked *Possible*) |
+| Firm says ITC ineligible → TwoB flags it | | 115 of 116 |
+| Firm says eligible → TwoB still flags it | | 58 of 274 (car-lease rentals, which TwoB reads as blocked under Sec 17(5); hotel bills to split; works contracts marked *Possible*) |
 | Speed | 0.4 s | about 1 s |
 
-On this file, TaxMind's proposed 4(B)(1) reversal covers the same items the firm marked ineligible (precast drains for the new plant, cab hire). It adds ₹1.44 lakh of car-lease rentals that the firm's sheet treats as eligible, which is worth a CA's look.
+On this file, TwoB's proposed 4(B)(1) reversal covers the same items the firm marked ineligible (precast drains for the new plant, cab hire). It adds ₹1.44 lakh of car-lease rentals that the firm's sheet treats as eligible, which is worth a CA's look.
 
-The file also showed something synthetic data never would. 58% of the 2B records come from 177 suppliers who never appear in this register (airlines, hotels, car hire): the register is partial. TaxMind now says so, does not recommend mass rejection, and lets staff decide those suppliers one at a time on the "By supplier" sheet. The 1,500 open items come down to about 430 supplier-level decisions.
+The file also showed something synthetic data never would. 58% of the 2B records come from 177 suppliers who never appear in this register (airlines, hotels, car hire): the register is partial. TwoB now says so, does not recommend mass rejection, and lets staff decide those suppliers one at a time on the "By supplier" sheet. The 1,500 open items come down to about 430 supplier-level decisions.
 
 ### Realistic generated data (`test_data/`, `taxmind/synth_ca.py`, `taxmind/bench_ca.py`)
 
@@ -246,7 +246,7 @@ This data has six client profiles (plant-building manufacturer, trader, hotel, w
 Caveats:
 - The answer key reflects one firm's method and our reading of the law. The listed judgement calls are in `test_data/README.md`.
 - The engine was fixed against this data, so it is **no longer a blind test**.
-- The 4(A)(5) and 4(B)(2) lines differ from the key, because TaxMind takes records held Pending out of 2B rather than reversing them; the net 4(C) agrees.
+- The 4(A)(5) and 4(B)(2) lines differ from the key, because TwoB takes records held Pending out of 2B rather than reversing them; the net 4(C) agrees.
 - Stress set (4,760 books rows, ~5,300 2B rows a month): it takes 8 s and pairs at 99.8% precision / 99.5% recall. Split invoices are under-found at that size (`split_max_candidates`).
 
 ### Original synthetic data (`taxmind/synth.py`)

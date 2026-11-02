@@ -76,7 +76,7 @@ export function DecisionDrawer({
         <section className="rounded-md border border-rule bg-sunken p-3.5">
           <div className="flex items-center justify-between gap-3 flex-wrap">
             <div className="text-sm">
-              TaxMind recommends <ActionText action={d.recommended} />
+              TwoB recommends <ActionText action={d.recommended} />
               <span className="text-muted">
                 {" "}
                 · {d.confidence} confidence · who acts: <b className="font-medium text-ink-2">{d.owner}</b>
@@ -153,7 +153,7 @@ export function DecisionDrawer({
                 </div>
               ))}
             </div>
-            <p className="text-xs text-muted mt-1.5">TaxMind never reverses ITC by itself. Record your view in the note.</p>
+            <p className="text-xs text-muted mt-1.5">TwoB never reverses ITC by itself. Record your view in the note.</p>
           </section>
         )}
 

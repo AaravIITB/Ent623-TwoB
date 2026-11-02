@@ -26,7 +26,7 @@ async def lifespan(_app):
     yield
 
 
-app = FastAPI(title="TaxMind", version=__version__, docs_url="/api/docs", openapi_url="/api/openapi.json",
+app = FastAPI(title="TwoB", version=__version__, docs_url="/api/docs", openapi_url="/api/openapi.json",
               lifespan=lifespan)
 app.add_middleware(GZipMiddleware, minimum_size=2000)
 app.include_router(router)

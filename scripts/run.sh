@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Run TaxMind locally: builds the web app if needed, then serves app + API on http://localhost:8000
+# Run TwoB locally: builds the web app if needed, then serves app + API on http://localhost:8000
 set -euo pipefail
 cd "$(dirname "$0")/.."
 pip install -q -r requirements.txt -r server/requirements.txt

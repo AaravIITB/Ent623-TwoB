@@ -4,7 +4,7 @@ An invoice can match GSTR-2B perfectly and still carry ITC the law does not allo
 food on a hotel bill, car repairs, club fees, gifts. GSTR-2B only marks place-of-supply
 and Sec 16(4) cases as 'ITC not available', so nothing on the portal catches these.
 
-TaxMind flags likely Sec 17(5) items FOR REVIEW. It never reverses ITC by itself,
+TwoB flags likely Sec 17(5) items FOR REVIEW. It never reverses ITC by itself,
 because most blocks have exceptions (e.g. food bought by a caterer for resale, cars
 bought by a car dealer, insurance an employer must provide by law).
 

@@ -5,7 +5,7 @@
   python -m taxmind sample --out sample_data [--hard]
   python -m taxmind benchmark --data sample_data
   python -m taxmind reconcile ... --close-pack --preparer "Riya" --reviewer "CA Mehta" [--decisions edited.xlsx]
-  python -m taxmind verify output/taxmind_..._close_pack.zip
+  python -m taxmind verify output/twob_..._close_pack.zip
 """
 from __future__ import annotations
 
@@ -41,11 +41,11 @@ def _reconcile(a):
     from .report import write_excel, write_html
     out = Path(a.out)
     import re
-    stem = f"taxmind_{re.sub(r'[^A-Za-z0-9]+', '_', a.client or 'client').strip('_')}_{res.period}"
+    stem = f"twob_{re.sub(r'[^A-Za-z0-9]+', '_', a.client or 'client').strip('_')}_{res.period}"
     x = write_excel(res, out / f"{stem}.xlsx")
     h = write_html(res, out / f"{stem}_prefiling.html")
     s = res.summary
-    print(f"\nTaxMind - {res.client or 'client'} - {res.period_label}")
+    print(f"\nTwoB - {res.client or 'client'} - {res.period_label}")
     for n in res.notes:
         print(f"  note: {n}")
     print(f"  books entries {s['books_entries']}, 2B records {s['portal_records']}")
@@ -126,7 +126,7 @@ def main(argv=None):
                                            "booked in another register, feeds the blocked-credit check")
     r.add_argument("--out", default="output", help="output folder")
     r.add_argument("--close-pack", action="store_true", help="also write a dated month-close pack (.zip)")
-    r.add_argument("--decisions", help="CA's final decisions: the TaxMind workbook with 'Final decision' / "
+    r.add_argument("--decisions", help="CA's final decisions: the TwoB workbook with 'Final decision' / "
                                        "'CA note' filled in, or a CSV with ID, Final decision, CA note")
     r.add_argument("--preparer", default="", help="name of the person who prepared the reconciliation")
     r.add_argument("--reviewer", default="", help="name of the CA who reviewed it")

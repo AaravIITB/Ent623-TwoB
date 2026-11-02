@@ -1,4 +1,4 @@
-# TaxMind: one container with the web app and the API.
+# TwoB: one container with the web app and the API.
 #   docker build -t taxmind .
 #   docker run -p 8000:8000 -v taxmind-data:/data -e TAXMIND_ADMIN_PASSWORD=change-me taxmind
 FROM node:22-slim AS web

@@ -108,7 +108,7 @@ function ItcLadder({ s }: { s: Summary }) {
   const rows: { label: string; value: number; note?: string; strong?: boolean }[] = [
     { label: "ITC in books", value: s.itc_books },
     { label: "ITC in 2B", value: s.itc_2b },
-    { label: "To claim (TaxMind)", value: s.itc_to_claim },
+    { label: "To claim (TwoB)", value: s.itc_to_claim },
     { label: "After your decisions", value: s.itc_after_decisions, strong: true, note: "before 17(5) reversal" },
   ];
   const max = Math.max(...rows.map((r) => Math.abs(r.value)), 1);
@@ -133,7 +133,7 @@ function ItcLadder({ s }: { s: Summary }) {
       </div>
       <p className="text-xs text-muted mt-3">
         {s.itc_needing_attention > 0 && <>{inrCompact(s.itc_needing_attention)} of ITC sits on records that need a person. </>}
-        "After your decisions" is the ITC to claim with your final decisions (else TaxMind's recommendation), before any Sec 17(5) reversal: Table 4 shows it as 4(C) + 4(B)(1).
+        "After your decisions" is the ITC to claim with your final decisions (else TwoB's recommendation), before any Sec 17(5) reversal: Table 4 shows it as 4(C) + 4(B)(1).
       </p>
     </div>
   );

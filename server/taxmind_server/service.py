@@ -1,4 +1,4 @@
-"""Bridge between the web app and the TaxMind engine.
+"""Bridge between the web app and the TwoB engine.
 
 A reconciliation run is deterministic for the same files, settings, vendor master and prior ledger,
 so everything needed to repeat it exactly is stored on the period (run_settings_json). The engine's

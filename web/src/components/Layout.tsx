@@ -10,7 +10,7 @@ export function Brand({ className }: { className?: string }) {
         <rect width="32" height="32" rx="6" fill="#1E4F8A" />
         <path d="M9 10h14M16 10v13M11 16h6" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
       </svg>
-      <span className="text-[17px] font-semibold tracking-[-0.01em] text-ink">TaxMind</span>
+      <span className="text-[17px] font-semibold tracking-[-0.01em] text-ink">TwoB</span>
     </div>
   );
 }

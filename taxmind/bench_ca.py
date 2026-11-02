@@ -493,7 +493,7 @@ def _f(x):
 
 def format_report(report) -> str:
     L = []
-    L.append("TaxMind on CA-style test data (bench_ca)")
+    L.append("TwoB on CA-style test data (bench_ca)")
     L.append("=" * 100)
     for name, e in report["datasets"].items():
         L.append(f"\n## {name}: {e['meta']['title']}  (books {e['meta']['books_rows']} rows; 2B {e['meta']['portal_rows']})")

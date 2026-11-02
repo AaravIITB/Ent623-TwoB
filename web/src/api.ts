@@ -1,4 +1,4 @@
-// Typed client for the TaxMind web API (docs/API.md, v1).
+// Typed client for the TwoB web API (docs/API.md, v1).
 
 export type Role = "admin" | "reviewer" | "preparer";
 export type User = { id: number; username: string; name: string; role: Role; active?: boolean };
@@ -361,7 +361,7 @@ async function request<T>(method: string, path: string, opts: { body?: unknown; 
   try {
     res = await fetch(`/api${path}${qs(opts.query)}`, { method, headers, body });
   } catch {
-    throw new ApiError(0, "Can't reach the TaxMind server. Check your connection and try again.");
+    throw new ApiError(0, "Can't reach the TwoB server. Check your connection and try again.");
   }
   if (res.status === 401 && path !== "/auth/login") {
     redirectToLogin();

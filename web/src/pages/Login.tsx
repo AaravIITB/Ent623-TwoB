@@ -38,7 +38,7 @@ export default function Login() {
             <rect width="32" height="32" rx="6" fill="#fff" />
             <path d="M9 10h14M16 10v13M11 16h6" stroke="#1E4F8A" strokeWidth="2.6" strokeLinecap="round" />
           </svg>
-          <span className="text-lg font-semibold">TaxMind</span>
+          <span className="text-lg font-semibold">TwoB</span>
         </div>
         <div className="max-w-md">
           <p className="text-[28px] leading-[1.25] font-medium tracking-[-0.015em]">

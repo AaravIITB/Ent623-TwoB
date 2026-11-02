@@ -1,4 +1,4 @@
-# TaxMind web API (v1)
+# TwoB web API (v1)
 
 FastAPI backend in `server/`, React app in `web/`. This file is the contract between the two. All
 amounts are rupees (float, 2 dp). Dates are ISO `YYYY-MM-DD`; timestamps ISO with offset. Periods are
@@ -197,11 +197,11 @@ type Activity = { at: string; user: string; client: string; client_id: number | 
 - `PATCH /api/clients/{cid}/periods/{p}/decisions/{id}` `{final?: Action | null, note?, assignee_id?: number|null}` → `Decision`
 - `POST /api/clients/{cid}/periods/{p}/decisions/bulk` `{ids?: number[], filter?: <same params as GET>,
   final?: Action | null | "recommended", note?, assignee_id?}` → `{updated: number}`.
-  `final: "recommended"` = accept TaxMind's recommendation as the final decision.
+  `final: "recommended"` = accept TwoB's recommendation as the final decision.
   `final: "history"` = apply last month's decision where `history` exists (others are skipped; the
   count of records actually changed is returned). Also accepted by PATCH.
 - `GET /api/clients/{cid}/periods/{p}/suppliers?q=&only_open=true` → `SupplierRow[]` (sorted by itc_open desc)
-- `GET /api/clients/{cid}/periods/{p}/table4?basis=final` → `Table4` (`basis=recommended` for TaxMind's own)
+- `GET /api/clients/{cid}/periods/{p}/table4?basis=final` → `Table4` (`basis=recommended` for TwoB's own)
 - `GET /api/clients/{cid}/periods/{p}/followups` → `FollowUp[]`
 - `PATCH /api/clients/{cid}/periods/{p}/followups/{id}` `{status?, note?, contact_email?, contact_phone?}` → `FollowUp`
 - `POST /api/clients/{cid}/periods/{p}/submit` `{note?}` → `Period`
@@ -214,7 +214,7 @@ type Activity = { at: string; user: string; client: string; client_id: number | 
 - `POST /api/clients/{cid}/periods/{p}/filed` `{filed_3b_on: "YYYY-MM-DD" | null}` → `Period`
 
 ### Downloads (return files; `?token=` query param accepted instead of the header so links work)
-- `GET .../export/workbook` → xlsx (TaxMind workbook with the final decisions in "Final decision"/"CA note")
+- `GET .../export/workbook` → xlsx (TwoB workbook with the final decisions in "Final decision"/"CA note")
 - `GET .../export/ims.csv` → CSV of IMS actions to take: GSTIN, supplier, doc type, doc no, date, taxable,
   tax, action (effective), reason - only records in this period's 2B whose action is Accept/Reject/Pending
 - `GET .../export/prefiling.html` → the one-page pre-filing report

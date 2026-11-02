@@ -136,7 +136,7 @@ def get_period(db: Session, cid: int, p: str, create: bool = True) -> Period:
 
 def editable(p: Period):
     if S.is_running(p.id):
-        raise HTTPException(409, "TaxMind is reconciling this month right now; try again in a moment.")
+        raise HTTPException(409, "TwoB is reconciling this month right now; try again in a moment.")
     if p.status not in EDITABLE:
         raise HTTPException(409, {"approved": "This month is approved; reopen it to change decisions.",
                                   "closed": "This month is closed; reopen it to change decisions."}.get(
@@ -558,7 +558,7 @@ def reconcile_period(cid: int, p: str, db: Session = Depends(get_db), user: User
         msg = str(e)
         if "format cannot be determined" in msg or "zip file" in msg.lower() or "codec" in msg:
             msg = "one of the files is not a valid Excel / CSV / JSON / Tally XML file"
-        raise HTTPException(422, f"TaxMind could not read the files: {msg}.")
+        raise HTTPException(422, f"TwoB could not read the files: {msg}.")
     db.refresh(per)
     return period_out(db, per)
 
@@ -891,7 +891,7 @@ def close(cid: int, p: str, db: Session = Depends(get_db), user: User = Depends(
         raise HTTPException(409, "Files changed after the last reconciliation; reopen and reconcile again.")
     res = S.result_for(per)
     rows = db.query(DecisionRow).filter_by(period_id=per.id).all()
-    out = PACKS / str(cid) / f"taxmind_{per.client.id}_{p}_close_pack.zip"
+    out = PACKS / str(cid) / f"twob_{per.client.id}_{p}_close_pack.zip"
     spec = jload(per.run_settings_json, {})
     files = [f["path"] for f in spec.get("books", []) + spec.get("portal", [])] + \
         ([spec["vendor_master"]] if spec.get("vendor_master") else [])
@@ -969,7 +969,7 @@ def _need_result(per: Period):
 
 def _fname(per: Period, suffix: str) -> str:
     import re
-    return f"taxmind_{re.sub(r'[^A-Za-z0-9]+', '_', per.client.name).strip('_')}_{per.period}{suffix}"
+    return f"twob_{re.sub(r'[^A-Za-z0-9]+', '_', per.client.name).strip('_')}_{per.period}{suffix}"
 
 
 @router.get("/clients/{cid}/periods/{p}/export/workbook")
@@ -1011,7 +1011,7 @@ def export_ims(cid: int, p: str, db: Session = Depends(get_db), user: User = Dep
                 continue
             w.writerow([doc["supplier_gstin"], doc["supplier_name"] or d.supplier_name, doc["doc_type"], doc["doc_no"],
                         doc["doc_date"] or "", doc["taxable"], doc["tax"], act,
-                        d.updated_by if d.final else "TaxMind", jload(d.data_json, {}).get("reason", "")[:300]])
+                        d.updated_by if d.final else "TwoB", jload(d.data_json, {}).get("reason", "")[:300]])
     return Response(sio.getvalue().encode("utf-8-sig"), media_type="text/csv",
                     headers={"Content-Disposition": f'attachment; filename="{_fname(per, "_ims_actions.csv")}"'})
 

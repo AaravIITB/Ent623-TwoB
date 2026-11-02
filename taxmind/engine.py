@@ -222,7 +222,7 @@ def reconcile(books: list[Doc], portal: list[Doc], period: str = "", client: str
 
 
 def _cap_inferred_gstin(findings):
-    """A GSTIN TaxMind filled in from a name or an invoice number is a good guess, not a fact:
+    """A GSTIN TwoB filled in from a name or an invoice number is a good guess, not a fact:
     such decisions are never cleared without a person looking."""
     from .models import Confidence, Owner
     for f in findings:

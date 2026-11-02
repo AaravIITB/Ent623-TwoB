@@ -347,7 +347,7 @@ def from_portal_only(fid: str, p: Doc, known_gstins: set, known_pans: set, cfg: 
         if reverse:
             f.action = Action.NONE
             f.reason += (" Under your method it is left in IMS (deemed accepted) and its ITC is reversed in "
-                         "3B Table 4(B)(2) until booked; TaxMind's reversal ledger reclaims it then.")
+                         "3B Table 4(B)(2) until booked; TwoB's reversal ledger reclaims it then.")
             f.next_step = "Reject in IMS only if it is not the client's bill; otherwise reverse in 4(B)(2)."
     else:
         f.status, f.action, f.confidence, f.owner = (Status.PORTAL_ONLY_UNKNOWN, Action.REJECT,
@@ -410,7 +410,7 @@ def from_books_only(fid: str, b: Doc, as_of: date, cfg: Config, duplicate_of: Do
                         f"not in the {period_label(period)} 2B, so the supplier most likely reported it in an earlier "
                         f"2B ({span}). If its ITC was reversed then as 'not in books', it can be reclaimed now "
                         "(3B Table 4(A)(5) and 4(D)(1)); if it was claimed then, nothing more is due.")
-            f.next_step = (f"Load the {span} 2B (or check GSTR-2A) to confirm; TaxMind will then mark it "
+            f.next_step = (f"Load the {span} 2B (or check GSTR-2A) to confirm; TwoB will then mark it "
                            "as a reclaim or as already claimed.")
     dl = sec16_deadline(b.doc_date)
     if dl:

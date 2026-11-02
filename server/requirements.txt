@@ -1,4 +1,4 @@
-# TaxMind web backend (the engine's own requirements are in ../requirements.txt)
+# TwoB web backend (the engine's own requirements are in ../requirements.txt)
 fastapi>=0.110
 uvicorn[standard]>=0.29
 sqlalchemy>=2.0

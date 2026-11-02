@@ -2170,7 +2170,7 @@ def generate(out_dir="test_data", seed: int = 11, profile: str | list | None = N
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="Generate CA-style TaxMind test data with answer keys")
+    ap = argparse.ArgumentParser(description="Generate CA-style TwoB test data with answer keys")
     ap.add_argument("--out", default="test_data")
     ap.add_argument("--seed", type=int, default=11)
     ap.add_argument("--profile", action="append", choices=list(PROFILES))

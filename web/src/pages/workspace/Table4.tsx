@@ -33,7 +33,7 @@ function Table4Inner() {
             onChange={(v) => setUrl({ basis: v === "final" ? null : v })}
             options={[
               { value: "final", label: "Your final decisions", title: "Final decisions where made, else the recommendation" },
-              { value: "recommended", label: "TaxMind's recommendation" },
+              { value: "recommended", label: "TwoB's recommendation" },
             ]}
           />
           {t && <span className="text-sm text-muted">Policy for 2B bills not in books: {t.policy === "reverse" ? "claim and reverse" : "keep pending"}</span>}

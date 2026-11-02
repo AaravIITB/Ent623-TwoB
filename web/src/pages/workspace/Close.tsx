@@ -220,7 +220,7 @@ export default function Close() {
 
         <Panel title="Downloads" flush>
           <ul className="divide-y divide-rule">
-            <Download href={api.exportUrl(cid, p, "workbook")} title="TaxMind workbook (.xlsx)" detail="All sheets, with your final decisions and notes" disabled={!s} />
+            <Download href={api.exportUrl(cid, p, "workbook")} title="TwoB workbook (.xlsx)" detail="All sheets, with your final decisions and notes" disabled={!s} />
             <Download href={api.exportUrl(cid, p, "ims.csv")} title="IMS actions (.csv)" detail="Accept / Reject / Pending to take on the portal" disabled={!s} />
             <Download href={api.exportUrl(cid, p, "prefiling.html")} title="Pre-filing report" detail="One page, opens in a new tab" disabled={!s} newTab />
             <Download href={api.exportUrl(cid, p, "ledger.csv")} title="Reversal ledger (.csv)" detail="4(B)(2) reversals to carry to next month" disabled={!s} />
@@ -318,7 +318,7 @@ function ActionDialog({
   const cfg = {
     submit: { title: "Submit for review", confirm: "Submit for review", noteLabel: "Note for the reviewer (optional)", required: false, body: open > 0 ? `${plural(open, "item")} still open. The reviewer will see them.` : `Everything in ${periodLabel(period.period)} is decided.` },
     approve: pending.force
-      ? { title: "Approve with open items?", confirm: "Approve anyway", noteLabel: "Why (optional)", required: false, body: `${plural(open, "item")} are still open. Approving now uses TaxMind's recommendation for them.` }
+      ? { title: "Approve with open items?", confirm: "Approve anyway", noteLabel: "Why (optional)", required: false, body: `${plural(open, "item")} are still open. Approving now uses TwoB's recommendation for them.` }
       : { title: "Approve this month", confirm: "Approve", noteLabel: "Note (optional)", required: false, body: "After approval decisions are locked until the month is reopened." },
     sendBack: { title: "Send back to the preparer", confirm: "Send back", noteLabel: "What needs fixing", required: true, body: "The month goes back to Reconciled so decisions can be changed." },
     close: { title: "Close the month", confirm: "Close month", noteLabel: null, required: false, body: "This builds the close pack (record, decisions, workbook, input files and a SHA-256 manifest) and stores the reversal ledger for next month." },

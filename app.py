@@ -1,4 +1,4 @@
-"""TaxMind - Streamlit app.
+"""TwoB - Streamlit app.
 
 Run:  streamlit run app.py
 Pages:
@@ -22,10 +22,10 @@ from taxmind.report import write_excel, write_html
 HERE = Path(__file__).parent
 SAMPLE = HERE / "sample_data"
 
-st.set_page_config(page_title="TaxMind", page_icon="🧾", layout="wide")
+st.set_page_config(page_title="TwoB", page_icon="🧾", layout="wide")
 
 with st.sidebar:
-    st.markdown("### TaxMind")
+    st.markdown("### TwoB")
     st.caption("GSTR-2B / IMS reconciliation for CA firms")
     page = st.radio("Page", ["2B / IMS reconciliation", "Invoice reader (Module 1)"], label_visibility="collapsed")
     st.divider()
@@ -76,17 +76,17 @@ def _run(book_paths, portal_paths, client, period, planned, tol, opts=None):
     st.session_state.inputs = [Path(x) for x in list(book_paths) + list(portal_paths)]
     st.session_state.pop("pack", None)
     st.session_state.pop("imported", None)
-    st.session_state.xlsx = write_excel(res, tmp / f"taxmind_{res.period}.xlsx").read_bytes()
-    st.session_state.html = write_html(res, tmp / f"taxmind_{res.period}_prefiling.html").read_bytes()
+    st.session_state.xlsx = write_excel(res, tmp / f"twob_{res.period}.xlsx").read_bytes()
+    st.session_state.html = write_html(res, tmp / f"twob_{res.period}_prefiling.html").read_bytes()
     from taxmind.gstr3b import write_ledger
     st.session_state.ledger = write_ledger(res.table4.get("ledger", []),
-                                           tmp / f"taxmind_{res.period}_itc_reversal_ledger.csv").read_bytes()
+                                           tmp / f"twob_{res.period}_itc_reversal_ledger.csv").read_bytes()
 
 
 def recon_page():
     st.markdown("## GSTR-2B / IMS reconciliation")
     st.caption("Upload the client's purchase register and the GSTR-2B (this month, plus next month to catch "
-               "late filers). TaxMind matches them and recommends Accept / Reject / Pending for every record, "
+               "late filers). TwoB matches them and recommends Accept / Reject / Pending for every record, "
                "with the reason.")
     c1, c2 = st.columns(2)
     with c1:
@@ -114,7 +114,7 @@ def recon_page():
         opts["policy"] = e4.radio("2B bills not in books", ["pending", "reverse"],
                                   format_func=lambda x: "Keep Pending in IMS" if x == "pending"
                                   else "Accept, reverse in 4(B)(2)")
-        led = e5.file_uploader("Last month's ITC reversal ledger (CSV from TaxMind)", type=["csv"], key="led_up")
+        led = e5.file_uploader("Last month's ITC reversal ledger (CSV from TwoB)", type=["csv"], key="led_up")
         if led is not None:
             lp = Path(tempfile.mkdtemp()) / led.name
             lp.write_bytes(led.getbuffer())
@@ -242,13 +242,13 @@ def recon_page():
         close_tab(res)
     with tabs[8]:
         st.download_button("Download Excel workbook", st.session_state.xlsx,
-                           file_name=f"taxmind_{res.period}.xlsx",
+                           file_name=f"twob_{res.period}.xlsx",
                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
         st.download_button("Download pre-filing report (HTML)", st.session_state.html,
-                           file_name=f"taxmind_{res.period}_prefiling.html", mime="text/html")
+                           file_name=f"twob_{res.period}_prefiling.html", mime="text/html")
         if st.session_state.get("ledger"):
             st.download_button("Download ITC reversal ledger (load next month)", st.session_state.ledger,
-                               file_name=f"taxmind_{res.period}_itc_reversal_ledger.csv", mime="text/csv")
+                               file_name=f"twob_{res.period}_itc_reversal_ledger.csv", mime="text/csv")
     with tabs[9]:
         for n in res.notes:
             st.markdown(f"- {n}")
@@ -256,7 +256,7 @@ def recon_page():
 
 def blocked_tab(res):
     st.caption("Invoices that match 2B can still carry ITC the law blocks under Sec 17(5) — food, motor "
-               "vehicles, club fees, gifts, CSR, construction. TaxMind reads the ledger, item description, "
+               "vehicles, club fees, gifts, CSR, construction. TwoB reads the ledger, item description, "
                "HSN/SAC and supplier name and flags these for review. It does not reverse anything itself: "
                "most blocks have exceptions.")
     rows = []
@@ -286,7 +286,7 @@ def close_tab(res):
                "the reasons, who prepared and reviewed it, and exact copies of the files used, each with a "
                "SHA-256 hash. Keep it with the client file — notices can come up to 42 months later, and the "
                "portal does not keep a history of IMS actions.")
-    with st.expander("Import decisions from an edited TaxMind workbook"):
+    with st.expander("Import decisions from an edited TwoB workbook"):
         up = st.file_uploader("Workbook with 'Final decision' / 'CA note' filled in on the All findings sheet",
                               type=["xlsx", "csv"], key="dec_up")
         if up is not None:
@@ -325,7 +325,7 @@ def close_tab(res):
     rev = n2.text_input("Reviewed by (CA)", key="rev")
     n3.write("")
     if n3.button("Create month-close pack", type="primary", disabled=not prep.strip()):
-        out = Path(tempfile.mkdtemp()) / f"taxmind_{res.period}_close_pack.zip"
+        out = Path(tempfile.mkdtemp()) / f"twob_{res.period}_close_pack.zip"
         build_close_pack(res, out, input_files=st.session_state.get("inputs", []),
                          info=CloseInfo(preparer=prep.strip(), reviewer=rev.strip(), overrides=overrides))
         st.session_state.pack = (out.read_bytes(), pack_fingerprint(out), out.name)

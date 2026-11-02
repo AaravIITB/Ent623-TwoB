@@ -36,7 +36,7 @@ export default function Users() {
     <div className="pb-10">
       <PageHeader
         title="Users"
-        subtitle="People in your firm who can sign in to TaxMind."
+        subtitle="People in your firm who can sign in to TwoB."
         actions={
           <Button variant="primary" onClick={() => setAdding(true)}>
             <IconPlus /> Add user

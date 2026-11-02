@@ -54,7 +54,7 @@ function BlockedInner() {
   return (
     <div className="p-6 space-y-4 max-w-[1280px]">
       <Banner tone="accent">
-        These bills may carry ITC that Sec 17(5) blocks even though they match 2B. <b className="font-semibold">TaxMind never reverses ITC by itself</b>: Likely items are
+        These bills may carry ITC that Sec 17(5) blocks even though they match 2B. <b className="font-semibold">TwoB never reverses ITC by itself</b>: Likely items are
         proposed for Table 4(B)(1), Possible and Review items stay out of the totals until you decide. Open a row to read the exceptions and record your view in the note.
       </Banner>
 

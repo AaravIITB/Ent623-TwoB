@@ -515,7 +515,7 @@ def load(path: str | Path, side: Side, uid_prefix: str | None = None,
     if from_narr_date:
         notes.append(f"{path.name}: {from_narr_date} invoice dates were read from the narration")
     if no_gstin:
-        notes.append(f"{path.name}: {no_gstin} books rows have no supplier GSTIN; TaxMind looks the supplier up "
+        notes.append(f"{path.name}: {no_gstin} books rows have no supplier GSTIN; TwoB looks the supplier up "
                      "by name and PAN (fill the GSTIN in the ledger master to make this certain)")
     return docs, notes
 
