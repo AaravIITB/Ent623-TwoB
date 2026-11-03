@@ -50,6 +50,14 @@ class Doc:
     ledger: str = ""                 # books: purchase / expense ledger(s) used
     description: str = ""            # books: item description or narration
     hsn: str = ""                    # HSN / SAC code(s)
+    eligible: Optional[bool] = None  # the firm's own ITC-eligibility mark (vendor master / register column)
+    voucher_no: str = ""             # books: Tally voucher no.
+    voucher_date: Optional[date] = None  # books: date the entry was booked (doc_date is the supplier's date)
+    ref_doc_no: str = ""             # invoice this entry refers to (credit note against / correction of)
+    no_itc_reason: str = ""          # books: why this entry carries no ITC to match (no GST, advance, ...)
+    adjustment: bool = False         # books: a correction entry (excess / short booking rectified)
+    amend_is_delta: bool = False     # portal: an amendment row that carries only the difference (signed heads)
+    notes: list = field(default_factory=list)   # what the loader had to infer for this record
     source: str = ""                 # file + section, for traceability
     row_ref: str = ""                # row / voucher reference inside the source
 
@@ -99,6 +107,11 @@ class Status(str, Enum):
     PORTAL_ITC_BLOCKED = "Portal says ITC not available"
     BOOKS_ONLY = "In books, not in 2B"
     BOOKS_DUPLICATE = "Duplicate entry in books"
+    BOOKS_OLDER = "Older bill, not in this 2B"
+    BOOKS_NO_GSTIN = "Supplier GSTIN missing in books"
+    BOOKS_ADJUSTMENT = "Correction entry in books"
+    BOOKED_NO_GST = "Booked without GST"
+    NO_ITC = "No GST on this entry"
     RCM = "Reverse charge (outside IMS)"
 
 
@@ -140,6 +153,8 @@ class Finding:
     flags: list = field(default_factory=list)
     match_score: float = 0.0
     blocked: list = field(default_factory=list)   # blocked-credit (Sec 17(5)) flags for review
+    reclaim: float = 0.0            # ITC reversed in an earlier month that this decision reclaims (3B 4D(1))
+    reverse_4b2: float = 0.0        # ITC in 2B to reverse temporarily this month (3B 4B(2))
 
     @property
     def supplier_gstin(self) -> str:
@@ -162,5 +177,7 @@ class Finding:
         """True when a person has to decide or act (not just glance)."""
         if self.blocked:                 # possible Sec 17(5) block: a CA has to look, even on a clean match
             return True
+        if self.status == Status.NO_ITC:
+            return False
         return not (self.action in (Action.ACCEPT, Action.NONE) and self.confidence == Confidence.HIGH
                     and self.owner == Owner.NONE)

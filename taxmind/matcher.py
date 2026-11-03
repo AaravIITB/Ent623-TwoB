@@ -35,15 +35,17 @@ class Pair:
     repeat_amount: bool = False     # supplier bills this same amount repeatedly -> amounts prove little
 
 
-def _amounts_equal(a: Doc, b: Doc, tol: float) -> bool:
-    return abs(a.taxable - b.taxable) <= tol and abs(a.tax - b.tax) <= tol
+def _amounts_equal(a: Doc, b: Doc, tol: float, cfg: Config | None = None) -> bool:
+    tt = max(tol, cfg.tol(a.taxable, b.taxable)) if cfg else tol
+    tx = max(tol, cfg.tol(a.tax, b.tax)) if cfg else tol
+    return abs(a.taxable - b.taxable) <= tt and abs(a.tax - b.tax) <= tx
 
 
-def _head_mismatch(a: Doc, b: Doc, tol: float) -> bool:
+def _head_mismatch(a: Doc, b: Doc, tol: float, cfg: Config | None = None) -> bool:
     """Same total tax, but one side IGST and the other CGST+SGST."""
     a_inter = a.igst > tol
     b_inter = b.igst > tol
-    return a_inter != b_inter and abs(a.tax - b.tax) <= tol and abs(a.taxable - b.taxable) <= tol
+    return a_inter != b_inter and _amounts_equal(a, b, tol, cfg)
 
 
 def score_pair(bk: Doc, pt: Doc, cfg: Config, repeats: set | None = None) -> Pair | None:
@@ -56,8 +58,8 @@ def score_pair(bk: Doc, pt: Doc, cfg: Config, repeats: set | None = None) -> Pai
         rel = 0
     gap = days_apart(bk.doc_date, pt.doc_date)
     same_gstin = bk.supplier_gstin == pt.supplier_gstin
-    eq = _amounts_equal(bk, pt, tol)
-    head = _head_mismatch(bk, pt, tol)
+    eq = _amounts_equal(bk, pt, tol, cfg)
+    head = _head_mismatch(bk, pt, tol, cfg)
     near = gap is not None and gap <= cfg.date_window_days
 
     def mk(status, score):
@@ -67,8 +69,20 @@ def score_pair(bk: Doc, pt: Doc, cfg: Config, repeats: set | None = None) -> Pai
     if repeat and rel == 0:
         return None          # same amount but unrelated number: with recurring bills that is no evidence
 
+    if pt.reverse_charge and rel in (1, 2, 3) and abs(bk.taxable - pt.taxable) <= max(tol, cfg.tol(pt.taxable)):
+        return mk(Status.RCM, 90 - rel)          # tax under RCM is paid by the buyer; books may show it or not
+    if bk.tax < 0.5 <= pt.tax:
+        # the bill was booked with no GST (cost booked gross / treated as non-GST)
+        if rel in (1, 2, 3) and (gap is None or gap <= 120):
+            ok = abs(bk.taxable - pt.taxable) <= max(tol, cfg.tol(pt.taxable)) or \
+                (pt.total_value and abs(bk.taxable - pt.total_value) <= max(tol, cfg.tol(pt.total_value)))
+            if ok or rel == 1:
+                return mk(Status.BOOKED_NO_GST, (68 if ok else 58) - rel)
+        return None
+
+    tax_eq = abs(bk.tax - pt.tax) <= max(tol, cfg.tol(bk.tax, pt.tax))
     if not same_gstin:
-        if rel in (1, 2, 3) and (eq or head) and (gap is None or gap <= 31):
+        if rel in (1, 2, 3) and (eq or head or tax_eq) and (gap is None or gap <= 31):
             return mk(Status.OTHER_GSTIN, 70 - rel)
         return None
     if head and rel in (1, 2, 3, 4):
@@ -77,7 +91,8 @@ def score_pair(bk: Doc, pt: Doc, cfg: Config, repeats: set | None = None) -> Pai
         if rel == 1:
             if gap == 0:
                 return mk(Status.EXACT, 100)
-            return mk(Status.DATE_DIFF, 94 if (gap is not None and gap <= 45) else 72)
+            # same number and amounts: a missing date is no reason to prefer a look-alike number
+            return mk(Status.DATE_DIFF, 94 if (gap is None or gap <= 45) else 72)
         if rel in (2, 3):
             return mk(Status.FORMAT_DIFF, 92 - rel) if (gap is None or gap <= 45) else None
         if rel == 4 and (near or gap is None):
@@ -88,7 +103,12 @@ def score_pair(bk: Doc, pt: Doc, cfg: Config, repeats: set | None = None) -> Pai
             return mk(Status.TYPO, 78)          # short numbers: only with same date and amounts
         if rel == 0 and gap == 0:
             return mk(Status.PROBABLE, 40)
+        if rel == 0 and not k1(bk.doc_no) and (gap is None or gap <= 31):
+            return mk(Status.PROBABLE, 38)          # books kept no number at all (e.g. 'Purchase Return')
         return None
+    # Same number, one side IGST and the other CGST+SGST, amounts not equal either: still the wrong head
+    if rel in (1, 2) and (bk.igst > tol) != (pt.igst > tol) and bk.tax > tol and pt.tax > tol:
+        return mk(Status.HEAD_MISMATCH, 66 - rel)
     # Amount differences only when the invoice number itself agrees. A number that is
     # one digit off with a different amount is usually the supplier's NEXT invoice.
     if rel in (1, 2) or (rel == 3 and gap is not None and gap <= 31):
@@ -243,6 +263,9 @@ def find_duplicates(books: list[Doc]) -> list[list[Doc]]:
     """Same supplier GSTIN + same normalised invoice no. + same type + same tax, booked twice."""
     groups = defaultdict(list)
     for b in books:
+        if not b.supplier_gstin or not k2(b.doc_no) or b.no_itc_reason or b.adjustment or \
+                any("a guess" in n for n in b.notes):
+            continue
         groups[(b.supplier_gstin, k2(b.doc_no), b.doc_type, round(b.tax))].append(b)
     out = []
     for g in groups.values():

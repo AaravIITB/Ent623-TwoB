@@ -1,4 +1,4 @@
-"""TaxMind - GSTR-2B / IMS reconciliation engine for CA firms.
+"""TwoB - GSTR-2B / IMS reconciliation engine for CA firms.
 
     from taxmind import load_many, reconcile, Side
     books, _ = load_many(["purchase_register.xlsx"], Side.BOOKS)

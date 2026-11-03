@@ -4,7 +4,7 @@ An invoice can match GSTR-2B perfectly and still carry ITC the law does not allo
 food on a hotel bill, car repairs, club fees, gifts. GSTR-2B only marks place-of-supply
 and Sec 16(4) cases as 'ITC not available', so nothing on the portal catches these.
 
-TaxMind flags likely Sec 17(5) items FOR REVIEW. It never reverses ITC by itself,
+TwoB flags likely Sec 17(5) items FOR REVIEW. It never reverses ITC by itself,
 because most blocks have exceptions (e.g. food bought by a caterer for resale, cars
 bought by a car dealer, insurance an employer must provide by law).
 
@@ -51,11 +51,13 @@ RULES = [
             "snacks?", "beverages?", "tea", "coffee", "samosas?", "namkeen", "sweets", "mithai", "lunch", "dinner", "breakfast", "tiffin", "pantry", "banquet",
             "staff welfare", "business meals?", "f ?& ?b"),
          hsn=("99633",), goods=True,
-         unless=_w("factories act", "statutory canteen", "u/s 46", "obligat\\w* (?:under|by) (?:law|the)"),
+         unless=_w("factories act", "statutory canteen", "u/s 46", "obligat\\w* (?:under|by) (?:law|the)",
+                   "canteen (?:building|block|construction|shed|civil)"),
          exceptions="Allowed if used to make an outward supply of the same kind (e.g. a caterer) or as part "
                     "of a taxable composite/mixed supply, or if the employer must provide it under a law."),
     Rule("beauty_health", "Beauty treatment / health services / cosmetic surgery", "Sec 17(5)(b)(i)",
-         _w("beauty", "salon", "parlou?r", "spa", "cosmetic", "plastic surgery", "hospital",
+         _w("beauty", "salon", "parlou?r", "spa", "cosmetic", "plastic surgery",
+            "hospital(?!\\s*(?:project|building|construction|site|block|wing|campus|works?))",
             "clinic", "health ?check(?:-?up)?", "diagnostics?",
             "medical (?:expenses|treatment|reimbursement|services|bills?|check(?:-?up)?)", "doctor", "opd",
             "polyclinic", "consultation fees? - doctor", "dental", "physiotherapy"),
@@ -64,7 +66,7 @@ RULES = [
                     "mixed supply, or if the employer must provide it under a law (Circular 172/04/2022)."),
     Rule("insurance", "Life / health insurance", "Sec 17(5)(b)(i)",
          _w("life insurance", "health insurance", "medi-?claim", "group health", "group medical", "gmc",
-            "term (?:life )?insurance", "keyman"),
+            "term (?:life )?insurance", "keyman (?:insurance|policy)", "gmc (?:policy|premium|insurance)"),
          unless=_w("statutory", "obligat\\w* (?:under|by) (?:law|the)"),
          exceptions="Allowed if the employer must provide it under a law, or for an outward supply of the "
                     "same kind. Individual life/health policies are GST-exempt since 22 Sep 2025, so this "
@@ -77,7 +79,7 @@ RULES = [
             "vehicle exp\\.?", "innova", "fortuner", "creta", "scorpio", "xuv ?\\d*", "ertiga", "dzire",
             "baleno", "honda city", "verna", "brezza", "nexon", "activa", "splendor", "bullet"),
          hsn=("8703", "8711", "9966"), goods=True,      # 996602/996603 (vessels/aircraft) handled below
-         maybe=_w("conveyance", "vehicle"),
+         maybe=_w("conveyance", "vehicles?"),          # bare 'vehicle' only counts in a ledger name
          unless=_w("goods vehicles?", "trucks?", "lorry", "lorries", "tempo", "freight", "transport of goods",
                    "carriage", "cargo", "cartons?", "(?:spare )?parts", "spares", "components?",
                    "accessories", "driving school", "dual control", "tourist taxi", "taxi business",
@@ -98,12 +100,16 @@ RULES = [
          exceptions="Business travel is not blocked; only leave / home-travel benefits are. Allowed where the "
                     "employer must provide it under a law (Circular 172/04/2022)."),
     Rule("construction", "Construction of immovable property / works contract", "Sec 17(5)(c), (d)",
-         _w("construction", "civil works?", "works contract", "building (?:work|construction)", "renovation",
+         _w("construction", "civil works?", "civil", "building (?:work|construction)", "renovation",
             "interior (?:works?|decoration|fit-?outs?)", "fit-?outs?", "false ceiling", "flooring work",
-            "buildings?", "shed", "pre-?engineered", "boundary wall", "compound wall", "pipeline work"),
+            "buildings?", "shed", "pre-?engineered", "peb", "boundary wall", "compound wall", "pipeline work",
+            "precast drains?", "pre cast drains?", "rcc", "concreting"),
          hsn=("9954",),
+         maybe=_w("works contract", "works contract services"),   # also used for plant & machinery installation
          unless=_w("repairs?", "repair (?:&|and) maint\\.?", "maintenance", "revenue", "p ?& ?l", "painting",
-                   "machine(?:ry)? foundation", "foundation for", "plant (?:&|and) machinery", "rent", "rental"),
+                   "machine(?:ry)? foundation", "foundation for", "plant (?:&|and) machinery", "rent", "rental",
+                   "gantry", "gantry girders?", "crane (?:girders?|rails?|supports?)", "structural supports? for",
+                   "equipment (?:foundation|supports?)"),
          exceptions="New construction on own account is blocked; renovation, additions and repairs only to the "
                     "extent capitalised. Plant and machinery is outside the block, but it excludes land, buildings, "
                     "other civil structures, telecom towers and pipelines laid outside the factory. Repairs charged "
@@ -138,7 +144,7 @@ RULES = [
          exceptions="Blocked if used for the owner's or a director's personal use."),
 ]
 _HOTEL = _w("hotels?", "resorts?", "inns?", "guest ?house", "residency")
-_LODGING = _w("lodging", "accommodation", "rooms?", "room rent", "room tariff", "room charges", "stay", "rent",
+_LODGING = _w("lodging", "accommodation", "accomodation", "acommodation", "rooms?", "room rent", "room tariff", "room charges", "stay", "rent",
               "hall (?:rent|hire|charges)", "conference (?:hall|room)", "venue (?:rent|hire)")
 _FOOD = RULES[0].words
 _NO_FOOD = _w("room only", "no f ?& ?b", "no food", "without (?:food|meals)", "excluding (?:food|meals|f ?& ?b)",
@@ -258,7 +264,10 @@ def classify(docs) -> list[Flag]:
                     break
         if not hit and rule.maybe:
             for f, t, strong in texts:
-                if strong and rule.maybe.search(t):
+                m = rule.maybe.search(t) if strong else None
+                if m and rule.rid == "motor_vehicle" and m.group(0).lower().startswith("vehicle") and f != "ledger":
+                    continue        # 'commercial vehicle plant', 'cost per vehicle': only a ledger name counts
+                if m:
                     hit = ("Possible", f"{f} '{t}'")
                     break
         if hit:
@@ -269,13 +278,89 @@ def classify(docs) -> list[Flag]:
     return flags
 
 
-def apply(findings: list[Finding]) -> None:
-    """Attach blocked-credit flags to every decision that carries ITC."""
+# A client's own line of business removes blocks that exist only for end use
+# (Sec 17(5) exceptions for 'further supply of the same category'). Tags are set per client.
+LINES_OF_BUSINESS = {
+    "vehicle_maker": "Makes motor vehicles: repair, servicing and insurance of vehicles, and vehicles bought "
+                     "for supply, are allowed (Sec 17(5)(a)/(ab)). Hire of cabs for staff is still blocked.",
+    "vehicle_dealer": "Deals in motor vehicles: vehicles bought for resale, and their repair/insurance, are allowed.",
+    "caterer": "Restaurant / caterer / food business: food and beverages bought for its own supply are allowed.",
+    "hotel": "Hotel: food, rooms and related inputs for its own supply are allowed.",
+    "works_contractor": "Works contractor: construction inputs used to supply works contracts onward are allowed.",
+    "insurer": "General / health insurer: insurance-related inputs are allowed.",
+    "travel_operator": "Tour operator / cab operator: vehicle hire and travel packages for onward supply are allowed.",
+    "gym_club": "Runs a club or fitness centre: memberships and related inputs for its own supply are allowed.",
+}
+_OWN_USE = re.compile(r"personal|own use|md'?s|director|chairman|partner'?s|proprietor|staff|employee|"
+                      r"for (?:our|the company'?s) use", re.I)
+_STAFF_FOOD = re.compile(r"staff|employee|cafeteria|canteen|welfare|team (?:lunch|dinner)|party", re.I)
+_OWN_BUILDING = re.compile(r"own (?:office|building|premises|factory|godown|warehouse)|our (?:office|building)|"
+                           r"head office|capitali[sz]ed|for own use", re.I)
+_GUESTS = re.compile(r"guests?|airport (?:transfer|pick)|pick ?-?up|drop", re.I)
+_LOB_SUPPRESS = {      # (flag, all the record's text) -> True when the client's own business makes it allowed
+    "vehicle_maker": lambda fl, t: fl.rid == "motor_vehicle" and not re.search(
+        r"hire|rent|lease|cab|taxi|fms", t, re.I) and not _OWN_USE.search(t),
+    "vehicle_dealer": lambda fl, t: fl.rid == "motor_vehicle" and not re.search(
+        r"hire|rent|lease|cab|taxi|fms", t, re.I) and not _OWN_USE.search(t),
+    "caterer": lambda fl, t: fl.rid == "food" and not _STAFF_FOOD.search(t),
+    "hotel": lambda fl, t: (fl.rid in ("food", "hotel_mixed") and not _STAFF_FOOD.search(t))
+    or (fl.rid == "motor_vehicle" and bool(_GUESTS.search(t))),
+    "works_contractor": lambda fl, t: fl.rid == "construction" and not _OWN_BUILDING.search(t),
+    "insurer": lambda fl, t: fl.rid in ("insurance",) or (fl.rid == "motor_vehicle" and "insur" in t.lower()),
+    "travel_operator": lambda fl, t: fl.rid in ("travel_vacation", "motor_vehicle"),
+    "gym_club": lambda fl, t: fl.rid == "club",
+}
+
+
+def _record_text(docs) -> str:
+    return " | ".join(x for d in docs for x in (d.ledger, d.description, d.hsn) if x)
+
+
+def _lob_tags(lob) -> set:
+    if not lob:
+        return set()
+    if isinstance(lob, str):
+        lob = re.split(r"[,;\s]+", lob)
+    return {t.strip().lower() for t in lob if t and t.strip().lower() in LINES_OF_BUSINESS}
+
+
+def apply(findings: list[Finding], line_of_business=None) -> None:
+    """Attach blocked-credit flags to every decision that carries ITC.
+
+    `line_of_business`: tags from LINES_OF_BUSINESS for this client (e.g. 'caterer'), which switch off
+    blocks that do not apply to what the client itself supplies. The firm's own ITC-eligibility mark
+    (vendor master / register column) is used too: 'No' raises a flag, 'Yes' is shown next to ours."""
+    tags = _lob_tags(line_of_business)
     for f in findings:
+        if f.status.value == "No GST on this entry":
+            continue                      # no ITC on it, so nothing can be blocked
         docs = [d for d in f.books + f.portal if d.doc_type != DocType.CREDIT_NOTE]
         if not docs:
+            # a credit note against a blocked bill: not a decision to review, but it lowers the 4(B)(1)
+            # reversal (gstr3b reads this)
+            cn = [d for d in f.books + f.portal]
+            if cn:
+                txt = _record_text(cn)
+                f.blocked_cn = [fl for fl in classify(cn) if not any(_LOB_SUPPRESS[t](fl, txt) for t in tags)]
             continue
         flags = classify(f.books + [d for d in f.portal if d not in f.books])
+        txt = _record_text(docs)
+        for t in tags:
+            kept = [fl for fl in flags if not _LOB_SUPPRESS[t](fl, txt)]
+            if len(kept) < len(flags):
+                f.flags.append(f"Not flagged as blocked credit: {LINES_OF_BUSINESS[t]}")
+            flags = kept
+        marks = [d.eligible for d in docs if d.eligible is not None]
+        firm_no = bool(marks) and all(m is False for m in marks)
+        firm_yes = bool(marks) and all(m is True for m in marks)
+        if firm_no and not flags:
+            flags = [Flag("firm_ineligible", "Marked ineligible in your own records", "Sec 16 / 17(5) (as marked)",
+                          "Likely", "the ITC-eligibility column says 'No'",
+                          "Your vendor master / register marks this ITC as not eligible. If it is blocked, reverse "
+                          "it in GSTR-3B Table 4(B)(1); if this bill is different, correct the mark.")]
+        elif firm_yes:
+            for fl in flags:
+                fl.evidence += "; your own records mark it eligible - confirm which is right"
         if flags:
             f.blocked = flags
             for fl in flags:

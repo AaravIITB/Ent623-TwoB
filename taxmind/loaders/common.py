@@ -78,13 +78,44 @@ def to_period(v) -> str:
     s = re.sub(r"\s", "", str(v))
     if re.fullmatch(r"\d{6}", s):
         return s
-    m = re.fullmatch(r"([A-Za-z]{3})[A-Za-z]*[-/']?(\d{2,4})", s)       # Sep-26, September2026
+    m = re.fullmatch(r"([A-Za-z]{3})[A-Za-z]*[-/',.]?(\d{2,4})", s)    # Sep-26, September2026, June,2026
     if m and m.group(1).lower() in _MONTHS:
         y = int(m.group(2))
         y = y + 2000 if y < 100 else y
         return f"{_MONTHS[m.group(1).lower()]:02d}{y}"
     d = to_date(s)
     return d.strftime("%m%Y") if d else ""
+
+
+def is_error(v) -> bool:
+    """Excel error values that survive a VLOOKUP-heavy sheet: #N/A, #REF!, #VALUE! ..."""
+    return isinstance(v, str) and v.strip().upper() in ("#N/A", "#REF!", "#VALUE!", "#DIV/0!", "#NAME?",
+                                                        "#NULL!", "#NUM!", "N/A#")
+
+
+def clean_text(v) -> str:
+    """Tally / Excel text: '_x000D_', tabs and line breaks become spaces."""
+    if v is None or is_error(v):
+        return ""
+    s = str(v)
+    if s.lower() in ("nan", "none", "nat"):
+        return ""
+    s = s.replace("_x000D_", " ").replace("\t", " ").replace("\r", " ").replace("\n", " ")
+    return re.sub(r"\s+", " ", s).strip()
+
+
+def clean_name(v) -> str:
+    s = clean_text(v)
+    return re.sub(r"^(?:m/s\.?|messrs\.?)\s*", "", s, flags=re.I).strip()
+
+
+def clean_doc_no(v) -> str:
+    """'No-ABX123', 'Inv No. 45', '45.0', '2093317745 _x000D_' -> the number itself."""
+    s = clean_text(v)
+    if s.endswith(".0") and s[:-2].isdigit():
+        s = s[:-2]
+    s = re.sub(r"^(?:(?:tax\s+)?inv(?:oice)?\.?\s*)?no\s*[-.:]\s*(?=\S*\d)", "", s, flags=re.I)
+    return "" if s.upper() in ("NA", "N/A", "NIL", "-", "0") else s
 
 
 def norm_header(h) -> str:

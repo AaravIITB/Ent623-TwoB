@@ -1,5 +1,5 @@
 """
-TaxMind Module 1 — Document Ingestion & Field Extraction Engine
+TwoB Module 1 — Document Ingestion & Field Extraction Engine
 ---------------------------------------------------------------
 Handles: Digital PDFs, Scanned PDFs, Images (JPG/PNG), XLSX bank statements, GSTR JSON, Tally XML
 Extracts: GSTIN, Invoice No, Date, Taxable Value, CGST, SGST, IGST, HSN codes, Line items
@@ -432,7 +432,7 @@ def process_document(filepath: str) -> ExtractionResult:
     doc_type, source_type = classify_document(filepath)
     filename = Path(filepath).name
 
-    print(f"[TaxMind] Processing: {filename} | Type: {doc_type}")
+    print(f"[TwoB] Processing: {filename} | Type: {doc_type}")
 
     # ── Structured formats — no OCR needed ──
     if doc_type == "xlsx":

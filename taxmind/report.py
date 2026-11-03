@@ -58,7 +58,7 @@ def write_excel(res, path: str | Path) -> Path:
     # ── Summary ──
     ws = wb.active
     ws.title = "Summary"
-    ws["A1"] = f"TaxMind reconciliation - {res.client or 'client'} - {res.period_label}"
+    ws["A1"] = f"TwoB reconciliation - {res.client or 'client'} - {res.period_label}"
     ws["A1"].font = Font(bold=True, size=14)
     rows = [
         ("Purchase entries in books", s["books_entries"]),
@@ -70,10 +70,18 @@ def write_excel(res, path: str | Path) -> Path:
         ("Cleared automatically (no action needed)", s["auto_cleared"]),
         ("Need a person (decide, check or chase)", s["needs_human"]),
         ("ITC in items that need a person", s["itc_needing_attention"]),
+        ("...as supplier-level decisions (same supplier, same situation)", s.get("supplier_groups", 0)),
         ("Records at risk of deemed acceptance", s["deemed_acceptance_records"]),
         ("Possible blocked credit (Sec 17(5)) to review", s.get("blocked_review", 0)),
         ("ITC on possible blocked credit", s.get("blocked_review_itc", 0.0)),
+        ("Books entries with no GST (excluded from matching)", s.get("no_gst_entries", 0)),
+        ("Books entries whose GSTIN TwoB filled in", s.get("gstin_filled", 0)),
+        ("Books invoice nos. / dates read from the narration", s.get("from_narration", 0)),
     ]
+    t4 = getattr(res, "table4", None) or {}
+    for ln in t4.get("lines", []):
+        if ln.code in ("4(A)(5)", "4(B)(1)", "4(B)(2)", "4(C)", "4(D)(1)"):
+            rows.append((f"3B {ln.code} {ln.label.split(' (')[0]}", ln.total))
     for i, (k, v) in enumerate(rows, 3):
         ws.cell(row=i, column=1, value=k)
         c = ws.cell(row=i, column=2, value=v)
@@ -98,6 +106,35 @@ def write_excel(res, path: str | Path) -> Path:
             ws.cell(row=i, column=1, value=n)
     ws.freeze_panes = None
 
+    # ── GSTR-3B Table 4 working ──
+    t4 = getattr(res, "table4", None) or {}
+    if t4.get("lines"):
+        ws = wb.create_sheet("3B Table 4")
+        ws["A1"] = f"GSTR-3B Table 4 working - {res.client or 'client'} - {res.period_label}"
+        ws["A1"].font = Font(bold=True, size=13)
+        ws["A2"] = ("Built from TwoB's recommendations; it changes when the CA changes a decision. Lines marked "
+                    "'?' are for the CA to decide and are not in the totals. Policy for 2B bills not in books: "
+                    + ("keep Pending in IMS" if t4.get("policy") != "reverse" else "accept and reverse in 4(B)(2)") + ".")
+        rows = [(ln.code, ln.label, ln.amounts["igst"], ln.amounts["cgst"], ln.amounts["sgst"], ln.amounts["cess"],
+                 ln.total, ln.count, ln.note) for ln in t4["lines"]]
+        _table(ws, ["Table", "Line", "IGST (₹)", "CGST (₹)", "SGST/UTGST (₹)", "Cess (₹)", "Total (₹)", "Records",
+                    "Note"], rows, [10, 70, 15, 15, 15, 12, 16, 9, 50], start_row=4, wrap_cols=("Line", "Note"))
+        for i in range(5, 5 + len(rows)):
+            for c in range(3, 8):
+                ws.cell(row=i, column=c).number_format = "#,##,##0.00"
+            if rows[i - 5][0] in ("4(A)(5)", "4(C)"):
+                for c in range(1, 8):
+                    ws.cell(row=i, column=c).font = Font(bold=True)
+        r = 6 + len(rows)
+        ws.cell(row=r, column=1, value="Reversal ledger carried forward").font = Font(bold=True, size=12)
+        ws.cell(row=r + 1, column=1, value=(f"{t4.get('new_reversals', 0)} reversed this month, {t4.get('carried', 0)} "
+                                            f"open from earlier months, {t4.get('reclaimed', 0)} reclaimed. Load the "
+                                            "ledger CSV next month (--prior-ledger) to reclaim bills once booked."))
+        _table(ws, ["GSTIN", "Supplier", "Doc no.", "Doc date", "Reversed in", "IGST", "CGST", "SGST", "Cess",
+                    "Why"], [(it.gstin, it.supplier, it.doc_no, it.doc_date, it.period_reversed, it.igst, it.cgst,
+                              it.sgst, it.cess, it.reason) for it in t4["ledger"]],
+               [18, 28, 18, 12, 11, 12, 12, 12, 10, 40], start_row=r + 3)
+
     # ── IMS decisions (one row per 2B record of the period) ──
     ws = wb.create_sheet("IMS decisions")
     hdr = ["Recommended", "Confidence", "Who acts", "Supplier", "Supplier GSTIN", "Type", "2B doc no.",
@@ -117,6 +154,17 @@ def write_excel(res, path: str | Path) -> Path:
     rows.sort(key=lambda r: (order.get(r[0], 9), r[1] == "High", -(r[9] or 0)))
     _table(ws, hdr, rows, [13, 11, 10, 26, 18, 6, 18, 11, 13, 12, 18, 12, 14, 28, 60, 50, 30, 8],
            wrap_cols=("Reason", "Next step", "Flags"), action_col=0)
+
+    # ── By supplier ──
+    if getattr(res, "suppliers", None):
+        ws = wb.create_sheet("By supplier")
+        _table(ws, ["Supplier", "GSTIN", "2B records", "Books entries", "Matched", "Open decisions", "ITC in 2B (₹)",
+                    "ITC in books (₹)", "ITC to claim (₹)", "ITC in open items (₹)", "Main status", "Suggestion",
+                    "All statuses"],
+               [(r["name"], r["gstin"], r["records_2b"], r["entries_books"], r["matched"], r["open"], r["itc_2b"],
+                 r["itc_books"], r["itc_claim"], r["itc_open"], r["main_status"], r["suggestion"], r["statuses"])
+                for r in res.suppliers],
+               [30, 18, 9, 9, 9, 9, 14, 14, 14, 14, 30, 60, 60], wrap_cols=("Suggestion", "All statuses"))
 
     # ── Books not in 2B ──
     ws = wb.create_sheet("Books not in 2B")
@@ -179,8 +227,8 @@ def write_excel(res, path: str | Path) -> Path:
            wrap_cols=("CA note", "Reason", "Next step", "Flags"), action_col=2)
     # The CA records any change here; the month-close pack reads these two columns back.
     ws["D1"].comment = Comment("Leave blank to keep the recommendation, or pick Accept / Reject / Pending / "
-                               "No IMS action. Add the reason in 'CA note'. TaxMind's month-close pack reads "
-                               "these columns back.", "TaxMind")
+                               "No IMS action. Add the reason in 'CA note'. TwoB's month-close pack reads "
+                               "these columns back.", "TwoB")
     if rows:
         dv = DataValidation(type="list", formula1='"Accept,Reject,Pending,No IMS action"', allow_blank=True)
         ws.add_data_validation(dv)
@@ -206,6 +254,16 @@ def write_html(res, path: str | Path) -> Path:
         f"<tr><td>{e(f.action.value)}</td><td>{e(f.supplier_name or f.supplier_gstin)}</td>"
         f"<td>{e((f.portal or f.books)[0].doc_no)}</td><td class='num'>{inr(f.itc_at_stake)}</td>"
         f"<td>{e(f.reason)}</td></tr>" for f in top)
+    t4 = getattr(res, "table4", None) or {}
+    t4rows = "".join(
+        "<tr" + (" style='font-weight:600'" if ln.code in ("4(A)(5)", "4(C)") else "") + f"><td>{e(ln.code)}</td>"
+        f"<td>{e(ln.label)}</td><td class='num'>{inr(ln.amounts['igst'])}</td><td class='num'>{inr(ln.amounts['cgst'])}</td>"
+        f"<td class='num'>{inr(ln.amounts['sgst'])}</td><td class='num'>{inr(ln.total)}</td></tr>"
+        for ln in t4.get("lines", []))
+    t4html = (f"<h2>GSTR-3B Table 4 working</h2><div class='muted'>From the recommendations; lines marked '?' are "
+              f"for the CA to decide and are not in the totals.</div><table><tr><th>Table</th><th>Line</th>"
+              f"<th class='num'>IGST</th><th class='num'>CGST</th><th class='num'>SGST</th><th class='num'>Total</th>"
+              f"</tr>{t4rows}</table>") if t4rows else ""
     doc = f"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Pre-filing report - {e(res.client)} - {e(res.period_label)}</title>
 <style>
@@ -217,7 +275,7 @@ table{{border-collapse:collapse;width:100%;font-size:14px}} td,th{{border-bottom
 .pill{{color:#fff;border-radius:999px;padding:2px 10px;font-size:12px;white-space:nowrap}} .num{{text-align:right;white-space:nowrap}}
 </style></head><body>
 <h1>Pre-filing report: {e(res.client or 'Client')}, {e(res.period_label)}</h1>
-<div class="muted">GSTR-3B input tax credit check, generated by TaxMind. Recommendations are defaults for a CA to review.</div>
+<div class="muted">GSTR-3B input tax credit check, generated by TwoB. Recommendations are defaults for a CA to review.</div>
 <div class="grid">
 <div class="kpi"><span class="muted">ITC as per books</span><b>{inr(s['itc_books'])}</b></div>
 <div class="kpi"><span class="muted">ITC as per 2B</span><b>{inr(s['itc_2b'])}</b></div>
@@ -225,6 +283,7 @@ table{{border-collapse:collapse;width:100%;font-size:14px}} td,th{{border-bottom
 <div class="kpi"><span class="muted">Need a person</span><b>{s['needs_human']} of {s['findings']}</b></div>
 </div>
 <h2>Checks before filing</h2><table>{checks}</table>
+{t4html}
 <h2>Largest open items</h2>
 <table><tr><th>Action</th><th>Supplier</th><th>Document</th><th class="num">ITC</th><th>Why</th></tr>{acts}</table>
 </body></html>"""

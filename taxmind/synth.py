@@ -31,7 +31,7 @@ WORDS_B = ["Steel", "Polymers", "Packaging", "Logistics", "Fasteners", "Chemical
            "Traders", "Tooling", "Paints", "Hydraulics", "Bearings", "Rubber", "Wires", "Office Supplies"]
 SUFFIX = ["Pvt Ltd", "LLP", "Enterprises", "Industries", "Pvt Ltd", "& Co"]
 # Purchase / expense ledgers. Normal ones carry full ITC; the second list are Sec 17(5) cases with the
-# block TaxMind should flag ('' = looks risky but is allowed, so it must NOT be flagged).
+# block TwoB should flag ('' = looks risky but is allowed, so it must NOT be flagged).
 NORMAL_LEDGERS = [("Purchase @18%", "7318"), ("Raw Material Purchase", "7208"), ("Packing Material", "4819"),
                   ("Freight Inward", "996511"), ("Consumables", "8207"), ("Repairs - Plant & Machinery", "998719"),
                   ("Professional Fees", "998221"), ("Purchase @5%", "3901"), ("Job Work Charges", "998898")]
@@ -81,7 +81,7 @@ class Inv:
     period: str = "092026"
     ledger: str = ""
     hsn: str = ""
-    blocked: str = ""            # Sec 17(5) rule TaxMind should flag ('' = none)
+    blocked: str = ""            # Sec 17(5) rule TwoB should flag ('' = none)
 
 
 @dataclass

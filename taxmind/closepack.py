@@ -9,7 +9,7 @@ The pack (a .zip) contains:
   record.html         the human-readable close record (print it to PDF if needed)
   record.pdf          same, as PDF (when the 'reportlab' package is installed)
   decisions.csv/.json every decision: recommendation, final decision, CA note, reason, ITC
-  reconciliation.xlsx the full TaxMind workbook
+  reconciliation.xlsx the full TwoB workbook
   inputs/             exact copies of the files the reconciliation was run on
   manifest.json       SHA-256 of every file + who / when; its own hash is the pack fingerprint
 A changed file no longer matches its SHA-256. The 'pack fingerprint' (SHA-256 of manifest.json, also in the
@@ -66,7 +66,7 @@ def _sha(data: bytes) -> str:
 
 
 def load_overrides(path: str | Path) -> dict:
-    """Read CA decisions from an edited TaxMind workbook ('All findings' sheet) or a CSV
+    """Read CA decisions from an edited TwoB workbook ('All findings' sheet) or a CSV
     with columns ID, Final decision, CA note."""
     import pandas as pd
     p = Path(path)
@@ -100,19 +100,39 @@ def final_decisions(res, overrides: dict) -> list[Decision]:
     return out
 
 
+def claim_with(status_name: str, recommended: str, final: str, itc_to_claim: float, itc_in_2b: float,
+               has_portal: bool, all_available: bool) -> float:
+    """ITC a decision claims once the CA's final action replaces TwoB's recommendation.
+
+    The one rule used everywhere (close record, 3B Table 4, the web app's progress figures):
+      unchanged                -> TwoB's amount
+      Accept                   -> the 2B amount (if every record is available); a reclaim keeps its amount
+      Reject / Pending         -> nothing this month
+      No IMS action            -> TwoB's amount when it recommended Accept / no action (deemed accepted),
+                                  otherwise nothing
+    """
+    if not final or final == recommended:
+        return itc_to_claim
+    if final == Action.ACCEPT.value:
+        if status_name in ("LATE_FILED",):
+            return 0.0
+        if status_name == "EARLIER_PERIOD":
+            return itc_to_claim if itc_to_claim else itc_in_2b
+        return itc_in_2b if (has_portal and all_available) else 0.0
+    if final == Action.NONE.value:
+        return itc_to_claim if recommended in (Action.ACCEPT.value, Action.NONE.value) else 0.0
+    return 0.0
+
+
+def finding_claim(f, final: str | None) -> float:
+    return claim_with(f.status.name, f.action.value, final or f.action.value, f.itc_to_claim, f.itc_in_2b,
+                      bool(f.portal), all(p.itc_available is not False for p in f.portal))
+
+
 def final_claim(res, decisions: list[Decision]) -> float:
     """ITC to claim after the CA's decisions (recommended amount where unchanged)."""
     by = {d.fid: d for d in decisions}
-    total = 0.0
-    for f in res.findings:
-        d = by[f.fid]
-        if not d.overridden:
-            total += f.itc_to_claim
-        elif (d.final == Action.ACCEPT.value and f.portal and f.status not in OTHER_PERIOD
-              and all(p.itc_available is not False for p in f.portal)):
-            total += f.itc_in_2b          # CA accepts a record TaxMind held back
-        # Reject / Pending / No IMS action: nothing claimed this month
-    return round(total, 2)
+    return round(sum(finding_claim(f, by[f.fid].final if f.fid in by else None) for f in res.findings), 2)
 
 
 def _rows(res, decisions):
@@ -165,7 +185,7 @@ h1{{font-size:22px;margin:0}} h2{{font-size:16px;margin:26px 0 8px}} table{{bord
 td,th{{border-bottom:1px solid #eaecf0;padding:6px 8px;text-align:left;vertical-align:top}} .muted{{color:#667085;font-size:13px}}
 code{{font-size:11px;word-break:break-all}} .box{{border:1px solid #d0d5dd;border-radius:8px;padding:10px 14px;margin-top:12px}}</style></head><body>
 <h1>Month-close record: {e(res.client or 'Client')}, {e(res.period_label)}</h1>
-<div class="muted">GSTR-2B / IMS reconciliation closed with TaxMind. Keep this pack with the client's GST file.</div>
+<div class="muted">GSTR-2B / IMS reconciliation closed with TwoB. Keep this pack with the client's GST file.</div>
 <div class="box"><b>Closed:</b> {e(when)} &nbsp;·&nbsp; <b>Prepared by:</b> {e(info.preparer or '-')} &nbsp;·&nbsp;
 <b>Reviewed by:</b> {e(info.reviewer or '-')}<br><b>Data fingerprint:</b> <code>{fingerprint_note}</code><br><span class="muted">One SHA-256 over every input
 file, the decisions and the workbook in this pack. Note it in the client file or the email that sends this pack:
@@ -174,7 +194,7 @@ if any of those files is changed later, the fingerprint will no longer match.</s
 <tr><td>Purchase entries in books</td><td>{s['books_entries']}</td></tr>
 <tr><td>Records in GSTR-2B</td><td>{s['portal_records']}</td></tr>
 <tr><td>ITC as per books / as per 2B</td><td>{inr(s['itc_books'])} / {inr(s['itc_2b'])}</td></tr>
-<tr><td>ITC recommended by TaxMind</td><td>{inr(s['itc_to_claim'])}</td></tr>
+<tr><td>ITC recommended by TwoB</td><td>{inr(s['itc_to_claim'])}</td></tr>
 <tr><td><b>ITC after the CA's decisions</b></td><td><b>{inr(claim_final)}</b></td></tr>
 <tr><td>Decisions</td><td>{len(decisions)} ({e(count_txt)}); changed by CA: {len(over)}</td></tr></table>
 <h2>Decisions changed by the CA</h2><table><tr><th>ID</th><th>Supplier</th><th>Document</th><th>Recommended</th><th>Final</th><th>CA note</th></tr>{overs}</table>
@@ -182,7 +202,7 @@ if any of those files is changed later, the fingerprint will no longer match.</s
 <h2>Possible blocked credit (Sec 17(5)) reviewed</h2><table><tr><th>ID</th><th>Supplier</th><th>Document</th><th>Possible block</th><th>Confidence</th><th>Why flagged</th></tr>{blocked}</table>
 <h2>Files this record is based on</h2><table><tr><th>File</th><th>Size</th><th>SHA-256</th></tr>{files}</table>
 <p class="muted">Every decision, with its reason and ITC, is in decisions.csv / decisions.json. manifest.json lists the SHA-256 of
-every file in this pack; if any file is changed later its hash will no longer match. Recommendations are TaxMind's defaults;
+every file in this pack; if any file is changed later its hash will no longer match. Recommendations are TwoB's defaults;
 final decisions are the CA's.</p></body></html>"""
 
 
@@ -232,7 +252,11 @@ def build_close_pack(res, out_path: str | Path, input_files=(), info: CloseInfo 
 
     seen = set()
     inputs_meta = []
+    resolved = set()
     for p in map(Path, input_files):
+        if p.resolve() in resolved:               # the same workbook given as books and as 2B
+            continue
+        resolved.add(p.resolve())
         name = p.name
         while name in seen:                       # two inputs with the same name
             name = "_" + name
@@ -251,6 +275,16 @@ def build_close_pack(res, out_path: str | Path, input_files=(), info: CloseInfo 
         "client": res.client, "period": res.period, "summary": res.summary, "itc_after_ca_decisions": claim_final,
         "checks": [c.__dict__ for c in res.checks], "decisions": rows, "notes": res.notes,
     }, indent=1, default=str, ensure_ascii=False).encode("utf-8")
+    if getattr(res, "table4", None):
+        from .gstr3b import LEDGER_FIELDS, after_decisions, table_csv
+        t4 = after_decisions(res, decisions)
+        files["gstr3b_table4.csv"] = table_csv(t4).encode("utf-8-sig")
+        lio = io.StringIO()
+        lw = csv.DictWriter(lio, fieldnames=LEDGER_FIELDS)
+        lw.writeheader()
+        for it in t4["ledger"]:
+            lw.writerow({k: getattr(it, k) for k in LEDGER_FIELDS})
+        files["itc_reversal_ledger.csv"] = lio.getvalue().encode("utf-8")
     tmp = Path(out_path).with_suffix(".tmp.xlsx")
     write_excel(res, tmp)
     files["reconciliation.xlsx"] = tmp.read_bytes()
@@ -265,10 +299,13 @@ def build_close_pack(res, out_path: str | Path, input_files=(), info: CloseInfo 
         files["record.pdf"] = pdf
 
     manifest = {
-        "kind": "TaxMind month-close pack", "engine_version": __version__,
+        "kind": "TwoB month-close pack", "engine_version": __version__,
         "client": res.client, "period": res.period, "closed_at": info.closed_at.isoformat(),
         "prepared_by": info.preparer, "reviewed_by": info.reviewer,
-        "settings": {"amount_tolerance": res.config.amount_tolerance},
+        "settings": {"amount_tolerance": res.config.amount_tolerance,
+                     "amount_tolerance_pct": getattr(res.config, "amount_tolerance_pct", 0.0),
+                     "line_of_business": getattr(res.config, "line_of_business", ""),
+                     "not_in_books_policy": getattr(res.config, "not_in_books_policy", "pending")},
         "itc_recommended": res.summary["itc_to_claim"], "itc_after_ca_decisions": claim_final,
         "decisions": len(decisions), "changed_by_ca": sum(d.overridden for d in decisions),
         "data_fingerprint": data_fp,
@@ -281,7 +318,7 @@ def build_close_pack(res, out_path: str | Path, input_files=(), info: CloseInfo 
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
-        z.comment = f"TaxMind month-close pack {res.period} fingerprint {fingerprint}".encode()
+        z.comment = f"TwoB month-close pack {res.period} fingerprint {fingerprint}".encode()
         for n, b in files.items():
             z.writestr(n, b)
     return out

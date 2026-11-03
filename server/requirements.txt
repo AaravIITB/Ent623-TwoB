@@ -1,0 +1,6 @@
+# TwoB web backend (the engine's own requirements are in ../requirements.txt)
+fastapi>=0.110
+uvicorn[standard]>=0.29
+sqlalchemy>=2.0
+python-multipart>=0.0.9
+httpx>=0.27        # tests
